@@ -7,32 +7,25 @@
   <title>Ahmer Nadeem Khan</title>
 <style>
   :root{
-    /* Base palette */
-    --bg: #fafafa;          /* soft white */
+    --bg: #fbfbfb;
     --panel: #ffffff;
     --text: #111111;
-    --muted: #666666;
-    --border: #e6e6e6;
-    --chip: #f3f3f3;
+    --muted: #777777;
+    --border: #e4e4e4;
+    --chip: #f5f5f5;
 
-    /* Accent (extremely subtle) */
-    --accent: #2b6cb0;      /* muted academic blue */
-    --accent-soft: rgba(43,108,176,0.06);
-
-    --max: 880px;
-    --radius: 14px;
+    --max: 900px;
+    --radius: 12px;
   }
 
   @media (prefers-color-scheme: dark){
     :root{
       --bg:#0f1115;
-      --panel:#12151b;
-      --text:#e9e9ea;
-      --muted:#9a9a9a;
-      --border:#23262d;
-      --chip:#161a22;
-      --accent:#9bbcff;
-      --accent-soft: rgba(155,188,255,.12);
+      --panel:#12141a;
+      --text:#eaeaea;
+      --muted:#a0a0a0;
+      --border:#242733;
+      --chip:#171a23;
     }
   }
 
@@ -42,37 +35,37 @@
   body{
     margin:0;
     background: var(--bg);
-    color:var(--text);
-    line-height:1.7;
+    color: var(--text);
+    line-height:1.75;
     font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
   }
 
   .wrap{
     max-width: var(--max);
     margin: 0 auto;
-    padding: 72px 20px 88px;
+    padding: 80px 22px 96px;
   }
 
   header{
     display:flex;
     flex-wrap:wrap;
     justify-content:space-between;
-    gap: 20px;
-    padding-bottom: 28px;
+    gap: 22px;
+    padding-bottom: 34px;
     border-bottom: 1px solid var(--border);
   }
 
   h1{
     margin:0;
-    font-size: 42px;
-    letter-spacing: -0.035em;
+    font-size: 44px;
+    letter-spacing: -0.04em;
     line-height: 1.05;
     font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
     font-weight: 600;
   }
 
   .role{
-    margin-top: 12px;
+    margin-top: 14px;
     color: var(--muted);
     font-size: 15px;
   }
@@ -95,21 +88,20 @@
   }
 
   nav a:hover{
-    background: var(--accent-soft);
-    border-color: var(--accent);
+    background: var(--chip);
   }
 
-  section{ padding-top: 36px; }
+  section{ padding-top: 44px; }
 
   h2{
     font-size: 12px;
-    letter-spacing: .18em;
+    letter-spacing: .2em;
     text-transform: uppercase;
     color: var(--muted);
-    margin: 0 0 14px;
+    margin: 0 0 18px;
   }
 
-  p{ margin: 0 0 14px; }
+  p{ margin: 0 0 16px; }
 
   a{
     color: var(--text);
@@ -118,28 +110,27 @@
   }
 
   a:hover{
-    border-bottom-color: var(--accent);
-    color: var(--accent);
+    border-bottom-color: var(--text);
   }
 
   .links{
     display:flex;
     gap: 14px;
     flex-wrap:wrap;
-    margin-top: 8px;
+    margin-top: 10px;
   }
 
   .grid{
     display:grid;
     grid-template-columns: 1fr;
-    gap: 16px;
+    gap: 18px;
   }
 
   .card{
     background: var(--panel);
     border: 1px solid var(--border);
     border-radius: var(--radius);
-    padding: 18px 18px;
+    padding: 20px 20px;
   }
 
   .card-title{
@@ -147,7 +138,7 @@
     justify-content:space-between;
     gap: 12px;
     align-items:baseline;
-    margin-bottom: 6px;
+    margin-bottom: 8px;
   }
 
   .card-title strong{
@@ -160,30 +151,31 @@
     font-size: 14px;
   }
 
-  ul{ margin: 10px 0 0 18px; padding: 0; }
-  li{ margin: 6px 0; }
+  ul{ margin: 12px 0 0 18px; padding: 0; }
+  li{ margin: 8px 0; }
 
   code{
     background: var(--chip);
     padding: 2px 8px;
-    border-radius: 10px;
+    border-radius: 8px;
     border: 1px solid var(--border);
   }
 
   .small{ font-size: 14px; color: var(--muted); }
 
   .footer{
-    margin-top: 48px;
-    padding-top: 20px;
+    margin-top: 56px;
+    padding-top: 24px;
     border-top: 1px solid var(--border);
     color: var(--muted);
     font-size: 14px;
   }
 
-  @media (min-width: 860px){
+  @media (min-width: 900px){
     .grid.two{ grid-template-columns: 1fr 1fr; }
   }
 </style>
+
 
 </head>
 
