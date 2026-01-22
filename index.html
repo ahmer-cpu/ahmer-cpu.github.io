@@ -7,163 +7,163 @@
   <title>Ahmer Nadeem Khan</title>
 <style>
   :root{
-    --bg:#ffffff;
-    --panel:#ffffff;
-    --text:#0b1220;
-    --muted:#516072;
-    --border:#e6e8ee;
-    --chip:#f6f7fb;
-    --accent:#1f4fd6; /* subtle academic blue */
-    --accent-soft: rgba(31,79,214,.10);
-    --max: 900px;
-    --radius: 16px;
+    /* Base palette */
+    --bg: #fafafa;          /* soft white */
+    --panel: #ffffff;
+    --text: #111111;
+    --muted: #666666;
+    --border: #e6e6e6;
+    --chip: #f3f3f3;
+
+    /* Accent (extremely subtle) */
+    --accent: #2b6cb0;      /* muted academic blue */
+    --accent-soft: rgba(43,108,176,0.06);
+
+    --max: 880px;
+    --radius: 14px;
   }
 
   @media (prefers-color-scheme: dark){
     :root{
-      --bg:#070a12;
-      --panel:#0b1020;
-      --text:#e8edf7;
-      --muted:#a7b0c2;
-      --border:#1b2542;
-      --chip:#0f1730;
-      --accent:#7aa2ff;
-      --accent-soft: rgba(122,162,255,.14);
+      --bg:#0f1115;
+      --panel:#12151b;
+      --text:#e9e9ea;
+      --muted:#9a9a9a;
+      --border:#23262d;
+      --chip:#161a22;
+      --accent:#9bbcff;
+      --accent-soft: rgba(155,188,255,.12);
     }
   }
 
   *{ box-sizing:border-box; }
   html{ scroll-behavior:smooth; }
+
   body{
     margin:0;
-    background: radial-gradient(1200px 700px at 10% -10%, var(--accent-soft), transparent 60%),
-                radial-gradient(900px 600px at 110% 10%, rgba(0,0,0,0.03), transparent 55%),
-                var(--bg);
+    background: var(--bg);
     color:var(--text);
-    line-height:1.65;
-    font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+    line-height:1.7;
+    font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
   }
 
   .wrap{
     max-width: var(--max);
     margin: 0 auto;
-    padding: 64px 20px 84px;
+    padding: 72px 20px 88px;
   }
 
   header{
     display:flex;
     flex-wrap:wrap;
-    align-items:flex-end;
     justify-content:space-between;
-    gap: 18px;
-    padding-bottom: 22px;
+    gap: 20px;
+    padding-bottom: 28px;
     border-bottom: 1px solid var(--border);
   }
 
   h1{
     margin:0;
-    font-size: 40px;
-    letter-spacing: -0.03em;
+    font-size: 42px;
+    letter-spacing: -0.035em;
     line-height: 1.05;
     font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
-    font-weight: 650;
+    font-weight: 600;
   }
 
   .role{
-    margin-top: 10px;
+    margin-top: 12px;
     color: var(--muted);
     font-size: 15px;
   }
 
   nav{
     display:flex;
-    flex-wrap:wrap;
     gap: 10px;
+    flex-wrap:wrap;
     align-items:center;
-    justify-content:flex-start;
   }
 
   nav a{
     text-decoration:none;
-    border: 1px solid var(--border);
-    background: var(--chip);
     color: var(--text);
-    padding: 7px 12px;
-    border-radius: 999px;
+    padding: 6px 10px;
     font-size: 14px;
-    transition: transform .08s ease, border-color .12s ease, background .12s ease;
-  }
-  nav a:hover{
-    border-color: color-mix(in srgb, var(--accent) 35%, var(--border));
-    background: color-mix(in srgb, var(--accent-soft) 55%, var(--chip));
-    transform: translateY(-1px);
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    background: transparent;
   }
 
-  section{ padding-top: 30px; }
+  nav a:hover{
+    background: var(--accent-soft);
+    border-color: var(--accent);
+  }
+
+  section{ padding-top: 36px; }
 
   h2{
-    font-size: 13px;
-    margin: 0 0 12px;
-    letter-spacing: .12em;
+    font-size: 12px;
+    letter-spacing: .18em;
     text-transform: uppercase;
     color: var(--muted);
+    margin: 0 0 14px;
   }
 
-  p{ margin: 0 0 12px; }
+  p{ margin: 0 0 14px; }
 
   a{
-    color: var(--accent);
+    color: var(--text);
     text-decoration: none;
-    border-bottom: 1px solid color-mix(in srgb, var(--accent) 28%, transparent);
+    border-bottom: 1px solid var(--border);
   }
-  a:hover{ border-bottom-color: var(--accent); }
+
+  a:hover{
+    border-bottom-color: var(--accent);
+    color: var(--accent);
+  }
 
   .links{
     display:flex;
+    gap: 14px;
     flex-wrap:wrap;
-    gap: 12px;
-    margin-top: 10px;
+    margin-top: 8px;
   }
 
   .grid{
     display:grid;
     grid-template-columns: 1fr;
-    gap: 14px;
+    gap: 16px;
   }
 
   .card{
+    background: var(--panel);
     border: 1px solid var(--border);
-    background: color-mix(in srgb, var(--panel) 92%, transparent);
     border-radius: var(--radius);
-    padding: 16px 16px;
-    box-shadow: 0 1px 0 rgba(0,0,0,.03);
+    padding: 18px 18px;
   }
 
   .card-title{
     display:flex;
     justify-content:space-between;
     gap: 12px;
-    flex-wrap:wrap;
     align-items:baseline;
     margin-bottom: 6px;
   }
 
   .card-title strong{
-    font-weight: 650;
+    font-weight: 600;
     letter-spacing: -0.01em;
   }
 
   .meta{
     color: var(--muted);
     font-size: 14px;
-    white-space: nowrap;
   }
 
-  ul{ margin: 8px 0 0 18px; padding: 0; }
+  ul{ margin: 10px 0 0 18px; padding: 0; }
   li{ margin: 6px 0; }
 
   code{
-    font-size: 0.95em;
     background: var(--chip);
     padding: 2px 8px;
     border-radius: 10px;
@@ -173,14 +173,13 @@
   .small{ font-size: 14px; color: var(--muted); }
 
   .footer{
-    margin-top: 44px;
-    padding-top: 18px;
+    margin-top: 48px;
+    padding-top: 20px;
     border-top: 1px solid var(--border);
     color: var(--muted);
     font-size: 14px;
   }
 
-  /* Optional: make cards 2-column on wide screens */
   @media (min-width: 860px){
     .grid.two{ grid-template-columns: 1fr 1fr; }
   }
