@@ -1,2 +1,213 @@
-# Ahmer Nadeem Khan
-Welcome to my site.
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Ahmer Nadeem Khan — PhD Student in Financial Mathematics" />
+  <title>Ahmer Nadeem Khan</title>
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #111827;
+      --muted: #6b7280;
+      --link: #111827;
+      --border: #e5e7eb;
+      --chip: #f3f4f6;
+      --max: 860px;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0b0f19;
+        --text: #e5e7eb;
+        --muted: #9ca3af;
+        --link: #e5e7eb;
+        --border: #1f2937;
+        --chip: #111827;
+      }
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.55;
+    }
+    a { color: var(--link); text-decoration: none; border-bottom: 1px solid var(--border); }
+    a:hover { border-bottom-color: var(--text); }
+    .wrap { max-width: var(--max); margin: 0 auto; padding: 56px 20px 72px; }
+    header { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 16px; padding-bottom: 18px; border-bottom: 1px solid var(--border); }
+    h1 { margin: 0; font-size: 34px; letter-spacing: -0.02em; }
+    .role { color: var(--muted); font-size: 15px; }
+    nav { display: flex; gap: 14px; flex-wrap: wrap; }
+    nav a { border-bottom: none; padding: 6px 10px; background: var(--chip); border: 1px solid var(--border); border-radius: 999px; font-size: 14px; }
+    nav a:hover { border-color: var(--text); }
+    section { padding-top: 26px; }
+    h2 { font-size: 16px; margin: 0 0 10px; letter-spacing: 0.02em; text-transform: uppercase; color: var(--muted); }
+    p { margin: 0 0 12px; }
+    .grid { display: grid; grid-template-columns: 1fr; gap: 12px; }
+    .card {
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 14px 14px;
+      background: transparent;
+    }
+    .card-title { display: flex; justify-content: space-between; gap: 10px; flex-wrap: wrap; }
+    .card-title strong { font-weight: 600; }
+    .meta { color: var(--muted); font-size: 14px; }
+    ul { margin: 8px 0 0 18px; padding: 0; }
+    li { margin: 6px 0; }
+    .links { display: flex; gap: 12px; flex-wrap: wrap; }
+    .footer { margin-top: 38px; padding-top: 16px; border-top: 1px solid var(--border); color: var(--muted); font-size: 14px; }
+    .small { font-size: 14px; color: var(--muted); }
+    code { background: var(--chip); padding: 2px 6px; border-radius: 8px; border: 1px solid var(--border); }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <header>
+      <div>
+        <h1>Ahmer Nadeem Khan</h1>
+        <div class="role">PhD Student in Financial Mathematics</div>
+      </div>
+      <nav aria-label="Site">
+        <a href="#about">About</a>
+        <a href="#research">Research</a>
+        <a href="#projects">Projects</a>
+        <a href="#teaching">Teaching</a>
+        <a href="#cv">CV</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <section id="about">
+      <h2>About</h2>
+      <p>
+        I’m a PhD student in Financial Mathematics interested in stochastic processes, optimization, and quantitative modeling.
+        I like building things that are both theoretically grounded and practically useful.
+      </p>
+      <p class="small">
+        (Tip: replace this paragraph with 2–4 sentences that match your exact research/industry focus.)
+      </p>
+      <div class="links">
+        <!-- Replace # with your real links -->
+        <a href="https://github.com/ahmer-cpu" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="#" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="#" target="_blank" rel="noopener noreferrer">Google Scholar</a>
+      </div>
+    </section>
+
+    <section id="research">
+      <h2>Research & Interests</h2>
+      <div class="grid">
+        <div class="card">
+          <div class="card-title">
+            <strong>Topics</strong>
+            <span class="meta">Current interests</span>
+          </div>
+          <ul>
+            <li>Stochastic calculus, SDEs, and continuous-time models</li>
+            <li>Derivatives pricing, hedging, and risk measures</li>
+            <li>Optimization (convex, stochastic) and numerical methods</li>
+            <li>Statistical learning for time series and markets</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-title">
+            <strong>Notes</strong>
+            <span class="meta">Optional</span>
+          </div>
+          <p>
+            If you have a specific research direction (e.g., rough volatility, optimal execution, mean field games),
+            add it here. You can also link to a preprint list.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <h2>Projects</h2>
+      <div class="grid">
+        <div class="card">
+          <div class="card-title">
+            <strong>Project Name</strong>
+            <span class="meta">2026</span>
+          </div>
+          <p>
+            One sentence on what it does and why it matters. Add a link once you have it.
+          </p>
+          <p class="small">
+            Links: <a href="#" target="_blank" rel="noopener noreferrer">paper</a> ·
+            <a href="#" target="_blank" rel="noopener noreferrer">code</a> ·
+            <a href="#" target="_blank" rel="noopener noreferrer">demo</a>
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="card-title">
+            <strong>Another Project</strong>
+            <span class="meta">2025</span>
+          </div>
+          <p>
+            Example: calibration, simulation, pricing engine, risk dashboard, research code, etc.
+          </p>
+          <p class="small">
+            Links: <a href="#" target="_blank" rel="noopener noreferrer">code</a>
+          </p>
+        </div>
+      </div>
+      <p class="small">Add/remove cards as needed. Keep it to your best 2–5 items.</p>
+    </section>
+
+    <section id="teaching">
+      <h2>Teaching</h2>
+      <div class="grid">
+        <div class="card">
+          <div class="card-title">
+            <strong>Instructor of Record — Calculus I (MAC 2311)</strong>
+            <span class="meta">Florida State University</span>
+          </div>
+          <ul>
+            <li>Lectures 3×/week (50 min) and weekly recitation (75 min) for a class of 29 students</li>
+            <li>Designed lecture notes, worksheets, quizzes/exams; managed Canvas and course logistics</li>
+            <li>Held office hours and provided feedback to support student learning</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="cv">
+      <h2>CV</h2>
+      <p>
+        Add your PDF as <code>cv.pdf</code> in this repo, then update the link below:
+      </p>
+      <p>
+        <a href="cv.pdf" target="_blank" rel="noopener noreferrer">Download CV</a>
+      </p>
+      <p class="small">
+        You can also add <code>resume.pdf</code> if you keep a separate industry resume.
+      </p>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>
+        Email: <a href="mailto:YOUR_EMAIL_HERE">YOUR_EMAIL_HERE</a>
+      </p>
+      <p class="small">
+        You can also add a short line about collaboration interests or recruiting availability.
+      </p>
+    </section>
+
+    <div class="footer">
+      © <span id="y"></span> Ahmer Nadeem Khan · Built with GitHub Pages
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
