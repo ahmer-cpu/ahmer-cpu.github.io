@@ -5,63 +5,187 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="Ahmer Nadeem Khan — PhD Student in Financial Mathematics" />
   <title>Ahmer Nadeem Khan</title>
-  <style>
-    :root {
-      --bg: #ffffff;
-      --text: #111827;
-      --muted: #6b7280;
-      --link: #111827;
-      --border: #e5e7eb;
-      --chip: #f3f4f6;
-      --max: 860px;
+<style>
+  :root{
+    --bg:#ffffff;
+    --panel:#ffffff;
+    --text:#0b1220;
+    --muted:#516072;
+    --border:#e6e8ee;
+    --chip:#f6f7fb;
+    --accent:#1f4fd6; /* subtle academic blue */
+    --accent-soft: rgba(31,79,214,.10);
+    --max: 900px;
+    --radius: 16px;
+  }
+
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#070a12;
+      --panel:#0b1020;
+      --text:#e8edf7;
+      --muted:#a7b0c2;
+      --border:#1b2542;
+      --chip:#0f1730;
+      --accent:#7aa2ff;
+      --accent-soft: rgba(122,162,255,.14);
     }
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --bg: #0b0f19;
-        --text: #e5e7eb;
-        --muted: #9ca3af;
-        --link: #e5e7eb;
-        --border: #1f2937;
-        --chip: #111827;
-      }
-    }
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.55;
-    }
-    a { color: var(--link); text-decoration: none; border-bottom: 1px solid var(--border); }
-    a:hover { border-bottom-color: var(--text); }
-    .wrap { max-width: var(--max); margin: 0 auto; padding: 56px 20px 72px; }
-    header { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 16px; padding-bottom: 18px; border-bottom: 1px solid var(--border); }
-    h1 { margin: 0; font-size: 34px; letter-spacing: -0.02em; }
-    .role { color: var(--muted); font-size: 15px; }
-    nav { display: flex; gap: 14px; flex-wrap: wrap; }
-    nav a { border-bottom: none; padding: 6px 10px; background: var(--chip); border: 1px solid var(--border); border-radius: 999px; font-size: 14px; }
-    nav a:hover { border-color: var(--text); }
-    section { padding-top: 26px; }
-    h2 { font-size: 16px; margin: 0 0 10px; letter-spacing: 0.02em; text-transform: uppercase; color: var(--muted); }
-    p { margin: 0 0 12px; }
-    .grid { display: grid; grid-template-columns: 1fr; gap: 12px; }
-    .card {
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 14px 14px;
-      background: transparent;
-    }
-    .card-title { display: flex; justify-content: space-between; gap: 10px; flex-wrap: wrap; }
-    .card-title strong { font-weight: 600; }
-    .meta { color: var(--muted); font-size: 14px; }
-    ul { margin: 8px 0 0 18px; padding: 0; }
-    li { margin: 6px 0; }
-    .links { display: flex; gap: 12px; flex-wrap: wrap; }
-    .footer { margin-top: 38px; padding-top: 16px; border-top: 1px solid var(--border); color: var(--muted); font-size: 14px; }
-    .small { font-size: 14px; color: var(--muted); }
-    code { background: var(--chip); padding: 2px 6px; border-radius: 8px; border: 1px solid var(--border); }
-  </style>
+  }
+
+  *{ box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  body{
+    margin:0;
+    background: radial-gradient(1200px 700px at 10% -10%, var(--accent-soft), transparent 60%),
+                radial-gradient(900px 600px at 110% 10%, rgba(0,0,0,0.03), transparent 55%),
+                var(--bg);
+    color:var(--text);
+    line-height:1.65;
+    font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+  }
+
+  .wrap{
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: 64px 20px 84px;
+  }
+
+  header{
+    display:flex;
+    flex-wrap:wrap;
+    align-items:flex-end;
+    justify-content:space-between;
+    gap: 18px;
+    padding-bottom: 22px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  h1{
+    margin:0;
+    font-size: 40px;
+    letter-spacing: -0.03em;
+    line-height: 1.05;
+    font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+    font-weight: 650;
+  }
+
+  .role{
+    margin-top: 10px;
+    color: var(--muted);
+    font-size: 15px;
+  }
+
+  nav{
+    display:flex;
+    flex-wrap:wrap;
+    gap: 10px;
+    align-items:center;
+    justify-content:flex-start;
+  }
+
+  nav a{
+    text-decoration:none;
+    border: 1px solid var(--border);
+    background: var(--chip);
+    color: var(--text);
+    padding: 7px 12px;
+    border-radius: 999px;
+    font-size: 14px;
+    transition: transform .08s ease, border-color .12s ease, background .12s ease;
+  }
+  nav a:hover{
+    border-color: color-mix(in srgb, var(--accent) 35%, var(--border));
+    background: color-mix(in srgb, var(--accent-soft) 55%, var(--chip));
+    transform: translateY(-1px);
+  }
+
+  section{ padding-top: 30px; }
+
+  h2{
+    font-size: 13px;
+    margin: 0 0 12px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  p{ margin: 0 0 12px; }
+
+  a{
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px solid color-mix(in srgb, var(--accent) 28%, transparent);
+  }
+  a:hover{ border-bottom-color: var(--accent); }
+
+  .links{
+    display:flex;
+    flex-wrap:wrap;
+    gap: 12px;
+    margin-top: 10px;
+  }
+
+  .grid{
+    display:grid;
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .card{
+    border: 1px solid var(--border);
+    background: color-mix(in srgb, var(--panel) 92%, transparent);
+    border-radius: var(--radius);
+    padding: 16px 16px;
+    box-shadow: 0 1px 0 rgba(0,0,0,.03);
+  }
+
+  .card-title{
+    display:flex;
+    justify-content:space-between;
+    gap: 12px;
+    flex-wrap:wrap;
+    align-items:baseline;
+    margin-bottom: 6px;
+  }
+
+  .card-title strong{
+    font-weight: 650;
+    letter-spacing: -0.01em;
+  }
+
+  .meta{
+    color: var(--muted);
+    font-size: 14px;
+    white-space: nowrap;
+  }
+
+  ul{ margin: 8px 0 0 18px; padding: 0; }
+  li{ margin: 6px 0; }
+
+  code{
+    font-size: 0.95em;
+    background: var(--chip);
+    padding: 2px 8px;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+  }
+
+  .small{ font-size: 14px; color: var(--muted); }
+
+  .footer{
+    margin-top: 44px;
+    padding-top: 18px;
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 14px;
+  }
+
+  /* Optional: make cards 2-column on wide screens */
+  @media (min-width: 860px){
+    .grid.two{ grid-template-columns: 1fr 1fr; }
+  }
+</style>
+
 </head>
 
 <body>
