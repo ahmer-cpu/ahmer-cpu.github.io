@@ -201,6 +201,20 @@ nav a:hover{
       color: var(--muted);
       font-size: 14px;
     }
+
+    <style>
+  /* all your existing CSS */
+
+  /* Step 3 — compact Contact spacing */
+  #contact ul{
+    margin: 0;
+  }
+
+  #contact li{
+    margin: 6px 0;
+  }
+</style>
+
   </style>
 </head>
 
@@ -311,30 +325,36 @@ nav a:hover{
       </div>
     </section>
 
-   <section id="contact">
+<section id="contact">
   <h2>Contact</h2>
 
   <div class="card">
-    <ul>
-      <li>
-        <strong>Email:</strong>
-        <a href="mailto:YOUR_SCHOOL_EMAIL">YOUR_SCHOOL_EMAIL</a>
-      </li>
-      <li>
-        <strong>Office:</strong>
-        YOUR BUILDING, Room XXX
-      </li>
-      <li>
-        <strong>Office hours:</strong>
-        DAYS · TIME–TIME
-      </li>
-      <li>
-        <strong>Location:</strong>
-        Tallahassee, FL
-      </li>
-    </ul>
+    <div class="facts">
+      <div class="fact">
+        <span>Email</span>
+        <span>
+          <a href="mailto:YOUR_SCHOOL_EMAIL">YOUR_SCHOOL_EMAIL</a>
+        </span>
+      </div>
+
+      <div class="fact">
+        <span>Office</span>
+        <span>YOUR BUILDING, Room XXX</span>
+      </div>
+
+      <div class="fact">
+        <span>Office hours</span>
+        <span>DAYS · TIME–TIME</span>
+      </div>
+
+      <div class="fact">
+        <span>Location</span>
+        <span>Tallahassee, FL</span>
+      </div>
+    </div>
   </div>
 </section>
+
 
   </div>
 
