@@ -5,198 +5,200 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="Ahmer Nadeem Khan — PhD Student in Financial Mathematics" />
   <title>Ahmer Nadeem Khan</title>
-<style>
-  :root{
-    --bg: #fbfbfb;
-    --panel: #ffffff;
-    --text: #111111;
-    --muted: #777777;
-    --border: #e4e4e4;
-    --chip: #f5f5f5;
 
-    --max: 900px;
-    --radius: 12px;
-  }
+  <style>
+    :root{
+      --bg:#fbfbfb;
+      --panel:#ffffff;
+      --text:#111111;
+      --muted:#6f6f6f;
+      --border:#e6e6e6;
+      --chip:#f3f3f3;
+      --shadow: 0 1px 0 rgba(0,0,0,0.03);
 
-  *{ box-sizing:border-box; }
-  html{ scroll-behavior:smooth; }
+      --max: 780px;     /* key: keeps it from feeling wide */
+      --radius: 14px;
+    }
 
-  body{
-    margin:0;
-    background: var(--bg);
-    color: var(--text);
-    line-height:1.75;
-    font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
-  }
+    *{ box-sizing:border-box; }
+    html{ scroll-behavior:smooth; }
+    body{
+      margin:0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      line-height: 1.7;
+    }
 
-  .wrap{
-    max-width: var(--max);
-    margin: 0 auto;
-    padding: 56px 22px 72px;
-  }
+    .wrap{
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 64px 18px 80px;
+    }
 
-  header{
-    display:flex;
-    flex-wrap:wrap;
-    justify-content:space-between;
-    gap: 22px;
-    padding-bottom: 34px;
-    border-bottom: 1px solid var(--border);
-  }
+    header{
+      display:flex;
+      flex-direction:column;
+      gap: 14px;
+      padding-bottom: 18px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 18px;
+    }
 
-h1{
-  margin:0;
-  font-size: 48px;
-  letter-spacing: -0.045em;
-  line-height: 1.02;
-  font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
-  font-weight: 700;
-}
+    h1{
+      margin:0;
+      font-size: 44px;
+      letter-spacing: -0.04em;
+      line-height: 1.05;
+      font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+      font-weight: 700;
+    }
 
+    .role{
+      color: var(--muted);
+      font-size: 15px;
+      margin-top: 6px;
+    }
 
-  .role{
-    margin-top: 14px;
-    color: var(--muted);
-    font-size: 15px;
-  }
+    nav{
+      display:flex;
+      flex-wrap:wrap;
+      gap: 10px;
+      margin-top: 6px;
+    }
 
-  nav{
-    display:flex;
-    gap: 10px;
-    flex-wrap:wrap;
-    align-items:center;
-  }
+    nav a{
+      text-decoration:none;
+      color: var(--text);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 6px 10px;
+      font-size: 14px;
+      background: var(--panel);
+    }
+    nav a:hover{ background: var(--chip); }
 
-  nav a{
-    text-decoration:none;
-    color: var(--text);
-    padding: 6px 10px;
-    font-size: 14px;
-    border-radius: 999px;
-    border: 1px solid var(--border);
-    background: transparent;
-  }
+    /* HERO CARD */
+    .hero{
+      border: 1px solid var(--border);
+      background: var(--panel);
+      border-radius: var(--radius);
+      padding: 16px;
+      box-shadow: var(--shadow);
+      margin-top: 14px;
+    }
 
-  nav a:hover{
-    background: var(--chip);
-  }
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+      align-items:start;
+    }
 
-  section{ padding-top: 44px; }
+    .hero p{ margin: 0 0 10px; }
 
-  h2{
-  font-size: 13px;
-  letter-spacing: .22em;
-  text-transform: uppercase;
-  color: #444;
-  margin: 0 0 20px;
-}
+    .links{
+      display:flex;
+      flex-wrap:wrap;
+      gap: 12px;
+      margin-top: 10px;
+    }
 
+    a{
+      color: var(--text);
+      text-decoration:none;
+      border-bottom: 1px solid var(--border);
+    }
+    a:hover{ border-bottom-color: var(--text); }
 
-  p{ margin: 0 0 16px; }
+    .facts{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap: 8px;
+      padding-top: 8px;
+      border-top: 1px solid var(--border);
+      margin-top: 10px;
+    }
 
-  a{
-    color: var(--text);
-    text-decoration: none;
-    border-bottom: 1px solid var(--border);
-  }
+    .fact{
+      display:flex;
+      justify-content:space-between;
+      gap: 14px;
+      font-size: 14px;
+    }
 
-a:hover{
-  border-bottom-color: var(--text);
-  font-weight: 500;
-}
+    .fact span:first-child{ color: var(--muted); }
+    .fact span:last-child{ text-align:right; }
 
+    section{ padding-top: 28px; }
 
-  .links{
-    display:flex;
-    gap: 14px;
-    flex-wrap:wrap;
-    margin-top: 10px;
-  }
+    h2{
+      font-size: 13px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: #444;
+      margin: 0 0 14px;
+    }
 
-  .grid{
-    display:grid;
-    grid-template-columns: 1fr;
-    gap: 18px;
-  }
+    .grid{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
 
-  .card{
-    background: var(--panel);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 20px 20px;
-  }
+    /* Two-column only when there's room */
+    @media (min-width: 720px){
+      .grid.two{ grid-template-columns: 1fr 1fr; }
+      .facts{ grid-template-columns: 1fr 1fr; }
+      .hero-grid{ grid-template-columns: 1fr; } /* keep hero single-column to avoid awkward stretch */
+    }
 
-  .card-title{
-    display:flex;
-    justify-content:space-between;
-    gap: 12px;
-    align-items:baseline;
-    margin-bottom: 8px;
-  }
+    .card{
+      border: 1px solid var(--border);
+      background: var(--panel);
+      border-radius: var(--radius);
+      padding: 14px 14px;
+      box-shadow: var(--shadow);
+    }
 
-.card-title strong{
-  font-weight: 650;
-  letter-spacing: -0.015em;
-}
+    .card-title{
+      display:flex;
+      justify-content:space-between;
+      gap: 12px;
+      align-items:baseline;
+      margin-bottom: 6px;
+    }
 
+    .card-title strong{
+      font-weight: 650;
+      letter-spacing: -0.015em;
+    }
 
-  .meta{
-    color: var(--muted);
-    font-size: 14px;
-  }
+    .meta{
+      color: var(--muted);
+      font-size: 14px;
+      white-space: nowrap;
+    }
 
-  ul{ margin: 12px 0 0 18px; padding: 0; }
-  li{ margin: 8px 0; }
+    p{ margin: 0 0 12px; }
+    ul{ margin: 10px 0 0 18px; padding:0; }
+    li{ margin: 7px 0; }
 
-  code{
-    background: var(--chip);
-    padding: 2px 8px;
-    border-radius: 8px;
-    border: 1px solid var(--border);
-  }
+    code{
+      background: var(--chip);
+      padding: 2px 8px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+    }
 
-  .small{ font-size: 14px; color: var(--muted); }
-
-  .footer{
-    margin-top: 56px;
-    padding-top: 24px;
-    border-top: 1px solid var(--border);
-    color: var(--muted);
-    font-size: 14px;
-  }
-
-  @media (min-width: 900px){
-    .grid.two{ grid-template-columns: 1fr 1fr; }
-  }
-
-
-  #about p:first-of-type{
-    font-size: 1.05em;
-  }
-
-  /* Two-column top section on desktop */
-.hero-grid{
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 18px;
-  align-items: start;
-}
-
-@media (min-width: 900px){
-  .hero-grid{
-    grid-template-columns: 1.35fr 0.65fr;
-  }
-}
-
-/* Slightly denser sections to reduce scrolling */
-section{ padding-top: 32px; }
-
-/* Tighten card padding a bit (optional but helps) */
-.card{ padding: 16px 16px; }
-
-
-</style>
-
+    .footer{
+      margin-top: 44px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 14px;
+    }
+  </style>
 </head>
 
 <body>
@@ -206,48 +208,40 @@ section{ padding-top: 32px; }
         <h1>Ahmer Nadeem Khan</h1>
         <div class="role">PhD Student in Financial Mathematics</div>
       </div>
+
       <nav aria-label="Site">
-        <a href="#about">About</a>
         <a href="#research">Research</a>
         <a href="#projects">Projects</a>
         <a href="#talks">Talks</a>
         <a href="#teaching">Teaching</a>
-        <a href="#cv">CV</a>
         <a href="#contact">Contact</a>
       </nav>
+
+      <div class="hero" id="about">
+        <div class="hero-grid">
+          <div>
+            <p>
+              I’m a PhD student in Financial Mathematics interested in stochastic processes, optimization,
+              and quantitative modeling. I like building tools that are theoretically grounded and practically useful.
+            </p>
+
+            <div class="links">
+              <a href="https://github.com/ahmer-cpu" target="_blank" rel="noopener noreferrer">GitHub</a>
+              <a href="#" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+              <a href="#" target="_blank" rel="noopener noreferrer">Google Scholar</a>
+              <a href="cv.pdf" target="_blank" rel="noopener noreferrer">CV</a>
+            </div>
+
+            <div class="facts" aria-label="Quick facts">
+              <div class="fact"><span>Office</span><span>YOUR BUILDING, Room XXX</span></div>
+              <div class="fact"><span>Office hours</span><span>Days · Time–Time</span></div>
+              <div class="fact"><span>Email</span><span><a href="mailto:YOUR_EMAIL">YOUR_EMAIL</a></span></div>
+              <div class="fact"><span>Location</span><span>Tallahassee, FL</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
     </header>
-
-    <section id="about">
-      <h2>About</h2>
-      <p>
-        I’m a PhD student in Financial Mathematics interested in high frequency trading, portfolio optimization, and Monte Carlo methods.
-        I like building things that are both theoretically grounded and practically useful.
-      </p>
-      <p class="small">
-        (Tip: replace this paragraph with 2–4 sentences that match your exact research/industry focus.)
-      </p>
-      <div class="links">
-        <!-- Replace # with your real links -->
-        <a href="https://github.com/ahmer-cpu" target="_blank" rel="noopener noreferrer">GitHub</a>
-        <a href="#" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-        <a href="#" target="_blank" rel="noopener noreferrer">Google Scholar</a>
-      </div>
-
-       </div>
-
-    <div class="card" aria-label="Quick info">
-      <div class="card-title">
-        <strong>Info</strong>
-        <span class="meta">FSU</span>
-      </div>
-      <ul>
-        <li><strong>Office:</strong> YOUR_BUILDING, Room YOUR_ROOM</li>
-        <li><strong>Office hours:</strong> DAYS · TIME–TIME</li>
-        <li><strong>Email:</strong> <a href="mailto:YOUR_SCHOOL_EMAIL">YOUR_SCHOOL_EMAIL</a></li>
-      </ul>
-    </div>
-  </div>
-    </section>
 
     <section id="research">
       <h2>Research & Interests</h2>
@@ -255,13 +249,13 @@ section{ padding-top: 32px; }
         <div class="card">
           <div class="card-title">
             <strong>Topics</strong>
-            <span class="meta">Current interests</span>
+            <span class="meta">Current</span>
           </div>
           <ul>
-            <li>Mathematical modelling and simulation of the Limit Order Book (LOB)</li>
-            <li>Convex Optimization algorithms for portfolio optimization</li>
-            <li>Normal distribution sampling methods for parallel architectures</li>
-            <li>Progressive and truncated SVD for lossy data compression</li>
+            <li>Stochastic calculus, SDEs, continuous-time models</li>
+            <li>Derivatives pricing, hedging, risk measures</li>
+            <li>Optimization and numerical methods</li>
+            <li>Time series and statistical learning</li>
           </ul>
         </div>
 
@@ -271,8 +265,7 @@ section{ padding-top: 32px; }
             <span class="meta">Optional</span>
           </div>
           <p>
-            If you have a specific research direction (e.g., rough volatility, optimal execution, mean field games),
-            add it here. You can also link to a preprint list.
+            Add specific keywords here (e.g., rough volatility, optimal execution, mean field games, filtering).
           </p>
         </div>
       </div>
@@ -286,46 +279,23 @@ section{ padding-top: 32px; }
             <strong>Project Name</strong>
             <span class="meta">2026</span>
           </div>
+          <p>One sentence on what it does and why it matters.</p>
           <p>
-            One sentence on what it does and why it matters. Add a link once you have it.
-          </p>
-          <p class="small">
-            Links: <a href="#" target="_blank" rel="noopener noreferrer">paper</a> ·
-            <a href="#" target="_blank" rel="noopener noreferrer">code</a> ·
-            <a href="#" target="_blank" rel="noopener noreferrer">demo</a>
-          </p>
-        </div>
-
-        <div class="card">
-          <div class="card-title">
-            <strong>Another Project</strong>
-            <span class="meta">2025</span>
-          </div>
-          <p>
-            Example: calibration, simulation, pricing engine, risk dashboard, research code, etc.
-          </p>
-          <p class="small">
-            Links: <a href="#" target="_blank" rel="noopener noreferrer">code</a>
+            <a href="#">Code</a> · <a href="#">Demo</a> · <a href="#">Writeup</a>
           </p>
         </div>
       </div>
-      <p class="small">Add/remove cards as needed. Keep it to your best 2–5 items.</p>
     </section>
 
     <section id="talks">
-  <h2>Talks & Presentations</h2>
-  <ul>
-    <li>
-      <strong>Title of Talk</strong>,
-      Seminar, Institution, 2025.
-    </li>
-    <li>
-      <strong>Another Talk</strong>,
-      Workshop / Conference, Location, 2024.
-    </li>
-  </ul>
-</section>
-
+      <h2>Talks & Presentations</h2>
+      <div class="card">
+        <ul>
+          <li><strong>Title of Talk</strong>, Seminar, Institution, 2025.</li>
+          <li><strong>Another Talk</strong>, Workshop/Conference, Location, 2024.</li>
+        </ul>
+      </div>
+    </section>
 
     <section id="teaching">
       <h2>Teaching</h2>
@@ -336,7 +306,7 @@ section{ padding-top: 32px; }
             <span class="meta">Florida State University</span>
           </div>
           <ul>
-            <li>Lectures 3×/week (50 min) and weekly recitation (75 min) for a class of 29 students</li>
+            <li>Lectures 3×/week (50 min) and weekly recitation (75 min) for 29 students</li>
             <li>Designed lecture notes, worksheets, quizzes/exams; managed Canvas and course logistics</li>
             <li>Held office hours and provided feedback to support student learning</li>
           </ul>
@@ -344,32 +314,13 @@ section{ padding-top: 32px; }
       </div>
     </section>
 
-    <section id="cv">
-      <h2>CV</h2>
-      <p>
-        Add your PDF as <code>cv.pdf</code> in this repo, then update the link below:
-      </p>
-      <p>
-        <a href="cv.pdf" target="_blank" rel="noopener noreferrer">Download CV</a>
-      </p>
-      <p class="small">
-        You can also add <code>resume.pdf</code> if you keep a separate industry resume.
-      </p>
-    </section>
-
     <section id="contact">
       <h2>Contact</h2>
-      <p>
-        Email: <a href="mailto:ahmernadeem07@gmail.com">ahmernadeem07@gmail.com</a>
-      </p>
-      <p class="small">
-        You can also add a short line about collaboration interests or recruiting availability.
-      </p>
+      <div class="card">
+        <p>Email: <a href="mailto:YOUR_EMAIL">YOUR_EMAIL</a></p>
+        <p class="footer">© <span id="y"></span> Ahmer Nadeem Khan</p>
+      </div>
     </section>
-
-    <div class="footer">
-      © <span id="y"></span> Ahmer Nadeem Khan · Built with GitHub Pages
-    </div>
   </div>
 
   <script>
