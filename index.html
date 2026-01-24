@@ -55,31 +55,25 @@
       font-weight: 700;
     }
 
-    .role{
-      color: var(--muted);
-      font-size: 15px;
+    nav{
+      display:flex;
+      flex-wrap:wrap;
+      gap: 14px;
       margin-top: 6px;
     }
 
-nav{
-  display:flex;
-  flex-wrap:wrap;
-  gap: 14px;
-  margin-top: 6px;
-}
+    nav a{
+      text-decoration:none;
+      color: var(--muted);
+      font-size: 13px;
+      padding: 0;
+      border-bottom: 1px solid transparent;
+    }
 
-nav a{
-  text-decoration:none;
-  color: var(--muted);
-  font-size: 13px;
-  padding: 0;
-}
-
-nav a:hover{
-  color: var(--text);
-  border-bottom: 1px solid var(--text);
-}
-
+    nav a:hover{
+      color: var(--text);
+      border-bottom-color: var(--text);
+    }
 
     /* HERO CARD */
     .hero{
@@ -194,27 +188,16 @@ nav a:hover{
       border: 1px solid var(--border);
     }
 
-    .footer{
-      margin-top: 44px;
-      padding-top: 16px;
-      border-top: 1px solid var(--border);
-      color: var(--muted);
-      font-size: 14px;
+    /* Remove divider line in Contact facts block */
+    #contact .facts{
+      border-top: none;
+      padding-top: 0;
+      margin-top: 0;
     }
 
-    <style>
-  /* all your existing CSS */
-
-  /* Step 3 — compact Contact spacing */
-  #contact ul{
-    margin: 0;
-  }
-
-  #contact li{
-    margin: 6px 0;
-  }
-</style>
-
+    /* Compact Contact spacing */
+    #contact ul{ margin: 0; }
+    #contact li{ margin: 6px 0; }
   </style>
 </head>
 
@@ -246,40 +229,37 @@ nav a:hover{
               <a href="#" target="_blank" rel="noopener noreferrer">LinkedIn</a>
               <a href="cv.pdf" target="_blank" rel="noopener noreferrer">CV</a>
             </div>
-
-            
           </div>
         </div>
       </div>
     </header>
 
-   <section id="research">
-  <h2>Research & Interests</h2>
+    <section id="research">
+      <h2>Research & Interests</h2>
 
-  <div class="card">
-    <div class="card-title">
-      <strong>Interests</strong>
-    </div>
-    <ul>
-      <li>Stochastic analysis and continuous-time financial models</li>
-      <li>Numerical methods and optimization for high-dimensional problems</li>
-      <li>Statistical and computational methods for time series data</li>
-    </ul>
-  </div>
+      <div class="card">
+        <div class="card-title">
+          <strong>Interests</strong>
+        </div>
+        <ul>
+          <li>Stochastic analysis and continuous-time financial models</li>
+          <li>Numerical methods and optimization for high-dimensional problems</li>
+          <li>Statistical and computational methods for time series data</li>
+        </ul>
+      </div>
 
-  <div class="card" style="margin-top:14px;">
-    <div class="card-title">
-      <strong>Current Work</strong>
-      <span class="meta">Ongoing</span>
-    </div>
-    <p>
-      I am currently working with Dr. Kai Zhao on the use of randomized SVD methods
-      for lossy data compression, in collaboration with researchers at
-      Argonne National Laboratory.
-    </p>
-  </div>
-</section>
-
+      <div class="card" style="margin-top:14px;">
+        <div class="card-title">
+          <strong>Current Work</strong>
+          <span class="meta">Ongoing</span>
+        </div>
+        <p>
+          I am currently working with Dr. Kai Zhao on the use of randomized SVD methods
+          for lossy data compression, in collaboration with researchers at
+          Argonne National Laboratory.
+        </p>
+      </div>
+    </section>
 
     <section id="projects">
       <h2>Projects</h2>
@@ -324,41 +304,35 @@ nav a:hover{
       </div>
     </section>
 
-<section id="contact">
-  <h2>Contact</h2>
+    <section id="contact">
+      <h2>Contact</h2>
 
-  <div class="card">
-    <div class="facts">
-      <div class="fact">
-        <span>Email</span>
-        <span>
-          <a href="mailto:YOUR_SCHOOL_EMAIL">YOUR_SCHOOL_EMAIL</a>
-        </span>
-      </div>
+      <div class="card">
+        <div class="facts">
+          <div class="fact">
+            <span>Email</span>
+            <span>
+              <a href="mailto:ak24a@fsu.edu">ak24a@fsu.edu</a>
+            </span>
+          </div>
 
-      <div class="fact">
-        <span>Office</span>
-        <span>YOUR BUILDING, Room XXX</span>
-      </div>
+          <div class="fact">
+            <span>Office</span>
+            <span>Love Building, LOV 303</span>
+          </div>
 
-      <div class="fact">
-        <span>Office hours</span>
-        <span>DAYS · TIME–TIME</span>
-      </div>
+          <div class="fact">
+            <span>Office hours</span>
+            <span>Tuesdays · 12:30–2:30<br>Thursdays · 12:30–1:30</span>
+          </div>
 
-      <div class="fact">
-        <span>Location</span>
-        <span>Tallahassee, FL</span>
+          <div class="fact">
+            <span>Location</span>
+            <span>Tallahassee, FL</span>
+          </div>
+        </div>
       </div>
-    </div>
+    </section>
   </div>
-</section>
-
-
-  </div>
-
-  <script>
-    document.getElementById("y").textContent = new Date().getFullYear();
-  </script>
 </body>
 </html>
