@@ -16,12 +16,13 @@
       --chip:#f3f3f3;
       --shadow: 0 1px 0 rgba(0,0,0,0.03);
 
-      --max: 780px;     /* key: keeps it from feeling wide */
+      --max: 780px;
       --radius: 14px;
     }
 
     *{ box-sizing:border-box; }
     html{ scroll-behavior:smooth; }
+
     body{
       margin:0;
       background: var(--bg);
@@ -40,7 +41,6 @@
       display:flex;
       flex-direction:column;
       gap: 10px;
-      margin-top: 2px;
       padding-bottom: 16px;
       border-bottom: 1px solid var(--border);
       margin-bottom: 18px;
@@ -66,7 +66,6 @@
       text-decoration:none;
       color: var(--muted);
       font-size: 13px;
-      padding: 0;
       border-bottom: 1px solid transparent;
     }
 
@@ -75,7 +74,7 @@
       border-bottom-color: var(--text);
     }
 
-    /* HERO CARD */
+    /* HERO */
     .hero{
       border: 1px solid var(--border);
       background: var(--panel);
@@ -83,13 +82,6 @@
       padding: 16px;
       box-shadow: var(--shadow);
       margin-top: 14px;
-    }
-
-    .hero-grid{
-      display:grid;
-      grid-template-columns: 1fr;
-      gap: 14px;
-      align-items:start;
     }
 
     .hero p{ margin: 0 0 10px; }
@@ -106,26 +98,8 @@
       text-decoration:none;
       border-bottom: 1px solid var(--border);
     }
+
     a:hover{ border-bottom-color: var(--text); }
-
-    .facts{
-      display:grid;
-      grid-template-columns: 1fr;
-      gap: 8px;
-      padding-top: 8px;
-      border-top: 1px solid var(--border);
-      margin-top: 10px;
-    }
-
-    .fact{
-      display:flex;
-      justify-content:space-between;
-      gap: 14px;
-      font-size: 14px;
-    }
-
-    .fact span:first-child{ color: var(--muted); }
-    .fact span:last-child{ text-align:right; }
 
     section{ padding-top: 28px; }
 
@@ -137,31 +111,19 @@
       margin: 0 0 14px;
     }
 
-    .grid{
-      display:grid;
-      grid-template-columns: 1fr;
-      gap: 14px;
-    }
-
-    /* Two-column only when there's room */
-    @media (min-width: 720px){
-      .grid.two{ grid-template-columns: 1fr 1fr; }
-      .facts{ grid-template-columns: 1fr 1fr; }
-      .hero-grid{ grid-template-columns: 1fr; } /* keep hero single-column to avoid awkward stretch */
-    }
-
     .card{
       border: 1px solid var(--border);
       background: var(--panel);
       border-radius: var(--radius);
-      padding: 14px 14px;
+      padding: 14px;
       box-shadow: var(--shadow);
     }
+
+    .card + .card{ margin-top: 14px; }
 
     .card-title{
       display:flex;
       justify-content:space-between;
-      gap: 12px;
       align-items:baseline;
       margin-bottom: 6px;
     }
@@ -174,45 +136,51 @@
     .meta{
       color: var(--muted);
       font-size: 14px;
-      white-space: nowrap;
     }
 
-    p{ margin: 0 0 12px; }
     ul{ margin: 10px 0 0 18px; padding:0; }
     li{ margin: 7px 0; }
 
-    code{
-      background: var(--chip);
-      padding: 2px 8px;
-      border-radius: 8px;
-      border: 1px solid var(--border);
+    /* FACTS (general) */
+    .facts{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap: 8px;
     }
 
+    .fact{
+      display:flex;
+      justify-content:space-between;
+      gap: 14px;
+      font-size: 14px;
+    }
+
+    .fact span:first-child{ color: var(--muted); }
+
+    /* CONTACT overrides */
     #contact .facts{
       border-top: none;
       padding-top: 0;
       margin-top: 0;
     }
 
-    /* Compact Contact spacing */
-    #contact ul{ margin: 0; }
-    #contact li{ margin: 6px 0; }
+    #contact .fact{
+      display:grid;
+      grid-template-columns: 110px 1fr;
+    }
 
     #contact .fact span:last-child{
-  text-align: center;
-}
-    
+      text-align: center;
+    }
   </style>
 </head>
 
 <body>
   <div class="wrap">
     <header>
-      <div>
-        <h1>Ahmer Nadeem Khan</h1>
-      </div>
+      <h1>Ahmer Nadeem Khan</h1>
 
-      <nav aria-label="Site">
+      <nav>
         <a href="#research">Research</a>
         <a href="#projects">Projects</a>
         <a href="#talks">Talks</a>
@@ -220,20 +188,17 @@
         <a href="#contact">Contact</a>
       </nav>
 
-      <div class="hero" id="about">
-        <div class="hero-grid">
-          <div>
-            <p>
-              I’m a PhD student in Financial Mathematics interested in stochastic processes, optimization,
-              and quantitative modeling. I like building tools that are theoretically grounded and practically useful.
-            </p>
+      <div class="hero">
+        <p>
+          I’m a PhD student in Financial Mathematics interested in stochastic processes,
+          optimization, and quantitative modeling. I like building tools that are
+          theoretically grounded and practically useful.
+        </p>
 
-            <div class="links">
-              <a href="https://github.com/ahmer-cpu" target="_blank" rel="noopener noreferrer">GitHub</a>
-              <a href="#" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-              <a href="cv.pdf" target="_blank" rel="noopener noreferrer">CV</a>
-            </div>
-          </div>
+        <div class="links">
+          <a href="https://github.com/ahmer-cpu" target="_blank">GitHub</a>
+          <a href="#" target="_blank">LinkedIn</a>
+          <a href="cv.pdf" target="_blank">CV</a>
         </div>
       </div>
     </header>
@@ -252,32 +217,29 @@
         </ul>
       </div>
 
-      <div class="card" style="margin-top:14px;">
+      <div class="card">
         <div class="card-title">
           <strong>Current Work</strong>
           <span class="meta">Ongoing</span>
         </div>
         <p>
-          I am currently working with Dr. Kai Zhao on the use of randomized SVD methods
-          for lossy data compression, in collaboration with researchers at
-          Argonne National Laboratory.
+          I am currently working with Dr. Kai Zhao on randomized SVD methods for lossy
+          data compression, in collaboration with researchers at Argonne National Laboratory.
         </p>
       </div>
     </section>
 
     <section id="projects">
       <h2>Projects</h2>
-      <div class="grid">
-        <div class="card">
-          <div class="card-title">
-            <strong>Project Name</strong>
-            <span class="meta">2026</span>
-          </div>
-          <p>One sentence on what it does and why it matters.</p>
-          <p>
-            <a href="#">Code</a> · <a href="#">Demo</a> · <a href="#">Writeup</a>
-          </p>
+      <div class="card">
+        <div class="card-title">
+          <strong>Project Name</strong>
+          <span class="meta">2026</span>
         </div>
+        <p>One sentence on what it does and why it matters.</p>
+        <p>
+          <a href="#">Code</a> · <a href="#">Demo</a> · <a href="#">Writeup</a>
+        </p>
       </div>
     </section>
 
@@ -293,43 +255,38 @@
 
     <section id="teaching">
       <h2>Teaching</h2>
-      <div class="grid">
-        <div class="card">
-          <div class="card-title">
-            <strong>Instructor of Record — Calculus I (MAC 2311)</strong>
-            <span class="meta">Florida State University</span>
-          </div>
-          <ul>
-            <li>Lectures 3×/week (50 min) and weekly recitation (75 min) for 29 students</li>
-            <li>Designed lecture notes, worksheets, quizzes/exams; managed Canvas and course logistics</li>
-            <li>Held office hours and provided feedback to support student learning</li>
-          </ul>
+      <div class="card">
+        <div class="card-title">
+          <strong>Instructor of Record — Calculus I (MAC 2311)</strong>
+          <span class="meta">Florida State University</span>
         </div>
+        <ul>
+          <li>Lectures 3×/week (50 min) and weekly recitation (75 min)</li>
+          <li>Designed lectures, worksheets, quizzes, and exams</li>
+          <li>Managed Canvas and held office hours</li>
+        </ul>
       </div>
     </section>
 
     <section id="contact">
       <h2>Contact</h2>
-
       <div class="card">
         <div class="facts">
           <div class="fact">
             <span>Email</span>
-            <span>
-              <a href="mailto:ak24a@fsu.edu">ak24a@fsu.edu</a>
-            </span>
+            <span><a href="mailto:ak24a@fsu.edu">ak24a@fsu.edu</a></span>
           </div>
-
           <div class="fact">
             <span>Office</span>
             <span>Love Building, LOV 303</span>
           </div>
-
           <div class="fact">
             <span>Office hours</span>
-            <span>Tuesdays · 12:30–2:30<br>Thursdays · 12:30–1:30</span>
+            <span>
+              Tuesdays · 12:30–2:30<br>
+              Thursdays · 12:30–1:30
+            </span>
           </div>
-
           <div class="fact">
             <span>Location</span>
             <span>Tallahassee, FL</span>
