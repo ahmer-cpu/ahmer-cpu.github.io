@@ -40,12 +40,13 @@
       padding: 40px 18px 80px;
     }
 
-    /* Affiliations banner: under photo */
+    /* Affiliations banner: centered at bottom */
     .affiliations{
       display: flex;
       justify-content: center;
-      gap: 14px;
-      margin-top: 12px;
+      align-items: center;
+      gap: 16px;
+      margin: 60px 0 8px;
     }
 
     /* Prevent global link underline/border on logo links */
@@ -265,12 +266,9 @@
 
     .header-photo {
       position: absolute;
-      top: 120px;
+      top: 120px; /* Adjust as needed to align with name */
       left: 48px;
       z-index: 2;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
     }
     .header-photo img {
       width: 270px;
@@ -282,8 +280,7 @@
       .header-photo {
         position: static;
         display: flex;
-        flex-direction: column;
-        align-items: flex-start;
+        justify-content: flex-start;
         margin: 24px 0 0 0;
       }
       .header-photo img {
@@ -292,7 +289,7 @@
     }
     @media (max-width: 700px) {
       .header-photo {
-        align-items: center;
+        justify-content: center;
         margin: 18px 0 0 0;
       }
       .header-photo img {
@@ -333,17 +330,6 @@
       </div>
       <div class="header-photo">
         <img src="assets/picture.jpg" alt="Ahmer Nadeem Khan">
-        <aside class="affiliations" aria-label="Affiliations">
-          <a class="affil" href="https://lums.edu.pk/" target="_blank" rel="noopener noreferrer">
-            <img src="assets/lums.svg" alt="Lahore University of Management Sciences" />
-          </a>
-          <a class="affil" href="https://en.snu.ac.kr/" target="_blank" rel="noopener noreferrer">
-            <img src="assets/snu.svg" alt="Seoul National University" />
-          </a>
-          <a class="affil" href="https://www.fsu.edu/" target="_blank" rel="noopener noreferrer">
-            <img src="assets/fsu.svg" alt="Florida State University" />
-          </a>
-        </aside>
       </div>
     </header>
 
@@ -362,6 +348,17 @@
         </p>
       </div>
     </section>
+    <aside class="affiliations" aria-label="Affiliations">
+      <a class="affil" href="https://lums.edu.pk/" target="_blank" rel="noopener noreferrer">
+        <img src="assets/lums.svg" alt="Lahore University of Management Sciences" />
+      </a>
+      <a class="affil" href="https://en.snu.ac.kr/" target="_blank" rel="noopener noreferrer">
+        <img src="assets/snu.svg" alt="Seoul National University" />
+      </a>
+      <a class="affil" href="https://www.fsu.edu/" target="_blank" rel="noopener noreferrer">
+        <img src="assets/fsu.svg" alt="Florida State University" />
+      </a>
+    </aside>
   </div>
   </div>
 </body>
