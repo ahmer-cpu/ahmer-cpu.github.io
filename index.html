@@ -263,6 +263,32 @@
         flex-wrap: wrap;
       }
     }
+
+    .intro-row{
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 32px;
+    }
+
+    .intro-text{
+      flex: 1;
+    }
+
+    .intro-photo img{
+      width: 180px;
+      height: auto;
+      border-radius: 12px;
+    }
+
+    @media (max-width: 700px){
+      .intro-row{
+        flex-direction: column;
+      }
+      .intro-photo img{
+        width: 160px;
+      }
+    }
   </style>
 </head>
 
@@ -278,19 +304,27 @@
         <a href="contact.html">Contact</a>
       </nav>
 
-      <h1>Ahmer Nadeem Khan</h1>
+      <div class="intro-row">
+        <div class="intro-text">
+          <h1>Ahmer Nadeem Khan</h1>
 
-      <div class="hero">
-        <p>
-          I am a PhD student in Financial Mathematics at Florida State University, working under the supervision of
-          <a href="https://www.math.fsu.edu/~kercheva/" target="_blank" rel="noopener noreferrer">Dr. Alec Kercheval</a>,
-          with research interests in high-frequency trading, portfolio optimization, and high-performance computing.
-        </p>
+          <div class="hero">
+            <p>
+              I am a PhD student in Financial Mathematics at Florida State University, working under the supervision of
+              <a href="https://www.math.fsu.edu/~kercheva/" target="_blank" rel="noopener noreferrer">Dr. Alec Kercheval</a>,
+              with research interests in high-frequency trading, portfolio optimization, and high-performance computing.
+            </p>
 
-        <div class="links">
-          <a href="https://github.com/ahmer-cpu" target="_blank">GitHub</a>
-          <a href="https://www.linkedin.com/in/ahmerkhan1/" target="_blank">LinkedIn</a>
-          <a href="assets/Ahmer_Nadeem_Khan_CV.pdf" target="_blank">CV</a>
+            <div class="links">
+              <a href="https://github.com/ahmer-cpu" target="_blank">GitHub</a>
+              <a href="https://www.linkedin.com/in/ahmerkhan1/" target="_blank">LinkedIn</a>
+              <a href="assets/Ahmer_Nadeem_Khan_CV.pdf" target="_blank">CV</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="intro-photo">
+          <img src="picture.webp" alt="Ahmer Nadeem Khan">
         </div>
       </div>
     </header>
