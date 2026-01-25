@@ -40,16 +40,13 @@
       padding: 64px 18px 80px;
     }
 
-    /* Affiliations banner: horizontal, top-left */
+    /* Affiliations banner: centered at bottom */
     .affiliations{
-      position: absolute;
-      top: 16px;
-      left: 16px;
       display: flex;
-      flex-direction: row;
-      gap: 16px;
+      justify-content: center;
       align-items: center;
-      z-index: 30;
+      gap: 16px;
+      margin: 60px 0 8px;
     }
 
     /* Prevent global link underline/border on logo links */
@@ -77,7 +74,7 @@
       display:flex;
       flex-direction:column;
       gap: 6px;
-      padding-top: 48px;
+      padding-top: 28px;
       padding-bottom: 16px;
       margin-bottom: 18px;
     }
@@ -91,45 +88,28 @@
       font-weight: 700;
     }
 
-    nav{
-      display:flex;
-      flex-wrap:wrap;
-      gap: 14px;
-      margin-top: 6px;
-    }
-
-    nav a{
-      text-decoration:none;
-      color: var(--muted);
-      font-size: 13px;
-      border-bottom: 1px solid transparent;
-    }
-
-    nav a:hover{
-      color: var(--text);
-      border-bottom-color: var(--text);
-    }
-
-    .side-nav{
-      position: fixed;
-      top: 96px;
-      left: 24px;
+    .top-nav{
       display: flex;
-      flex-direction: column;
-      gap: 14px;
-      z-index: 25;
+      justify-content: center;
+      gap: 32px;
+      margin-top: -6px;
+      margin-bottom: 16px;
     }
 
-    .side-nav a{
-      font-size: 14px;
+    .top-nav a{
+      font-size: 15px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
       color: var(--muted);
       text-decoration: none;
-      border-bottom: none;
-      letter-spacing: 0.02em;
+      border-bottom: 2px solid transparent;
+      padding-bottom: 4px;
     }
 
-    .side-nav a:hover{
+    .top-nav a:hover{
       color: var(--text);
+      border-bottom-color: var(--text);
     }
 
     .hero{
@@ -159,7 +139,11 @@
 
     a:hover{ border-bottom-color: var(--text); }
 
-    section{ padding-top: 14px; }
+    section{ padding-top: 10px; }
+
+    section:last-of-type{
+      margin-bottom: 32px;
+    }
 
     h2{
       font-size: 13px;
@@ -198,6 +182,10 @@
       border-radius: var(--radius);
       box-shadow: var(--shadow);
       padding: 14px;
+    }
+
+    #talks .card{
+      padding: 10px 12px;
     }
 
     /* Remove card styling in Research/Teaching/Contact */
@@ -259,15 +247,15 @@
 
     @media (max-width: 900px){
       .affiliations{ display: none; }
-      .side-nav{
-        position: static;
-        flex-direction: row;
-        flex-wrap: wrap;
-        gap: 14px;
-        margin-top: 6px;
-      }
       .wrap{
         padding-left: 18px;
+      }
+    }
+
+    @media (max-width: 640px){
+      .top-nav{
+        gap: 18px;
+        flex-wrap: wrap;
       }
     }
   </style>
@@ -275,33 +263,23 @@
 
 <body>
   <div class="page">
-    <aside class="affiliations" aria-label="Affiliations">
-      <a class="affil" href="https://lums.edu.pk/" target="_blank" rel="noopener noreferrer">
-        <img src="assets/lums.svg" alt="Lahore University of Management Sciences" />
-      </a>
-      <a class="affil" href="https://en.snu.ac.kr/" target="_blank" rel="noopener noreferrer">
-        <img src="assets/snu.svg" alt="Seoul National University" />
-      </a>
-      <a class="affil" href="https://www.fsu.edu/" target="_blank" rel="noopener noreferrer">
-        <img src="assets/fsu.svg" alt="Florida State University" />
-      </a>
-    </aside>
     <div class="wrap">
     <header>
-      <h1>Ahmer Nadeem Khan</h1>
-
-      <nav class="side-nav">
-        <a href="#research">Research</a>
-        <a href="#projects">Projects</a>
-        <a href="#talks">Talks</a>
-        <a href="#teaching">Teaching</a>
-        <a href="#contact">Contact</a>
+      <nav class="top-nav">
+        <a href="index.html">Home</a>
+        <a href="projects.html">Projects</a>
+        <a href="talks.html">Talks</a>
+        <a href="teaching.html">Teaching</a>
+        <a href="contact.html">Contact</a>
       </nav>
+
+      <h1>Ahmer Nadeem Khan</h1>
 
       <div class="hero">
         <p>
-          I’m a PhD student at Florida State University under the supervision of Dr. Alec Kercheval. I am in the Financial Mathematics program
-          within the Department of Mathematics and I am broadly interested in high frquency trading, portfolio optimization, and high performance computing.
+          I am a PhD student in Financial Mathematics at Florida State University, working under the supervision of
+          <a href="https://www.math.fsu.edu/~kercheva/" target="_blank" rel="noopener noreferrer">Dr. Alec Kercheval</a>,
+          with research interests in high-frequency trading, portfolio optimization, and high-performance computing.
         </p>
 
         <div class="links">
@@ -316,130 +294,28 @@
       <h2>Research & Interests</h2>
 
       <div class="card">
-        <strong>Interests</strong>
         <ul>
           <li>Stochastic analysis and continuous-time financial models</li>
           <li>Numerical methods and optimization for high-dimensional problems</li>
           <li>Statistical and computational methods for time series data</li>
         </ul>
-      </div>
-
-      <div class="card" style="margin-top:14px;">
-        <strong>Current Work</strong>
         <p>
-          I am currently working with Dr. Kai Zhao on randomized SVD methods for lossy
+          I am currently working with <a href="https://ayzk.github.io/index.html" target="_blank" rel="noopener noreferrer">Dr. Kai Zhao</a> on randomized SVD methods for lossy
           data compression, in collaboration with researchers at Argonne National Laboratory.
         </p>
       </div>
     </section>
-
-    <section id="projects">
-      <h2>Projects</h2>
-      <div class="card">
-        <div class="card-title">
-          <strong>Dynamic VIX-Based Hedging of Equity Risk during Market Stress Events</strong>
-          <span class="meta">Nov 2025</span>
-        </div>
-        <p>Designed and backtested a dynamic volatility-based hedge for equity portfolios using VIX-linked instruments during macro-driven stress regimes.</p>
-      </div>
-
-      <div class="card">
-        <div class="card-title">
-          <strong>CUDA-accelerated Monte Carlo for Exotic Option Pricing</strong>
-          <span class="meta">May 2025</span>
-        </div>
-        <p>Implemented high-performance Monte Carlo pricing algorithms for exotic options in C++ and CUDA, achieving over 100× speedup versus CPU baselines.</p>
-      </div>
-
-      <div class="card">
-        <div class="card-title">
-          <strong>Equities Portfolio Optimization using James–Stein Shrinkage</strong>
-          <span class="meta">Apr 2025</span>
-        </div>
-        <p>Studied covariance shrinkage techniques for mean–variance portfolio optimization and evaluated their out-of-sample risk–return performance.</p>
-      </div>
-
-      <div class="card">
-        <div class="card-title">
-          <strong>Numerical and Monte Carlo Algorithms Library (MATLAB & Julia)</strong>
-          <span class="meta">Sep 2024 — May 2025</span>
-        </div>
-        <p>Developed a reusable library of numerical analysis and Monte Carlo algorithms with emphasis on stability, convergence, and reproducibility.</p>
-      </div>
-
-      <div class="card">
-        <div class="card-title">
-          <strong>Schubert Calculus and the Cohomology of the Grassmannian</strong>
-          <span class="meta">Sep 2023 — May 2024</span>
-        </div>
-        <p>Conducted undergraduate thesis research on intersection theory and Schubert calculus, culminating in a defended thesis presentation.</p>
-      </div>
-    </section>
-
-    <section id="talks">
-      <h2>Talks & Presentations</h2>
-      <div class="card">
-        <ul>
-          <li>
-            <strong>Catalan Numbers and Their Properties</strong><br>
-            Algebra Seminar, Florida State University · Feb 2026
-          </li>
-          <li>
-            <strong>Portfolio Optimization and Successive Convex Approximation</strong><br>
-            Florida State University · Dec 2025
-          </li>
-          <li>
-            <strong>Limit Order Book Simulation: A Review and Recent Progress</strong><br>
-            Financial Mathematics Seminar, Florida State University · Dec 2025
-          </li>
-          <li>
-            <strong>Market Microstructure and High Frequency Trading</strong><br>
-            Financial Mathematics Seminar, Florida State University · May 2025
-          </li>
-          <li>
-            <strong>Borsuk–Ulam Theorem and its Applications</strong><br>
-            Lahore University of Management Sciences · Aug 2023
-          </li>
-        </ul>
-      </div>
-    </section>
-
-    <section id="teaching">
-      <h2>Teaching</h2>
-      <div class="card">
-        <div class="card-title">
-          <strong>Calculus I (MAC 2311), Fall 2026</strong>
-          <span class="meta">Florida State University</span>
-        </div>
-      </div>
-    </section>
-
-    <section id="contact">
-      <h2>Contact</h2>
-      <div class="card">
-        <div class="facts">
-          <div class="fact">
-            <span>Email</span>
-            <span><a href="mailto:ak24a@fsu.edu">ak24a@fsu.edu</a></span>
-          </div>
-          <div class="fact">
-            <span>Office</span>
-            <span>Love Building, LOV 303</span>
-          </div>
-          <div class="fact">
-            <span>Office hours</span>
-            <span>
-              Tuesdays · 12:30–2:30<br>
-              Thursdays · 12:30–1:30
-            </span>
-          </div>
-          <div class="fact">
-            <span>Location</span>
-            <span>Tallahassee, FL</span>
-          </div>
-        </div>
-      </div>
-    </section>
+    <aside class="affiliations" aria-label="Affiliations">
+      <a class="affil" href="https://lums.edu.pk/" target="_blank" rel="noopener noreferrer">
+        <img src="assets/lums.svg" alt="Lahore University of Management Sciences" />
+      </a>
+      <a class="affil" href="https://en.snu.ac.kr/" target="_blank" rel="noopener noreferrer">
+        <img src="assets/snu.svg" alt="Seoul National University" />
+      </a>
+      <a class="affil" href="https://www.fsu.edu/" target="_blank" rel="noopener noreferrer">
+        <img src="assets/fsu.svg" alt="Florida State University" />
+      </a>
+    </aside>
   </div>
   </div>
 </body>
