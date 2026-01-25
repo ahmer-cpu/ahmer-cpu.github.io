@@ -264,29 +264,36 @@
       }
     }
 
-    .intro-row{
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      gap: 32px;
+    .header-photo {
+      position: absolute;
+      top: 120px; /* Adjust as needed to align with name */
+      right: 48px;
+      z-index: 2;
     }
-
-    .intro-text{
-      flex: 1;
-    }
-
-    .intro-photo img{
-      width: 180px;
+    .header-photo img {
+      width: 270px;
       height: auto;
       border-radius: 12px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.10);
     }
-
-    @media (max-width: 700px){
-      .intro-row{
-        flex-direction: column;
+    @media (max-width: 1100px) {
+      .header-photo {
+        position: static;
+        display: flex;
+        justify-content: flex-end;
+        margin: 24px 0 0 0;
       }
-      .intro-photo img{
-        width: 160px;
+      .header-photo img {
+        width: 180px;
+      }
+    }
+    @media (max-width: 700px) {
+      .header-photo {
+        justify-content: center;
+        margin: 18px 0 0 0;
+      }
+      .header-photo img {
+        width: 140px;
       }
     }
   </style>
@@ -304,28 +311,25 @@
         <a href="contact.html">Contact</a>
       </nav>
 
-      <div class="intro-row">
-        <div class="intro-text">
-          <h1>Ahmer Nadeem Khan</h1>
+      <div class="intro-text">
+        <h1>Ahmer Nadeem Khan</h1>
 
-          <div class="hero">
-            <p>
-              I am a PhD student in Financial Mathematics at Florida State University, working under the supervision of
-              <a href="https://www.math.fsu.edu/~kercheva/" target="_blank" rel="noopener noreferrer">Dr. Alec Kercheval</a>,
-              with research interests in high-frequency trading, portfolio optimization, and high-performance computing.
-            </p>
+        <div class="hero">
+          <p>
+            I am a PhD student in Financial Mathematics at Florida State University, working under the supervision of
+            <a href="https://www.math.fsu.edu/~kercheva/" target="_blank" rel="noopener noreferrer">Dr. Alec Kercheval</a>,
+            with research interests in high-frequency trading, portfolio optimization, and high-performance computing.
+          </p>
 
-            <div class="links">
-              <a href="https://github.com/ahmer-cpu" target="_blank">GitHub</a>
-              <a href="https://www.linkedin.com/in/ahmerkhan1/" target="_blank">LinkedIn</a>
-              <a href="assets/Ahmer_Nadeem_Khan_CV.pdf" target="_blank">CV</a>
-            </div>
+          <div class="links">
+            <a href="https://github.com/ahmer-cpu" target="_blank">GitHub</a>
+            <a href="https://www.linkedin.com/in/ahmerkhan1/" target="_blank">LinkedIn</a>
+            <a href="assets/Ahmer_Nadeem_Khan_CV.pdf" target="_blank">CV</a>
           </div>
         </div>
-
-        <div class="intro-photo">
-          <img src="picture.webp" alt="Ahmer Nadeem Khan">
-        </div>
+      </div>
+      <div class="header-photo">
+        <img src="assets/picture.jpg" alt="Ahmer Nadeem Khan">
       </div>
     </header>
 
