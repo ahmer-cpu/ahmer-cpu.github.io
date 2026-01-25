@@ -40,20 +40,27 @@
       padding: 64px 18px 80px;
     }
 
+    /* Affiliations banner: horizontal, top-left */
     .affiliations{
-      position: fixed;
-      top: 18px;
-      left: 18px;
-      width: 90px;
+      position: absolute;
+      top: 16px;
+      left: 16px;
       display: flex;
-      flex-direction: column;
-      gap: 14px;
-      z-index: 20;
+      flex-direction: row;
+      gap: 16px;
+      align-items: center;
+      z-index: 30;
     }
 
+    /* Prevent global link underline/border on logo links */
+    .affiliations a{
+      border-bottom: none !important;
+    }
+
+    /* Logo sizing (smaller) */
     .affil{
-      display: block;
-      width: 90px;
+      display: inline-flex;
+      width: 64px;
     }
 
     .affil img{
@@ -66,18 +73,11 @@
       transform: translateY(-1px);
     }
 
-    .affiliations a{
-      border-bottom: none !important;
-    }
-
-    .affiliations a:hover{
-      border-bottom: none !important;
-    }
-
     header{
       display:flex;
       flex-direction:column;
-      gap: 10px;
+      gap: 6px;
+      padding-top: 48px;
       padding-bottom: 16px;
       margin-bottom: 18px;
     }
@@ -110,9 +110,31 @@
       border-bottom-color: var(--text);
     }
 
+    .side-nav{
+      position: fixed;
+      top: 96px;
+      left: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      z-index: 25;
+    }
+
+    .side-nav a{
+      font-size: 14px;
+      color: var(--muted);
+      text-decoration: none;
+      border-bottom: none;
+      letter-spacing: 0.02em;
+    }
+
+    .side-nav a:hover{
+      color: var(--text);
+    }
+
     .hero{
-      margin-top: 14px;
-      margin-bottom: 8px;
+      margin-top: 6px;
+      margin-bottom: 4px;
       padding: 0;
       border: none;
       background: transparent;
@@ -137,14 +159,27 @@
 
     a:hover{ border-bottom-color: var(--text); }
 
-    section{ padding-top: 20px; }
+    section{ padding-top: 14px; }
 
     h2{
       font-size: 13px;
       letter-spacing: .18em;
       text-transform: uppercase;
-      color: #444;
-      margin: 0 0 14px;
+      color: #6b1f2b;
+      margin: 0 0 12px;
+    }
+
+    /* Indent section content to emphasize headings */
+    section > .card,
+    section > .facts,
+    section > ul,
+    section > p{
+      margin-left: 14px;
+    }
+
+    /* Ensure multiple cards in a section stay aligned */
+    section > .card + .card{
+      margin-top: 14px;
     }
 
     .card{
@@ -223,8 +258,16 @@
     }
 
     @media (max-width: 900px){
-      .affiliations{
-        display: none;
+      .affiliations{ display: none; }
+      .side-nav{
+        position: static;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 14px;
+        margin-top: 6px;
+      }
+      .wrap{
+        padding-left: 18px;
       }
     }
   </style>
@@ -233,21 +276,21 @@
 <body>
   <div class="page">
     <aside class="affiliations" aria-label="Affiliations">
-      <a class="affil" href="https://www.fsu.edu/" target="_blank" rel="noopener noreferrer">
-        <img src="assets/fsu.svg" alt="Florida State University" />
+      <a class="affil" href="https://lums.edu.pk/" target="_blank" rel="noopener noreferrer">
+        <img src="assets/lums.svg" alt="Lahore University of Management Sciences" />
       </a>
       <a class="affil" href="https://en.snu.ac.kr/" target="_blank" rel="noopener noreferrer">
         <img src="assets/snu.svg" alt="Seoul National University" />
       </a>
-      <a class="affil" href="https://lums.edu.pk/" target="_blank" rel="noopener noreferrer">
-        <img src="assets/lums.svg" alt="Lahore University of Management Sciences" />
+      <a class="affil" href="https://www.fsu.edu/" target="_blank" rel="noopener noreferrer">
+        <img src="assets/fsu.svg" alt="Florida State University" />
       </a>
     </aside>
     <div class="wrap">
     <header>
       <h1>Ahmer Nadeem Khan</h1>
 
-      <nav>
+      <nav class="side-nav">
         <a href="#research">Research</a>
         <a href="#projects">Projects</a>
         <a href="#talks">Talks</a>
@@ -257,8 +300,8 @@
 
       <div class="hero">
         <p>
-          I’m a PhD student in Financial Mathematics interested in stochastic processes,
-          optimization, and quantitative modeling.
+          I’m a PhD student at Florida State University under the supervision of Dr. Alec Kercheval. I am in the Financial Mathematics program
+          within the Department of Mathematics and I am broadly interested in high frquency trading, portfolio optimization, and high performance computing.
         </p>
 
         <div class="links">
@@ -293,8 +336,43 @@
     <section id="projects">
       <h2>Projects</h2>
       <div class="card">
-        <strong>Project Name</strong>
-        <p>One sentence on what it does and why it matters.</p>
+        <div class="card-title">
+          <strong>Dynamic VIX-Based Hedging of Equity Risk during Market Stress Events</strong>
+          <span class="meta">Nov 2025</span>
+        </div>
+        <p>Designed and backtested a dynamic volatility-based hedge for equity portfolios using VIX-linked instruments during macro-driven stress regimes.</p>
+      </div>
+
+      <div class="card">
+        <div class="card-title">
+          <strong>CUDA-accelerated Monte Carlo for Exotic Option Pricing</strong>
+          <span class="meta">May 2025</span>
+        </div>
+        <p>Implemented high-performance Monte Carlo pricing algorithms for exotic options in C++ and CUDA, achieving over 100× speedup versus CPU baselines.</p>
+      </div>
+
+      <div class="card">
+        <div class="card-title">
+          <strong>Equities Portfolio Optimization using James–Stein Shrinkage</strong>
+          <span class="meta">Apr 2025</span>
+        </div>
+        <p>Studied covariance shrinkage techniques for mean–variance portfolio optimization and evaluated their out-of-sample risk–return performance.</p>
+      </div>
+
+      <div class="card">
+        <div class="card-title">
+          <strong>Numerical and Monte Carlo Algorithms Library (MATLAB & Julia)</strong>
+          <span class="meta">Sep 2024 — May 2025</span>
+        </div>
+        <p>Developed a reusable library of numerical analysis and Monte Carlo algorithms with emphasis on stability, convergence, and reproducibility.</p>
+      </div>
+
+      <div class="card">
+        <div class="card-title">
+          <strong>Schubert Calculus and the Cohomology of the Grassmannian</strong>
+          <span class="meta">Sep 2023 — May 2024</span>
+        </div>
+        <p>Conducted undergraduate thesis research on intersection theory and Schubert calculus, culminating in a defended thesis presentation.</p>
       </div>
     </section>
 
@@ -302,8 +380,26 @@
       <h2>Talks & Presentations</h2>
       <div class="card">
         <ul>
-          <li><strong>Title of Talk</strong>, Seminar, Institution, 2025.</li>
-          <li><strong>Another Talk</strong>, Workshop, 2024.</li>
+          <li>
+            <strong>Catalan Numbers and Their Properties</strong><br>
+            Algebra Seminar, Florida State University · Feb 2026
+          </li>
+          <li>
+            <strong>Portfolio Optimization and Successive Convex Approximation</strong><br>
+            Florida State University · Dec 2025
+          </li>
+          <li>
+            <strong>Limit Order Book Simulation: A Review and Recent Progress</strong><br>
+            Financial Mathematics Seminar, Florida State University · Dec 2025
+          </li>
+          <li>
+            <strong>Market Microstructure and High Frequency Trading</strong><br>
+            Financial Mathematics Seminar, Florida State University · May 2025
+          </li>
+          <li>
+            <strong>Borsuk–Ulam Theorem and its Applications</strong><br>
+            Lahore University of Management Sciences · Aug 2023
+          </li>
         </ul>
       </div>
     </section>
@@ -312,14 +408,9 @@
       <h2>Teaching</h2>
       <div class="card">
         <div class="card-title">
-          <strong>Instructor of Record — Calculus I (MAC 2311)</strong>
+          <strong>Calculus I (MAC 2311), Fall 2026</strong>
           <span class="meta">Florida State University</span>
         </div>
-        <ul>
-          <li>Lectures 3×/week (50 min) and weekly recitation (75 min) for 29 students</li>
-          <li>Designed lecture notes, worksheets, quizzes, and exams</li>
-          <li>Managed Canvas course logistics and held weekly office hours</li>
-        </ul>
       </div>
     </section>
 
