@@ -41,7 +41,6 @@
       flex-direction:column;
       gap: 10px;
       padding-bottom: 16px;
-      border-bottom: 1px solid var(--border);
       margin-bottom: 18px;
     }
 
@@ -74,12 +73,12 @@
     }
 
     .hero{
-      border: 1px solid var(--border);
-      background: var(--panel);
-      border-radius: var(--radius);
-      padding: 16px;
-      box-shadow: var(--shadow);
       margin-top: 14px;
+      padding: 0;
+      border: none;
+      background: transparent;
+      border-radius: 0;
+      box-shadow: none;
     }
 
     .hero p{ margin: 0 0 10px; }
@@ -115,6 +114,27 @@
       border-radius: var(--radius);
       padding: 14px;
       box-shadow: var(--shadow);
+    }
+
+    /* Only show card styling in Projects and Talks */
+    #projects .card,
+    #talks .card{
+      border: 1px solid var(--border);
+      background: var(--panel);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 14px;
+    }
+
+    /* Remove card styling in Research/Teaching/Contact */
+    #research .card,
+    #teaching .card,
+    #contact .card{
+      border: none;
+      background: transparent;
+      border-radius: 0;
+      box-shadow: none;
+      padding: 0;
     }
 
     .card + .card{ margin-top: 14px; }
@@ -186,7 +206,7 @@
 
         <div class="links">
           <a href="https://github.com/ahmer-cpu" target="_blank">GitHub</a>
-          <a href="#" target="_blank">LinkedIn</a>
+          <a href="https://www.linkedin.com/in/ahmerkhan1/" target="_blank">LinkedIn</a>
           <a href="cv.pdf" target="_blank">CV</a>
         </div>
       </div>
@@ -204,7 +224,7 @@
         </ul>
       </div>
 
-      <div class="card">
+      <div class="card" style="margin-top:14px;">
         <strong>Current Work</strong>
         <p>
           I am currently working with Dr. Kai Zhao on randomized SVD methods for lossy
