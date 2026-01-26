@@ -6,17 +6,17 @@
   <meta name="description" content="Ahmer Nadeem Khan — Projects" />
   <title>Projects — Ahmer Nadeem Khan</title>
   <style>
-    :root{ --bg:#fbfbfb; --panel:#ffffff; --text:#111111; --muted:#6f6f6f; --border:#e6e6e6; --chip:#f3f3f3; --shadow: 0 1px 0 rgba(0,0,0,0.03); --max: 780px; --radius: 14px; }
+    :root{ --bg:#fbfbfb; --panel:#ffffff; --text:#111111; --muted:#6f6f6f; --border:#e6e6e6; --chip:#f3f3f3; --shadow: 0 1px 0 rgba(0,0,0,0.03); --max: 960px; --radius: 14px; }
     *{ box-sizing:border-box; } html{ scroll-behavior:smooth; }
     body{ margin:0; background: var(--bg); color: var(--text); font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; line-height: 1.7; }
     .page{ width: 100%; }
-    .wrap{ max-width: var(--max); margin: 0 auto; padding: 64px 18px 80px; }
+    .wrap{ max-width: var(--max); margin: 0 auto; padding: 40px 18px 80px; }
     .affiliations{ position: absolute; top: 16px; left: 16px; display: flex; flex-direction: row; gap: 16px; align-items: center; z-index: 30; }
     .affiliations a{ border-bottom: none !important; }
     .affil{ display: inline-flex; width: 64px; }
     .affil img{ display: block; width: 100%; height: auto; }
     .affil:hover{ transform: translateY(-1px); }
-    header{ display:flex; flex-direction:column; gap: 6px; padding-top: 28px; padding-bottom: 16px; margin-bottom: 18px; }
+    header{ display:flex; flex-direction:column; gap: 6px; padding-top: 28px; padding-bottom: 16px; margin-bottom: 8px; }
     h1{ margin:0; font-size: 44px; letter-spacing: -0.04em; line-height: 1.05; font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif; font-weight: 700; }
     nav{ display:flex; flex-wrap:wrap; gap: 14px; margin-top: 6px; }
     nav a{ text-decoration:none; color: var(--muted); font-size: 13px; border-bottom: 1px solid transparent; }
@@ -24,6 +24,21 @@
     .top-nav{ display: flex; justify-content: center; gap: 32px; margin-top: -6px; margin-bottom: 16px; }
     .top-nav a{ font-size: 15px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); text-decoration: none; border-bottom: 2px solid transparent; padding-bottom: 4px; }
     .top-nav a:hover{ color: var(--text); border-bottom-color: var(--text); }
+    .site-name{
+      position: absolute;
+      top: 28px;
+      left: 24px;
+      font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+      font-size: 18px;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      color: var(--text);
+      text-decoration: none;
+      border-bottom: none;
+    }
+    .site-name:hover{
+      color: #6b1f2b;
+    }
     /* Active nav link */
     nav a.active{
       color: #6b1f2b;
@@ -43,6 +58,21 @@
     .card{ border: 1px solid var(--border); background: var(--panel); border-radius: var(--radius); padding: 14px; box-shadow: var(--shadow); }
     #projects .card{ border: 1px solid var(--border); background: var(--panel); border-radius: var(--radius); box-shadow: var(--shadow); padding: 14px; }
     .card + .card{ margin-top: 14px; }
+    .project-card{
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+    }
+    .project-icon{
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 0;
+      flex-shrink: 0;
+    }
+    .project-content p{
+      margin-top: 4px;
+    }
     .card-title{ display:flex; justify-content:space-between; align-items:baseline; margin-bottom: 6px; }
     .card-title strong{ font-weight: 650; letter-spacing: -0.015em; }
     .meta{ color: var(--muted); font-size: 14px; }
@@ -60,8 +90,8 @@
 <body id="page">
   <div class="page">
     <div class="wrap">
-      <a href="index.html">&larr; Home</a>
       <header>
+        <a href="index.html" class="site-name">Ahmer Nadeem Khan</a>
         <nav class="top-nav">
           <a href="index.html">Home</a>
           <a href="projects.html" class="active">Projects</a>
@@ -71,40 +101,55 @@
         </nav>
       </header>
       <section id="projects">
-        <div class="card">
-          <div class="card-title">
-            <strong>Dynamic VIX-Based Hedging of Equity Risk during Market Stress Events</strong>
-            <span class="meta">Nov 2025</span>
+        <div class="card project-card">
+          <img class="project-icon" src="assets/projects/vix.jpg" alt="">
+          <div class="project-content">
+            <div class="card-title">
+              <strong>Dynamic VIX-Based Hedging of Equity Risk during Market Stress Events</strong>
+              <span class="meta">Nov 2025</span>
+            </div>
+            <p>Designed and backtested a dynamic volatility-based hedge for equity portfolios using VIX-linked instruments during macro-driven stress regimes.</p>
           </div>
-          <p>Designed and backtested a dynamic volatility-based hedge for equity portfolios using VIX-linked instruments during macro-driven stress regimes.</p>
         </div>
-        <div class="card">
-          <div class="card-title">
-            <strong>CUDA-accelerated Monte Carlo for Exotic Option Pricing</strong>
-            <span class="meta">May 2025</span>
+        <div class="card project-card">
+          <img class="project-icon" src="assets/projects/cuda.png" alt="">
+          <div class="project-content">
+            <div class="card-title">
+              <strong>CUDA-accelerated Monte Carlo for Exotic Option Pricing</strong>
+              <span class="meta">May 2025</span>
+            </div>
+            <p>Implemented high-performance Monte Carlo pricing algorithms for exotic options in C++ and CUDA, achieving over 100× speedup versus CPU baselines.</p>
           </div>
-          <p>Implemented high-performance Monte Carlo pricing algorithms for exotic options in C++ and CUDA, achieving over 100× speedup versus CPU baselines.</p>
         </div>
-        <div class="card">
-          <div class="card-title">
-            <strong>Equities Portfolio Optimization using James–Stein Shrinkage</strong>
-            <span class="meta">Apr 2025</span>
+        <div class="card project-card">
+          <img class="project-icon" src="assets/projects/portfolio.png" alt="">
+          <div class="project-content">
+            <div class="card-title">
+              <strong>Equities Portfolio Optimization using James–Stein Shrinkage</strong>
+              <span class="meta">Apr 2025</span>
+            </div>
+            <p>Studied covariance shrinkage techniques for mean–variance portfolio optimization and evaluated their out-of-sample risk–return performance.</p>
           </div>
-          <p>Studied covariance shrinkage techniques for mean–variance portfolio optimization and evaluated their out-of-sample risk–return performance.</p>
         </div>
-        <div class="card">
-          <div class="card-title">
-            <strong>Numerical and Monte Carlo Algorithms Library (MATLAB & Julia)</strong>
-            <span class="meta">Sep 2024 — May 2025</span>
+        <div class="card project-card">
+          <img class="project-icon" src="assets/projects/numerical.png" alt="">
+          <div class="project-content">
+            <div class="card-title">
+              <strong>Numerical and Monte Carlo Algorithms Library (MATLAB & Julia)</strong>
+              <span class="meta">Sep 2024 — May 2025</span>
+            </div>
+            <p>Developed a reusable library of numerical analysis and Monte Carlo algorithms with emphasis on stability, convergence, and reproducibility.</p>
           </div>
-          <p>Developed a reusable library of numerical analysis and Monte Carlo algorithms with emphasis on stability, convergence, and reproducibility.</p>
         </div>
-        <div class="card">
-          <div class="card-title">
-            <strong>Schubert Calculus and the Cohomology of the Grassmannian</strong>
-            <span class="meta">Sep 2023 — May 2024</span>
+        <div class="card project-card">
+          <img class="project-icon" src="assets/projects/schubert.png" alt="">
+          <div class="project-content">
+            <div class="card-title">
+              <strong>Schubert Calculus and the Cohomology of the Grassmannian</strong>
+              <span class="meta">Sep 2023 — May 2024</span>
+            </div>
+            <p>Conducted undergraduate thesis research on intersection theory and Schubert calculus, culminating in a defended thesis presentation.</p>
           </div>
-          <p>Conducted undergraduate thesis research on intersection theory and Schubert calculus, culminating in a defended thesis presentation.</p>
         </div>
       </section>
     </div>

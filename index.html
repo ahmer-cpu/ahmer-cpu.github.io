@@ -110,6 +110,23 @@
       border-bottom-color: var(--text);
     }
 
+    .site-name{
+      position: absolute;
+      top: 28px;
+      left: 24px;
+      font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+      font-size: 18px;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      color: var(--text);
+      text-decoration: none;
+      border-bottom: none;
+    }
+
+    .site-name:hover{
+      color: #6b1f2b;
+    }
+
     #index nav a.active{
       color: #6b1f2b;
       border-bottom-color: #6b1f2b;
@@ -322,6 +339,7 @@
   <div class="page">
     <div class="wrap">
     <header>
+      <a href="index.html" class="site-name">Ahmer Nadeem Khan</a>
       <nav class="top-nav">
         <a href="index.html" class="active">Home</a>
         <a href="projects.html">Projects</a>
@@ -368,9 +386,9 @@
 
       <div class="card">
         <ul>
-          <li>Limit order book simulation and modeling for high-frequency trading, with particular emphasis on deep learning–based approaches.</li>
-          <li>Convex and non-convex optimization methods for portfolio optimization, including higher-order and risk-aware portfolio models.</li>
-          <li>Monte Carlo methods on parallel architectures, with a focus on GPU algorithms for normal random variate generation (e.g., the Wallace method).</li>
+          <li>Limit order book simulation and modeling for high-frequency trading, particulary deep learning–based models.</li>
+          <li>Convex and non-convex optimization methods for portfolio optimization, including higher-order (MVSK) portfolios and alternative risk measures.</li>
+          <li>Monte Carlo methods on parallel architectures, with a focus on GPU algorithms for psuedorandom number generation (e.g., the Wallace method to generate normal random samples).</li>
         </ul>
         <p>
           I am currently working with <a href="https://ayzk.github.io/index.html" target="_blank" rel="noopener noreferrer">Dr. Kai Zhao</a> on randomized SVD methods for lossy
