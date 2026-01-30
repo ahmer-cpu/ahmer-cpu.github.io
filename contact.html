@@ -231,6 +231,51 @@
     #page section > p{
       margin-left: 0 !important;
     }
+
+    .contact-affiliations{
+      margin-top: 28px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .contact-affiliations a{
+      border-bottom: none !important;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 70px;
+      height: 70px;
+      overflow: visible;
+      background: transparent !important;
+      box-shadow: none !important;
+      border: none !important;
+    }
+
+    .contact-affiliations img{
+      height: 56px;
+      width: auto;
+      display: block;
+      background: transparent !important;
+    }
+
+    .contact-affiliations .affil:hover{
+      transform: translateY(-1px);
+    }
+
+    .affil-fsu img{
+      transform: translateX(-6px);
+    }
+
+    @media (max-width: 640px){
+      .contact-affiliations img{
+        height: 44px;
+      }
+      .contact-affiliations{
+        gap: 12px;
+      }
+    }
   </style>
 </head>
 
@@ -244,6 +289,7 @@
           <a href="projects.html">Projects</a>
           <a href="talks.html">Talks</a>
           <a href="teaching.html">Teaching</a>
+          <a href="awards.html">Awards</a>
           <a href="contact.html" class="active">Contact</a>
         </nav>
       </header>
@@ -271,6 +317,18 @@
               <span>Tallahassee, FL</span>
             </div>
           </div>
+        </div>
+
+        <div class="contact-affiliations" aria-label="Affiliations">
+          <a class="affil" href="https://lums.edu.pk/" target="_blank" rel="noopener noreferrer">
+            <img src="assets/lums.png" alt="Lahore University of Management Sciences" />
+          </a>
+          <a class="affil" href="https://en.snu.ac.kr/" target="_blank" rel="noopener noreferrer">
+            <img src="assets/snu.png" alt="Seoul National University" />
+          </a>
+          <a class="affil affil-fsu" href="https://www.fsu.edu/" target="_blank" rel="noopener noreferrer">
+            <img src="assets/fsu.png" alt="Florida State University" />
+          </a>
         </div>
       </section>
     </div>

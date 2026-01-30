@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Ahmer Nadeem Khan — Projects" />
-  <title>Projects — Ahmer Nadeem Khan</title>
+  <meta name="description" content="Ahmer Nadeem Khan — Awards" />
+  <title>Awards — Ahmer Nadeem Khan</title>
   <style>
     :root{ --bg:#fbfbfb; --panel:#ffffff; --text:#111111; --muted:#6f6f6f; --border:#e6e6e6; --chip:#f3f3f3; --shadow: 0 1px 0 rgba(0,0,0,0.03); --max: 960px; --radius: 14px; }
     *{ box-sizing:border-box; } html{ scroll-behavior:smooth; }
@@ -56,23 +56,8 @@
     section > .card, section > .facts, section > ul, section > p{ margin-left: 14px; }
     section > .card + .card{ margin-top: 14px; }
     .card{ border: 1px solid var(--border); background: var(--panel); border-radius: var(--radius); padding: 14px; box-shadow: var(--shadow); }
-    #projects .card{ border: 1px solid var(--border); background: var(--panel); border-radius: var(--radius); box-shadow: var(--shadow); padding: 14px; }
+    #awards .card{ border: 1px solid var(--border); background: var(--panel); border-radius: var(--radius); box-shadow: var(--shadow); padding: 14px; }
     .card + .card{ margin-top: 14px; }
-    .project-card{
-      display: flex;
-      align-items: flex-start;
-      gap: 16px;
-    }
-    .project-icon{
-      width: 100px;
-      height: 100px;
-      object-fit: cover;
-      border-radius: 0;
-      flex-shrink: 0;
-    }
-    .project-content p{
-      margin-top: 4px;
-    }
     .card-title{ display:flex; justify-content:space-between; align-items:baseline; margin-bottom: 6px; }
     .card-title strong{ font-weight: 650; letter-spacing: -0.015em; }
     .meta{ color: var(--muted); font-size: 14px; }
@@ -94,63 +79,30 @@
         <a href="index.html" class="site-name">Ahmer Nadeem Khan</a>
         <nav class="top-nav">
           <a href="index.html">Home</a>
-          <a href="projects.html" class="active">Projects</a>
+          <a href="projects.html">Projects</a>
           <a href="talks.html">Talks</a>
           <a href="teaching.html">Teaching</a>
-          <a href="awards.html">Awards</a>
+          <a href="awards.html" class="active">Awards</a>
           <a href="contact.html">Contact</a>
         </nav>
       </header>
-      <section id="projects">
-        <div class="card project-card">
-          <img class="project-icon" src="assets/projects/vix.jpg" alt="">
-          <div class="project-content">
-            <div class="card-title">
-              <strong>Dynamic VIX-Based Hedging of Equity Risk during Market Stress Events</strong>
-              <span class="meta">Nov 2025</span>
-            </div>
-            <p>Designed and backtested a dynamic volatility-based hedge for equity portfolios using VIX-linked instruments during macro-driven stress regimes.</p>
+      <section id="awards">
+        <h2>Awards</h2>
+
+        <div class="card">
+          <div class="card-title">
+            <strong>Award Name</strong>
+            <span class="meta">Year</span>
           </div>
+          <p>One-line description / institution.</p>
         </div>
-        <div class="card project-card">
-          <img class="project-icon" src="assets/projects/cuda.png" alt="">
-          <div class="project-content">
-            <div class="card-title">
-              <strong>CUDA-accelerated Monte Carlo for Exotic Option Pricing</strong>
-              <span class="meta">May 2025</span>
-            </div>
-            <p>Implemented high-performance Monte Carlo pricing algorithms for exotic options in C++ and CUDA, achieving over 100× speedup versus CPU baselines.</p>
+
+        <div class="card">
+          <div class="card-title">
+            <strong>Award Name</strong>
+            <span class="meta">Year</span>
           </div>
-        </div>
-        <div class="card project-card">
-          <img class="project-icon" src="assets/projects/portfolio.png" alt="">
-          <div class="project-content">
-            <div class="card-title">
-              <strong>Equities Portfolio Optimization using James–Stein Shrinkage</strong>
-              <span class="meta">Apr 2025</span>
-            </div>
-            <p>Studied covariance shrinkage techniques for mean–variance portfolio optimization and evaluated their out-of-sample risk–return performance.</p>
-          </div>
-        </div>
-        <div class="card project-card">
-          <img class="project-icon" src="assets/projects/numerical.png" alt="">
-          <div class="project-content">
-            <div class="card-title">
-              <strong>Numerical and Monte Carlo Algorithms Library (MATLAB & Julia)</strong>
-              <span class="meta">Sep 2024 — May 2025</span>
-            </div>
-            <p>Developed a reusable library of numerical analysis and Monte Carlo algorithms with emphasis on stability, convergence, and reproducibility.</p>
-          </div>
-        </div>
-        <div class="card project-card">
-          <img class="project-icon" src="assets/projects/schubert.png" alt="">
-          <div class="project-content">
-            <div class="card-title">
-              <strong>Schubert Calculus and the Cohomology of the Grassmannian</strong>
-              <span class="meta">Sep 2023 — May 2024</span>
-            </div>
-            <p>Conducted undergraduate thesis research on intersection theory and Schubert calculus, culminating in a defended thesis presentation.</p>
-          </div>
+          <p>One-line description / institution.</p>
         </div>
       </section>
     </div>

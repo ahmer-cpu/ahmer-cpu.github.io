@@ -17,6 +17,10 @@
       --shadow: 0 1px 0 rgba(0,0,0,0.03);
       --max: 780px;
       --radius: 14px;
+
+      /* layout knobs */
+      --photo-col: 300px; /* width reserved for photo column */
+      --gap: 48px;        /* gap between photo and text column */
     }
 
     *{ box-sizing:border-box; }
@@ -28,44 +32,14 @@
       color: var(--text);
       font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
       line-height: 1.7;
+      position: relative;
     }
 
-    .page{
-      width: 100%;
-    }
-
+    /* keep wrap exactly as before */
     .wrap{
-      max-width: var(--max);
+      max-width: calc(var(--photo-col) + var(--gap) + var(--max));
       margin: 0 auto;
       padding: 40px 18px 80px;
-    }
-
-    /* Affiliations banner: under picture on left */
-
-        /* Logos row under the photo */
-    .affiliations{
-      display: flex;
-      flex-direction: row;
-      flex-wrap: nowrap;   /* prevent stacking */
-      gap: 14px;
-      margin-top: 12px;
-    }
-
-    .affiliations a{
-      border-bottom: none !important;
-      display: inline-flex;
-      align-items: center;
-    }
-
-    /* Uniform logo sizing across different SVG aspect ratios */
-    .affiliations img{
-      height: 44px;   /* tweak 40–54 as desired */
-      width: auto;
-      display: block;
-    }
-
-    .affil:hover{
-      transform: translateY(-1px);
     }
 
     header{
@@ -77,14 +51,20 @@
       margin-bottom: 8px;
     }
 
-    h1{
-      margin:0;
-      font-size: 44px;
-      letter-spacing: -0.04em;
-      line-height: 1.05;
+    .site-name{
+      position: absolute;
+      top: 28px;
+      left: 24px;
+      z-index: 10;
       font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
-      font-weight: 700;
+      font-size: 18px;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      color: var(--text);
+      text-decoration: none;
+      border-bottom: none;
     }
+    .site-name:hover{ color:#6b1f2b; }
 
     .top-nav{
       display: flex;
@@ -92,6 +72,10 @@
       gap: 32px;
       margin-top: -6px;
       margin-bottom: 16px;
+      width: 100vw;
+      position: relative;
+      left: 50%;
+      transform: translateX(-50%);
     }
 
     .top-nav a{
@@ -110,26 +94,18 @@
       border-bottom-color: var(--text);
     }
 
-    .site-name{
-      position: absolute;
-      top: 28px;
-      left: 24px;
-      font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
-      font-size: 18px;
-      font-weight: 600;
-      letter-spacing: -0.01em;
-      color: var(--text);
-      text-decoration: none;
-      border-bottom: none;
-    }
-
-    .site-name:hover{
-      color: #6b1f2b;
-    }
-
     #index nav a.active{
       color: #6b1f2b;
       border-bottom-color: #6b1f2b;
+    }
+
+    h1{
+      margin:0;
+      font-size: 44px;
+      letter-spacing: -0.04em;
+      line-height: 1.05;
+      font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+      font-weight: 700;
     }
 
     .hero{
@@ -141,7 +117,6 @@
       border-radius: 0;
       box-shadow: none;
     }
-
     .hero p{ margin: 0 0 10px; }
 
     .links{
@@ -151,19 +126,16 @@
       margin-top: 10px;
     }
 
+    .intro-text{
+      margin-bottom: 24px;
+    }
+
     a{
       color: var(--text);
       text-decoration:none;
       border-bottom: 1px solid var(--border);
     }
-
     a:hover{ border-bottom-color: var(--text); }
-
-    section{ padding-top: 0; }
-
-    section:last-of-type{
-      margin-bottom: 32px;
-    }
 
     h2{
       font-size: 13px;
@@ -173,17 +145,12 @@
       margin: 0 0 12px;
     }
 
-    /* Indent section content to emphasize headings */
+    /* content indent (unchanged behavior) */
     section > .card,
     section > .facts,
     section > ul,
     section > p{
       margin-left: 14px;
-    }
-
-    /* Ensure multiple cards in a section stay aligned */
-    section > .card + .card{
-      margin-top: 14px;
     }
 
     .card{
@@ -194,24 +161,8 @@
       box-shadow: var(--shadow);
     }
 
-    /* Only show card styling in Projects and Talks */
-    #projects .card,
-    #talks .card{
-      border: 1px solid var(--border);
-      background: var(--panel);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding: 14px;
-    }
-
-    #talks .card{
-      padding: 10px 12px;
-    }
-
-    /* Remove card styling in Research/Teaching/Contact */
-    #research .card,
-    #teaching .card,
-    #contact .card{
+    /* remove card styling in research on home */
+    #research .card{
       border: none;
       background: transparent;
       border-radius: 0;
@@ -219,56 +170,51 @@
       padding: 0;
     }
 
-    .card + .card{ margin-top: 14px; }
-
-    .card-title{
-      display:flex;
-      justify-content:space-between;
-      align-items:baseline;
-      margin-bottom: 6px;
-    }
-
-    .card-title strong{
-      font-weight: 650;
-      letter-spacing: -0.015em;
-    }
-
-    .meta{
-      color: var(--muted);
-      font-size: 14px;
-    }
-
     ul{ margin: 10px 0 0 18px; padding:0; }
     li{ margin: 7px 0; }
 
-    /* FACTS (base) */
-    .facts{
-      display:grid;
-      grid-template-columns: 1fr;
-      gap: 10px;
+    /* ===== NEW: One centered unit below nav ===== */
+    .home-row{
+      display: grid;
+      grid-template-columns: var(--photo-col) var(--max);
+      column-gap: var(--gap);
+      justify-content: center;   /* centers the whole unit */
+      align-items: start;
+      margin-top: 18px;
     }
 
-    .fact{
-      display:grid;
-      grid-template-columns: 110px 1fr;
-      gap: 14px;
-      font-size: 14px;
+    /* left column: photo + logos */
+    .header-photo{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 12px;
+    }
+    .header-photo img{
+      width: 300px;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.10);
     }
 
-    .fact span:first-child{ color: var(--muted); }
-    .fact span:last-child{ text-align: center; }
+    /* right column: your existing text content */
+    section{ padding-top: 0; }
 
-    /* CONTACT: two-column layout */
-    @media (min-width: 640px){
-      #contact .facts{
-        grid-template-columns: 1fr 1fr;
-      }
-    }
-
-    @media (max-width: 900px){
-      .affiliations{ display: none; }
+    /* responsive: stack */
+    @media (max-width: 1100px){
       .wrap{
-        padding-left: 18px;
+        max-width: var(--max);
+      }
+      .home-row{
+        grid-template-columns: 1fr;
+        row-gap: 18px;
+        justify-content: start;
+      }
+      .header-photo{
+        align-items: center;
+      }
+      .header-photo img{
+        width: 180px;
       }
     }
 
@@ -277,126 +223,69 @@
         gap: 18px;
         flex-wrap: wrap;
       }
-    }
-
-    .header-photo {
-      position: absolute;
-      top: 120px; /* Adjust as needed to align with name */
-      left: 48px;
-      z-index: 2;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    .header-photo img {
-      width: 270px;
-      height: auto;
-      border-radius: 12px;
-      box-shadow: 0 4px 24px rgba(0,0,0,0.10);
-    }
-    @media (max-width: 1100px) {
-      .header-photo {
-        position: static;
-        display: flex;
-        justify-content: flex-start;
-        margin: 24px 0 0 0;
-      }
-      .header-photo img {
-        width: 180px;
-      }
-    }
-    @media (max-width: 700px) {
-      .header-photo {
-        justify-content: center;
-        margin: 18px 0 0 0;
-      }
-      .header-photo img {
+      .header-photo img{
         width: 140px;
       }
-    }
-    .header-photo .affiliations{ justify-content:center; flex-wrap:nowrap; gap:12px; margin-top:24px; }
-    .header-photo .affiliations .affil{ width:auto !important; }
-    .header-photo .affiliations img{ height:54px !important; width:auto !important; max-height:54px !important; display:block; }
-    .header-photo{
-      align-items: center;
-    }
-    .header-photo .affiliations{
-      width: 268px;        /* match image width */
-      justify-content: center;
-    }
-
-    /* Force no background on logos */
-    .header-photo .affiliations a,
-    .header-photo .affiliations img{
-      background: transparent !important;
-      box-shadow: none !important;
-      border: none !important;
     }
   </style>
 </head>
 
 <body id="index">
-  <div class="page">
-    <div class="wrap">
+  <div class="wrap">
     <header>
-      <a href="index.html" class="site-name">Ahmer Nadeem Khan</a>
+      <a href="https://ahmernadeem.com" class="site-name">Ahmer Nadeem Khan</a>
+
       <nav class="top-nav">
         <a href="index.html" class="active">Home</a>
         <a href="projects.html">Projects</a>
         <a href="talks.html">Talks</a>
         <a href="teaching.html">Teaching</a>
+        <a href="awards.html">Awards</a>
         <a href="contact.html">Contact</a>
       </nav>
 
-      <div class="intro-text">
-        <h1>Ahmer Nadeem Khan</h1>
+      <div class="home-row">
+        <div class="header-photo">
+          <img src="assets/picture.jpg" alt="Ahmer Nadeem Khan">
+        </div>
 
-        <div class="hero">
-          <p>
-            I am a PhD student in Financial Mathematics at Florida State University, working under the supervision of
-            <a href="https://www.math.fsu.edu/~kercheva/" target="_blank" rel="noopener noreferrer">Dr. Alec Kercheval</a>,
-            with research interests in high-frequency trading, portfolio optimization, and high-performance computing.
-          </p>
+        <div>
+          <div class="intro-text">
+            <h1>Ahmer Nadeem Khan</h1>
 
-          <div class="links">
-            <a href="https://github.com/ahmer-cpu" target="_blank">GitHub</a>
-            <a href="https://www.linkedin.com/in/ahmerkhan1/" target="_blank">LinkedIn</a>
-            <a href="assets/Ahmer_Nadeem_Khan_CV.pdf" target="_blank">CV</a>
+            <div class="hero">
+              <p>
+                I am a PhD student in Financial Mathematics at Florida State University, working under the supervision of
+                <a href="https://www.math.fsu.edu/~kercheva/" target="_blank" rel="noopener noreferrer">Dr. Alec Kercheval</a>,
+                with research interests in high-frequency trading, portfolio optimization, and high-performance computing.
+              </p>
+
+              <div class="links">
+                <a href="https://github.com/ahmer-cpu" target="_blank">GitHub</a>
+                <a href="https://www.linkedin.com/in/ahmerkhan1/" target="_blank">LinkedIn</a>
+                <a href="assets/Ahmer_Nadeem_Khan_CV.pdf" target="_blank">CV</a>
+              </div>
+            </div>
           </div>
+
+          <section id="research">
+            <h2>Research & Interests</h2>
+
+            <div class="card">
+              <ul>
+                <li>Limit order book simulation and modeling for high-frequency trading, particulary deep learning–based models.</li>
+                <li>Convex and non-convex optimization methods for portfolio optimization, including higher-order (MVSK) portfolios and alternative risk measures.</li>
+                <li>Monte Carlo methods on parallel architectures, with a focus on GPU algorithms for psuedorandom number generation (e.g., the Wallace method to generate normal random samples).</li>
+              </ul>
+              <p>
+                I am currently working with <a href="https://ayzk.github.io/index.html" target="_blank" rel="noopener noreferrer">Dr. Kai Zhao</a> on randomized SVD methods for lossy
+                data compression, in collaboration with researchers at Argonne National Laboratory.
+              </p>
+            </div>
+          </section>
         </div>
       </div>
-      <div class="header-photo">
-        <img src="assets/picture.jpg" alt="Ahmer Nadeem Khan">
-        <aside class="affiliations" aria-label="Affiliations">
-          <a class="affil" href="https://lums.edu.pk/" target="_blank" rel="noopener noreferrer">
-            <img src="assets/lums.png" alt="Lahore University of Management Sciences" />
-          </a>
-          <a class="affil" href="https://en.snu.ac.kr/" target="_blank" rel="noopener noreferrer">
-            <img src="assets/snu.png" alt="Seoul National University" />
-          </a>
-          <a class="affil" href="https://www.fsu.edu/" target="_blank" rel="noopener noreferrer">
-            <img src="assets/fsu.png" alt="Florida State University" />
-          </a>
-        </aside>
-      </div>
     </header>
-
-    <section id="research">
-      <h2>Research & Interests</h2>
-
-      <div class="card">
-        <ul>
-          <li>Limit order book simulation and modeling for high-frequency trading, particulary deep learning–based models.</li>
-          <li>Convex and non-convex optimization methods for portfolio optimization, including higher-order (MVSK) portfolios and alternative risk measures.</li>
-          <li>Monte Carlo methods on parallel architectures, with a focus on GPU algorithms for psuedorandom number generation (e.g., the Wallace method to generate normal random samples).</li>
-        </ul>
-        <p>
-          I am currently working with <a href="https://ayzk.github.io/index.html" target="_blank" rel="noopener noreferrer">Dr. Kai Zhao</a> on randomized SVD methods for lossy
-          data compression, in collaboration with researchers at Argonne National Laboratory.
-        </p>
-      </div>
-    </section>
-  </div>
   </div>
 </body>
 </html>
