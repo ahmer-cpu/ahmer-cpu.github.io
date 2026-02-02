@@ -8,17 +8,29 @@
   <link rel="stylesheet" href="assets/site.css">
   <style>
     /* Page-specific styles for talks */
-    #talks .card{
-      padding: 10px 12px;
+    .project-card{
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
     }
-    #talks .card-title{
-      margin-bottom: 0;
+    .project-icon{
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 0;
+      flex-shrink: 0;
     }
-    #talks .card p{
-      margin-top: 2px;
+    .project-content{
+      flex: 1;
     }
-    #talks .card + .card {
-      margin-top: 14px;
+    .project-content .card-title{
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 6px;
+    }
+    .project-content p{
+      margin-top: 4px;
     }
   </style>
 </head>
@@ -38,40 +50,65 @@
       </header>
       <section id="talks">
         <h2>Talks</h2>
-        <div class="card">
-          <div class="card-title">
-            <strong>The Catalan Numbers and their properties</strong>
-            <span class="meta">Feb 2026</span>
+        <div class="card project-card">
+          <img class="project-icon" src="assets/talks/catalan.png" alt="">
+          <div class="project-content">
+            <div class="card-title">
+              <strong><a href="talks-catalan-numbers.html">The Catalan Numbers and Their Properties</a></strong>
+              <span class="meta">Feb 2026</span>
+            </div>
+            <p>Algebra Seminar, Florida State University</p>
           </div>
-          <p>Algebra Seminar, Florida State University</p>
         </div>
-        <div class="card">
-          <div class="card-title">
-            <strong>Portfolio Optimization and the Successive Convex Approximation framework</strong>
-            <span class="meta">Dec 2025</span>
+        <div class="card project-card">
+          <img class="project-icon" src="assets/talks/convex.png" alt="">
+          <div class="project-content">
+            <div class="card-title">
+              <strong><a href="talks-portfolio-optimization-framework.html">Portfolio Optimization and the Successive Convex Approximation Framework</a></strong>
+              <span class="meta">Dec 2025</span>
+            </div>
+            <p>Florida State University</p>
           </div>
-          <p>Florida State University</p>
         </div>
-        <div class="card">
-          <div class="card-title">
-            <strong>Limit Order Book Simulation: A review and recent progress</strong>
-            <span class="meta">Dec 2025</span>
+        <div class="card project-card">
+          <img class="project-icon" src="assets/talks/lob.png" alt="">
+          <div class="project-content">
+            <div class="card-title">
+              <strong><a href="talks-limit-order-book-simulation.html">Limit Order Book Simulation: A Review and Recent Progress</a></strong>
+              <span class="meta">Dec 2025</span>
+            </div>
+            <p>Financial Mathematics Seminar, Florida State University</p>
           </div>
-          <p>Financial Mathematics Seminar, Florida State University</p>
         </div>
-        <div class="card">
-          <div class="card-title">
-            <strong>Market microstructure and High Frequency Trading</strong>
-            <span class="meta">May 2025</span>
+        <div class="card project-card">
+          <img class="project-icon" src="assets/talks/hft.png" alt="">
+          <div class="project-content">
+            <div class="card-title">
+              <strong><a href="talks-market-microstructure.html">Market Microstructure and High-Frequency Trading</a></strong>
+              <span class="meta">May 2025</span>
+            </div>
+            <p>Financial Mathematics Seminar, Florida State University</p>
           </div>
-          <p>Financial Mathematics Seminar, Florida State University</p>
         </div>
-        <div class="card">
-          <div class="card-title">
-            <strong>Borsuk–Ulam Theorem and its applications</strong>
-            <span class="meta">Aug 2023</span>
+        <div class="card project-card">
+          <img class="project-icon" src="assets/talks/schubert-presentation.webp" alt="">
+          <div class="project-content">
+            <div class="card-title">
+              <strong><a href="talks-schubert-calculus.html">Schubert Calculus and the Cohomology of the Grassmannian</a></strong>
+              <span class="meta">May 2024</span>
+            </div>
+            <p>Senior thesis defense, Lahore University of Management Sciences</p>
           </div>
-          <p>Lahore University of Management Sciences</p>
+        </div>
+        <div class="card project-card">
+          <img class="project-icon" src="assets/talks/borsuk-ulam.webp" alt="">
+          <div class="project-content">
+            <div class="card-title">
+              <strong><a href="talks-borsuk-ulam.html">Borsuk–Ulam Theorem and its applications</a></strong>
+              <span class="meta">Dec 2024</span>
+            </div>
+            <p>Directed Research Project, Lahore University of Management Sciences</p>
+          </div>
         </div>
       </section>
     </div>
