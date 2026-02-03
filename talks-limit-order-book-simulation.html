@@ -55,7 +55,7 @@
       font-size: 14px;
       margin-bottom: 12px;
     }
-    .talk-meta span:first-child{
+    .talk-meta span:nth-child(odd){
       color: var(--muted);
     }
     .talk-links{
@@ -94,8 +94,7 @@
           <p><strong>Abstract</strong></p>
           <p>Limit Order Books (LOBs) are the mechanism used by most electronic trading venues across major asset classes to match buyers and sellers. Forecasting and simulating the dynamics of the LOB is crucial to many financial applications, e.g. high frequency trading, optimal execution, statistical arbitrage, and market making. A range of modeling approaches have been developed in the literature, including point processes, agent-based models, stochastic differential equations, and deep learning. I will present an overview of the statistical properties of the order book, modeling challenges e.g. market impact awareness, and a comparative review of the various modeling methods. In particular, I will discuss recent success of the recently popular autoregressive generative models (Nagy et al.) on order book message data to simulate order flow, which tokenize the LOB messages and use sequences of tokens like a Large Language Model (LLM) would use words in a language.</p>
           <div class="talk-links">
-            <a href="#">Slides</a>
-            <a href="#">Recording</a>
+            <a href="assets/talks/slides/talk-LOB-review.pdf" target="_blank">Slides</a>
             <a href="#">Notes</a>
           </div>
         </div>
