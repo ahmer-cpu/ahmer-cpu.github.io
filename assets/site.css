@@ -265,12 +265,18 @@ section > .card + .card{
   margin-top: 0;
   display: flex;
   justify-content: flex-end;
+  gap: 6px;
 }
 
 #talks .talk-actions a{
   font-size: 13px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
+}
+
+#talks .talk-actions .separator{
+  font-size: 13px;
+  color: var(--gray-text, #999);
 }
 
 #research .project-content p{
