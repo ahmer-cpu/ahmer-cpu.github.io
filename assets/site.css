@@ -212,6 +212,24 @@ section > .card + .card{
   margin-top: 14px;
 }
 
+#talks .card,
+#research .card{
+  border: none;
+  background: transparent;
+  box-shadow: none;
+  padding: 0;
+}
+
+#talks .project-card,
+#research .project-card{
+  padding: 0;
+}
+
+#talks .card + .card,
+#research .card + .card{
+  margin-top: 24px;
+}
+
 .project-card{
   display: flex;
   align-items: flex-start;
@@ -249,67 +267,44 @@ section > .card + .card{
 #talks .project-content{
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 4px;
 }
 
 #talks .project-icon{
-  width: var(--talk-icon-size);
-  height: var(--talk-icon-size);
+  width: 84px;
+  height: 84px;
 }
 
 #talks .project-content p{
   margin: 0;
+  font-size: 14px;
+  line-height: 1.55;
 }
 
-#talks .talk-actions{
-  margin-top: 0;
-  display: flex;
-  justify-content: flex-end;
-  gap: 6px;
+#talks .ghost-text{
+  visibility: hidden;
 }
 
-#talks .talk-actions a{
-  font-size: 13px;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-#talks .talk-actions .separator{
-  font-size: 13px;
-  color: var(--gray-text, #999);
+#talks .card-title strong,
+#research .card-title strong{
+  font-size: 17px;
 }
 
 #research .project-content p{
   margin: 0;
+  font-size: 14px;
+  line-height: 1.55;
 }
 
-#research .research-actions{
-  margin-top: -6px;
-  display: flex;
-  justify-content: flex-end;
-  gap: 6px;
-}
-
-#research .research-actions a{
-  font-size: 13px;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-#research .research-actions .separator{
-  font-size: 13px;
-  color: var(--gray-text, #999);
-}
-
-#research .project-card{
-  padding: 14px 14px 0;
+#research .project-content{
+  gap: 4px;
 }
 
 .card-title{
   display: flex;
   justify-content: space-between;
   align-items: baseline;
-  margin-bottom: 6px;
+  margin-bottom: 2px;
 }
 
 .card-title strong{
