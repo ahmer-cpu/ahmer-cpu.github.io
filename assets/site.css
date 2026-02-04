@@ -11,6 +11,8 @@
   --max: 960px;
   --radius: 14px;
   --section-indent: 14px;
+  --project-icon-size: 100px;
+  --talk-icon-size: calc(var(--project-icon-size) - 10px);
 }
 
 *{
@@ -208,6 +210,93 @@ section > .card + .card{
 
 .card + .card{
   margin-top: 14px;
+}
+
+.project-card{
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 14px 14px 0;
+}
+
+.project-icon{
+  width: var(--project-icon-size);
+  height: var(--project-icon-size);
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 0;
+  flex-shrink: 0;
+  display: block;
+}
+
+
+
+.project-content{
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.project-card + .project-card{
+  margin-top: 14px;
+}
+
+.project-content p{
+  margin-top: 4px;
+}
+
+#talks .project-content{
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+#talks .project-icon{
+  width: var(--talk-icon-size);
+  height: var(--talk-icon-size);
+}
+
+#talks .project-content p{
+  margin: 0;
+}
+
+#talks .talk-actions{
+  margin-top: 0;
+  display: flex;
+  justify-content: flex-end;
+}
+
+#talks .talk-actions a{
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+#research .project-content p{
+  margin: 0;
+}
+
+#research .research-actions{
+  margin-top: -6px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 6px;
+}
+
+#research .research-actions a{
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+#research .research-actions .separator{
+  font-size: 13px;
+  color: var(--gray-text, #999);
+}
+
+#research .project-card{
+  padding: 14px 14px 0;
 }
 
 .card-title{
