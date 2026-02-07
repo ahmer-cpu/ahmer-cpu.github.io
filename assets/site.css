@@ -175,6 +175,15 @@ a:hover{
   border-bottom-color: var(--text);
 }
 
+/* Remove underline/border from icon links */
+a:has(.project-icon){
+  border-bottom: none !important;
+}
+
+a:has(.project-icon):hover{
+  border-bottom: none !important;
+}
+
 section{
   padding-top: 10px;
 }
@@ -264,15 +273,15 @@ section > .card + .card{
   margin-top: 4px;
 }
 
-#talks .project-content{
+#talks .project-content{  
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 0px;
 }
 
 #talks .project-icon{
-  width: 84px;
-  height: 84px;
+  width: 60px;
+  height: 60px;
 }
 
 #talks .project-content p{
@@ -283,6 +292,11 @@ section > .card + .card{
 
 #talks .ghost-text{
   visibility: hidden;
+}
+
+#talks .project-card + .project-card{
+
+  margin-top: 32px;
 }
 
 #talks .card-title strong,
