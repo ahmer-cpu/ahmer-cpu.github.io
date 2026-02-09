@@ -4,16 +4,39 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="Ahmer Nadeem Khan — CUDA-accelerated Monte Carlo for Exotic Option Pricing" />
-  <title>CUDA-accelerated Monte Carlo for Exotic Option Pricing — Research</title>
+  <title>CUDA-accelerated Monte Carlo for Exotic Option Pricing — Project</title>
+
   <link rel="stylesheet" href="../assets/site.css">
+
+  <!-- Optional: KaTeX (only keep if you will include math on project pages) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      if (typeof renderMathInElement !== "undefined") {
+        renderMathInElement(document.body, {
+          delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '\\[', right: '\\]', display: true},
+            {left: '$', right: '$', display: false},
+            {left: '\\(', right: '\\)', display: false}
+          ]
+        });
+      }
+    });
+  </script>
+
   <style>
-    #research-detail .card{
+    /* Page-specific styles for project detail (mirrors talk detail) */
+    #project .card{
       border: none;
       background: transparent;
       box-shadow: none;
       padding: 0;
     }
-    #research-detail .return-link{
+
+    #project .return-link{
       font-size: 12px;
       letter-spacing: 0.14em;
       text-transform: uppercase;
@@ -23,33 +46,61 @@
       display: inline-block;
       margin-bottom: 12px;
     }
-    #research-detail .return-link:hover{
+    #project .return-link:hover{
       color: var(--text);
       border-bottom-color: var(--text);
     }
-    #research-detail .card-title strong{
+
+    #project .card-title strong{
       font-size: 28px;
       letter-spacing: -0.02em;
       display: block;
     }
-    .research-meta{
+
+    .project-meta{
       display: grid;
-      grid-template-columns: 120px 1fr;
+      grid-template-columns: 140px 1fr;
       gap: 10px 16px;
       font-size: 14px;
       margin-bottom: 12px;
     }
-    .research-meta span:nth-child(odd){
+    .project-meta span:first-child{
       color: var(--muted);
     }
-    .research-links{
+
+    .project-links{
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
+      margin-top: 10px;
+      margin-bottom: 14px;
+    }
+
+    /* Optional: small chips/tags */
+    .tags{
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
       margin-top: 8px;
+      margin-bottom: 6px;
+    }
+    .tag{
+      font-size: 12px;
+      color: var(--muted);
+      border: 1px solid var(--border);
+      background: var(--panel);
+      border-radius: 999px;
+      padding: 3px 10px;
+      box-shadow: var(--shadow);
+    }
+
+    /* Optional: timeline */
+    .timeline{
+      margin: 10px 0 0 18px;
     }
   </style>
 </head>
+
 <body id="page">
   <div class="page">
     <div class="wrap">
@@ -65,22 +116,75 @@
         </nav>
       </header>
 
-      <section id="research-detail">
+      <section id="project">
         <a class="return-link" href="../research.html">Return to research</a>
+
         <div class="card">
           <div class="card-title">
             <strong>CUDA-accelerated Monte Carlo for Exotic Option Pricing</strong>
           </div>
-          <div class="research-meta">
-            <span>Date</span><span>May 2025</span>
-            <span>Status</span><span>Project write-up in progress</span>
+
+          <div class="project-meta">
+            <span>Period</span><span>May 2025</span>
+            <span>Affiliation</span><span>Florida State University</span>
+            <span>Associated with</span><span>Course Project · High-Performance Computing / Computational Finance</span>
+            <span>Role</span><span>Individual project</span>
+            <span>Status</span><span>Completed</span>
           </div>
+
+          <div class="tags" aria-label="Project tags">
+            <span class="tag">GPU computing</span>
+            <span class="tag">Monte Carlo</span>
+            <span class="tag">C++ / CUDA</span>
+            <span class="tag">Derivatives pricing</span>
+          </div>
+
           <p><strong>Overview</strong></p>
-          <p>Placeholder for the project description. Replace this section with a concise summary, methods, and key results.</p>
-          <div class="research-links">
-            <a href="#" target="_blank">Write-up (PDF)</a>
-            <a href="#" target="_blank">GitHub</a>
+          <p>
+            Implemented Monte Carlo pricing for exotic options with a GPU-accelerated pipeline in CUDA, focusing on
+            throughput, variance reduction, and reproducibility. Benchmarked against optimized CPU baselines and profiled
+            performance bottlenecks at the kernel and memory levels.
+          </p>
+
+          <div class="project-links" aria-label="Project links">
+            <a href="https://github.com/ahmer-cpu/REPLACE-ME" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a href="../assets/papers/REPLACE-ME.pdf" target="_blank" rel="noopener noreferrer">Write-up (PDF)</a>
+            <a href="../assets/slides/REPLACE-ME.pdf" target="_blank" rel="noopener noreferrer">Slides</a>
+            <a href="https://github.com/ahmer-cpu/REPLACE-ME/tree/main/src" target="_blank" rel="noopener noreferrer">Code</a>
           </div>
+
+          <p><strong>Contributions</strong></p>
+          <ul>
+            <li>Designed a GPU Monte Carlo engine for pricing path-dependent payoffs with parallel simulation and reduction.</li>
+            <li>Implemented variance reduction (e.g., antithetic variates / control variates where appropriate) and measured impact on error vs runtime.</li>
+            <li>Optimized kernel launches, memory access patterns, and RNG strategy; validated numerical correctness vs CPU reference.</li>
+          </ul>
+
+          <p><strong>Methods & technical notes</strong></p>
+          <ul>
+            <li><strong>Models:</strong> Black–Scholes baseline; extensions depending on payoff structure.</li>
+            <li><strong>Numerics:</strong> PRNG / normal sampling; payoff evaluation; confidence intervals; convergence diagnostics.</li>
+            <li><strong>Performance:</strong> occupancy, memory bandwidth, and end-to-end speedups; profiling with Nsight (or equivalent).</li>
+          </ul>
+
+          <p><strong>Results</strong></p>
+          <ul>
+            <li>Achieved significant speedup over CPU baseline on large path counts; reported throughput (paths/sec) and error bars.</li>
+            <li>Demonstrated variance reduction improvements at fixed runtime for select payoffs.</li>
+          </ul>
+
+          <p><strong>Timeline</strong> (optional)</p>
+          <ul class="timeline">
+            <li>Week 1: baseline CPU implementation + tests</li>
+            <li>Week 2: CUDA kernel + RNG integration</li>
+            <li>Week 3: variance reduction + profiling</li>
+            <li>Week 4: benchmarks + write-up</li>
+          </ul>
+
+          <p><strong>Notes</strong></p>
+          <p>
+            If you want to include math, you can write it inline like $C_n$ or display like $$\hat{V} = e^{-rT}\frac{1}{N}\sum_{i=1}^N f(S_T^{(i)})$$.
+          </p>
         </div>
       </section>
     </div>
