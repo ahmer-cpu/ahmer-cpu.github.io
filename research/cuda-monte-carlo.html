@@ -78,20 +78,18 @@
 
     /* Optional: small chips/tags */
     .tags{
-      display: flex;
+      display: inline;
       flex-wrap: wrap;
-      gap: 8px;
+      gap: 0;
       margin-top: 8px;
       margin-bottom: 6px;
     }
     .tag{
       font-size: 12px;
       color: var(--muted);
-      border: 1px solid var(--border);
-      background: var(--panel);
-      border-radius: 999px;
-      padding: 3px 10px;
-      box-shadow: var(--shadow);
+    }
+    .tag:not(:last-child)::after{
+      content: ", ";
     }
 
     /* Optional: timeline */
