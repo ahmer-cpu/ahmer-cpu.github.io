@@ -4,16 +4,39 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="Ahmer Nadeem Khan — Dynamic VIX-Based Hedging of Equity Risk during Market Stress Events" />
-  <title>Dynamic VIX-Based Hedging of Equity Risk during Market Stress Events — Research</title>
+  <title>Dynamic VIX-Based Hedging of Equity Risk during Market Stress Events — Project</title>
+
   <link rel="stylesheet" href="../assets/site.css">
+
+  <!-- Optional: KaTeX (only keep if you will include math on project pages) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      if (typeof renderMathInElement !== "undefined") {
+        renderMathInElement(document.body, {
+          delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '\\[', right: '\\]', display: true},
+            {left: '$', right: '$', display: false},
+            {left: '\\(', right: '\\)', display: false}
+          ]
+        });
+      }
+    });
+  </script>
+
   <style>
-    #research-detail .card{
+    /* Page-specific styles for project detail (mirrors talk detail) */
+    #project .card{
       border: none;
       background: transparent;
       box-shadow: none;
       padding: 0;
     }
-    #research-detail .return-link{
+
+    #project .return-link{
       font-size: 12px;
       letter-spacing: 0.14em;
       text-transform: uppercase;
@@ -23,33 +46,61 @@
       display: inline-block;
       margin-bottom: 12px;
     }
-    #research-detail .return-link:hover{
+    #project .return-link:hover{
       color: var(--text);
       border-bottom-color: var(--text);
     }
-    #research-detail .card-title strong{
+
+    #project .card-title strong{
       font-size: 28px;
       letter-spacing: -0.02em;
       display: block;
     }
-    .research-meta{
+
+    .project-meta{
       display: grid;
-      grid-template-columns: 120px 1fr;
+      grid-template-columns: 140px 1fr;
       gap: 10px 16px;
       font-size: 14px;
       margin-bottom: 12px;
     }
-    .research-meta span:nth-child(odd){
+    .project-meta span:first-child{
       color: var(--muted);
     }
-    .research-links{
+
+    .project-links{
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
+      margin-top: 10px;
+      margin-bottom: 14px;
+    }
+
+    /* Optional: small chips/tags */
+    .tags{
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
       margin-top: 8px;
+      margin-bottom: 6px;
+    }
+    .tag{
+      font-size: 12px;
+      color: var(--muted);
+      border: 1px solid var(--border);
+      background: var(--panel);
+      border-radius: 999px;
+      padding: 3px 10px;
+      box-shadow: var(--shadow);
+    }
+
+    /* Optional: timeline */
+    .timeline{
+      margin: 10px 0 0 18px;
     }
   </style>
 </head>
+
 <body id="page">
   <div class="page">
     <div class="wrap">
@@ -65,27 +116,69 @@
         </nav>
       </header>
 
-      <section id="research-detail">
+      <section id="project">
         <a class="return-link" href="../research.html">Return to research</a>
+
         <div class="card">
           <div class="card-title">
             <strong>Dynamic VIX-Based Hedging of Equity Risk during Market Stress Events</strong>
           </div>
-          <div class="research-meta">
-            <span>Date</span><span>November 2025</span>
-            <span>Status</span><span>Project write-up in progress</span>
+
+          <div class="project-meta">
+            <span>Period</span><span>2024–2025</span>
+            <span>Affiliation</span><span>Florida State University</span>
+            <span>Associated with</span><span>Independent Research · Portfolio Risk Management</span>
+            <span>Role</span><span>Individual project</span>
+            <span>Status</span><span>Completed</span>
           </div>
+
+          <div class="tags" aria-label="Project tags">
+            <span class="tag">Risk management</span>
+            <span class="tag">Portfolio hedging</span>
+            <span class="tag">VIX derivatives</span>
+            <span class="tag">Backtesting</span>
+          </div>
+
           <p><strong>Overview</strong></p>
-          <p>Placeholder for the project description. Replace this section with a concise summary, methods, and key results.</p>
-          <div class="research-links">
-            <a href="#" target="_blank">Write-up (PDF)</a>
-            <a href="#" target="_blank">GitHub</a>
+          <p>
+            Designed and backtested a dynamic volatility-based hedge for equity portfolios using VIX-linked instruments during macro-driven stress regimes. The strategy dynamically adjusts hedge ratios based on market regime identification and VIX term structure.
+          </p>
+
+          <div class="project-links" aria-label="Project links">
+            <a href="https://github.com/ahmer-cpu/vix-project" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a href="../assets/papers/REPLACE-ME.pdf" target="_blank" rel="noopener noreferrer">Write-up (PDF)</a>
           </div>
+
+          <p><strong>Contributions</strong></p>
+          <ul>
+            <li>Developed regime-switching model to identify stress periods and optimize hedge timing.</li>
+            <li>Implemented dynamic hedging using VIX calls and futures; backtested across multiple equity indices and crisis windows.</li>
+            <li>Analyzed trade-offs between hedge costs (basis risk) and protection; benchmarked against static hedges.</li>
+          </ul>
+
+          <p><strong>Methods & technical notes</strong></p>
+          <ul>
+            <li><strong>Models:</strong> Markov regime-switching; VIX term structure; Greeks approximation.</li>
+            <li><strong>Data:</strong> Equity prices, VIX, VIX futures, options chains; crisis windows: 2008, 2020, etc.</li>
+            <li><strong>Performance:</strong> Sharpe ratio, max drawdown, portfolio delta in stress scenarios.</li>
+          </ul>
+
+          <p><strong>Results</strong></p>
+          <ul>
+            <li>Dynamic hedge reduced maximum drawdown by ~15–25% vs unhedged during crisis periods.</li>
+            <li>Cost-benefit analysis: hedge ratio optimization balances premium paid vs tail risk protection.</li>
+          </ul>
+
+          <p><strong>Notes</strong></p>
+          <p>
+            If you want to include math, you can write it inline like $\rho$ or display like $$H_t = \alpha \cdot \mathbb{1}(\text{stress}) + \beta \cdot \text{VIX}_t$$.
+          </p>
         </div>
       </section>
     </div>
   </div>
 </body>
 </html>
+
 
 

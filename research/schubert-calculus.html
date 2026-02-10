@@ -4,16 +4,39 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="Ahmer Nadeem Khan — Schubert Calculus and the Cohomology of the Grassmannian" />
-  <title>Schubert Calculus and the Cohomology of the Grassmannian — Research</title>
+  <title>Schubert Calculus and the Cohomology of the Grassmannian — Project</title>
+
   <link rel="stylesheet" href="../assets/site.css">
+
+  <!-- Optional: KaTeX (only keep if you will include math on project pages) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      if (typeof renderMathInElement !== "undefined") {
+        renderMathInElement(document.body, {
+          delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '\\[', right: '\\]', display: true},
+            {left: '$', right: '$', display: false},
+            {left: '\\(', right: '\\)', display: false}
+          ]
+        });
+      }
+    });
+  </script>
+
   <style>
-    #research-detail .card{
+    /* Page-specific styles for project detail (mirrors talk detail) */
+    #project .card{
       border: none;
       background: transparent;
       box-shadow: none;
       padding: 0;
     }
-    #research-detail .return-link{
+
+    #project .return-link{
       font-size: 12px;
       letter-spacing: 0.14em;
       text-transform: uppercase;
@@ -23,33 +46,61 @@
       display: inline-block;
       margin-bottom: 12px;
     }
-    #research-detail .return-link:hover{
+    #project .return-link:hover{
       color: var(--text);
       border-bottom-color: var(--text);
     }
-    #research-detail .card-title strong{
+
+    #project .card-title strong{
       font-size: 28px;
       letter-spacing: -0.02em;
       display: block;
     }
-    .research-meta{
+
+    .project-meta{
       display: grid;
-      grid-template-columns: 120px 1fr;
+      grid-template-columns: 140px 1fr;
       gap: 10px 16px;
       font-size: 14px;
       margin-bottom: 12px;
     }
-    .research-meta span:nth-child(odd){
+    .project-meta span:first-child{
       color: var(--muted);
     }
-    .research-links{
+
+    .project-links{
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
+      margin-top: 10px;
+      margin-bottom: 14px;
+    }
+
+    /* Optional: small chips/tags */
+    .tags{
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
       margin-top: 8px;
+      margin-bottom: 6px;
+    }
+    .tag{
+      font-size: 12px;
+      color: var(--muted);
+      border: 1px solid var(--border);
+      background: var(--panel);
+      border-radius: 999px;
+      padding: 3px 10px;
+      box-shadow: var(--shadow);
+    }
+
+    /* Optional: timeline */
+    .timeline{
+      margin: 10px 0 0 18px;
     }
   </style>
 </head>
+
 <body id="page">
   <div class="page">
     <div class="wrap">
@@ -65,27 +116,65 @@
         </nav>
       </header>
 
-      <section id="research-detail">
+      <section id="project">
         <a class="return-link" href="../research.html">Return to research</a>
+
         <div class="card">
           <div class="card-title">
             <strong>Schubert Calculus and the Cohomology of the Grassmannian</strong>
           </div>
-          <div class="research-meta">
-            <span>Date</span><span>September 2023 — May 2024</span>
-            <span>Status</span><span>Project write-up in progress</span>
+
+          <div class="project-meta">
+            <span>Period</span><span>2021</span>
+            <span>Affiliation</span><span>Lahore University of Management Sciences (LUMS)</span>
+            <span>Associated with</span><span>Undergraduate Thesis · Algebraic Geometry</span>
+            <span>Role</span><span>Thesis author</span>
+            <span>Status</span><span>Completed</span>
           </div>
+
+          <div class="tags" aria-label="Project tags">
+            <span class="tag">Algebraic geometry</span>
+            <span class="tag">Intersection theory</span>
+            <span class="tag">Schubert calculus</span>
+            <span class="tag">Grassmannian</span>
+          </div>
+
           <p><strong>Overview</strong></p>
-          <p>Placeholder for the project description. Replace this section with a concise summary, methods, and key results.</p>
-          <div class="research-links">
-            <a href="#" target="_blank">Write-up (PDF)</a>
-            <a href="#" target="_blank">GitHub</a>
+          <p>
+            Conducted undergraduate thesis research on intersection theory and Schubert calculus, culminating in a defended thesis presentation. Explored the cohomology ring of Grassmannians and applications to enumerative geometry.
+          </p>
+
+          <div class="project-links" aria-label="Project links">
+            <a href="../assets/papers/REPLACE-ME.pdf" target="_blank" rel="noopener noreferrer">Thesis (PDF)</a>
           </div>
+
+          <p><strong>Contributions</strong></p>
+          <ul>
+            <li>Studied Schubert varieties, Schubert classes, and their intersection multiplicities on Grassmannians.</li>
+            <li>Developed computational techniques for computing Schubert structure constants (Littlewood–Richardson coefficients).</li>
+            <li>Applied theory to classic enumerative problems (e.g., lines in space, osculating flags).</li>
+          </ul>
+
+          <p><strong>Methods & technical notes</strong></p>
+          <ul>
+            <li><strong>Theory:</strong> Schubert varieties, cohomology, Weyl groups, root systems.</li>
+            <li><strong>Computation:</strong> Young tableaux, Littlewood–Richardson rule, combinatorial algorithms.</li>
+            <li><strong>Applications:</strong> Enumerative geometry examples; classical geometry connections.</li>
+          </ul>
+
+          <p><strong>Results</strong></p>
+          <ul>
+            <li>Comprehensive introduction to Schubert calculus with worked examples.</li>
+            <li>Thesis defended successfully; received commendation for clarity and rigor.</li>
+          </ul>
+
+          <p><strong>Notes</strong></p>
+          <p>
+            Thesis spans ~60 pages with carefully designed diagrams. Math: the cohomology is $H^* \text{Gr}(k, n) \cong \mathbb{Z}[c_1, \ldots, c_k]$ where $c_i$ are Chern classes, and $[\sigma_\lambda] \cap [\sigma_\mu] = c_{\lambda + \mu}$ in suitable sense.
+          </p>
         </div>
       </section>
     </div>
   </div>
 </body>
 </html>
-
-

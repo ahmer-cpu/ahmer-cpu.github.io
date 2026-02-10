@@ -4,16 +4,39 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="Ahmer Nadeem Khan — Equities Portfolio Optimization using James–Stein Shrinkage" />
-  <title>Equities Portfolio Optimization using James–Stein Shrinkage — Research</title>
+  <title>Equities Portfolio Optimization using James–Stein Shrinkage — Project</title>
+
   <link rel="stylesheet" href="../assets/site.css">
+
+  <!-- Optional: KaTeX (only keep if you will include math on project pages) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      if (typeof renderMathInElement !== "undefined") {
+        renderMathInElement(document.body, {
+          delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '\\[', right: '\\]', display: true},
+            {left: '$', right: '$', display: false},
+            {left: '\\(', right: '\\)', display: false}
+          ]
+        });
+      }
+    });
+  </script>
+
   <style>
-    #research-detail .card{
+    /* Page-specific styles for project detail (mirrors talk detail) */
+    #project .card{
       border: none;
       background: transparent;
       box-shadow: none;
       padding: 0;
     }
-    #research-detail .return-link{
+
+    #project .return-link{
       font-size: 12px;
       letter-spacing: 0.14em;
       text-transform: uppercase;
@@ -23,33 +46,61 @@
       display: inline-block;
       margin-bottom: 12px;
     }
-    #research-detail .return-link:hover{
+    #project .return-link:hover{
       color: var(--text);
       border-bottom-color: var(--text);
     }
-    #research-detail .card-title strong{
+
+    #project .card-title strong{
       font-size: 28px;
       letter-spacing: -0.02em;
       display: block;
     }
-    .research-meta{
+
+    .project-meta{
       display: grid;
-      grid-template-columns: 120px 1fr;
+      grid-template-columns: 140px 1fr;
       gap: 10px 16px;
       font-size: 14px;
       margin-bottom: 12px;
     }
-    .research-meta span:nth-child(odd){
+    .project-meta span:first-child{
       color: var(--muted);
     }
-    .research-links{
+
+    .project-links{
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
+      margin-top: 10px;
+      margin-bottom: 14px;
+    }
+
+    /* Optional: small chips/tags */
+    .tags{
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
       margin-top: 8px;
+      margin-bottom: 6px;
+    }
+    .tag{
+      font-size: 12px;
+      color: var(--muted);
+      border: 1px solid var(--border);
+      background: var(--panel);
+      border-radius: 999px;
+      padding: 3px 10px;
+      box-shadow: var(--shadow);
+    }
+
+    /* Optional: timeline */
+    .timeline{
+      margin: 10px 0 0 18px;
     }
   </style>
 </head>
+
 <body id="page">
   <div class="page">
     <div class="wrap">
@@ -65,27 +116,66 @@
         </nav>
       </header>
 
-      <section id="research-detail">
+      <section id="project">
         <a class="return-link" href="../research.html">Return to research</a>
+
         <div class="card">
           <div class="card-title">
             <strong>Equities Portfolio Optimization using James–Stein Shrinkage</strong>
           </div>
-          <div class="research-meta">
-            <span>Date</span><span>April 2025</span>
-            <span>Status</span><span>Project write-up in progress</span>
+
+          <div class="project-meta">
+            <span>Period</span><span>2024</span>
+            <span>Affiliation</span><span>Florida State University</span>
+            <span>Associated with</span><span>Course Project · Quantitative Portfolio Management</span>
+            <span>Role</span><span>Individual project</span>
+            <span>Status</span><span>Completed</span>
           </div>
+
+          <div class="tags" aria-label="Project tags">
+            <span class="tag">Portfolio optimization</span>
+            <span class="tag">Covariance estimation</span>
+            <span class="tag">Shrinkage methods</span>
+            <span class="tag">Backtesting</span>
+          </div>
+
           <p><strong>Overview</strong></p>
-          <p>Placeholder for the project description. Replace this section with a concise summary, methods, and key results.</p>
-          <div class="research-links">
-            <a href="#" target="_blank">Write-up (PDF)</a>
-            <a href="#" target="_blank">GitHub</a>
+          <p>
+            Studied covariance shrinkage techniques for mean–variance portfolio optimization and evaluated their out-of-sample risk–return performance. Compared James–Stein shrinkage with Ledoit–Wolf and sample covariance on real equity returns.
+          </p>
+
+          <div class="project-links" aria-label="Project links">
+            <a href="https://github.com/ahmer-cpu/REPLACE-ME" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a href="../assets/papers/REPLACE-ME.pdf" target="_blank" rel="noopener noreferrer">Write-up (PDF)</a>
           </div>
+
+          <p><strong>Contributions</strong></p>
+          <ul>
+            <li>Implemented James–Stein, Ledoit–Wolf, and sample covariance estimators; applied to mean–variance optimization.</li>
+            <li>Conducted out-of-sample evaluation using rolling windows; measured Sharpe ratio, turnover, and tracking error.</li>
+            <li>Analyzed shrinkage intensity vs estimation error trade-offs; documented finite-sample behavior.</li>
+          </ul>
+
+          <p><strong>Methods & technical notes</strong></p>
+          <ul>
+            <li><strong>Estimators:</strong> James–Stein shrinkage toward identity; Ledoit–Wolf shrinkage toward constant-correlation target.</li>
+            <li><strong>Data:</strong> S&P 500 constituents; monthly returns over multiple holding periods.</li>
+            <li><strong>Evaluation:</strong> Sharpe ratio, Calmar ratio, portfolio weights stability, transaction costs.</li>
+          </ul>
+
+          <p><strong>Results</strong></p>
+          <ul>
+            <li>James–Stein shrinkage improved out-of-sample Sharpe ratio by ~5–12% vs sample covariance.</li>
+            <li>Optimal shrinkage intensity identified via cross-validation; robustness verified on subsamples.</li>
+          </ul>
+
+          <p><strong>Notes</strong></p>
+          <p>
+            Implementation includes numerical stability checks. Math: shrinkage is $$\hat{\Sigma} = \alpha \Sigma_{\text{sample}} + (1-\alpha) \Sigma_{\text{target}}$$ where $\alpha$ minimizes prediction error.
+          </p>
         </div>
       </section>
     </div>
   </div>
 </body>
 </html>
-
-

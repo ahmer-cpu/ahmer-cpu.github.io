@@ -4,16 +4,39 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="Ahmer Nadeem Khan — Numerical and Monte Carlo Algorithms Library (MATLAB & Julia)" />
-  <title>Numerical and Monte Carlo Algorithms Library (MATLAB & Julia) — Research</title>
+  <title>Numerical and Monte Carlo Algorithms Library (MATLAB & Julia) — Project</title>
+
   <link rel="stylesheet" href="../assets/site.css">
+
+  <!-- Optional: KaTeX (only keep if you will include math on project pages) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      if (typeof renderMathInElement !== "undefined") {
+        renderMathInElement(document.body, {
+          delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '\\[', right: '\\]', display: true},
+            {left: '$', right: '$', display: false},
+            {left: '\\(', right: '\\)', display: false}
+          ]
+        });
+      }
+    });
+  </script>
+
   <style>
-    #research-detail .card{
+    /* Page-specific styles for project detail (mirrors talk detail) */
+    #project .card{
       border: none;
       background: transparent;
       box-shadow: none;
       padding: 0;
     }
-    #research-detail .return-link{
+
+    #project .return-link{
       font-size: 12px;
       letter-spacing: 0.14em;
       text-transform: uppercase;
@@ -23,33 +46,61 @@
       display: inline-block;
       margin-bottom: 12px;
     }
-    #research-detail .return-link:hover{
+    #project .return-link:hover{
       color: var(--text);
       border-bottom-color: var(--text);
     }
-    #research-detail .card-title strong{
+
+    #project .card-title strong{
       font-size: 28px;
       letter-spacing: -0.02em;
       display: block;
     }
-    .research-meta{
+
+    .project-meta{
       display: grid;
-      grid-template-columns: 120px 1fr;
+      grid-template-columns: 140px 1fr;
       gap: 10px 16px;
       font-size: 14px;
       margin-bottom: 12px;
     }
-    .research-meta span:nth-child(odd){
+    .project-meta span:first-child{
       color: var(--muted);
     }
-    .research-links{
+
+    .project-links{
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
+      margin-top: 10px;
+      margin-bottom: 14px;
+    }
+
+    /* Optional: small chips/tags */
+    .tags{
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
       margin-top: 8px;
+      margin-bottom: 6px;
+    }
+    .tag{
+      font-size: 12px;
+      color: var(--muted);
+      border: 1px solid var(--border);
+      background: var(--panel);
+      border-radius: 999px;
+      padding: 3px 10px;
+      box-shadow: var(--shadow);
+    }
+
+    /* Optional: timeline */
+    .timeline{
+      margin: 10px 0 0 18px;
     }
   </style>
 </head>
+
 <body id="page">
   <div class="page">
     <div class="wrap">
@@ -65,27 +116,65 @@
         </nav>
       </header>
 
-      <section id="research-detail">
+      <section id="project">
         <a class="return-link" href="../research.html">Return to research</a>
+
         <div class="card">
           <div class="card-title">
             <strong>Numerical and Monte Carlo Algorithms Library (MATLAB & Julia)</strong>
           </div>
-          <div class="research-meta">
-            <span>Date</span><span>September 2024 — May 2025</span>
-            <span>Status</span><span>Project write-up in progress</span>
+
+          <div class="project-meta">
+            <span>Period</span><span>2023–2024</span>
+            <span>Affiliation</span><span>Florida State University</span>
+            <span>Associated with</span><span>Personal Learning Project · Numerical Methods</span>
+            <span>Role</span><span>Solo author</span>
+            <span>Status</span><span>Ongoing</span>
           </div>
+
+          <div class="tags" aria-label="Project tags">
+            <span class="tag">Numerical methods</span>
+            <span class="tag">Monte Carlo</span>
+            <span class="tag">MATLAB / Julia</span>
+            <span class="tag">Software library</span>
+          </div>
+
           <p><strong>Overview</strong></p>
-          <p>Placeholder for the project description. Replace this section with a concise summary, methods, and key results.</p>
-          <div class="research-links">
-            <a href="#" target="_blank">Write-up (PDF)</a>
-            <a href="#" target="_blank">GitHub</a>
+          <p>
+            Developed a reusable library of numerical analysis and Monte Carlo algorithms with emphasis on stability, convergence, and reproducibility. Implemented in MATLAB and Julia to facilitate comparison and interoperability.
+          </p>
+
+          <div class="project-links" aria-label="Project links">
+            <a href="https://github.com/ahmer-cpu/REPLACE-ME" target="_blank" rel="noopener noreferrer">GitHub</a>
           </div>
+
+          <p><strong>Contributions</strong></p>
+          <ul>
+            <li>Implemented classical numerical solvers: ODE/PDE, linear systems, root-finding, integration.</li>
+            <li>Developed Monte Carlo samplers: rejection, importance sampling, MCMC (Metropolis–Hastings, Gibbs).</li>
+            <li>Added comprehensive tests, documentation, and performance benchmarks; enforced code review standards.</li>
+          </ul>
+
+          <p><strong>Methods & technical notes</strong></p>
+          <ul>
+            <li><strong>Numerical:</strong> RK4, implicit Euler, finite differences, sparse solvers.</li>
+            <li><strong>Stochastic:</strong> Sobol sequences, Mersenne Twister, adaptive MCMC diagnostics.</li>
+            <li><strong>QA:</strong> Convergence tests, error estimates, reproducibility checks (seeding, precision).</li>
+          </ul>
+
+          <p><strong>Results</strong></p>
+          <ul>
+            <li>Library integrated into course coursework and personal research projects.</li>
+            <li>Benchmark comparisons validate against established libraries (SciPy, StatsModels).</li>
+          </ul>
+
+          <p><strong>Notes</strong></p>
+          <p>
+            Open source under MIT license. Dual MATLAB/Julia implementation promotes language agility and portable knowledge.
+          </p>
         </div>
       </section>
     </div>
   </div>
 </body>
 </html>
-
-
