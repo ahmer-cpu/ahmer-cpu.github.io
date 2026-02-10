@@ -59,12 +59,13 @@
 
     .project-meta{
       display: grid;
-      grid-template-columns: 140px 1fr;
-      gap: 10px 16px;
+      grid-template-columns: auto 1fr auto 1fr;
+      gap: 10px 32px;
       font-size: 14px;
       margin-bottom: 12px;
     }
-    .project-meta span:first-child{
+    .project-meta span:nth-child(4n+1),
+    .project-meta span:nth-child(4n+3){
       color: var(--muted);
     }
 
@@ -127,7 +128,6 @@
             <span>Affiliation</span><span>Lahore University of Management Sciences (LUMS)</span>
             <span>Associated with</span><span>Undergraduate Thesis · Algebraic Geometry</span>
             <span>Role</span><span>Thesis author</span>
-            <span>Status</span><span>Completed</span>
           </div>
 
           <div class="tags" aria-label="Project tags">
