@@ -104,9 +104,51 @@
       margin-bottom: 10px;
     }
 
-    /* Optional: timeline */
-    .timeline{
-      margin: 10px 0 0 18px;
+    /* Timeline */
+    .project-timeline{
+      margin-top: 24px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+    }
+
+    .timeline-item{
+      display: flex;
+      margin-bottom: 20px;
+      position: relative;
+      padding-left: 40px;
+    }
+
+    .timeline-date{
+      position: absolute;
+      left: 0;
+      top: 0;
+      font-size: 12px;
+      color: var(--muted);
+      letter-spacing: 0.05em;
+      font-weight: 500;
+      min-width: 90px;
+    }
+
+    .timeline-dot{
+      position: absolute;
+      left: 14px;
+      top: 3px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--text);
+      border: 2px solid var(--panel);
+      box-shadow: 0 0 0 2px var(--border);
+    }
+
+    .timeline-content{
+      flex: 1;
+    }
+
+    .timeline-content p{
+      margin: 0;
+      font-size: 14px;
+      line-height: 1.6;
     }
   </style>
 </head>
@@ -141,12 +183,9 @@
             <span>Role</span><span>Principal investigator</span>
           </div>
 
-          <div class="tags" aria-label="Project tags">
-            <span class="tag">Tensor decomposition</span>
-            <span class="tag">Higher-order SVD</span>
-            <span class="tag">GPU computing</span>
-            <span class="tag">Streaming data</span>
-            <span class="tag">CUDA</span>
+          <div class="project-links" aria-label="Project links">
+            <a href="https://github.com/ahmer-cpu/streaming-svd" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a href="../assets/research/presentations/svd-presentation.pdf" target="_blank" rel="noopener noreferrer">Presentation</a>
           </div>
 
           <p><strong>Overview</strong></p>
@@ -154,43 +193,25 @@
             This project develops warm-started randomized higher-order SVD algorithms optimized for GPUs to efficiently process streaming tensor data. The goal is to maintain low-rank Tucker decompositions of high-dimensional tensors with minimal latency and memory overhead, leveraging prior solutions to accelerate convergence on new data arrivals.
           </p>
 
-          <div class="project-links" aria-label="Project links">
-            <a href="https://github.com/ahmer-cpu/streaming-svd" target="_blank" rel="noopener noreferrer">GitHub</a>
-            <a href="../assets/research/presentations/svd-presentation.pdf" target="_blank" rel="noopener noreferrer">Presentation</a>
+          <div class="project-timeline">
+            <div class="timeline-item">
+              <span class="timeline-date">Jan 2026</span>
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <p><strong>Ideation phase and presentation</strong></p>
+                <p>Initial conceptualization of the warm-started rHOSVD algorithm for streaming tensor decomposition. Preliminary presentation of research direction and GPU optimization strategy.</p>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <span class="timeline-date">Feb 2026</span>
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <p><strong>Preliminary experiments</strong></p>
+                <p>Began experimental validation on synthetic and real tensor streams. Initial benchmark comparisons with baseline methods and exploration of GPU kernel optimizations.</p>
+              </div>
+            </div>
           </div>
-
-          <p><strong>Motivation</strong></p>
-          <ul>
-            <li>Streaming tensor data arises in time-evolving physical systems, multi-channel sensor arrays, and high-dimensional time-series applications.</li>
-            <li>Traditional batch SVD methods incur prohibitive costs when recomputing from scratch on each new data arrival.</li>
-            <li>Warm-started algorithms exploit prior solutions to dramatically reduce iterations and wall-clock time on GPU hardware.</li>
-          </ul>
-
-          <p><strong>Contributions (planned/in progress)</strong></p>
-          <ul>
-            <li>Algorithmic: warm-start strategy for randomized HOSVD exploiting prior Tucker factors.</li>
-            <li>Implementation: CUDA kernels for efficient tensor contractions and randomized orthogonalization on streaming buffers.</li>
-            <li>Evaluation: benchmarks on real and synthetic tensor streams; comparison with batch and incremental baselines.</li>
-          </ul>
-
-          <p><strong>Methods & technical approach</strong></p>
-          <ul>
-            <li><strong>Tensor framework:</strong> Tucker decomposition; unfolding-based SVD on mode-$n$ matricizations.</li>
-            <li><strong>Randomization:</strong> sketching with Gaussian or Rademacher test matrices; power iteration refinement.</li>
-            <li><strong>Warm-start:</strong> reuse prior factors as initial guesses; adaptive rank updates as new data arrives.</li>
-            <li><strong>GPU kernels:</strong> batched Gram matrix formation, QR factorization, and tensor reconstruction.</li>
-          </ul>
-
-          <p><strong>Current status</strong></p>
-          <p>
-            Research is actively underway. The repository is available on GitHub, and initial experimental results have been presented. More detailed write-ups and public sharing of code will follow as the project matures.
-          </p>
-
-          <p><strong>References</strong></p>
-          <ul>
-            <li>De Lathauwer, L., De Moor, B., & Vandewalle, J. (2000). A multilinear singular value decomposition. <em>SIAM Journal on Matrix Analysis and Applications</em>, 21(4), 1253–1278.</li>
-            <li>Halko, N., Martinsson, P. G., & Tropp, J. A. (2011). Finding structure with randomness: Probabilistic algorithms for constructing approximate matrix decompositions. <em>SIAM Review</em>, 53(2), 217–288.</li>
-          </ul>
         </div>
       </section>
     </div>
