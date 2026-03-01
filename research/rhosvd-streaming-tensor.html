@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Ahmer Nadeem Khan — Warm-started higher order randomized SVD on GPUs for streaming tensor data" />
+  <title>Warm-started rHOSVD on GPUs for Streaming Tensor Data — Project</title>
+
+  <link rel="stylesheet" href="../assets/site.css">
+
+  <!-- Optional: KaTeX (only keep if you will include math on project pages) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      if (typeof renderMathInElement !== "undefined") {
+        renderMathInElement(document.body, {
+          delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '\\[', right: '\\]', display: true},
+            {left: '$', right: '$', display: false},
+            {left: '\\(', right: '\\)', display: false}
+          ]
+        });
+      }
+    });
+  </script>
+
+  <style>
+    /* Page-specific styles for project detail (mirrors talk detail) */
+    #project .card{
+      border: none;
+      background: transparent;
+      box-shadow: none;
+      padding: 0;
+    }
+
+    #project .return-link{
+      font-size: 12px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      display: inline-block;
+      margin-bottom: 12px;
+    }
+    #project .return-link:hover{
+      color: var(--text);
+      border-bottom-color: var(--text);
+    }
+
+    #project .card-title strong{
+      font-size: 28px;
+      letter-spacing: -0.02em;
+      display: block;
+    }
+
+    .project-meta{
+      display: grid;
+      grid-template-columns: auto 1fr auto 1fr;
+      gap: 10px 32px;
+      font-size: 14px;
+      margin-bottom: 12px;
+    }
+    .project-meta span:nth-child(4n+1),
+    .project-meta span:nth-child(4n+3){
+      color: var(--muted);
+    }
+
+    .project-links{
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 10px;
+      margin-bottom: 14px;
+    }
+
+    /* Optional: small chips/tags */
+    .tags{
+      display: inline;
+      flex-wrap: wrap;
+      gap: 0;
+      margin-top: 8px;
+      margin-bottom: 6px;
+    }
+    .tag{
+      font-size: 12px;
+      color: var(--muted);
+    }
+    .tag:not(:last-child)::after{
+      content: ", ";
+    }
+
+    /* Status badge */
+    .status-badge{
+      display: inline-block;
+      font-size: 12px;
+      padding: 4px 8px;
+      border-radius: 3px;
+      background-color: var(--bg-alt);
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+
+    /* Optional: timeline */
+    .timeline{
+      margin: 10px 0 0 18px;
+    }
+  </style>
+</head>
+
+<body id="page">
+  <div class="page">
+    <div class="wrap">
+      <header>
+        <a href="../index.html" class="site-name">Ahmer Nadeem Khan</a>
+        <nav class="top-nav">
+          <a href="../index.html">Home</a>
+          <a href="../research.html" class="active">Research</a>
+          <a href="../talks.html">Talks</a>
+          <a href="../teaching.html">Teaching</a>
+          <a href="../awards.html">Awards</a>
+          <a href="../contact.html">Contact</a>
+        </nav>
+      </header>
+
+      <section id="project">
+        <a class="return-link" href="../research.html">Return to research</a>
+
+        <div class="card">
+          <div class="card-title">
+            <strong>Warm-started higher order randomized SVD (rHOSVD) on GPUs for streaming tensor data</strong>
+          </div>
+
+          <span class="status-badge">🔄 In Progress</span>
+
+          <div class="project-meta">
+            <span>Status</span><span>Ongoing research</span>
+            <span>Role</span><span>Principal investigator</span>
+          </div>
+
+          <div class="tags" aria-label="Project tags">
+            <span class="tag">Tensor decomposition</span>
+            <span class="tag">Higher-order SVD</span>
+            <span class="tag">GPU computing</span>
+            <span class="tag">Streaming data</span>
+            <span class="tag">CUDA</span>
+          </div>
+
+          <p><strong>Overview</strong></p>
+          <p>
+            This project develops warm-started randomized higher-order SVD algorithms optimized for GPUs to efficiently process streaming tensor data. The goal is to maintain low-rank Tucker decompositions of high-dimensional tensors with minimal latency and memory overhead, leveraging prior solutions to accelerate convergence on new data arrivals.
+          </p>
+
+          <div class="project-links" aria-label="Project links">
+            <a href="#" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a href="#" target="_blank" rel="noopener noreferrer">Presentation</a>
+          </div>
+
+          <p><strong>Motivation</strong></p>
+          <ul>
+            <li>Streaming tensor data arises in time-evolving physical systems, multi-channel sensor arrays, and high-dimensional time-series applications.</li>
+            <li>Traditional batch SVD methods incur prohibitive costs when recomputing from scratch on each new data arrival.</li>
+            <li>Warm-started algorithms exploit prior solutions to dramatically reduce iterations and wall-clock time on GPU hardware.</li>
+          </ul>
+
+          <p><strong>Contributions (planned/in progress)</strong></p>
+          <ul>
+            <li>Algorithmic: warm-start strategy for randomized HOSVD exploiting prior Tucker factors.</li>
+            <li>Implementation: CUDA kernels for efficient tensor contractions and randomized orthogonalization on streaming buffers.</li>
+            <li>Evaluation: benchmarks on real and synthetic tensor streams; comparison with batch and incremental baselines.</li>
+          </ul>
+
+          <p><strong>Methods & technical approach</strong></p>
+          <ul>
+            <li><strong>Tensor framework:</strong> Tucker decomposition; unfolding-based SVD on mode-$n$ matricizations.</li>
+            <li><strong>Randomization:</strong> sketching with Gaussian or Rademacher test matrices; power iteration refinement.</li>
+            <li><strong>Warm-start:</strong> reuse prior factors as initial guesses; adaptive rank updates as new data arrives.</li>
+            <li><strong>GPU kernels:</strong> batched Gram matrix formation, QR factorization, and tensor reconstruction.</li>
+          </ul>
+
+          <p><strong>Current status</strong></p>
+          <p>
+            Research is actively underway. The repository is available on GitHub, and initial experimental results have been presented. More detailed write-ups and public sharing of code will follow as the project matures.
+          </p>
+
+          <p><strong>References</strong></p>
+          <ul>
+            <li>De Lathauwer, L., De Moor, B., & Vandewalle, J. (2000). A multilinear singular value decomposition. <em>SIAM Journal on Matrix Analysis and Applications</em>, 21(4), 1253–1278.</li>
+            <li>Halko, N., Martinsson, P. G., & Tropp, J. A. (2011). Finding structure with randomness: Probabilistic algorithms for constructing approximate matrix decompositions. <em>SIAM Review</em>, 53(2), 217–288.</li>
+          </ul>
+        </div>
+      </section>
+    </div>
+  </div>
+</body>
+</html>
