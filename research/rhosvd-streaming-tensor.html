@@ -116,37 +116,51 @@
     .project-timeline{
       margin-top: 24px;
       padding-top: 20px;
-      border-top: 1px solid var(--border);
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      position: relative;
+    }
+
+    .project-timeline::before{
+      content: '';
+      position: absolute;
+      left: 111px;
+      top: 0;
+      bottom: 0;
+      width: 1px;
+      background: var(--border);
     }
 
     .timeline-item{
       display: flex;
-      margin-bottom: 20px;
+      margin-bottom: 32px;
       position: relative;
-      padding-left: 40px;
+      padding-left: 140px;
     }
 
     .timeline-date{
       position: absolute;
       left: 0;
-      top: 0;
+      top: 7px;
       font-size: 12px;
       color: var(--muted);
       letter-spacing: 0.05em;
       font-weight: 500;
-      min-width: 90px;
+      min-width: 100px;
     }
 
     .timeline-dot{
       position: absolute;
-      left: 14px;
-      top: 3px;
-      width: 12px;
-      height: 12px;
+      left: 104px;
+      top: 6px;
+      width: 14px;
+      height: 14px;
       border-radius: 50%;
-      background: var(--text);
-      border: 2px solid var(--panel);
-      box-shadow: 0 0 0 2px var(--border);
+      background: var(--panel);
+      border: 2px solid var(--text);
+      box-shadow: 0 0 0 2px var(--panel);
+      z-index: 1;
     }
 
     .timeline-content{
@@ -154,9 +168,23 @@
     }
 
     .timeline-content p{
-      margin: 0;
+      margin: 0 0 8px 0;
       font-size: 14px;
-      line-height: 1.6;
+      line-height: 1.5;
+    }
+
+    .timeline-content p:last-child{
+      margin-bottom: 0;
+    }
+
+    .timeline-content a{
+      color: var(--text);
+      text-decoration: none;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .timeline-content a:hover{
+      border-bottom-color: var(--text);
     }
   </style>
 </head>
@@ -184,8 +212,6 @@
             <strong>Warm-started higher order randomized SVD (rHOSVD) on GPUs for streaming tensor data</strong>
           </div>
 
-          <span class="status-badge">🔄 In Progress</span>
-
           <div class="project-meta">
             <span>Status</span><span>Ongoing research</span>
             <span>Role</span><span>Research assistant</span>
@@ -203,22 +229,24 @@
             This project develops warm-started randomized higher-order SVD algorithms optimized for GPUs to efficiently process streaming tensor data. The goal is to maintain low-rank Tucker decompositions of high-dimensional tensors with minimal latency and memory overhead, leveraging prior solutions to accelerate convergence on new data arrivals.
           </p>
 
-          <div class="project-timeline">
-            <div class="timeline-item">
-              <span class="timeline-date">Jan 2026</span>
-              <div class="timeline-dot"></div>
-              <div class="timeline-content">
-                <p><strong>Ideation phase and presentation</strong></p>
-                <p>Initial conceptualization of the warm-started rHOSVD algorithm for streaming tensor decomposition. Preliminary presentation of research direction and GPU optimization strategy.</p>
-              </div>
-            </div>
+          <p><strong>Progress</strong></p>
 
+          <div class="project-timeline">
             <div class="timeline-item">
               <span class="timeline-date">Feb 2026</span>
               <div class="timeline-dot"></div>
               <div class="timeline-content">
-                <p><strong>Preliminary experiments</strong></p>
+                <p><strong><a href="../assets/research/presentations/svd-presentation.pdf" target="_blank" rel="noopener noreferrer">Preliminary experiments</a></strong></p>
                 <p>Began experimental validation on synthetic and real tensor streams. Initial benchmark comparisons with baseline methods and exploration of GPU kernel optimizations.</p>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <span class="timeline-date">Jan 2026</span>
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <p><strong><a href="https://github.com/ahmer-cpu/streaming-svd" target="_blank" rel="noopener noreferrer">Ideation phase and presentation</a></strong></p>
+                <p>Initial conceptualization of the warm-started rHOSVD algorithm for streaming tensor decomposition. Preliminary presentation of research direction and GPU optimization strategy.</p>
               </div>
             </div>
           </div>
