@@ -226,7 +226,7 @@
 
           <p><strong>Overview</strong></p>
           <p>
-            This project develops warm-started randomized higher-order SVD algorithms optimized for GPUs to efficiently process streaming tensor data. The goal is to maintain low-rank Tucker decompositions of high-dimensional tensors with minimal latency and memory overhead, leveraging prior solutions to accelerate convergence on new data arrivals.
+            This project develops warm-started randomized higher-order SVD algorithms optimized for GPUs to efficiently compress and decompress streaming tensor data, for example the kind produced in massive scientific simulations (e.g. weather simulations). The goal is to produce error-controlled Tucker decompositions of streaming high-dimensional tensors ("snapshots") efficiently and independently to prepare for a compression pipeline, leveraging prior solutions to accelerate SVD on new data arrivals using stochastic methods.
           </p>
 
           <p><strong>Progress</strong></p>
@@ -246,7 +246,7 @@
               <div class="timeline-dot"></div>
               <div class="timeline-content">
                 <p><strong><a href="../assets/research/presentations/svd-presentation.pdf" target="_blank" rel="noopener noreferrer">Ideation phase and presentation</a></strong></p>
-                <p>Initial conceptualization of the warm-started rHOSVD algorithm for streaming tensor decomposition. Preliminary presentation of research direction and GPU optimization strategy.</p>
+                <p>Initial conceptualization of the warm-started rHOSVD algorithm for streaming tensor decomposition. Preliminary presentation of research direction given on February 18.</p>
               </div>
             </div>
           </div>
