@@ -5,6 +5,7 @@
   --panel: #ffffff;
   --text: #111111;
   --muted: #6f6f6f;
+  --accent: #6b1f2b;
   --border: #e6e6e6;
   --chip: #f3f3f3;
   --shadow: 0 1px 0 rgba(0,0,0,0.03);
@@ -151,18 +152,18 @@ nav a:hover{
 }
 
 .site-name:hover{
-  color: #6b1f2b;
+  color: var(--accent);
 }
 
 /* Active nav link */
 nav a.active{
-  color: #6b1f2b;
-  border-bottom-color: #6b1f2b;
+  color: var(--accent);
+  border-bottom-color: var(--accent);
 }
 
 nav a.active:hover{
-  color: #6b1f2b;
-  border-bottom-color: #6b1f2b;
+  color: var(--accent);
+  border-bottom-color: var(--accent);
 }
 
 a{
@@ -193,7 +194,7 @@ h2{
   font-size: 13px;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: #6b1f2b;
+  color: var(--accent);
   margin: 0 0 12px;
 }
 
