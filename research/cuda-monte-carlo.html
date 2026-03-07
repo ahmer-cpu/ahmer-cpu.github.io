@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Ahmer Nadeem Khan — CUDA-accelerated Monte Carlo for Exotic Option Pricing" />
-  <title>CUDA-accelerated Monte Carlo for Exotic Option Pricing — Project</title>
+  <meta name="description" content="Ahmer Nadeem Khan — Exotic Option Pricing with CUDA-Accelerated Monte Carlo for HPC Applications" />
+  <title>Exotic Option Pricing with CUDA-Accelerated Monte Carlo for HPC Applications — Project</title>
 
   <link rel="stylesheet" href="../assets/site.css">
 
@@ -28,7 +28,6 @@
   </script>
 
   <style>
-    /* Page-specific styles for project detail (mirrors talk detail) */
     #project .card{
       border: none;
       background: transparent;
@@ -44,58 +43,208 @@
       text-decoration: none;
       border-bottom: 1px solid transparent;
       display: inline-block;
-      margin-bottom: 12px;
+      margin-bottom: 18px;
     }
+
     #project .return-link:hover{
       color: var(--text);
       border-bottom-color: var(--text);
     }
 
-    #project .card-title strong{
-      font-size: 28px;
-      letter-spacing: -0.02em;
-      display: block;
+    .project-shell{
+      display: grid;
+      gap: 0;
     }
 
-    .project-meta{
-      display: grid;
-      grid-template-columns: auto 1fr auto 1fr;
-      gap: 10px 32px;
-      font-size: 14px;
-      margin-bottom: 12px;
+    .hero-panel{
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
     }
-    .project-meta span:nth-child(4n+1),
-    .project-meta span:nth-child(4n+3){
-      color: var(--muted);
+
+    .hero-panel{
+      padding: 0;
+      background: transparent;
+      border: none;
+      border-radius: 0;
+      box-shadow: none;
+    }
+
+    .project-kicker,
+    .section-kicker{
+      font-size: 12px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+
+    .hero-title{
+      margin: 0;
+      font-size: 34px;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+      font-weight: 700;
+      max-width: none;
+    }
+
+    .hero-summary{
+      max-width: none;
+      margin: 16px 0 0;
+      font-size: 16px;
+      color: #222;
     }
 
     .project-links{
+      margin-top: 18px;
       display: flex;
       flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 10px;
+      align-items: baseline;
+      gap: 10px 16px;
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .project-links-label{
+      color: var(--accent);
+      font-size: 16px;
+      letter-spacing: -0.01em;
+      font-weight: 600;
+    }
+
+    .project-links a{
+      font-size: 16px;
+      letter-spacing: -0.01em;
+      font-weight: 600;
+    }
+
+    .metric-grid{
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 14px;
       margin-bottom: 14px;
     }
 
-    /* Optional: small chips/tags */
-    .tags{
-      display: inline;
-      flex-wrap: wrap;
-      gap: 0;
-      margin-top: 8px;
-      margin-bottom: 6px;
-    }
-    .tag{
-      font-size: 12px;
-      color: var(--muted);
-    }
-    .tag:not(:last-child)::after{
-      content: ", ";
+    .metric-card{
+      padding: 16px 18px;
+      background: transparent;
+      border: none;
+      border-radius: 0;
+      box-shadow: none;
     }
 
-    /* Optional: timeline */
-    .timeline{
+    .metric-value{
+      display: block;
+      font-size: 26px;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      font-weight: 650;
+    }
+
+    .metric-label{
+      display: block;
+      margin-top: 6px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .project-layout{
+      display: block;
+    }
+
+    .content-stack,
+    .side-stack{
+      display: grid;
+      gap: 32px;
+    }
+
+    .side-stack{
+      margin-top: 32px;
+    }
+
+    .section-panel,
+    .side-panel{
+      padding: 0;
+      background: transparent;
+      border: none;
+      border-radius: 0;
+      box-shadow: none;
+    }
+
+    .section-title,
+    .side-title{
+      margin: 0 0 16px;
+      font-size: 18px;
+      letter-spacing: -0.01em;
+    }
+
+    .section-panel p:last-child,
+    .side-panel p:last-child{
+      margin-bottom: 0;
+    }
+
+    .compact-list{
       margin: 10px 0 0 18px;
+      padding: 0;
+    }
+
+    .compact-list li{
+      margin: 8px 0;
+    }
+
+    .detail-grid{
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      gap: 10px 14px;
+      font-size: 14px;
+    }
+
+    .detail-grid dt{
+      color: var(--muted);
+    }
+
+    .detail-grid dd{
+      margin: 0;
+    }
+
+    .tag-row{
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 14px;
+    }
+
+    .tag{
+      display: inline-flex;
+      align-items: center;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: var(--chip);
+      color: var(--muted);
+      font-size: 12px;
+      border: 1px solid var(--border);
+    }
+
+    .equation-note{
+      margin-top: 14px;
+      padding: 14px 16px;
+      border-left: 3px solid var(--accent);
+      background: #fcfafb;
+      border-radius: 0 10px 10px 0;
+      font-size: 14px;
+    }
+
+    @media (max-width: 900px){
+      .metric-grid{
+        grid-template-columns: 1fr;
+      }
+
+      .hero-title{
+        font-size: 30px;
+      }
     }
   </style>
 </head>
@@ -119,68 +268,88 @@
         <a class="return-link" href="../research.html">Return to research</a>
 
         <div class="card">
-          <div class="card-title">
-            <strong>CUDA-accelerated Monte Carlo for Exotic Option Pricing</strong>
+          <div class="project-shell">
+            <div class="hero-panel">
+              <h1 class="hero-title">Exotic Option Pricing with CUDA-Accelerated Monte Carlo for HPC Applications</h1>
+              <p class="hero-summary">
+                A high-performance computing project on GPU-based Monte Carlo simulation for exotic options. The project emphasized psuedorandom number generation, pricing accuracy, and large-scale throughput for Asian, barrier, and lookback-style options.
+              </p>
+
+              <p class="project-links" aria-label="Project links">
+                <span class="project-links-label">Available materials:</span>
+                <a href="https://github.com/ahmer-cpu/CUDA-accelerated-Monte-Carlo-for-Exotic-Option-Pricing" target="_blank" rel="noopener noreferrer">Github</a>
+                <a href="../assets/research/write-ups/CUDA-accelerated%20Monte%20Carlo%20for%20HPC%20Applications%20in%20Exotic%20Option%20Pricing.pdf" target="_blank" rel="noopener noreferrer">Project paper (PDF)</a>
+              </p>
+
+              <div class="metric-grid" aria-label="Project highlights">
+                <div class="metric-card">
+                  <span class="metric-value">$10^4$</span>
+                  <span class="metric-label">GPU speed-up factor on large path counts</span>
+                </div>
+                <div class="metric-card">
+                  <span class="metric-value">5M paths</span>
+                  <span class="metric-label">Benchmark scale used for CPU vs GPU comparisons</span>
+                </div>
+                <div class="metric-card">
+                  <span class="metric-value">96–98%</span>
+                  <span class="metric-label">Agreement with CPU baselines in reproduced tests</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="project-layout">
+              <div class="content-stack">
+                <div class="section-panel">
+                  <h2 class="section-title">Abstract</h2>
+                  <p>
+                    Many Monte Carlo methods are embarrassingly parallel due to independence, and can be computationally dense, and thus benefit greatly from GPU architecture. The canonical Monte Carlo problem is the generation of pseudo-random numbers, in particular samples from the normal distribution, which is a key component in financial simulations.
+                  </p>
+                  <p>
+                    Various non-standard methods exploit fully programmable GPUs for efficiency, including the Ziggurat method, the Wallace method, and related hybrid generators. Standard methods such as Box–Muller remain robust in the GPU setting, but speed–accuracy trade-offs still need to be considered.
+                  </p>
+                  <p>
+                    This project investigates the transferability of Monte Carlo methods from sequential to parallel execution, and then studies the pricing of exotic options such as Asian, lookback, and barrier contracts as a representative application. The emphasis is on the CUDA platform, with discussion of implementation details, experiments, and numerical results within that framework.
+                  </p>
+                </div>
+
+                <div class="section-panel">
+                  <h2 class="section-title">Main contributions</h2>
+                  <ul class="compact-list">
+                    <li>Built Monte Carlo pricing routines in C++/CUDA for Asian, lookback, and barrier-style options.</li>
+                    <li>Benchmarked GPU (NVIDIA GeForce RTX 4090 Series) and CPU (AMD Ryzen 7 7800X3D 8-Core Processor) implementations against large-path experiments and reference results discussed in the NVIDIA literature.</li>
+                    <li>Studied the Wallace method in the context of efficiency, variance behavior, and pathwise pricing error.</li>
+                    <li>Examined how GPU memory-access patterns and implementation choices affect end-to-end performance.</li>
+                  </ul>
+                </div>
+
+                <div class="section-panel">
+                  <h2 class="section-title">Conclusions</h2>
+                  <p>
+                    Monte Carlo methods have enormous applications in GPU usage for high-performance financial applications. The Wallace Method and Hybrid generators provide reasonable alternatives to traditional PRNGs for GPU-based systems, and contingencies related to architecture and algorithm design must be considered, and speed-accuracy tradeoffs are crucial. The advantages of GPUs were demonstrated using numerical experiments for various methods, problems and hardware, using the CUDA platform provided by NVIDIA, and results from literature were presented and expanded upon. Efficiency and reliability of methods in CUDA libraries was discussed and evaluated.
+                  </p>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="side-stack">
+              <aside class="side-panel">
+                <h2 class="side-title">Attributes</h2>
+                <dl class="detail-grid">
+                  <dt>Period</dt>
+                  <dd>May 2025</dd>
+                  <dt>Affiliation</dt>
+                  <dd>Florida State University</dd>
+                  <dt>Context</dt>
+                  <dd>High-Performance Computing / Monte Carlo methods in Finance</dd>
+                  <dt>Role</dt>
+                  <dd>Individual project</dd>
+                  <dt>Primary stack</dt>
+                  <dd>C++, CUDA</dd>
+                </dl>
+              </aside>
+            </div>
           </div>
-
-          <div class="project-meta">
-            <span>Period</span><span>May 2025</span>
-            <span>Affiliation</span><span>Florida State University</span>
-            <span>Associated with</span><span>Course Project · High-Performance Computing / Computational Finance</span>
-            <span>Role</span><span>Individual project</span>
-          </div>
-
-          <div class="tags" aria-label="Project tags">
-            <span class="tag">GPU computing</span>
-            <span class="tag">Monte Carlo</span>
-            <span class="tag">C++ / CUDA</span>
-            <span class="tag">Derivatives pricing</span>
-          </div>
-
-          <p><strong>Overview</strong></p>
-          <p>
-            Implemented Monte Carlo pricing for exotic options with a GPU-accelerated pipeline in CUDA, focusing on
-            throughput, variance reduction, and reproducibility. Benchmarked against optimized CPU baselines and profiled
-            performance bottlenecks at the kernel and memory levels.
-          </p>
-
-          <div class="project-links" aria-label="Project links">
-            <a href="https://github.com/ahmer-cpu/CUDA-accelerated-Monte-Carlo-for-Exotic-Option-Pricing" target="_blank" rel="noopener noreferrer">GitHub</a>
-            <a href="../assets/research/write-ups/CUDA-accelerated%20Monte%20Carlo%20for%20HPC%20Applications%20in%20Exotic%20Option%20Pricing.pdf" target="_blank" rel="noopener noreferrer">Write-up (PDF)</a>
-          </div>
-
-          <p><strong>Contributions</strong></p>
-          <ul>
-            <li>Designed a GPU Monte Carlo engine for pricing path-dependent payoffs with parallel simulation and reduction.</li>
-            <li>Implemented variance reduction (e.g., antithetic variates / control variates where appropriate) and measured impact on error vs runtime.</li>
-            <li>Optimized kernel launches, memory access patterns, and RNG strategy; validated numerical correctness vs CPU reference.</li>
-          </ul>
-
-          <p><strong>Methods & technical notes</strong></p>
-          <ul>
-            <li><strong>Models:</strong> Black–Scholes baseline; extensions depending on payoff structure.</li>
-            <li><strong>Numerics:</strong> PRNG / normal sampling; payoff evaluation; confidence intervals; convergence diagnostics.</li>
-            <li><strong>Performance:</strong> occupancy, memory bandwidth, and end-to-end speedups; profiling with Nsight (or equivalent).</li>
-          </ul>
-
-          <p><strong>Results</strong></p>
-          <ul>
-            <li>Achieved significant speedup over CPU baseline on large path counts; reported throughput (paths/sec) and error bars.</li>
-            <li>Demonstrated variance reduction improvements at fixed runtime for select payoffs.</li>
-          </ul>
-
-          <p><strong>Timeline</strong> (optional)</p>
-          <ul class="timeline">
-            <li>Week 1: baseline CPU implementation + tests</li>
-            <li>Week 2: CUDA kernel + RNG integration</li>
-            <li>Week 3: variance reduction + profiling</li>
-            <li>Week 4: benchmarks + write-up</li>
-          </ul>
-
-          <p><strong>Notes</strong></p>
-          <p>
-            If you want to include math, you can write it inline like $C_n$ or display like $$\hat{V} = e^{-rT}\frac{1}{N}\sum_{i=1}^N f(S_T^{(i)})$$.
-          </p>
         </div>
       </section>
     </div>
