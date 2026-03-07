@@ -122,7 +122,7 @@
 
     .metric-grid{
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-template-columns: repeat(4, minmax(0, 1fr));
       gap: 14px;
       margin-top: 14px;
       margin-bottom: 14px;
@@ -149,6 +149,13 @@
       margin-top: 6px;
       font-size: 13px;
       color: var(--muted);
+    }
+
+    .metric-icon{
+      width: 88px;
+      height: 88px;
+      object-fit: contain;
+      display: block;
     }
 
     .project-layout{
@@ -272,7 +279,7 @@
             <div class="hero-panel">
               <h1 class="hero-title">Dynamic VIX-Based Hedging of Equity Risk during Market Stress Events</h1>
               <p class="hero-summary">
-                An empirical study on volatility-regime shifts and macro-triggered tail-risk using VIX during tariff-related market shocks. Constructed and backtested a dynamic hedging strategy for a long S&P 500 portfolio using short-term VIX futures exposure. Selected as a top project from 107 projects in the Erdős Institute Fall 2025 Cohort.
+                An empirical study on volatility-regime shifts using VIX during tariff-related market shocks, and the construction of a dynamic hedging strategy for a long S&P 500 portfolio using short-term VIX futures exposure. Selected as a top project from 107 projects in the Erdős Institute Fall 2025 Cohort.
               </p>
 
               <p class="project-links" aria-label="Project links">
@@ -294,8 +301,11 @@
                   <span class="metric-label">Sharpe ratio improvement factor</span>
                 </div>
                 <div class="metric-card">
-                  <span class="metric-value">–19% → 4%</span>
+                  <span class="metric-value">19% → 4%</span>
                   <span class="metric-label">Max drawdown improvement</span>
+                </div>
+                <div class="metric-card">
+                  <img class="metric-icon" src="../assets/research/icons/top project icon.avif" alt="Top Project icon">
                 </div>
               </div>
             </div>
@@ -321,7 +331,7 @@
                     <li>Selected as a top project from 107 projects in the Erdős Institute Fall 2025 Cohort.</li>
                     <li>Empirical study on volatility-regime shifts and macro-triggered tail-risk using VIX during tariff-related market shocks.</li>
                     <li>Constructed and backtested a dynamic hedging strategy for a long S&P 500 portfolio using short-term VIX futures exposure.</li>
-                    <li>Demonstrated substantial performance improvement: 47% reduction in annualized volatility, 2.6 factor increase in Sharpe ratio, and max drawdown reduced from –19% to 4%.</li>
+                    <li>Demonstrated substantial performance improvement: 47% reduction in annualized volatility, 2.6 factor increase in Sharpe ratio, and max drawdown reduced from -19% to -4%.</li>
                   </ul>
                 </div>
 
@@ -345,7 +355,7 @@
                 <div class="section-panel">
                   <h2 class="section-title">Conclusions</h2>
                   <p>
-                    Dynamic VIX-based hedging provides substantial risk reduction for equity portfolios during market stress events. The strategy achieves a 47% reduction in volatility and improves the Sharpe ratio by a factor of 2.6 while reducing maximum drawdown from –19% to 4%. These results demonstrate that carefully designed dynamic hedging strategies can significantly enhance portfolio stability during macro-driven volatility spikes.
+                    Dynamic VIX-based hedging provides substantial risk reduction for equity portfolios during market stress events. The strategy achieves a 47% reduction in volatility and improves the Sharpe ratio by a factor of 2.6 while reducing maximum drawdown from -19% to -4%. These results demonstrate that carefully designed dynamic hedging strategies can significantly enhance portfolio stability during macro-driven volatility spikes.
                   </p>
                   <p>
                     The project highlights the importance of regime-switching models and event-driven analysis in understanding tail-risk dynamics. By combining empirical research with rigorous backtesting, we provide a practical framework for risk management in equity portfolios exposed to macro shocks.
@@ -362,13 +372,13 @@
                   <dt>Period</dt>
                   <dd>Fall 2025</dd>
                   <dt>Affiliation</dt>
-                  <dd>Erdős Institute</dd>
+                  <dd>Erdős Institute (Quant Finance Bootcamp)</dd>
                   <dt>Context</dt>
                   <dd>Risk Management / Volatility Trading</dd>
                   <dt>Role</dt>
-                  <dd>Top project (1 of 107)</dd>
+                  <dd>Solo project</dd>
                   <dt>Primary stack</dt>
-                  <dd>Python, Playwright, Beautiful Soup, pandas</dd>
+                  <dd>Jupyter Notebook, Playwright, Beautiful Soup, Pandas</dd>
                 </dl>
               </aside>
             </div>
