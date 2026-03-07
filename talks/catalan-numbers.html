@@ -5,30 +5,35 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="Ahmer Nadeem Khan — The Catalan Numbers and Their Properties" />
   <title>The Catalan Numbers and Their Properties — Talk</title>
+
   <link rel="stylesheet" href="../assets/site.css">
+
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
   <script>
     document.addEventListener("DOMContentLoaded", function() {
-      renderMathInElement(document.body, {
-        delimiters: [
-          {left: '$$', right: '$$', display: true},
-          {left: '\\[', right: '\\]', display: true},
-          {left: '$', right: '$', display: false},
-          {left: '\\(', right: '\\)', display: false}
-        ]
-      });
+      if (typeof renderMathInElement !== "undefined") {
+        renderMathInElement(document.body, {
+          delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '\\[', right: '\\]', display: true},
+            {left: '$', right: '$', display: false},
+            {left: '\\(', right: '\\)', display: false}
+          ]
+        });
+      }
     });
   </script>
+
   <style>
-    /* Page-specific styles for talk detail */
     #talk .card{
       border: none;
       background: transparent;
       box-shadow: none;
       padding: 0;
     }
+
     #talk .return-link{
       font-size: 12px;
       letter-spacing: 0.14em;
@@ -37,35 +42,160 @@
       text-decoration: none;
       border-bottom: 1px solid transparent;
       display: inline-block;
-      margin-bottom: 12px;
+      margin-bottom: 18px;
     }
+
     #talk .return-link:hover{
       color: var(--text);
       border-bottom-color: var(--text);
     }
-    #talk .card-title strong{
-      font-size: 28px;
-      letter-spacing: -0.02em;
-      display: block;
-    }
-    .talk-meta{
+
+    .project-shell{
       display: grid;
-      grid-template-columns: 120px 1fr;
-      gap: 10px 16px;
-      font-size: 14px;
-      margin-bottom: 12px;
+      gap: 0;
     }
-    .talk-meta span:nth-child(odd){
+
+    .hero-panel{
+      padding: 0;
+      background: transparent;
+      border: none;
+      border-radius: 0;
+      box-shadow: none;
+    }
+
+    .hero-title{
+      margin: 0;
+      font-size: 34px;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+      font-weight: 700;
+      max-width: none;
+    }
+
+    .hero-summary{
+      max-width: none;
+      margin: 16px 0 0;
+      font-size: 16px;
+      color: #222;
+    }
+
+    .metric-grid{
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 14px;
+      margin-bottom: 14px;
+    }
+
+    .metric-card{
+      padding: 16px 18px;
+      background: transparent;
+      border: none;
+      border-radius: 0;
+      box-shadow: none;
+    }
+
+    .metric-value{
+      display: block;
+      font-size: 26px;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      font-weight: 650;
+    }
+
+    .metric-label{
+      display: block;
+      margin-top: 6px;
+      font-size: 13px;
       color: var(--muted);
     }
-    .talk-links{
+
+    .project-links{
+      margin-top: 18px;
       display: flex;
       flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 8px;
+      align-items: baseline;
+      gap: 10px 16px;
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .project-links-label{
+      color: var(--accent);
+      font-size: 16px;
+      letter-spacing: -0.01em;
+      font-weight: 600;
+    }
+
+    .project-links a{
+      font-size: 16px;
+      letter-spacing: -0.01em;
+      font-weight: 600;
+    }
+
+    .project-layout{
+      display: block;
+    }
+
+    .content-stack,
+    .side-stack{
+      display: grid;
+      gap: 32px;
+    }
+
+    .side-stack{
+      margin-top: 32px;
+    }
+
+    .section-panel,
+    .side-panel{
+      padding: 0;
+      background: transparent;
+      border: none;
+      border-radius: 0;
+      box-shadow: none;
+    }
+
+    .section-title,
+    .side-title{
+      margin: 0 0 16px;
+      font-size: 18px;
+      letter-spacing: -0.01em;
+    }
+
+    .section-panel p:last-child,
+    .side-panel p:last-child{
+      margin-bottom: 0;
+    }
+
+    .detail-grid{
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      gap: 10px 14px;
+      font-size: 14px;
+    }
+
+    .detail-grid dt{
+      color: var(--muted);
+    }
+
+    .detail-grid dd{
+      margin: 0;
+    }
+
+    @media (max-width: 900px){
+      .metric-grid{
+        grid-template-columns: 1fr;
+      }
+
+      .hero-title{
+        font-size: 30px;
+      }
     }
   </style>
 </head>
+
 <body id="page">
   <div class="page">
     <div class="wrap">
@@ -83,19 +213,59 @@
 
       <section id="talk">
         <a class="return-link" href="../talks.html">Return to talks</a>
+
         <div class="card">
-          <div class="card-title">
-            <strong>The Catalan Numbers and Their Properties</strong>
-          </div>
-          <div class="talk-meta">
-            <span>Date</span><span>February 12, 2026 · 3:05 PM</span>
-            <span>Venue</span><span>LOV 232, Algebra Seminar, Florida State University</span>
-          </div>
-          <p><strong>Abstract</strong></p>
-          <p>The Catalan numbers arise throughout mathematics as a ubiquitous counting sequence with deep combinatorial structure. This talk is motivated in part by a monograph of Richard P. Stanley—recommended to me by June Huh—which surveys the Catalan numbers, the fundamental objects they enumerate, and the rich web of bijections connecting them. As documented in Enumerative Combinatorics, Volume 2, the Catalan numbers $C_n$ count over 200 distinct combinatorial objects.</p>
-          <p>I begin by introducing the Catalan numbers as the solution to a classical counting problem from the Green Book, presenting an elegant proof via the reflection principle for random walks. I then develop the theory from first principles by deriving the defining recurrence and proving the closed-form formula using generating functions. The talk concludes with a discussion of the principal bijections underlying Catalan objects, highlighting how seemingly disparate structures are unified by the Catalan sequence.</p>
-          <div class="talk-links">
-            <a href="../assets/talks/slides/talk-catalan-numbers.pdf" target="_blank">Notes</a>
+          <div class="project-shell">
+            <div class="hero-panel">
+              <h1 class="hero-title">The Catalan Numbers and Their Properties</h1>
+
+              <p class="project-links" aria-label="Talk materials">
+                <span class="project-links-label">Available materials:</span>
+                <a href="../assets/talks/slides/talk-catalan-numbers.pdf" target="_blank" rel="noopener noreferrer">Notes (PDF)</a>
+              </p>
+
+              <div class="metric-grid" aria-label="Talk details">
+                <div class="metric-card">
+                  <span class="metric-value">Feb 12, 2026</span>
+                  <span class="metric-label">Date</span>
+                </div>
+                <div class="metric-card">
+                  <span class="metric-value">Algebra Seminar</span>
+                  <span class="metric-label">Florida State University</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="project-layout">
+              <div class="content-stack">
+                <div class="section-panel">
+                  <h2 class="section-title">Abstract</h2>
+                  <p>
+                    The Catalan numbers form a ubiquitous sequence in combinatorics, counting a rich variety of objects. In this talk, we will explore the fundamental ideas that explain this ubiquity. We first present a classical probability problem from the 'Green Book' where the Catalan numbers arise naturally and then show the first of a few important bijections between the various objects that the Catalan numbers count. We then introduce the basic recurrence and derive the closed-form formula via generating functions. Finally, we present a more elegant solution using the reflection principle for random walks. Time permitting, we will discuss additional distinct 'Catalan' objects and their algebraic and combinatorial significance.
+                  </p>
+                  <p>
+                    <em>This was a blackboard talk; written notes are available above.</em>
+                  </p>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="side-stack">
+              <aside class="side-panel">
+                <h2 class="side-title">Attributes</h2>
+                <dl class="detail-grid">
+                  <dt>Time</dt>
+                  <dd>3:05 PM</dd>
+                  <dt>Date</dt>
+                  <dd>Feb 12, 2026</dd>
+                  <dt>Venue</dt>
+                  <dd>Algebra Seminar, LOV 232, Florida State University</dd>
+                  <dt>Affiliation</dt>
+                  <dd>Florida State University</dd>
+                </dl>
+              </aside>
+            </div>
           </div>
         </div>
       </section>

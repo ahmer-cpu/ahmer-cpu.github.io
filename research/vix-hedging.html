@@ -285,9 +285,7 @@
               <p class="project-links" aria-label="Project links">
                 <span class="project-links-label">Available materials:</span>
                 <a href="https://github.com/ahmer-cpu/vix-project" target="_blank" rel="noopener noreferrer">Github</a>
-                <a href="../assets/research/write-ups/vix-project-executive-summary.pdf" target="_blank" rel="noopener noreferrer">Executive Summary (PDF)</a>
                 <a href="../assets/talks/slides/talk-vix.pdf" target="_blank" rel="noopener noreferrer">Slides (PDF)</a>
-                <a href="https://youtu.be/dGDeJCurITU" target="_blank" rel="noopener noreferrer">Recording</a>
                 <a href="https://www.erdosinstitute.org/certificates/fall-2025/quant-finance-boot-camp/ahmer-nadeem-khan/3c23176e-4283-4ef7-8466-f099b3e4ed11" target="_blank" rel="noopener noreferrer">Certification (Top Project)</a>
               </p>
 
@@ -313,16 +311,29 @@
             <div class="project-layout">
               <div class="content-stack">
                 <div class="section-panel">
-                  <h2 class="section-title">Abstract</h2>
+                  <h2 class="section-title">Executive Summary</h2>
                   <p>
-                    This project explores dynamic hedging strategies for equity portfolios during high-volatility market regimes. We focus on volatility-regime shifts and macro-triggered tail-risk events, particularly those driven by tariff-related market shocks. Using the VIX and short-term VIX futures as hedging instruments, we construct a dynamic strategy that adjusts hedge ratios based on market regime identification and VIX term structure.
+                    In this project, we explore volatility as a mechanism to hedge a portfolio of stocks in the US equities market (large cap stocks). We first collect the data for the following instruments (tickers):
+                  </p>
+                  <ol class="compact-list">
+                    <li>S&P 500 (GSPC); used as a proxy for S&P 500 INDEX (SPX)</li>
+                    <li>CBOE Volatility Index (VIX)</li>
+                    <li>iPath Series B S&P 500 VIX Short-Term Futures ETN (VXX)</li>
+                  </ol>
+                  <p>
+                    through Yahoo Finance custom data scraping. We then perform simple visualizations of the data, and conduct and report on an initial regression analysis to motivate a hedging portfolio. Note that we use the ETF product VXX to obtain exposure to volatility; the ETF tracks an index on the short-term futures on the VIX. CBOE also offers other derivative products on the VIX, including options and futures.
                   </p>
                   <p>
-                    The empirical analysis demonstrates substantial performance improvements: a 47% reduction in annualized volatility, a 2.6-factor increase in the Sharpe ratio, and maximum drawdown reduced from –19% to 4%. The project was selected as a top project from 107 submissions in the Erdős Institute Fall 2025 Cohort, reflecting its rigor and practical relevance.
+                    We then present a researched Event study of spikes/surges in the VIX over the YTD time period. The filtering and labeling was achieved quantitatively on the VIX daily data using jump/level detection and the qualitative market events research was done independently. We identify the triggers and then annotate them with real market events from this past year. The sources are also provided.
                   </p>
                   <p>
-                    Our approach combines event studies, regression analysis, and backtesting to evaluate both static and dynamic hedging frameworks. The results confirm that VIX-based dynamic hedging provides meaningful tail-risk protection while maintaining acceptable cost-benefit trade-offs.
+                    Finally, we execute static and dynamic hedging (60 day rolling window) strategies from Modern Portfolio Theory on daily Year-to-date (YTD) close and adj. close data for the current date (07 November, 2025). The performance of our portfolios is presented in charts and through the following performance metrics:
                   </p>
+                  <ol class="compact-list">
+                    <li>Annualized Volatility (risk)</li>
+                    <li>Sharpe Ratio</li>
+                    <li>Maximum Drawdown (downside risk)</li>
+                  </ol>
                 </div>
 
                 <div class="section-panel">
@@ -331,31 +342,14 @@
                     <li>Selected as a top project from 107 projects in the Erdős Institute Fall 2025 Cohort.</li>
                     <li>Empirical study on volatility-regime shifts and macro-triggered tail-risk using VIX during tariff-related market shocks.</li>
                     <li>Constructed and backtested a dynamic hedging strategy for a long S&P 500 portfolio using short-term VIX futures exposure.</li>
-                    <li>Demonstrated substantial performance improvement: 47% reduction in annualized volatility, 2.6 factor increase in Sharpe ratio, and max drawdown reduced from -19% to -4%.</li>
+                    <li>Demonstrated substantial performance improvement: 47% reduction in annualized volatility, 2.6 factor increase in Sharpe ratio, and max drawdown reduced from –19% to –4%.</li>
                   </ul>
-                </div>
-
-                <div class="section-panel">
-                  <h2 class="section-title">Implementation notebooks</h2>
-                  <p>
-                    The project is organized into five major Jupyter notebooks, each handling a distinct phase of the analysis pipeline:
-                  </p>
-                  <ul class="compact-list">
-                    <li><strong>01_data_collection:</strong> Custom scraping scripts for historical data on any ticker, frequency, time period, and data type from Yahoo Finance. Implemented using Playwright and Beautiful Soup.</li>
-                    <li><strong>02_visualization:</strong> Visualize the data and pre-process it to build intuition for analysis goals.</li>
-                    <li><strong>03_event_study:</strong> Research market impact on the VIX; detect and explain how real-world news causes VIX spikes.</li>
-                    <li><strong>04_analysis:</strong> Perform initial regression and sensitivity analysis to demonstrate the relationship between SPX and VIX and motivate the hedging strategy.</li>
-                    <li><strong>05_hedging_portfolio:</strong> Conduct the major hedging analysis. Explains VIX exposure instrument (short-term VIX futures ETF), demonstrates relationships rigorously, performs static/dynamic hedging, and evaluates performance.</li>
-                  </ul>
-                  <p>
-                    <em>See the GitHub repository for all files, code, figures, and detailed documentation.</em>
-                  </p>
                 </div>
 
                 <div class="section-panel">
                   <h2 class="section-title">Conclusions</h2>
                   <p>
-                    Dynamic VIX-based hedging provides substantial risk reduction for equity portfolios during market stress events. The strategy achieves a 47% reduction in volatility and improves the Sharpe ratio by a factor of 2.6 while reducing maximum drawdown from -19% to -4%. These results demonstrate that carefully designed dynamic hedging strategies can significantly enhance portfolio stability during macro-driven volatility spikes.
+                    Dynamic VIX-based hedging provides substantial risk reduction for equity portfolios during market stress events. The strategy achieves a 47% reduction in volatility and improves the Sharpe ratio by a factor of 2.6 while reducing maximum drawdown from –19% to –4%. These results demonstrate that carefully designed dynamic hedging strategies can significantly enhance portfolio stability during macro-driven volatility spikes.
                   </p>
                   <p>
                     The project highlights the importance of regime-switching models and event-driven analysis in understanding tail-risk dynamics. By combining empirical research with rigorous backtesting, we provide a practical framework for risk management in equity portfolios exposed to macro shocks.

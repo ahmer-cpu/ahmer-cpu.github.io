@@ -3,33 +3,38 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Ahmer Nadeem Khan — Schubert Calculus and the Cohomology of the Grassmannian" />
-  <title>Schubert Calculus and the Cohomology of the Grassmannian — Talk</title>
+  <meta name="description" content="Ahmer Nadeem Khan — Complex Projective Cubic Plane Curves" />
+  <title>Complex Projective Cubic Plane Curves — Project</title>
+
   <link rel="stylesheet" href="../assets/site.css">
+
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
   <script>
     document.addEventListener("DOMContentLoaded", function() {
-      renderMathInElement(document.body, {
-        delimiters: [
-          {left: '$$', right: '$$', display: true},
-          {left: '\\[', right: '\\]', display: true},
-          {left: '$', right: '$', display: false},
-          {left: '\\(', right: '\\)', display: false}
-        ]
-      });
+      if (typeof renderMathInElement !== "undefined") {
+        renderMathInElement(document.body, {
+          delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '\\[', right: '\\]', display: true},
+            {left: '$', right: '$', display: false},
+            {left: '\\(', right: '\\)', display: false}
+          ]
+        });
+      }
     });
   </script>
+
   <style>
-    #talk .card{
+    #project .card{
       border: none;
       background: transparent;
       box-shadow: none;
       padding: 0;
     }
 
-    #talk .return-link{
+    #project .return-link{
       font-size: 12px;
       letter-spacing: 0.14em;
       text-transform: uppercase;
@@ -40,7 +45,7 @@
       margin-bottom: 18px;
     }
 
-    #talk .return-link:hover{
+    #project .return-link:hover{
       color: var(--text);
       border-bottom-color: var(--text);
     }
@@ -75,9 +80,32 @@
       color: #222;
     }
 
+    .project-links{
+      margin-top: 18px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: 10px 16px;
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .project-links-label{
+      color: var(--accent);
+      font-size: 16px;
+      letter-spacing: -0.01em;
+      font-weight: 600;
+    }
+
+    .project-links a{
+      font-size: 16px;
+      letter-spacing: -0.01em;
+      font-weight: 600;
+    }
+
     .metric-grid{
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 14px;
       margin-top: 14px;
       margin-bottom: 14px;
@@ -104,29 +132,6 @@
       margin-top: 6px;
       font-size: 13px;
       color: var(--muted);
-    }
-
-    .project-links{
-      margin-top: 18px;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: baseline;
-      gap: 10px 16px;
-      font-size: 14px;
-      color: var(--muted);
-    }
-
-    .project-links-label{
-      color: var(--accent);
-      font-size: 16px;
-      letter-spacing: -0.01em;
-      font-weight: 600;
-    }
-
-    .project-links a{
-      font-size: 16px;
-      letter-spacing: -0.01em;
-      font-weight: 600;
     }
 
     .project-layout{
@@ -164,6 +169,15 @@
       margin-bottom: 0;
     }
 
+    .compact-list{
+      margin: 10px 0 0 18px;
+      padding: 0;
+    }
+
+    .compact-list li{
+      margin: 8px 0;
+    }
+
     .detail-grid{
       display: grid;
       grid-template-columns: 120px 1fr;
@@ -179,6 +193,15 @@
       margin: 0;
     }
 
+    .equation-note{
+      margin-top: 14px;
+      padding: 14px 16px;
+      border-left: 3px solid var(--accent);
+      background: #fcfafb;
+      border-radius: 0 10px 10px 0;
+      font-size: 14px;
+    }
+
     @media (max-width: 900px){
       .metric-grid{
         grid-template-columns: 1fr;
@@ -190,6 +213,7 @@
     }
   </style>
 </head>
+
 <body id="page">
   <div class="page">
     <div class="wrap">
@@ -197,35 +221,38 @@
         <a href="../index.html" class="site-name">Ahmer Nadeem Khan</a>
         <nav class="top-nav">
           <a href="../index.html">Home</a>
-          <a href="../research.html">Research</a>
-          <a href="../talks.html" class="active">Talks</a>
+          <a href="../research.html" class="active">Research</a>
+          <a href="../talks.html">Talks</a>
           <a href="../teaching.html">Teaching</a>
           <a href="../awards.html">Awards</a>
           <a href="../contact.html">Contact</a>
         </nav>
       </header>
 
-      <section id="talk">
-        <a class="return-link" href="../talks.html">Return to talks</a>
+      <section id="project">
+        <a class="return-link" href="../research.html">Return to research</a>
 
         <div class="card">
           <div class="project-shell">
             <div class="hero-panel">
-              <h1 class="hero-title">Schubert Calculus and the Cohomology of the Grassmannian</h1>
-
-              <p class="project-links" aria-label="Talk materials">
-                <span class="project-links-label">Available materials:</span>
-                <a href="../assets/talks/slides/talk-schubert.pdf" target="_blank" rel="noopener noreferrer">Slides (PDF)</a>
+              <h1 class="hero-title">Complex Projective Cubic Plane Curves</h1>
+              <p class="hero-summary">
+                A comprehensive study classifying all irreducible cubic curves in complex projective 2-space, exploring the connections between algebraic geometry and topology through the lens of elliptic curves.
               </p>
 
-              <div class="metric-grid" aria-label="Talk details">
+              <p class="project-links" aria-label="Project links">
+                <span class="project-links-label">Available materials:</span>
+                <a href="../assets/research/write-ups/complex-projective-cubic-plane-curves.pdf" target="_blank" rel="noopener noreferrer">Report (PDF)</a>
+              </p>
+
+              <div class="metric-grid" aria-label="Project highlights">
                 <div class="metric-card">
-                  <span class="metric-value">May 13, 2024</span>
-                  <span class="metric-label">Date</span>
+                  <span class="metric-value">2023</span>
+                  <span class="metric-label">Project year</span>
                 </div>
                 <div class="metric-card">
-                  <span class="metric-value">Senior thesis defense</span>
-                  <span class="metric-label">Lahore University of Management Sciences</span>
+                  <span class="metric-value">Collaborative project</span>
+                  <span class="metric-label">With two co-authors</span>
                 </div>
               </div>
             </div>
@@ -235,11 +262,20 @@
                 <div class="section-panel">
                   <h2 class="section-title">Abstract</h2>
                   <p>
-                    This talk presents the defense of an undergraduate senior thesis conducted at Lahore University of Management Sciences (LUMS) and Seoul National University (SNU) as part of the BS Mathematics degree. I begin with motivating problems in enumerative geometry, then develop the necessary mathematical machinery: Young tableaux and their algebraic and combinatorial properties, cellular cohomology, symmetric polynomials, and some fundamental objects from algebraic geometry. Finally, I present an introduction to Schubert calculus and the theory of intersections of Schubert varieties, demonstrating how these tools solve problems in arithmetic and incidence geometry.
+                    This report aims to classify the study of all irreducible cubic curves in $\mathbb{C}\mathbb{P}^2$ (complex projective 2-space). To do so, it builds up the necessary foundational ideas about algebraic plane curves needed to prove two primary theorems in order: Bézout's Theorem, followed by the Cayley-Bacharach Theorem. Using these two significant results, it will finally move towards classification, with a specific emphasis on the study of elliptic curves through an algebraic and topological lens.
                   </p>
-                  <p>
-                    The proofs of two main theorems were also sketched during the talk: first, how the Schubert cell structure gives rise to the cohomology of the Grassmannian; and second, an isomorphism between said cohomology ring and the ring of symmetric polynomials modulo the ideal generated by Schur functions defined in the appropriate way via Young tableaux.
-                  </p>
+                </div>
+
+                <div class="section-panel">
+                  <h2 class="section-title">Bibliography</h2>
+                  <ul class="compact-list">
+                    <li>Béatrice I. Chetard. <em>Elliptic curves as complex Tori</em>. University of Western Ontario, October 2017.</li>
+                    <li>William Fulton. <em>Algebraic curves. An Introduction to Algebraic Geometry</em>, 54, 2008.</li>
+                    <li>Pawel Gladki. <em>Resultants and the Bézout theorem</em>. Unpublished material, 2004, 2002.</li>
+                    <li>Joseph H. Silverman and John Torrence Tate. <em>Rational points on elliptic curves</em>. Springer, 2015.</li>
+                    <li>Terence Tao. <em>Pappus's theorem and elliptic curves</em>, July 2011.</li>
+                    <li>Wikipedia. <em>Cayley-Bacharach theorem</em>, August 2022.</li>
+                  </ul>
                 </div>
               </div>
 
@@ -249,18 +285,16 @@
               <aside class="side-panel">
                 <h2 class="side-title">Attributes</h2>
                 <dl class="detail-grid">
-                  <dt>Time</dt>
-                  <dd>8:00–10:00 AM</dd>
-                  <dt>Date</dt>
-                  <dd>May 13, 2024</dd>
-                  <dt>Venue</dt>
-                  <dd>Senior thesis defense, 9-1C1, Lahore University of Management Sciences</dd>
+                  <dt>Period</dt>
+                  <dd>2023</dd>
                   <dt>Affiliation</dt>
-                  <dd>Lahore University of Management Sciences, Seoul National University</dd>
-                  <dt>Supervisors</dt>
-                  <dd><a href="https://scholar.google.com/citations?user=saKXc4QAAAAJ&hl=en" target="_blank">Dr. Shaheen Nazir</a> and <a href="https://www.math.snu.ac.kr/~jwhang/" target="_blank">Dr. Junho Whang</a></dd>
-                  <dt>Committee</dt>
-                  <dd><a href="https://scholar.google.com/citations?user=saKXc4QAAAAJ&hl=en" target="_blank">Dr. Shaheen Nazir</a>, <a href="https://scholar.google.com/citations?user=XQNPruEAAAAJ&hl=en" target="_blank">Dr. Haniya Azam</a>, and <a href="https://sites.google.com/view/imrananwar/home" target="_blank">Dr. Imran Anwar</a></dd>
+                  <dd>Lahore University of Management Sciences (LUMS)</dd>
+                  <dt>Context</dt>
+                  <dd>Algebraic geometry · Plane curves</dd>
+                  <dt>Role</dt>
+                  <dd>Co-author</dd>
+                  <dt>Collaborators</dt>
+                  <dd>Abdullah Ahmed, Arhum Naseem Khawaja</dd>
                 </dl>
               </aside>
             </div>
@@ -271,6 +305,3 @@
   </div>
 </body>
 </html>
-
-
-

@@ -22,13 +22,13 @@
     });
   </script>
   <style>
-    /* Page-specific styles for talk detail */
     #talk .card{
       border: none;
       background: transparent;
       box-shadow: none;
       padding: 0;
     }
+
     #talk .return-link{
       font-size: 12px;
       letter-spacing: 0.14em;
@@ -37,32 +37,156 @@
       text-decoration: none;
       border-bottom: 1px solid transparent;
       display: inline-block;
-      margin-bottom: 12px;
+      margin-bottom: 18px;
     }
+
     #talk .return-link:hover{
       color: var(--text);
       border-bottom-color: var(--text);
     }
-    #talk .card-title strong{
-      font-size: 28px;
-      letter-spacing: -0.02em;
-      display: block;
-    }
-    .talk-meta{
+
+    .project-shell{
       display: grid;
-      grid-template-columns: 120px 1fr;
-      gap: 10px 16px;
-      font-size: 14px;
-      margin-bottom: 12px;
+      gap: 0;
     }
-    .talk-meta span:nth-child(odd){
+
+    .hero-panel{
+      padding: 0;
+      background: transparent;
+      border: none;
+      border-radius: 0;
+      box-shadow: none;
+    }
+
+    .hero-title{
+      margin: 0;
+      font-size: 34px;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+      font-weight: 700;
+      max-width: none;
+    }
+
+    .hero-summary{
+      max-width: none;
+      margin: 16px 0 0;
+      font-size: 16px;
+      color: #222;
+    }
+
+    .metric-grid{
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 14px;
+      margin-bottom: 14px;
+    }
+
+    .metric-card{
+      padding: 16px 18px;
+      background: transparent;
+      border: none;
+      border-radius: 0;
+      box-shadow: none;
+    }
+
+    .metric-value{
+      display: block;
+      font-size: 26px;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      font-weight: 650;
+    }
+
+    .metric-label{
+      display: block;
+      margin-top: 6px;
+      font-size: 13px;
       color: var(--muted);
     }
-    .talk-links{
+
+    .project-links{
+      margin-top: 18px;
       display: flex;
       flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 8px;
+      align-items: baseline;
+      gap: 10px 16px;
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .project-links-label{
+      color: var(--accent);
+      font-size: 16px;
+      letter-spacing: -0.01em;
+      font-weight: 600;
+    }
+
+    .project-links a{
+      font-size: 16px;
+      letter-spacing: -0.01em;
+      font-weight: 600;
+    }
+
+    .project-layout{
+      display: block;
+    }
+
+    .content-stack,
+    .side-stack{
+      display: grid;
+      gap: 32px;
+    }
+
+    .side-stack{
+      margin-top: 32px;
+    }
+
+    .section-panel,
+    .side-panel{
+      padding: 0;
+      background: transparent;
+      border: none;
+      border-radius: 0;
+      box-shadow: none;
+    }
+
+    .section-title,
+    .side-title{
+      margin: 0 0 16px;
+      font-size: 18px;
+      letter-spacing: -0.01em;
+    }
+
+    .section-panel p:last-child,
+    .side-panel p:last-child{
+      margin-bottom: 0;
+    }
+
+    .detail-grid{
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      gap: 10px 14px;
+      font-size: 14px;
+    }
+
+    .detail-grid dt{
+      color: var(--muted);
+    }
+
+    .detail-grid dd{
+      margin: 0;
+    }
+
+    @media (max-width: 900px){
+      .metric-grid{
+        grid-template-columns: 1fr;
+      }
+
+      .hero-title{
+        font-size: 30px;
+      }
     }
   </style>
 </head>
@@ -83,20 +207,60 @@
 
       <section id="talk">
         <a class="return-link" href="../talks.html">Return to talks</a>
+
         <div class="card">
-          <div class="card-title">
-            <strong>Dynamic Fear Hedging: Using the "Fear Gauge" to Mitigate Risk</strong>
-          </div>
-          <div class="talk-meta">
-            <span>Date</span><span>November 7, 2025 · Asynchronous</span>
-            <span>Venue</span><span>The Erdős Institute — Quant Finance Bootcamp</span>
-          </div>
-          <p><strong>Abstract</strong></p>
-          <p>[Abstract content to be added]</p>
-          <p><em>The recording is an introductory summary to the project.</em></p>
-          <div class="talk-links">
-            <a href="../assets/talks/slides/talk-vix.pdf" target="_blank">Slides</a>
-            <a href="https://youtu.be/dGDeJCurITU" target="_blank">Recording</a>
+          <div class="project-shell">
+            <div class="hero-panel">
+              <h1 class="hero-title">Dynamic Fear Hedging: Using the "Fear Gauge" to Mitigate Risk</h1>
+
+              <p class="project-links" aria-label="Talk materials">
+                <span class="project-links-label">Available materials:</span>
+                <a href="../assets/talks/slides/talk-vix.pdf" target="_blank" rel="noopener noreferrer">Slides (PDF)</a>
+                <a href="https://youtu.be/dGDeJCurITU" target="_blank" rel="noopener noreferrer">Recording</a>
+              </p>
+
+              <div class="metric-grid" aria-label="Talk details">
+                <div class="metric-card">
+                  <span class="metric-value">Nov 7, 2025</span>
+                  <span class="metric-label">Date</span>
+                </div>
+                <div class="metric-card">
+                  <span class="metric-value">Quant Finance Bootcamp</span>
+                  <span class="metric-label">The Erdős Institute</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="project-layout">
+              <div class="content-stack">
+                <div class="section-panel">
+                  <h2 class="section-title">Abstract</h2>
+                  <p>
+                    This project explores dynamic hedging strategies for equity portfolios during high-volatility regimes, focusing on volatility-regime shifts and macro-triggered tail-risk events. Using the VIX and short-term VIX futures as hedging instruments, we construct a dynamic strategy that adjusts hedge ratios based on market regime identification. The empirical analysis demonstrates substantial performance improvements: a 47% reduction in annualized volatility, a 2.6× increase in the Sharpe ratio, and maximum drawdown reduced from –19% to –4%. This presentation was delivered as part of the Quant Finance Bootcamp certification requirements at the Erdős Institute, where the project was selected as a top project from 107 submissions in the Fall 2025 cohort.
+                  </p>
+                  <p>
+                    <em>The recording is an introductory summary to the project.</em>
+                  </p>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="side-stack">
+              <aside class="side-panel">
+                <h2 class="side-title">Attributes</h2>
+                <dl class="detail-grid">
+                  <dt>Time</dt>
+                  <dd>Asynchronous</dd>
+                  <dt>Date</dt>
+                  <dd>November 7, 2025</dd>
+                  <dt>Venue</dt>
+                  <dd>Quant Finance Bootcamp, The Erdős Institute</dd>
+                  <dt>Affiliation</dt>
+                  <dd>The Erdős Institute</dd>
+                </dl>
+              </aside>
+            </div>
           </div>
         </div>
       </section>
