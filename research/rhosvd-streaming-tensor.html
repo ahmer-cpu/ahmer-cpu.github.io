@@ -360,16 +360,16 @@
 
               <div class="metric-grid" aria-label="Project highlights">
                 <div class="metric-card">
-                  <span class="metric-value">Ongoing</span>
-                  <span class="metric-label">Research in progress</span>
+                  <span class="metric-value">50–70 dB</span>
+                  <span class="metric-label">PSNR with 5–10× compression ratio</span>
                 </div>
                 <div class="metric-card">
-                  <span class="metric-value">2026</span>
-                  <span class="metric-label">Project start year</span>
+                  <span class="metric-value">1.26×</span>
+                  <span class="metric-label">Peak warm-start speedup</span>
                 </div>
                 <div class="metric-card">
-                  <span class="metric-value">2</span>
-                  <span class="metric-label">Presentations given</span>
+                  <span class="metric-value">15.6B</span>
+                  <span class="metric-label">Total voxels in Hurricane Isabel dataset</span>
                 </div>
               </div>
             </div>
@@ -385,25 +385,53 @@
 
                 <div class="section-panel" id="progress">
                   <h2 class="section-title">Progress</h2>
+                  <p><em>Note: Current results are restricted to CPU implementations.</em></p>
                   <div class="project-timeline">
                     <div class="timeline-item">
-                      <span class="timeline-date">March 2026</span>
-                      <a class="timeline-dot" href="../assets/research/presentations/SVD preliminary experiments - 02.pdf" target="_blank" rel="noopener noreferrer"></a>
+                      <span class="timeline-date">May 2026</span>
+                      <a class="timeline-dot" href="../assets/research/presentations/SVD 04 - Compression Fidelity.pdf" target="_blank" rel="noopener noreferrer"></a>
                       <div class="timeline-content">
-                        <p><strong><a href="../assets/research/presentations/SVD preliminary experiments - 02.pdf" target="_blank" rel="noopener noreferrer">Preliminary experiments (slides)</a></strong></p>
+                        <p><strong><a href="../assets/research/presentations/SVD 04 - Compression Fidelity.pdf" target="_blank" rel="noopener noreferrer">Compression fidelity on Hurricane Isabel (slides)</a></strong></p>
+                        <p>Compression fidelity analysis measuring PSNR and reconstruction quality across all 13 physical variables.</p>
+                      </div>
+                    </div>
+
+                    <div class="timeline-item">
+                      <span class="timeline-date">April 2026</span>
+                      <a class="timeline-dot" href="../assets/research/presentations/SVD 03 - Hurricane Benchmark.pdf" target="_blank" rel="noopener noreferrer"></a>
+                      <div class="timeline-content">
+                        <p><strong><a href="../assets/research/presentations/SVD 03 - Hurricane Benchmark.pdf" target="_blank" rel="noopener noreferrer">Hurricane benchmark (slides)</a></strong></p>
+                        <p>Presentation on hurricane benchmark results and performance evaluation.</p>
+                      </div>
+                    </div>
+
+                    <div class="timeline-item">
+                      <span class="timeline-date">March 2026</span>
+                      <a class="timeline-dot" href="../assets/research/presentations/SVD 02 - Preliminary Experiments.pdf" target="_blank" rel="noopener noreferrer"></a>
+                      <div class="timeline-content">
+                        <p><strong><a href="../assets/research/presentations/SVD 02 - Preliminary Experiments.pdf" target="_blank" rel="noopener noreferrer">Preliminary experiments (slides)</a></strong></p>
                         <p>Began experimental validation on synthetic and real tensor streams. Initial benchmark comparisons with baseline methods and exploration of GPU kernel optimizations.</p>
                       </div>
                     </div>
 
                     <div class="timeline-item">
                       <span class="timeline-date">Feb 2026</span>
-                      <a class="timeline-dot" href="../assets/research/presentations/Streaming SVD - 01.pdf" target="_blank" rel="noopener noreferrer"></a>
+                      <a class="timeline-dot" href="../assets/research/presentations/SVD 01 - Ideation.pdf" target="_blank" rel="noopener noreferrer"></a>
                       <div class="timeline-content">
-                        <p><strong><a href="../assets/research/presentations/Streaming SVD - 01.pdf" target="_blank" rel="noopener noreferrer">Ideation phase and presentation (slides)</a></strong></p>
+                        <p><strong><a href="../assets/research/presentations/SVD 01 - Ideation.pdf" target="_blank" rel="noopener noreferrer">Ideation phase and presentation (slides)</a></strong></p>
                         <p>Initial conceptualization of the warm-started rHOSVD algorithm for streaming tensor decomposition.</p>
                       </div>
                     </div>
                   </div>
+                </div>
+
+                <div class="section-panel">
+                  <h2 class="section-title">Next Steps</h2>
+                  <ul class="compact-list">
+                    <li>GPU implementation and optimization</li>
+                    <li>Full compression pipeline (including quantization)</li>
+                    <li>Rigorous error-analysis for deterministic and probabilistic error control</li>
+                  </ul>
                 </div>
               </div>
 
