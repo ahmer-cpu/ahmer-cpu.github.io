@@ -1,0 +1,853 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Ahmer Nadeem Khan — Personal Quant Research & Trading Engine" />
+  <title>Personal Quant Research & Trading Engine — Project</title>
+
+  <link rel="stylesheet" href="../assets/site.css">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      if (typeof renderMathInElement !== "undefined") {
+        renderMathInElement(document.body, {
+          delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '\\[', right: '\\]', display: true},
+            {left: '$', right: '$', display: false},
+            {left: '\\(', right: '\\)', display: false}
+          ]
+        });
+      }
+    });
+  </script>
+
+  <style>
+    /* ── Base overrides (shared with other project pages) ── */
+
+    #project .card{
+      border: none;
+      background: transparent;
+      box-shadow: none;
+      padding: 0;
+    }
+
+    #project .return-link{
+      font-size: 12px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      display: inline-block;
+      margin-bottom: 18px;
+    }
+
+    #project .return-link:hover{
+      color: var(--text);
+      border-bottom-color: var(--text);
+    }
+
+    .project-shell{
+      display: grid;
+      gap: 0;
+    }
+
+    .hero-panel{
+      padding: 0;
+      background: transparent;
+      border: none;
+      border-radius: 0;
+      box-shadow: none;
+    }
+
+    .project-kicker,
+    .section-kicker{
+      font-size: 12px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+
+    .hero-title{
+      margin: 0;
+      font-size: 34px;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+      font-weight: 700;
+      max-width: none;
+    }
+
+    .hero-summary{
+      max-width: none;
+      margin: 16px 0 0;
+      font-size: 16px;
+      color: #222;
+    }
+
+    .project-links{
+      margin-top: 18px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: 10px 16px;
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .project-links-label{
+      color: var(--accent);
+      font-size: 16px;
+      letter-spacing: -0.01em;
+      font-weight: 600;
+    }
+
+    .project-links a{
+      font-size: 16px;
+      letter-spacing: -0.01em;
+      font-weight: 600;
+    }
+
+    .project-layout{
+      display: block;
+    }
+
+    .content-stack,
+    .side-stack{
+      display: grid;
+      gap: 32px;
+    }
+
+    .side-stack{
+      margin-top: 32px;
+    }
+
+    .section-panel,
+    .side-panel{
+      padding: 0;
+      background: transparent;
+      border: none;
+      border-radius: 0;
+      box-shadow: none;
+    }
+
+    .section-title,
+    .side-title{
+      margin: 0 0 16px;
+      font-size: 18px;
+      letter-spacing: -0.01em;
+    }
+
+    .section-panel p:last-child,
+    .side-panel p:last-child{
+      margin-bottom: 0;
+    }
+
+    .compact-list{
+      margin: 10px 0 0 18px;
+      padding: 0;
+    }
+
+    .compact-list li{
+      margin: 8px 0;
+    }
+
+    .detail-grid{
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      gap: 10px 14px;
+      font-size: 14px;
+    }
+
+    .detail-grid dt{
+      color: var(--muted);
+    }
+
+    .detail-grid dd{
+      margin: 0;
+    }
+
+    .tag-row{
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 14px;
+    }
+
+    .tag{
+      display: inline-flex;
+      align-items: center;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: var(--chip);
+      color: var(--muted);
+      font-size: 12px;
+      border: 1px solid var(--border);
+    }
+
+    .equation-note{
+      margin-top: 14px;
+      padding: 14px 16px;
+      border-left: 3px solid var(--accent);
+      background: #fcfafb;
+      border-radius: 0 10px 10px 0;
+      font-size: 14px;
+    }
+
+    /* ── Status bar (unique to this page) ── */
+
+    .status-bar{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 14px;
+      gap: 16px;
+    }
+
+    .status-badge{
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 0;
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--muted);
+      letter-spacing: 0.04em;
+    }
+
+    .status-badge::before{
+      content: '';
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #c9a227;
+      flex-shrink: 0;
+    }
+
+    .last-updated{
+      font-size: 12px;
+      color: var(--muted);
+      letter-spacing: 0.02em;
+    }
+
+    /* ── Metric grid ── */
+
+    .metric-grid{
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 14px;
+      margin-bottom: 14px;
+    }
+
+    .metric-card{
+      padding: 16px 18px;
+      background: transparent;
+      border: none;
+      border-radius: 0;
+      box-shadow: none;
+    }
+
+    .metric-value{
+      display: block;
+      font-size: 26px;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      font-weight: 650;
+    }
+
+    .metric-label{
+      display: block;
+      margin-top: 6px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    /* ── Equity curve chart ── */
+
+    .chart-container{
+      margin-top: 20px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: var(--panel);
+    }
+
+    .chart-container img{
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .chart-caption{
+      padding: 10px 16px;
+      font-size: 12px;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+    }
+
+    .chart-placeholder{
+      padding: 60px 16px;
+      text-align: center;
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    /* ── Pipeline diagram ── */
+
+    .pipeline{
+      display: flex;
+      align-items: stretch;
+      gap: 0;
+      margin: 20px 0;
+    }
+
+    .pipeline-stage{
+      flex: 1;
+      min-width: 0;
+      padding: 14px 12px;
+      position: relative;
+      border-left: 3px solid var(--accent);
+    }
+
+    .pipeline-stage.scaffolded{
+      border-left: 3px dashed var(--border);
+    }
+
+    .pipeline-stage::after{
+      content: '\2192';
+      position: absolute;
+      right: -2px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--muted);
+      font-size: 14px;
+      z-index: 1;
+    }
+
+    .pipeline-stage:last-child::after{
+      display: none;
+    }
+
+    .pipeline-label{
+      font-size: 13px;
+      font-weight: 650;
+      letter-spacing: -0.01em;
+      margin-bottom: 4px;
+    }
+
+    .pipeline-desc{
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.4;
+    }
+
+    /* ── Timeline (adapted from rHOSVD page) ── */
+
+    .project-timeline{
+      margin-top: 24px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      position: relative;
+    }
+
+    .project-timeline::before{
+      content: '';
+      position: absolute;
+      left: 111px;
+      top: 0;
+      bottom: 0;
+      width: 1px;
+      background: var(--border);
+    }
+
+    .timeline-item{
+      display: flex;
+      margin-bottom: 32px;
+      position: relative;
+      margin-left: 0;
+    }
+
+    .timeline-date{
+      position: absolute;
+      left: 0;
+      top: 7px;
+      font-size: 12px;
+      color: var(--muted);
+      letter-spacing: 0.05em;
+      font-weight: 500;
+      width: 100px;
+      text-align: right;
+      padding-right: 25px;
+      box-sizing: border-box;
+    }
+
+    .timeline-dot{
+      position: absolute;
+      left: 104px;
+      top: 6px;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: var(--panel);
+      border: 2px solid var(--text);
+      box-shadow: 0 0 0 2px var(--panel);
+      z-index: 1;
+    }
+
+    .timeline-content{
+      flex: 1;
+      padding-left: 40px;
+      margin-left: 114px;
+    }
+
+    .timeline-content p{
+      margin: 0 0 8px 0;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .timeline-content p:last-child{
+      margin-bottom: 0;
+    }
+
+    /* ── Metric tooltips ── */
+
+    .metric-label-tip{
+      display: block;
+      margin-top: 6px;
+      font-size: 13px;
+      color: var(--muted);
+      cursor: help;
+      border-bottom: 1px dotted var(--muted);
+      width: fit-content;
+      position: relative;
+    }
+
+    .metric-tip{
+      display: none;
+      position: absolute;
+      bottom: calc(100% + 8px);
+      left: 0;
+      width: 260px;
+      padding: 10px 12px;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      font-size: 12px;
+      line-height: 1.5;
+      color: var(--text);
+      z-index: 10;
+      cursor: default;
+    }
+
+    .metric-label-tip:hover .metric-tip,
+    .metric-label-tip:focus-within .metric-tip{
+      display: block;
+    }
+
+    /* ── Collapsible details ── */
+
+    .metric-details{
+      margin-top: 14px;
+    }
+
+    .metric-details summary{
+      padding: 12px 16px;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--muted);
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .metric-details summary::-webkit-details-marker{
+      display: none;
+    }
+
+    .metric-details summary::before{
+      content: '\25B6';
+      font-size: 10px;
+      transition: transform 0.2s;
+    }
+
+    .metric-details[open] summary::before{
+      transform: rotate(90deg);
+    }
+
+    .metric-details summary:hover{
+      color: var(--text);
+    }
+
+    .metric-details-body{
+      padding: 0 16px 16px;
+    }
+
+    /* ── Bottom two-column grid ── */
+
+    .bottom-grid{
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+    }
+
+    /* ── Responsive ── */
+
+    @media (max-width: 900px){
+      .metric-grid{
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .hero-title{
+        font-size: 30px;
+      }
+
+      .pipeline{
+        flex-direction: column;
+      }
+
+      .pipeline-stage::after{
+        content: '\2193';
+        right: auto;
+        left: 50%;
+        top: auto;
+        bottom: -2px;
+        transform: translateX(-50%);
+      }
+
+      .pipeline-stage:last-child::after{
+        display: none;
+      }
+
+      .bottom-grid{
+        grid-template-columns: 1fr;
+      }
+
+      .project-timeline::before{
+        left: 0;
+      }
+
+      .timeline-item{
+        padding-left: 20px;
+      }
+
+      .timeline-date{
+        position: static;
+        margin-bottom: 8px;
+      }
+
+      .timeline-dot{
+        left: -7px;
+      }
+    }
+
+    @media (max-width: 640px){
+      .metric-grid{
+        grid-template-columns: 1fr;
+      }
+
+      .status-bar{
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+      }
+    }
+  </style>
+</head>
+
+<body id="page">
+  <div class="page">
+    <div class="wrap">
+      <header>
+        <a href="../index.html" class="site-name">Ahmer Nadeem Khan</a>
+        <nav class="top-nav">
+          <a href="../index.html">Home</a>
+          <a href="../research.html" class="active">Research</a>
+          <a href="../talks.html">Talks</a>
+          <a href="../teaching.html">Teaching</a>
+          <a href="../awards.html">Awards</a>
+          <a href="../contact.html">Contact</a>
+        </nav>
+      </header>
+
+      <section id="project">
+        <a class="return-link" href="../research.html">Return to research</a>
+
+        <div class="card">
+          <div class="project-shell">
+
+            <!-- ── HERO ── -->
+            <div class="hero-panel">
+              <h1 class="hero-title">Personal Quant Research & Trading Engine</h1>
+              <p class="hero-summary">
+                A systematic equity research and execution platform built from scratch in Python, designed to take trading strategies from hypothesis through backtesting to paper (and eventually live) execution on US equities via Alpaca.
+              </p>
+
+              <div class="status-bar">
+                <span class="status-badge">Paper Trading</span>
+              </div>
+
+              <p class="project-links" aria-label="Project links">
+                <span class="project-links-label">Repository:</span>
+                <a href="https://github.com/ahmer-cpu/personal-quant-research-and-trading" target="_blank" rel="noopener noreferrer">GitHub</a>
+                <span style="color: var(--border);">|</span>
+                <span class="project-links-label">Notebooks:</span>
+                <a href="../assets/research/01_data_exploration.html">Data Exploration</a>
+              </p>
+            </div>
+
+            <div class="project-layout">
+              <div class="content-stack">
+
+                <!-- ── PERFORMANCE ── -->
+                <div class="section-panel">
+                  <h2 class="section-title">Portfolio Dashboard</h2>
+
+                  <div class="metric-grid" aria-label="Performance metrics">
+                    <div class="metric-card">
+                      <span class="metric-value" id="metric-ann-return">--</span>
+                      <span class="metric-label-tip" tabindex="0">Annualized return
+                        <span class="metric-tip">Compound annual growth rate (CAGR). Measures the geometric average yearly return over the full period.</span>
+                      </span>
+                    </div>
+                    <div class="metric-card">
+                      <span class="metric-value" id="metric-sharpe">--</span>
+                      <span class="metric-label-tip" tabindex="0">Sharpe ratio
+                        <span class="metric-tip">Excess return per unit of total volatility, annualized. Higher is better; above 1.0 is generally considered good.</span>
+                      </span>
+                    </div>
+                    <div class="metric-card">
+                      <span class="metric-value" id="metric-max-dd">--</span>
+                      <span class="metric-label-tip" tabindex="0">Max drawdown
+                        <span class="metric-tip">Largest peak-to-trough decline on the equity curve. Measures worst-case loss from a high point.</span>
+                      </span>
+                    </div>
+                    <div class="metric-card">
+                      <span class="metric-value" id="metric-win-rate">--</span>
+                      <span class="metric-label-tip" tabindex="0">Win rate
+                        <span class="metric-tip">Fraction of trading periods with positive returns. Context-dependent — a low win rate can still be profitable with large winners.</span>
+                      </span>
+                    </div>
+                  </div>
+
+                  <div class="metric-grid" aria-label="Secondary metrics">
+                    <div class="metric-card">
+                      <span class="metric-value" id="metric-sortino">--</span>
+                      <span class="metric-label-tip" tabindex="0">Sortino ratio
+                        <span class="metric-tip">Like Sharpe, but only penalizes downside volatility. Better for asymmetric return distributions.</span>
+                      </span>
+                    </div>
+                    <div class="metric-card">
+                      <span class="metric-value" id="metric-calmar">--</span>
+                      <span class="metric-label-tip" tabindex="0">Calmar ratio
+                        <span class="metric-tip">Annualized return divided by max drawdown. Measures return per unit of tail risk.</span>
+                      </span>
+                    </div>
+                    <div class="metric-card">
+                      <span class="metric-value" id="metric-ann-vol">--</span>
+                      <span class="metric-label-tip" tabindex="0">Annualized volatility
+                        <span class="metric-tip">Standard deviation of returns, annualized. Measures total dispersion of returns around the mean.</span>
+                      </span>
+                    </div>
+                    <div class="metric-card">
+                      <span class="metric-value" id="metric-profit-factor">--</span>
+                      <span class="metric-label-tip" tabindex="0">Profit factor
+                        <span class="metric-tip">Gross profits divided by gross losses. Above 1.0 means the strategy is net profitable.</span>
+                      </span>
+                    </div>
+                  </div>
+
+                  <div class="chart-container">
+                    <div class="chart-placeholder">
+                      Equity curve will appear here once paper trading begins.
+                    </div>
+                  </div>
+
+                  <span class="last-updated" id="last-updated">Last updated: 10 May 2026</span>
+
+                  <details class="metric-details">
+                    <summary>How these metrics are computed</summary>
+                    <div class="metric-details-body">
+                      <p>
+                        All metrics are computed on simple (not log) returns, indexed by trading day. Risk-free rates are compounded per-period rather than linearly approximated. Default annualization assumes 252 trading days per year.
+                      </p>
+
+                      <div class="equation-note">
+                        <strong>Sharpe ratio.</strong> Measures excess return per unit of total volatility:
+                        $$\text{SR} = \frac{\bar{r} - r_f}{\sigma} \cdot \sqrt{N}$$
+                        where $\bar{r}$ is the mean period return, $r_f$ is the per-period risk-free rate computed as $(1 + R_f)^{1/N} - 1$, and $N = 252$.
+                      </div>
+
+                      <div class="equation-note">
+                        <strong>Sortino ratio.</strong> Penalizes only downside volatility, using the root-mean-square of negative excess returns:
+                        $$\text{Sortino} = \frac{\bar{r} - r_f}{\sigma_d} \cdot \sqrt{N}, \qquad \sigma_d = \sqrt{\frac{1}{n^-} \sum_{r_i < r_f} (r_i - r_f)^2}$$
+                        where $n^-$ counts only periods with returns below the risk-free rate.
+                      </div>
+
+                      <div class="equation-note">
+                        <strong>Maximum drawdown.</strong> The largest peak-to-trough decline on the cumulative equity curve:
+                        $$\text{MDD} = \min_t \left( \frac{V_t - \max_{\tau \leq t} V_\tau}{\max_{\tau \leq t} V_\tau} \right), \qquad V_t = \prod_{i=1}^{t}(1 + r_i)$$
+                      </div>
+
+                      <div class="equation-note">
+                        <strong>Calmar ratio.</strong> Annualized return per unit of tail risk:
+                        $$\text{Calmar} = \frac{\text{CAGR}}{|\text{MDD}|}$$
+                      </div>
+
+                      <div class="equation-note">
+                        <strong>Annualized return.</strong> Compound annual growth rate (CAGR):
+                        $$\text{CAGR} = \left(\prod_{i=1}^{n}(1 + r_i)\right)^{N/n} - 1$$
+                        where $n$ is the number of observed periods and $N = 252$.
+                      </div>
+
+                      <div class="equation-note">
+                        <strong>Annualized volatility.</strong> Standard deviation of returns, scaled to annual:
+                        $$\sigma_{\text{ann}} = \sigma(r) \cdot \sqrt{N}$$
+                      </div>
+
+                      <div class="equation-note">
+                        <strong>Win rate.</strong> Fraction of periods with positive returns:
+                        $$\text{WR} = \frac{|\{i : r_i > 0\}|}{n}$$
+                      </div>
+
+                      <div class="equation-note">
+                        <strong>Profit factor.</strong> Ratio of gross gains to gross losses:
+                        $$\text{PF} = \frac{\sum_{r_i > 0} r_i}{\left|\sum_{r_i < 0} r_i\right|}$$
+                      </div>
+                    </div>
+                  </details>
+                </div>
+
+                <!-- ── SYSTEM ARCHITECTURE ── -->
+                <div class="section-panel">
+                  <h2 class="section-title">Pipeline</h2>
+
+                  <div class="pipeline">
+                    <div class="pipeline-stage">
+                      <div class="pipeline-label">Data</div>
+                      <div class="pipeline-desc">Alpaca API ingestion, Parquet storage with incremental updates</div>
+                    </div>
+                    <div class="pipeline-stage scaffolded">
+                      <div class="pipeline-label">Alpha</div>
+                      <div class="pipeline-desc">Factor research, signal generation, composite scoring</div>
+                    </div>
+                    <div class="pipeline-stage scaffolded">
+                      <div class="pipeline-label">Strategy</div>
+                      <div class="pipeline-desc">Signal combination, target weight computation</div>
+                    </div>
+                    <div class="pipeline-stage scaffolded">
+                      <div class="pipeline-label">Portfolio</div>
+                      <div class="pipeline-desc">Position sizing, risk constraints, rebalancing</div>
+                    </div>
+                    <div class="pipeline-stage scaffolded">
+                      <div class="pipeline-label">Execution</div>
+                      <div class="pipeline-desc">Order routing, fill handling, slippage modeling</div>
+                    </div>
+                    <div class="pipeline-stage">
+                      <div class="pipeline-label">Analytics</div>
+                      <div class="pipeline-desc">Sharpe, Sortino, Calmar, drawdown, profit factor</div>
+                    </div>
+                  </div>
+
+                  <p style="font-size: 13px; color: var(--muted); margin-top: 8px;">
+                    Solid border indicates implemented modules. Dashed border indicates modules under development.
+                  </p>
+                </div>
+
+                <!-- ── RESEARCH LOG ── -->
+                <div class="section-panel">
+                  <h2 class="section-title">Progress</h2>
+
+                  <div class="project-timeline">
+                    <div class="timeline-item">
+                      <span class="timeline-date">May 2026</span>
+                      <span class="timeline-dot"></span>
+                      <div class="timeline-content">
+                        <p><strong>Performance analytics suite & data exploration</strong></p>
+                        <p>Implemented Sharpe, Sortino, Calmar, max drawdown, win rate, profit factor, annualized return, and annualized volatility with full edge-case handling. 40+ unit tests. Published <a href="../assets/research/01_data_exploration.html">data exploration notebook</a> covering return distributions, cross-sector correlations, and volatility dynamics.</p>
+                      </div>
+                    </div>
+
+                    <div class="timeline-item">
+                      <span class="timeline-date">Apr 2026</span>
+                      <span class="timeline-dot"></span>
+                      <div class="timeline-content">
+                        <p><strong>Historical data pipeline</strong></p>
+                        <p>Built Alpaca market data client and Parquet-based storage with smart incremental fetching, deduplication, and multi-timeframe support (1min to daily).</p>
+                      </div>
+                    </div>
+
+                    <div class="timeline-item">
+                      <span class="timeline-date">Apr 2026</span>
+                      <span class="timeline-dot"></span>
+                      <div class="timeline-content">
+                        <p><strong>Core domain model</strong></p>
+                        <p>Designed type-safe data structures (Bar, Signal, Order, Fill, Position) using frozen dataclasses and enums. Established project scaffold with strict typing and linting.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- ── ENGINEERING + ATTRIBUTES (side by side) ── -->
+                <div class="section-panel">
+                  <div class="bottom-grid">
+                    <div>
+                      <h2 class="section-title">Tooling & Quality</h2>
+                      <dl class="detail-grid">
+                        <dt>Language</dt>
+                        <dd>Python 3.13</dd>
+                        <dt>Type checking</dt>
+                        <dd>mypy (strict mode)</dd>
+                        <dt>Linting</dt>
+                        <dd>ruff</dd>
+                        <dt>Testing</dt>
+                        <dd>pytest</dd>
+                        <dt>Packaging</dt>
+                        <dd>pyproject.toml + hatchling</dd>
+                        <dt>Data format</dt>
+                        <dd>Apache Parquet (columnar, compressed)</dd>
+                        <dt>Libraries</dt>
+                        <dd>Pandas, NumPy, Pydantic, Alpaca SDK, PyArrow</dd>
+                      </dl>
+                    </div>
+                    <div>
+                      <h2 class="section-title">Attributes</h2>
+                      <dl class="detail-grid">
+                        <dt>Status</dt>
+                        <dd>Active development (paper trading)</dd>
+                        <dt>Period</dt>
+                        <dd>2026 &ndash; present</dd>
+                        <dt>Affiliation</dt>
+                        <dd>Independent research</dd>
+                        <dt>Market</dt>
+                        <dd>US Equities</dd>
+                        <dt>Broker</dt>
+                        <dd>Alpaca (paper + live)</dd>
+                        <dt>Repository</dt>
+                        <dd><a href="https://github.com/ahmer-cpu/personal-quant-research-and-trading" target="_blank" rel="noopener noreferrer">GitHub</a></dd>
+                      </dl>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</body>
+</html>
