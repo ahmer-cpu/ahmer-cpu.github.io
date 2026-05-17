@@ -673,7 +673,7 @@
                     <div class="chart-caption">NVDA daily returns equity curve (Jan 2024 &ndash; May 2026). Red shading indicates drawdown periods.</div>
                   </div>
 
-                  <span class="last-updated" id="last-updated">Last updated: 11 May 2026</span>
+                  <span class="last-updated" id="last-updated">Last updated: 16 May 2026</span>
 
                   <details class="metric-details">
                     <summary>How these metrics are computed</summary>
@@ -737,7 +737,7 @@
                       <div class="pipeline-label">Data</div>
                       <div class="pipeline-desc">Alpaca API ingestion, Parquet storage with incremental updates</div>
                     </div>
-                    <div class="pipeline-stage scaffolded">
+                    <div class="pipeline-stage">
                       <div class="pipeline-label">Alpha</div>
                       <div class="pipeline-desc">Factor research, signal generation, composite scoring</div>
                     </div>
@@ -755,7 +755,7 @@
                     </div>
                     <div class="pipeline-stage">
                       <div class="pipeline-label">Analytics</div>
-                      <div class="pipeline-desc">Sharpe, Sortino, Calmar, drawdown, profit factor</div>
+                      <div class="pipeline-desc">22 metrics, IC analysis, tearsheet, vectorized backtester</div>
                     </div>
                   </div>
 
@@ -773,8 +773,26 @@
                       <span class="timeline-date">May 2026</span>
                       <span class="timeline-dot"></span>
                       <div class="timeline-content">
+                        <p><strong>Benchmark-relative & distribution metrics</strong></p>
+                        <p>Added beta, alpha (Jensen's), tracking error, information ratio, up/down capture, VaR, CVaR, skewness, kurtosis, tail ratio, and expected tail ratio. Full tearsheet redesign with 22-metric dashboard. 119 unit tests.</p>
+                      </div>
+                    </div>
+
+                    <div class="timeline-item">
+                      <span class="timeline-date">May 2026</span>
+                      <span class="timeline-dot"></span>
+                      <div class="timeline-content">
+                        <p><strong>Alpha framework & vectorized backtester</strong></p>
+                        <p>Built abstract alpha base class with four factors (momentum, cross-sectional momentum, RSI, Bollinger z-score). Implemented vectorized backtester with dollar-neutral positioning, transaction cost modeling, and IC analysis module.</p>
+                      </div>
+                    </div>
+
+                    <div class="timeline-item">
+                      <span class="timeline-date">May 2026</span>
+                      <span class="timeline-dot"></span>
+                      <div class="timeline-content">
                         <p><strong>Performance analytics suite & data exploration</strong></p>
-                        <p>Implemented Sharpe, Sortino, Calmar, max drawdown, win rate, profit factor, annualized return, and annualized volatility with full edge-case handling. 40+ unit tests. Published <a href="../assets/research/01_data_exploration.html">data exploration notebook</a> covering return distributions, cross-sector correlations, and volatility dynamics.</p>
+                        <p>Implemented Sharpe, Sortino, Calmar, max drawdown, win rate, profit factor with full edge-case handling. Published <a href="../assets/research/01_data_exploration.html">data exploration notebook</a> covering return distributions, cross-sector correlations, and volatility dynamics.</p>
                       </div>
                     </div>
 
