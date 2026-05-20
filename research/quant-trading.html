@@ -269,9 +269,9 @@
       color: var(--muted);
     }
 
-    /* ── Equity curve chart ── */
+    /* ── Tearsheet image ── */
 
-    .chart-container{
+    .tearsheet-container{
       margin-top: 20px;
       border: 1px solid var(--border);
       border-radius: var(--radius);
@@ -279,24 +279,62 @@
       background: var(--panel);
     }
 
-    .chart-container img{
+    .tearsheet-container img{
       display: block;
       width: 100%;
       height: auto;
     }
 
-    .chart-caption{
+    .tearsheet-caption{
       padding: 10px 16px;
       font-size: 12px;
       color: var(--muted);
       border-top: 1px solid var(--border);
     }
 
-    .chart-placeholder{
-      padding: 60px 16px;
-      text-align: center;
+    /* ── Key findings callout ── */
+
+    .findings-grid{
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-top: 16px;
+    }
+
+    .finding-card{
+      padding: 18px 20px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--panel);
+    }
+
+    .finding-card h4{
+      margin: 0 0 8px;
       font-size: 14px;
+      letter-spacing: -0.01em;
+    }
+
+    .finding-card p{
+      margin: 0;
+      font-size: 13px;
       color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .finding-verdict{
+      display: inline-block;
+      margin-top: 10px;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .verdict-discard{
+      background: #fde8e8;
+      color: #9b1c1c;
     }
 
     /* ── Pipeline diagram ── */
@@ -348,7 +386,7 @@
       line-height: 1.4;
     }
 
-    /* ── Timeline (adapted from rHOSVD page) ── */
+    /* ── Timeline ── */
 
     .project-timeline{
       margin-top: 24px;
@@ -534,6 +572,10 @@
         grid-template-columns: 1fr;
       }
 
+      .findings-grid{
+        grid-template-columns: 1fr;
+      }
+
       .project-timeline::before{
         left: 0;
       }
@@ -591,11 +633,12 @@
             <div class="hero-panel">
               <h1 class="hero-title">Personal Quant Research & Trading Engine</h1>
               <p class="hero-summary">
-                A systematic equity research and execution platform built from scratch in Python, designed to take trading strategies from hypothesis through backtesting to paper (and eventually live) execution on US equities via Alpaca.
+                A systematic equity research platform built from scratch in Python. Backtested four alpha factors on 47 US large-caps across all 11 GICS sectors (2021&ndash;2026), applying Newey-West corrected IC analysis, block bootstrap confidence intervals, and a full signal validation battery. Best result: <strong>+5% annualized alpha vs SPY</strong> (Momentum 12-1, 15-day rebalance, 10 bps cost).
               </p>
 
               <div class="status-bar">
-                <span class="status-badge">Paper Trading</span>
+                <span class="status-badge">Active Development</span>
+                <span class="last-updated">Last updated: 19 May 2026</span>
               </div>
 
               <p class="project-links" aria-label="Project links">
@@ -604,167 +647,181 @@
                 <span style="color: var(--border);">|</span>
                 <span class="project-links-label">Notebooks:</span>
                 <a href="../assets/research/01_data_exploration.html">Data Exploration</a>
+                <a href="../assets/research/02_factor_analysis.html">Factor Analysis</a>
+                <a href="../assets/research/03_signal_validation.html">Signal Validation</a>
               </p>
             </div>
 
             <div class="project-layout">
               <div class="content-stack">
 
-                <!-- ── PERFORMANCE ── -->
+                <!-- ── KEY RESULTS ── -->
                 <div class="section-panel">
-                  <h2 class="section-title">Portfolio Dashboard</h2>
+                  <h2 class="section-title">Key Results</h2>
+                  <p style="font-size: 14px; color: var(--muted); margin-top: 0;">
+                    Screened four alpha factors (momentum 12-1, cross-sectional momentum, RSI, Bollinger z-score). Two survived initial screening; both were ultimately discarded after rigorous statistical validation. The framework &mdash; not the signals &mdash; is the deliverable.
+                  </p>
+
+                  <div class="findings-grid">
+                    <div class="finding-card">
+                      <h4>Momentum 12-1</h4>
+                      <p>+5% annualized alpha vs SPY, Sharpe 0.42 at 15-day rebalance. However: Newey-West corrected t-statistic of 1.28 (below 2.0 threshold), regime-dependent (pre-2024 t = 0.17, post-2024 t = 1.83), inconsistent across sectors.</p>
+                      <span class="finding-verdict verdict-discard">Discarded</span>
+                    </div>
+                    <div class="finding-card">
+                      <h4>Bollinger Z-Score</h4>
+                      <p>IC insignificant at all horizons after NW correction (best t = 0.63). Sharpe improved from -1.58 to +0.20 with frequency/smoothing optimization, but entirely through cost reduction &mdash; no detectable alpha.</p>
+                      <span class="finding-verdict verdict-discard">Discarded</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- ── TEARSHEET ── -->
+                <div class="section-panel">
+                  <h2 class="section-title">Momentum 12-1 &mdash; In-Sample Backtest Tearsheet</h2>
+                  <p style="font-size: 14px; color: var(--muted); margin-top: 0;">
+                    Best-performing signal at optimal parameters (15-day rebalance, 10 bps transaction cost, dollar-neutral long/short). Benchmarked against SPY. All metrics are in-sample backtest results on 47 US large-caps (2021&ndash;2026).
+                  </p>
 
                   <div class="metric-grid" aria-label="Performance metrics">
                     <div class="metric-card">
-                      <span class="metric-value" id="metric-ann-return">89.8%</span>
-                      <span class="metric-label-tip" tabindex="0">Annualized return
-                        <span class="metric-tip">Compound annual growth rate (CAGR). Measures the geometric average yearly return over the full period.</span>
+                      <span class="metric-value">+5.0%</span>
+                      <span class="metric-label-tip" tabindex="0">Alpha (ann.)
+                        <span class="metric-tip">Jensen's alpha: annualized excess return unexplained by market beta. Computed as $\alpha = (\bar{r}_s - r_f) - \beta(\bar{r}_b - r_f)$, annualized.</span>
                       </span>
                     </div>
                     <div class="metric-card">
-                      <span class="metric-value" id="metric-sharpe">1.55</span>
+                      <span class="metric-value">0.42</span>
                       <span class="metric-label-tip" tabindex="0">Sharpe ratio
-                        <span class="metric-tip">Excess return per unit of total volatility, annualized. Higher is better; above 1.0 is generally considered good.</span>
+                        <span class="metric-tip">Excess return per unit of total volatility, annualized. Strategy has low absolute return but also low volatility (dollar-neutral).</span>
                       </span>
                     </div>
                     <div class="metric-card">
-                      <span class="metric-value" id="metric-max-dd">-36.9%</span>
+                      <span class="metric-value">-19.6%</span>
                       <span class="metric-label-tip" tabindex="0">Max drawdown
                         <span class="metric-tip">Largest peak-to-trough decline on the equity curve. Measures worst-case loss from a high point.</span>
                       </span>
                     </div>
                     <div class="metric-card">
-                      <span class="metric-value" id="metric-win-rate">54.7%</span>
-                      <span class="metric-label-tip" tabindex="0">Win rate
-                        <span class="metric-tip">Fraction of trading periods with positive returns. Context-dependent — a low win rate can still be profitable with large winners.</span>
+                      <span class="metric-value">-0.01</span>
+                      <span class="metric-label-tip" tabindex="0">Beta
+                        <span class="metric-tip">Market exposure. Near-zero beta confirms dollar-neutral construction &mdash; returns are independent of market direction.</span>
                       </span>
                     </div>
                   </div>
 
                   <div class="metric-grid" aria-label="Secondary metrics">
                     <div class="metric-card">
-                      <span class="metric-value" id="metric-sortino">1.59</span>
-                      <span class="metric-label-tip" tabindex="0">Sortino ratio
-                        <span class="metric-tip">Like Sharpe, but only penalizes downside volatility. Better for asymmetric return distributions.</span>
+                      <span class="metric-value">+4.3%</span>
+                      <span class="metric-label-tip" tabindex="0">Ann. return
+                        <span class="metric-tip">Compound annual growth rate (CAGR) of the strategy equity curve.</span>
                       </span>
                     </div>
                     <div class="metric-card">
-                      <span class="metric-value" id="metric-calmar">2.43</span>
-                      <span class="metric-label-tip" tabindex="0">Calmar ratio
-                        <span class="metric-tip">Annualized return divided by max drawdown. Measures return per unit of tail risk.</span>
+                      <span class="metric-value">11.3%</span>
+                      <span class="metric-label-tip" tabindex="0">Ann. volatility
+                        <span class="metric-tip">Annualized standard deviation of daily returns. Low vol is expected for a dollar-neutral L/S strategy.</span>
                       </span>
                     </div>
                     <div class="metric-card">
-                      <span class="metric-value" id="metric-ann-vol">49.2%</span>
-                      <span class="metric-label-tip" tabindex="0">Annualized volatility
-                        <span class="metric-tip">Standard deviation of returns, annualized. Measures total dispersion of returns around the mean.</span>
+                      <span class="metric-value">-1.2%</span>
+                      <span class="metric-label-tip" tabindex="0">VaR 95%
+                        <span class="metric-tip">Value at Risk: the 5th percentile of daily returns. On 95% of days, losses are smaller than this.</span>
                       </span>
                     </div>
                     <div class="metric-card">
-                      <span class="metric-value" id="metric-profit-factor">1.31</span>
-                      <span class="metric-label-tip" tabindex="0">Profit factor
-                        <span class="metric-tip">Gross profits divided by gross losses. Above 1.0 means the strategy is net profitable.</span>
+                      <span class="metric-value">-1.7%</span>
+                      <span class="metric-label-tip" tabindex="0">CVaR 95%
+                        <span class="metric-tip">Conditional Value at Risk: expected loss on the worst 5% of days. More sensitive to tail risk than VaR.</span>
                       </span>
                     </div>
                   </div>
 
-                  <div class="chart-container">
-                    <img src="../assets/research/nvda_equity_curve.png" alt="NVDA equity curve showing growth of $1 from Jan 2024">
-                    <div class="chart-caption">NVDA daily returns equity curve (Jan 2024 &ndash; May 2026). Red shading indicates drawdown periods.</div>
+                  <div class="tearsheet-container">
+                    <img src="../assets/research/momentum_tearsheet.png" alt="Momentum 12-1 in-sample backtest tearsheet: equity curve, drawdown, and monthly returns heatmap vs SPY benchmark">
+                    <div class="tearsheet-caption">Momentum 12-1 in-sample backtest tearsheet (15d rebalance, 10 bps cost, benchmarked vs SPY). 47 US large-caps, Jan 2021 &ndash; May 2026.</div>
                   </div>
 
-                  <span class="last-updated" id="last-updated">Last updated: 16 May 2026</span>
+                  <span class="last-updated">Last updated: 19 May 2026</span>
 
                   <details class="metric-details">
                     <summary>How these metrics are computed</summary>
                     <div class="metric-details-body">
                       <p>
-                        All metrics are computed on simple (not log) returns, indexed by trading day. Risk-free rates are compounded per-period rather than linearly approximated. Default annualization assumes 252 trading days per year.
+                        All metrics are computed on simple (not log) returns from a dollar-neutral long/short portfolio, indexed by trading day. Annualization assumes 252 trading days per year. Transaction costs modeled at 10 bps per trade.
                       </p>
 
                       <div class="equation-note">
-                        <strong>Sharpe ratio.</strong> Measures excess return per unit of total volatility:
+                        <strong>Jensen's alpha.</strong> Annualized excess return unexplained by market beta:
+                        $$\alpha = \left[(\bar{r}_s - r_f) - \beta \cdot (\bar{r}_b - r_f)\right] \cdot N$$
+                        where $\bar{r}_s$ and $\bar{r}_b$ are mean daily strategy and benchmark returns, $\beta = \text{Cov}(r_s, r_b) / \text{Var}(r_b)$, and $N = 252$.
+                      </div>
+
+                      <div class="equation-note">
+                        <strong>Sharpe ratio.</strong> Excess return per unit of total volatility:
                         $$\text{SR} = \frac{\bar{r} - r_f}{\sigma} \cdot \sqrt{N}$$
-                        where $\bar{r}$ is the mean period return, $r_f$ is the per-period risk-free rate computed as $(1 + R_f)^{1/N} - 1$, and $N = 252$.
                       </div>
 
                       <div class="equation-note">
-                        <strong>Sortino ratio.</strong> Penalizes only downside volatility, using the root-mean-square of negative excess returns:
-                        $$\text{Sortino} = \frac{\bar{r} - r_f}{\sigma_d} \cdot \sqrt{N}, \qquad \sigma_d = \sqrt{\frac{1}{n^-} \sum_{r_i < r_f} (r_i - r_f)^2}$$
-                        where $n^-$ counts only periods with returns below the risk-free rate.
+                        <strong>Newey-West t-statistic.</strong> Corrects for autocorrelation in overlapping IC series:
+                        $$t_{\text{NW}} = \frac{\bar{\text{IC}}}{\hat{\sigma}_{\text{NW}} / \sqrt{T}}, \qquad \hat{\sigma}^2_{\text{NW}} = \hat{\gamma}_0 + 2\sum_{j=1}^{L}\left(1 - \frac{j}{L+1}\right)\hat{\gamma}_j$$
+                        where $L = h - 1$ (horizon minus one) and $\hat{\gamma}_j$ are autocovariances. Without this correction, overlapping 21-day returns inflate t-statistics by ~3.5&times;.
                       </div>
 
                       <div class="equation-note">
-                        <strong>Maximum drawdown.</strong> The largest peak-to-trough decline on the cumulative equity curve:
-                        $$\text{MDD} = \min_t \left( \frac{V_t - \max_{\tau \leq t} V_\tau}{\max_{\tau \leq t} V_\tau} \right), \qquad V_t = \prod_{i=1}^{t}(1 + r_i)$$
+                        <strong>Block bootstrap 95% CI.</strong> Resamples IC series in blocks of length $h$ to preserve serial dependence, computes the mean IC for each of $B = 10{,}000$ resamples, and reports the 2.5th and 97.5th percentiles.
                       </div>
 
                       <div class="equation-note">
-                        <strong>Calmar ratio.</strong> Annualized return per unit of tail risk:
-                        $$\text{Calmar} = \frac{\text{CAGR}}{|\text{MDD}|}$$
+                        <strong>Maximum drawdown.</strong> Largest peak-to-trough decline:
+                        $$\text{MDD} = \min_t \left( \frac{V_t - \max_{\tau \leq t} V_\tau}{\max_{\tau \leq t} V_\tau} \right)$$
                       </div>
 
                       <div class="equation-note">
-                        <strong>Annualized return.</strong> Compound annual growth rate (CAGR):
-                        $$\text{CAGR} = \left(\prod_{i=1}^{n}(1 + r_i)\right)^{N/n} - 1$$
-                        where $n$ is the number of observed periods and $N = 252$.
-                      </div>
-
-                      <div class="equation-note">
-                        <strong>Annualized volatility.</strong> Standard deviation of returns, scaled to annual:
-                        $$\sigma_{\text{ann}} = \sigma(r) \cdot \sqrt{N}$$
-                      </div>
-
-                      <div class="equation-note">
-                        <strong>Win rate.</strong> Fraction of periods with positive returns:
-                        $$\text{WR} = \frac{|\{i : r_i > 0\}|}{n}$$
-                      </div>
-
-                      <div class="equation-note">
-                        <strong>Profit factor.</strong> Ratio of gross gains to gross losses:
-                        $$\text{PF} = \frac{\sum_{r_i > 0} r_i}{\left|\sum_{r_i < 0} r_i\right|}$$
+                        <strong>CVaR (Conditional Value at Risk).</strong> Expected loss in the worst $\alpha$% of days:
+                        $$\text{CVaR}_\alpha = \mathbb{E}[r \mid r \leq \text{VaR}_\alpha]$$
                       </div>
                     </div>
                   </details>
                 </div>
 
-                <!-- ── SYSTEM ARCHITECTURE ── -->
+                <!-- ── PIPELINE ── -->
                 <div class="section-panel">
                   <h2 class="section-title">Pipeline</h2>
 
                   <div class="pipeline">
                     <div class="pipeline-stage">
                       <div class="pipeline-label">Data</div>
-                      <div class="pipeline-desc">Alpaca API ingestion, Parquet storage with incremental updates</div>
+                      <div class="pipeline-desc">Alpaca API, Parquet storage, incremental updates</div>
                     </div>
                     <div class="pipeline-stage">
                       <div class="pipeline-label">Alpha</div>
-                      <div class="pipeline-desc">Factor research, signal generation, composite scoring</div>
+                      <div class="pipeline-desc">Factor framework, signal generation</div>
                     </div>
-                    <div class="pipeline-stage scaffolded">
-                      <div class="pipeline-label">Strategy</div>
-                      <div class="pipeline-desc">Signal combination, target weight computation</div>
+                    <div class="pipeline-stage">
+                      <div class="pipeline-label">Validation</div>
+                      <div class="pipeline-desc">NW-corrected IC, bootstrap CIs, diagnostics battery</div>
                     </div>
-                    <div class="pipeline-stage scaffolded">
-                      <div class="pipeline-label">Portfolio</div>
-                      <div class="pipeline-desc">Position sizing, risk constraints, rebalancing</div>
-                    </div>
-                    <div class="pipeline-stage scaffolded">
-                      <div class="pipeline-label">Execution</div>
-                      <div class="pipeline-desc">Order routing, fill handling, slippage modeling</div>
+                    <div class="pipeline-stage">
+                      <div class="pipeline-label">Backtest</div>
+                      <div class="pipeline-desc">Vectorized L/S, rebalance frequency, smoothing</div>
                     </div>
                     <div class="pipeline-stage">
                       <div class="pipeline-label">Analytics</div>
-                      <div class="pipeline-desc">22 metrics, IC analysis, tearsheet, vectorized backtester</div>
+                      <div class="pipeline-desc">22 metrics, tearsheet, benchmark comparison</div>
+                    </div>
+                    <div class="pipeline-stage scaffolded">
+                      <div class="pipeline-label">Execution</div>
+                      <div class="pipeline-desc">Order routing, risk management (planned)</div>
                     </div>
                   </div>
 
                   <p style="font-size: 13px; color: var(--muted); margin-top: 8px;">
-                    Solid border indicates implemented modules. Dashed border indicates modules under development.
+                    Solid border = implemented. Dashed = planned.
                   </p>
                 </div>
 
-                <!-- ── RESEARCH LOG ── -->
+                <!-- ── PROGRESS ── -->
                 <div class="section-panel">
                   <h2 class="section-title">Progress</h2>
 
@@ -773,8 +830,8 @@
                       <span class="timeline-date">May 2026</span>
                       <span class="timeline-dot"></span>
                       <div class="timeline-content">
-                        <p><strong>Benchmark-relative & distribution metrics</strong></p>
-                        <p>Added beta, alpha (Jensen's), tracking error, information ratio, up/down capture, VaR, CVaR, skewness, kurtosis, tail ratio, and expected tail ratio. Full tearsheet redesign with 22-metric dashboard. 119 unit tests.</p>
+                        <p><strong>Signal validation &amp; statistical rigour</strong></p>
+                        <p>Built validation framework: Newey-West HAC t-statistics, non-overlapping IC, block bootstrap 95% CIs, IC decay curves. Signal diagnostics battery (autocorrelation, turnover, dispersion, lead-lag profiles). Sub-period, leave-one-out, sector, and parameter sensitivity robustness tests. Both candidate signals discarded after honest correction. Published <a href="../assets/research/03_signal_validation.html">signal validation notebook</a>. 180 unit tests.</p>
                       </div>
                     </div>
 
@@ -782,8 +839,8 @@
                       <span class="timeline-date">May 2026</span>
                       <span class="timeline-dot"></span>
                       <div class="timeline-content">
-                        <p><strong>Alpha framework & vectorized backtester</strong></p>
-                        <p>Built abstract alpha base class with four factors (momentum, cross-sectional momentum, RSI, Bollinger z-score). Implemented vectorized backtester with dollar-neutral positioning, transaction cost modeling, and IC analysis module.</p>
+                        <p><strong>Alpha framework &amp; factor screening</strong></p>
+                        <p>Built abstract alpha base class with four factors (momentum, cross-sectional momentum, RSI, Bollinger z-score). Vectorized backtester with dollar-neutral positioning and transaction costs. IC analysis module. Screened factors on 47 US large-caps. Published <a href="../assets/research/02_factor_analysis.html">factor analysis notebook</a>.</p>
                       </div>
                     </div>
 
@@ -791,8 +848,8 @@
                       <span class="timeline-date">May 2026</span>
                       <span class="timeline-dot"></span>
                       <div class="timeline-content">
-                        <p><strong>Performance analytics suite & data exploration</strong></p>
-                        <p>Implemented Sharpe, Sortino, Calmar, max drawdown, win rate, profit factor with full edge-case handling. Published <a href="../assets/research/01_data_exploration.html">data exploration notebook</a> covering return distributions, cross-sector correlations, and volatility dynamics.</p>
+                        <p><strong>Performance analytics &amp; tearsheet</strong></p>
+                        <p>22 metrics: Sharpe, Sortino, Calmar, Jensen's alpha, beta, tracking error, information ratio, up/down capture, VaR, CVaR, skewness, kurtosis, tail ratio. Full-page tearsheet with benchmark comparison. Published <a href="../assets/research/01_data_exploration.html">data exploration notebook</a>.</p>
                       </div>
                     </div>
 
@@ -800,27 +857,18 @@
                       <span class="timeline-date">Apr 2026</span>
                       <span class="timeline-dot"></span>
                       <div class="timeline-content">
-                        <p><strong>Historical data pipeline</strong></p>
-                        <p>Built Alpaca market data client and Parquet-based storage with smart incremental fetching, deduplication, and multi-timeframe support (1min to daily).</p>
-                      </div>
-                    </div>
-
-                    <div class="timeline-item">
-                      <span class="timeline-date">Apr 2026</span>
-                      <span class="timeline-dot"></span>
-                      <div class="timeline-content">
-                        <p><strong>Core domain model</strong></p>
-                        <p>Designed type-safe data structures (Bar, Signal, Order, Fill, Position) using frozen dataclasses and enums. Established project scaffold with strict typing and linting.</p>
+                        <p><strong>Data pipeline &amp; core domain model</strong></p>
+                        <p>Alpaca market data client with Parquet storage, incremental fetching, adjustment separation. Type-safe domain types (Bar, Signal, Order, Fill, Position) with frozen dataclasses.</p>
                       </div>
                     </div>
                   </div>
                 </div>
 
-                <!-- ── ENGINEERING + ATTRIBUTES (side by side) ── -->
+                <!-- ── TOOLING + ATTRIBUTES ── -->
                 <div class="section-panel">
                   <div class="bottom-grid">
                     <div>
-                      <h2 class="section-title">Tooling & Quality</h2>
+                      <h2 class="section-title">Tooling &amp; Quality</h2>
                       <dl class="detail-grid">
                         <dt>Language</dt>
                         <dd>Python 3.13</dd>
@@ -829,7 +877,7 @@
                         <dt>Linting</dt>
                         <dd>ruff</dd>
                         <dt>Testing</dt>
-                        <dd>pytest</dd>
+                        <dd>pytest (180 tests)</dd>
                         <dt>Packaging</dt>
                         <dd>pyproject.toml + hatchling</dd>
                         <dt>Data format</dt>
@@ -842,13 +890,13 @@
                       <h2 class="section-title">Attributes</h2>
                       <dl class="detail-grid">
                         <dt>Status</dt>
-                        <dd>Active development (paper trading)</dd>
+                        <dd>Active development</dd>
                         <dt>Period</dt>
                         <dd>2026 &ndash; present</dd>
                         <dt>Affiliation</dt>
                         <dd>Independent research</dd>
                         <dt>Market</dt>
-                        <dd>US Equities</dd>
+                        <dd>US Equities (47 large-caps, 11 GICS sectors)</dd>
                         <dt>Broker</dt>
                         <dd>Alpaca (paper + live)</dd>
                         <dt>Repository</dt>
