@@ -178,6 +178,17 @@
       margin: 8px 0;
     }
 
+    .next-steps li{
+      margin: 12px 0;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .next-steps li strong{
+      color: var(--text);
+      font-weight: 650;
+    }
+
     .detail-grid{
       display: grid;
       grid-template-columns: 120px 1fr;
@@ -214,9 +225,15 @@
 
     .timeline-item{
       display: flex;
-      margin-bottom: 32px;
+      min-height: 96px;
+      margin-bottom: 12px;
       position: relative;
       margin-left: 0;
+    }
+
+    .timeline-item:last-child{
+      min-height: 0;
+      margin-bottom: 0;
     }
 
     .timeline-date{
@@ -297,9 +314,147 @@
       border-bottom-color: var(--accent);
     }
 
+    /* Dataset trio — punchy names over a bordered table */
+    .dataset-table{
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 22px;
+      table-layout: fixed;
+    }
+
+    .dataset-table th.ds-corner{
+      border: none;
+      width: 110px;
+      vertical-align: top;
+      padding: 5px 16px 0;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+    }
+
+    .dataset-table th.ds-name{
+      border: none;
+      text-align: center;
+      vertical-align: bottom;
+      padding: 0 16px 12px;
+      font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      color: var(--accent);
+    }
+
+    .dataset-table th.ds-name.is-temporal{
+      color: var(--accent);
+    }
+
+    .dataset-table .ds-name a{
+      display: inline-block;
+      color: inherit;
+      border-bottom: none;
+      transition: opacity 0.15s;
+    }
+
+    .dataset-table .ds-name a:hover{
+      border-bottom: none;
+      opacity: 0.62;
+    }
+
+    .dataset-table .ds-domain{
+      display: block;
+      margin-top: 5px;
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--muted);
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .dataset-table tbody th{
+      text-align: center;
+      padding: 11px 16px;
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      white-space: nowrap;
+    }
+
+    .dataset-table tbody td{
+      padding: 11px 16px;
+      font-size: 14px;
+      text-align: center;
+      font-weight: 700;
+    }
+
+    .dataset-table td.ds-grid{
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 13px;
+      letter-spacing: -0.01em;
+    }
+
+    .dataset-mode-warm{
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    /* Figure */
+    .project-figure{
+      margin: 26px auto 0;
+      max-width: 560px;
+    }
+
+    .project-figure--wide{
+      max-width: 100%;
+    }
+
+    .project-figure .figure-label{
+      margin: 0 0 8px;
+      text-align: center;
+      font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      color: var(--accent);
+    }
+
+    .project-figure img{
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+
+    .project-figure figcaption{
+      margin-top: 12px;
+      font-size: 13px;
+      line-height: 1.6;
+      color: var(--muted);
+    }
+
+    .project-figure figcaption b{
+      color: var(--text);
+      font-weight: 600;
+    }
+
     @media (max-width: 900px){
       .metric-grid{
         grid-template-columns: 1fr;
+      }
+
+      .dataset-table th.ds-name{
+        font-size: 16px;
+        padding: 0 10px 10px;
+      }
+
+      .dataset-table tbody th,
+      .dataset-table tbody td{
+        padding: 9px 10px;
+        font-size: 12.5px;
       }
 
       .hero-title{
@@ -360,16 +515,16 @@
 
               <div class="metric-grid" aria-label="Project highlights">
                 <div class="metric-card">
-                  <span class="metric-value">50–70 dB</span>
-                  <span class="metric-label">PSNR with 5–10× compression ratio</span>
+                  <span class="metric-value">21%</span>
+                  <span class="metric-label">Fewer bytes than cold-start at tight tolerance</span>
                 </div>
                 <div class="metric-card">
-                  <span class="metric-value">1.26×</span>
-                  <span class="metric-label">Peak warm-start speedup</span>
+                  <span class="metric-value">3.4×</span>
+                  <span class="metric-label">Warm-start, faster at every tolerance</span>
                 </div>
                 <div class="metric-card">
-                  <span class="metric-value">15.6B</span>
-                  <span class="metric-label">Total voxels in Hurricane Isabel dataset</span>
+                  <span class="metric-value">16.7B</span>
+                  <span class="metric-label">Voxels across 3 scientific datasets</span>
                 </div>
               </div>
             </div>
@@ -385,8 +540,16 @@
 
                 <div class="section-panel" id="progress">
                   <h2 class="section-title">Progress</h2>
-                  <p><em>Note: Current results are restricted to CPU implementations.</em></p>
                   <div class="project-timeline">
+                    <div class="timeline-item">
+                      <span class="timeline-date">June 2026</span>
+                      <a class="timeline-dot" href="../assets/research/presentations/SVD 05 - Adaptive Compression.pdf" target="_blank" rel="noopener noreferrer"></a>
+                      <div class="timeline-content">
+                        <p><strong><a href="../assets/research/presentations/SVD 05 - Adaptive Compression.pdf" target="_blank" rel="noopener noreferrer">Adaptive error-bounded compression: warm vs cold (slides)</a></strong></p>
+                        <p>Adaptive L+S warm-started compressor with a pointwise maximum error guarantee and cost-optimal rank selection; benchmarked on Hurricane Isabel. Method extended to two static datasets.</p>
+                      </div>
+                    </div>
+
                     <div class="timeline-item">
                       <span class="timeline-date">May 2026</span>
                       <a class="timeline-dot" href="../assets/research/presentations/SVD 04 - Compression Fidelity.pdf" target="_blank" rel="noopener noreferrer"></a>
@@ -426,11 +589,82 @@
                 </div>
 
                 <div class="section-panel">
+                  <table class="dataset-table">
+                    <thead>
+                      <tr>
+                        <th class="ds-corner">Dataset</th>
+                        <th class="ds-name is-temporal"><a href="http://vis.computer.org/vis2004contest/data.html" target="_blank" rel="noopener noreferrer">Hurricane Isabel<span class="ds-domain">WRF weather</span></a></th>
+                        <th class="ds-name"><a href="https://ieee-dataport.org/open-access/nyx-cosmological-simulation-dataset" target="_blank" rel="noopener noreferrer">NYX<span class="ds-domain">Cosmology</span></a></th>
+                        <th class="ds-name"><a href="https://sdrbench.github.io/" target="_blank" rel="noopener noreferrer">Miranda<span class="ds-domain">Turbulent mixing</span></a></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th>Grid</th>
+                        <td class="ds-grid">100 × 500 × 500 × 48</td>
+                        <td class="ds-grid">512 × 512 × 512</td>
+                        <td class="ds-grid">384 × 384 × 256</td>
+                      </tr>
+                      <tr>
+                        <th>Variables</th>
+                        <td>13</td>
+                        <td>6</td>
+                        <td>7</td>
+                      </tr>
+                      <tr>
+                        <th>Experiment</th>
+                        <td class="dataset-mode-warm">warm + cold</td>
+                        <td>cold</td>
+                        <td>cold</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <p>
+                    The current CPU milestone is an adaptive, error-bounded compressor that stores each snapshot as a low-rank layer plus a sparse correction layer (Â = L + S), with a hard guarantee that the maximum elementwise error never exceeds a user tolerance τ. The cost-optimal rank is selected by minimizing a cost model objective function discretely, and on streaming data the previous snapshot's singular subspace is reused as a warm start, and the trailing optimal rank is used to minimize the search window, cutting time at every tolerance and, at tight tolerances on dense fields, also storing fewer bytes at higher fidelity. The method is evaluated on three scientific datasets: Hurricane Isabel (temporal), NYX (cosmology), and Miranda (turbulent mixing).
+                  </p>
+                </div>
+
+                <div class="section-panel">
+                  <h2 class="section-title">Warm-Start vs Cold-Start</h2>
+                  <p>
+                    Warm-start is faster at every tolerance; its storage and fidelity gains emerge only as the error tolerance tightens and the optimal rank climbs. Ranges span the four featured Isabel variables.
+                  </p>
+                  <figure class="project-figure">
+                    <figcaption class="figure-label">Hurricane Isabel</figcaption>
+                    <img src="../assets/research/figures/warm_vs_cold_table.png" alt="Warm-start advantage by tolerance: speedup, bytes saved, and PSNR gain; gains grow as tolerance tightens">
+                  </figure>
+
+                  <figure class="project-figure">
+                    <img src="../assets/research/figures/uf_ratio.png" alt="Compression ratio per timestep, warm-start versus cold-start, Isabel wind field at tightest tolerance">
+                  </figure>
+
+                  <figure class="project-figure project-figure--wide">
+                    <img src="../assets/research/figures/isabel_rank_violation_dynamics.png" alt="Isabel warm vs cold: optimal rank and violation counts across 48 timesteps for the four variables">
+                  </figure>
+                </div>
+
+                <div class="section-panel">
+                  <h2 class="section-title">Static Datasets: NYX &amp; Miranda</h2>
+                  <p>
+                    On non-temporal variables the compressor runs cold. NYX splits into three compressibility regimes; densities collapse to one rank, velocities are mid-rank, and temperature climbs steeply as the tolerance tightens. Miranda stays comfortably compressible across every field and tolerance.
+                  </p>
+                  <figure class="project-figure">
+                    <figcaption class="figure-label">NYX</figcaption>
+                    <img src="../assets/research/figures/nyx_rank.png" alt="NYX adaptive rank k-star per field and tolerance">
+                  </figure>
+                  <figure class="project-figure">
+                    <figcaption class="figure-label">Miranda</figcaption>
+                    <img src="../assets/research/figures/miranda_ratio.png" alt="Miranda compression ratio per field and tolerance">
+                  </figure>
+                </div>
+
+                <div class="section-panel">
                   <h2 class="section-title">Next Steps</h2>
-                  <ul class="compact-list">
-                    <li>GPU implementation and optimization</li>
-                    <li>Full compression pipeline (including quantization)</li>
-                    <li>Rigorous error-analysis for deterministic and probabilistic error control</li>
+                  <ul class="compact-list next-steps">
+                    <li><strong>GPU acceleration.</strong> Port the warm-started rSVD to GPU — the per-snapshot work is BLAS-3-bound and parallelises cleanly for streaming throughput.</li>
+                    <li><strong>Higher-order decomposition.</strong> Extend from per-snapshot matrix rSVD to warm-started Tucker / HOSVD across all tensor modes.</li>
+                    <li><strong>Compression backend.</strong> Replace the 12 B/entry sparse model with entropy-coded formats and a store-raw fallback, and benchmark end-to-end against SZ3.</li>
+                    <li><strong>Error analysis.</strong> Deterministic and probabilistic guarantees linking the tolerance to the selected rank and oversampling.</li>
                   </ul>
                 </div>
               </div>
