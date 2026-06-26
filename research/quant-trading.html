@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Ahmer Nadeem Khan — Personal Quant Research & Trading Engine" />
-  <title>Personal Quant Research & Trading Engine — Project</title>
+  <meta name="description" content="Ahmer Nadeem Khan — Statistical Alpha Signal Combination & Robust Backtesting" />
+  <title>Statistical Alpha Signal Combination &amp; Robust Backtesting — Project</title>
 
   <link rel="stylesheet" href="../assets/site.css">
 
@@ -27,15 +27,35 @@
   </script>
 
   <style>
-    /* ── Base overrides (shared with other project pages) ── */
+    /* ════════════════════════════════════════════════════════════
+       Statistical Alpha — project page
+       Scoped under #project. Inherits the site's oxblood/serif/hairline
+       identity and sans/serif type from site.css.
+       ════════════════════════════════════════════════════════════ */
 
-    #project .card{
-      border: none;
-      background: transparent;
-      box-shadow: none;
-      padding: 0;
+    #project{
+      --ox: #6b1f2b;          /* site accent (oxblood) — the positive edge */
+      --ink: #141414;
+      --muted: #6f6f6f;
+      --faint: #9a9a9a;
+      --line: #e6e6e6;
+      --hair: #d9d9d9;
+      --panel: #ffffff;
+      --paper: #fbfbfb;
+      --slate: #4a5660;       /* the "gap" / neutral data tone */
+      --sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      --serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+      --measure: 68ch;
+      color: var(--ink);
     }
 
+    /* content spans the full wrap, consistent with the other project pages */
+    #project .ds{
+      max-width: none;
+      margin: 0;
+    }
+
+    /* ── return link (matches all other project pages) ── */
     #project .return-link{
       font-size: 12px;
       letter-spacing: 0.14em;
@@ -46,53 +66,45 @@
       display: inline-block;
       margin-bottom: 18px;
     }
+    #project .return-link:hover{ color: var(--ink); border-bottom-color: var(--ink); }
 
-    #project .return-link:hover{
-      color: var(--text);
-      border-bottom-color: var(--text);
-    }
-
-    .project-shell{
-      display: grid;
-      gap: 0;
-    }
-
-    .hero-panel{
-      padding: 0;
-      background: transparent;
-      border: none;
-      border-radius: 0;
-      box-shadow: none;
-    }
-
-    .project-kicker,
-    .section-kicker{
-      font-size: 12px;
-      letter-spacing: 0.14em;
+    /* ── shared label (the site's signature uppercase oxblood marker) ── */
+    #project .eyebrow{
+      font-family: var(--sans);
+      font-size: 11.5px;
+      letter-spacing: 0.16em;
       text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 10px;
+      color: var(--ox);
+      margin: 0;
     }
 
-    .hero-title{
-      margin: 0;
+    /* ── masthead ── */
+    #project .masthead{ margin-bottom: 0; }
+    #project .masthead + .block{ margin-top: 38px; }
+
+    #project .ds-title{
+      font-family: var(--serif);
+      font-weight: 700;
       font-size: 34px;
       line-height: 1.1;
       letter-spacing: -0.03em;
-      font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
-      font-weight: 700;
+      margin: 0;
       max-width: none;
     }
 
-    .hero-summary{
+    #project .lede{
+      font-size: 16px;
+      line-height: 1.62;
+      color: #222;
       max-width: none;
       margin: 16px 0 0;
-      font-size: 16px;
-      color: #222;
     }
+    #project .lede strong{ font-weight: 650; }
+    #project .lede em{ font-style: italic; color: var(--ink); }
 
+    /* ── resource links (match other project pages) ── */
     .project-links{
-      margin-top: 18px;
+      margin: 18px 0 0;
       display: flex;
       flex-wrap: wrap;
       align-items: baseline;
@@ -100,6 +112,7 @@
       font-size: 14px;
       color: var(--muted);
     }
+    .project-links + .project-links{ margin-top: 7px; }
 
     .project-links-label{
       color: var(--accent);
@@ -114,496 +127,537 @@
       font-weight: 600;
     }
 
-    .project-layout{
-      display: block;
+    /* ════════ SIGNATURE: regime verdict triptych ════════ */
+    #project .verdict{
+      margin-top: 46px;
+      border: 1px solid var(--ink);
+      background: var(--panel);
     }
-
-    .content-stack,
-    .side-stack{
-      display: grid;
-      gap: 32px;
-    }
-
-    .side-stack{
-      margin-top: 32px;
-    }
-
-    .section-panel,
-    .side-panel{
-      padding: 0;
-      background: transparent;
-      border: none;
-      border-radius: 0;
-      box-shadow: none;
-    }
-
-    .section-title,
-    .side-title{
-      margin: 0 0 16px;
-      font-size: 18px;
-      letter-spacing: -0.01em;
-    }
-
-    .section-panel p:last-child,
-    .side-panel p:last-child{
-      margin-bottom: 0;
-    }
-
-    .compact-list{
-      margin: 10px 0 0 18px;
-      padding: 0;
-    }
-
-    .compact-list li{
-      margin: 8px 0;
-    }
-
-    .detail-grid{
-      display: grid;
-      grid-template-columns: 120px 1fr;
-      gap: 10px 14px;
-      font-size: 14px;
-    }
-
-    .detail-grid dt{
-      color: var(--muted);
-    }
-
-    .detail-grid dd{
-      margin: 0;
-    }
-
-    .tag-row{
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 14px;
-    }
-
-    .tag{
-      display: inline-flex;
-      align-items: center;
-      padding: 4px 10px;
-      border-radius: 999px;
-      background: var(--chip);
-      color: var(--muted);
-      font-size: 12px;
-      border: 1px solid var(--border);
-    }
-
-    .equation-note{
-      margin-top: 14px;
-      padding: 14px 16px;
-      border-left: 3px solid var(--accent);
-      background: #fcfafb;
-      border-radius: 0 10px 10px 0;
-      font-size: 14px;
-    }
-
-    /* ── Status bar (unique to this page) ── */
-
-    .status-bar{
+    #project .verdict-head{
       display: flex;
       justify-content: space-between;
-      align-items: center;
-      margin-top: 14px;
+      align-items: baseline;
       gap: 16px;
+      padding: 14px 18px;
     }
-
-    .status-badge{
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 0;
-      font-size: 12px;
-      font-weight: 500;
-      color: var(--muted);
-      letter-spacing: 0.04em;
+    #project .verdict-head .vh-title{
+      font-family: var(--sans);
+      font-size: 11.5px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ink);
     }
-
-    .status-badge::before{
-      content: '';
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: #c9a227;
-      flex-shrink: 0;
-    }
-
-    .last-updated{
-      font-size: 12px;
-      color: var(--muted);
-      letter-spacing: 0.02em;
-    }
-
-    /* ── Metric grid ── */
-
-    .metric-grid{
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 14px;
-      margin-top: 14px;
-      margin-bottom: 14px;
-    }
-
-    .metric-card{
-      padding: 16px 18px;
-      background: transparent;
-      border: none;
-      border-radius: 0;
-      box-shadow: none;
-    }
-
-    .metric-value{
-      display: block;
-      font-size: 26px;
-      line-height: 1.1;
-      letter-spacing: -0.03em;
-      font-weight: 650;
-    }
-
-    .metric-label{
-      display: block;
-      margin-top: 6px;
+    #project .verdict-head .vh-note{
       font-size: 13px;
       color: var(--muted);
     }
 
-    /* ── Tearsheet image ── */
+    #project .regimes{
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+    #project .regime{
+      padding: 26px 22px 24px;
+      border-right: 1px solid var(--line);
+      position: relative;
+    }
+    #project .regime:last-child{ border-right: none; }
 
-    .tearsheet-container{
-      margin-top: 20px;
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      overflow: hidden;
-      background: var(--panel);
+    #project .regime .r-phase{
+      font-family: var(--sans);
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin: 0 0 14px;
+    }
+    #project .regime .r-sharpe{
+      font-family: var(--sans);
+      font-size: 46px;
+      font-weight: 600;
+      line-height: 1;
+      letter-spacing: -0.02em;
+      color: var(--ox);
+    }
+    #project .regime .r-metric{
+      font-family: var(--sans);
+      font-size: 10.5px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--faint);
+      margin: 8px 0 0;
+    }
+    #project .regime .r-desc{
+      font-size: 13px;
+      line-height: 1.5;
+      color: var(--muted);
+      margin: 14px 0 0;
+    }
+    #project .regime .r-spy{
+      font-family: var(--sans);
+      font-size: 12px;
+      color: var(--slate);
+      margin: 10px 0 0;
+    }
+    #project .regime .r-spy b{ color: var(--ink); font-weight: 600; }
+
+    /* the transition = the disclosed gap: rendered broken/hatched */
+    #project .regime.gap{
+      background-image: repeating-linear-gradient(
+        -45deg,
+        transparent 0 9px,
+        rgba(74,86,96,0.07) 9px 10px
+      );
+    }
+    #project .regime.gap .r-phase{ color: var(--slate); }
+    #project .regime.gap .r-sharpe{ color: var(--slate); }
+    #project .regime.gap .r-flag{
+      display: inline-block;
+      font-family: var(--sans);
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--slate);
+      border: 1px solid var(--slate);
+      border-radius: 2px;
+      padding: 2px 7px;
+      margin-top: 12px;
     }
 
-    .tearsheet-container img{
+    #project .verdict-foot{
+      padding: 13px 18px;
+      border-top: 1px solid var(--line);
+      font-size: 13.5px;
+      color: var(--muted);
+      background: #fcfbfb;
+    }
+    #project .verdict-foot b{ color: var(--ink); font-weight: 600; }
+
+    /* ════════ section scaffolding ════════ */
+    #project .block{ margin-top: 64px; }
+    #project .block-head{ margin-bottom: 22px; }
+    #project .block-title{
+      font-family: var(--serif);
+      font-size: 25px;
+      font-weight: 650;
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+      margin: 6px 0 0;
+      text-transform: none;   /* override site.css bare h2 (uppercase) */
+      color: var(--ink);      /* override site.css bare h2 (oxblood)   */
+    }
+    #project .block-intro{
+      font-size: 15px;
+      line-height: 1.6;
+      color: var(--muted);
+      max-width: none;
+      margin: 12px 0 0;
+    }
+
+    /* ════════ the gate (funnel as count-height bars) ════════ */
+    #project .gate{
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+    #project .gate-step{
+      padding: 20px 16px 18px;
+      border-right: 1px solid var(--line);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    #project .gate-step:last-child{ border-right: none; }
+    #project .gate-count{
+      font-family: var(--sans);
+      font-size: 30px;
+      font-weight: 600;
+      line-height: 1;
+      letter-spacing: -0.02em;
+    }
+    #project .gate-step:last-child .gate-count{ color: var(--ox); }
+    #project .gate-bar{
+      height: 46px;
+      display: flex;
+      align-items: flex-end;
+    }
+    #project .gate-bar i{
       display: block;
       width: 100%;
-      height: auto;
+      background: var(--ox);
+      opacity: 0.16;
     }
-
-    .tearsheet-caption{
-      padding: 10px 16px;
-      font-size: 12px;
+    #project .gate-step:last-child .gate-bar i{ opacity: 0.85; }
+    #project .gate-label{
+      font-family: var(--sans);
+      font-size: 10.5px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
       color: var(--muted);
-      border-top: 1px solid var(--border);
+    }
+    #project .gate-sub{
+      font-size: 12.5px;
+      line-height: 1.45;
+      color: var(--faint);
     }
 
-    /* ── Key findings callout ── */
-
-    .findings-grid{
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 20px;
-      margin-top: 16px;
-    }
-
-    .finding-card{
-      padding: 18px 20px;
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      background: var(--panel);
-    }
-
-    .finding-card h4{
-      margin: 0 0 8px;
-      font-size: 14px;
-      letter-spacing: -0.01em;
-    }
-
-    .finding-card p{
+    /* ════════ frozen signal ════════ */
+    #project .signal-def{
+      font-family: var(--serif);
+      font-size: 17px;
+      line-height: 1.55;
+      color: var(--ink);
       margin: 0;
-      font-size: 13px;
-      color: var(--muted);
-      line-height: 1.5;
+      text-align: center;
     }
-
-    .finding-verdict{
-      display: inline-block;
-      margin-top: 10px;
-      padding: 2px 8px;
-      border-radius: 4px;
-      font-size: 11px;
+    #project .signal-def.ts-panel{
+      padding: 18px 24px 18px;
+    }
+    #project .sd-line{ margin: 0; }
+    #project .sd-line + .sd-line{ margin-top: 16px; }
+    #project .signal-def .sd-key{
+      display: block;
+      color: var(--ox);
       font-weight: 600;
+      text-transform: uppercase;
+      font-size: 12px;
+      letter-spacing: 0.12em;
+      margin-bottom: 5px;
+    }
+    #project .signal-def b{ font-weight: 600; color: var(--ink); }
+
+
+    /* ════════ native tear sheet ════════ */
+    #project .ts{
+      margin: 26px 0 0;
+      border: 1px solid var(--line);
+      background: var(--panel);
+      padding: 0;
+    }
+    #project .ts-cap{
+      font-family: var(--sans);
+      font-size: 11.5px;
+      line-height: 1.5;
+      color: var(--muted);
+      padding: 13px 18px;
+      border-bottom: 1px solid var(--line);
+    }
+    #project .ts-legend{
+      position: absolute;
+      top: 38px;
+      left: 24px;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 3px;
+      padding: 7px 10px;
+      font-family: var(--sans);
+      font-size: 12px;
+    }
+    #project .ts-title{
+      font-family: var(--serif);
+      font-size: 15px;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      color: var(--ink);
+      text-align: center;
+      margin: 4px 0 10px;
+    }
+    #project .ts-metrics{
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 17px 14px;
+      padding: 4px 0 2px;
+    }
+    #project .ts-metric{ text-align: center; }
+    #project .ts-mname{
+      font-family: var(--sans);
+      font-size: 11px;
       letter-spacing: 0.04em;
       text-transform: uppercase;
+      color: var(--ox);
+      margin-bottom: 5px;
+      line-height: 1.25;
     }
-
-    .verdict-discard{
-      background: #fde8e8;
-      color: #9b1c1c;
-    }
-
-    /* ── Pipeline diagram ── */
-
-    .pipeline{
-      display: flex;
-      align-items: stretch;
-      gap: 0;
-      margin: 20px 0;
-    }
-
-    .pipeline-stage{
-      flex: 1;
-      min-width: 0;
-      padding: 14px 12px;
-      position: relative;
-      border-left: 3px solid var(--accent);
-    }
-
-    .pipeline-stage.scaffolded{
-      border-left: 3px dashed var(--border);
-    }
-
-    .pipeline-stage::after{
-      content: '\2192';
-      position: absolute;
-      right: -2px;
-      top: 50%;
-      transform: translateY(-50%);
-      color: var(--muted);
-      font-size: 14px;
-      z-index: 1;
-    }
-
-    .pipeline-stage:last-child::after{
-      display: none;
-    }
-
-    .pipeline-label{
-      font-size: 13px;
-      font-weight: 650;
+    #project .ts-mval{
+      font-family: var(--sans);
+      font-size: 22px;
+      font-weight: 600;
       letter-spacing: -0.01em;
-      margin-bottom: 4px;
+      color: var(--ink);
+      line-height: 1;
+    }
+    #project .ts-lg{ display: inline-flex; align-items: center; gap: 8px; color: var(--ink); }
+    #project .ts-lg::before{
+      content: "";
+      width: 18px;
+      border-top: 2px solid var(--ox);
+    }
+    #project .ts-lg-spy::before{ border-top: 0; border-bottom: 1.5px dashed var(--faint); width: 18px; }
+    #project .ts-regime-key{
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      color: var(--slate);
+      font-size: 11.5px;
+    }
+    #project .ts-hatch-key{
+      width: 18px; height: 12px;
+      display: inline-block;
+      background-image: repeating-linear-gradient(-45deg, transparent 0 4px, rgba(74,86,96,0.5) 4px 5px);
+      border: 1px solid var(--line);
     }
 
-    .pipeline-desc{
-      font-size: 12px;
-      color: var(--muted);
-      line-height: 1.4;
+    #project .ts-panel{ position: relative; padding: 8px 18px 18px; }
+    #project .ts-panel-lab{
+      font-family: var(--sans);
+      font-size: 10.5px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--faint);
+      margin: 6px 0 4px;
     }
 
-    /* ── Timeline ── */
+    #project .ts-svg{ display: block; width: 100%; height: auto; overflow: visible; }
+    #project .ts-strat{ fill: none; stroke: var(--ox); stroke-width: 2; stroke-linejoin: round; vector-effect: non-scaling-stroke; }
+    #project .ts-spy{ fill: none; stroke: var(--faint); stroke-width: 1.3; stroke-dasharray: 4 3; vector-effect: non-scaling-stroke; }
+    #project .ts-base{ stroke: #000; stroke-width: 1.4; vector-effect: non-scaling-stroke; }
+    #project .ts-grid{ stroke: #f1efef; stroke-width: 1; vector-effect: non-scaling-stroke; }
+    #project .ts-ytick{ font-family: var(--sans); font-size: 11px; fill: var(--faint); text-anchor: start; }
+    #project .ts-xtick{ font-family: var(--sans); font-size: 11px; fill: var(--muted); text-anchor: start; }
+    #project .ts-dd-area{ fill: rgba(107,31,43,0.10); }
+    #project .ts-dd-line{ fill: none; stroke: var(--ox); stroke-width: 1.4; vector-effect: non-scaling-stroke; }
 
-    .project-timeline{
-      margin-top: 24px;
-      max-width: 600px;
-      margin-left: auto;
-      margin-right: auto;
-      position: relative;
-    }
-
-    .project-timeline::before{
-      content: '';
+    #project .ts-bandlabels{ position: relative; height: 0; }
+    #project .ts-bandlabels span{
       position: absolute;
-      left: 111px;
-      top: 0;
-      bottom: 0;
-      width: 1px;
-      background: var(--border);
+      top: 3px;
+      font-family: var(--sans);
+      font-size: 10px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--faint);
     }
-
-    .timeline-item{
-      display: flex;
-      margin-bottom: 32px;
-      position: relative;
-      margin-left: 0;
-    }
-
-    .timeline-date{
+    #project .ts-dd-note{
       position: absolute;
-      left: 0;
-      top: 7px;
-      font-size: 12px;
-      color: var(--muted);
-      letter-spacing: 0.05em;
-      font-weight: 500;
-      width: 100px;
-      text-align: right;
-      padding-right: 25px;
-      box-sizing: border-box;
+      bottom: 2px;
+      transform: translateX(-100%);
+      font-family: var(--sans);
+      font-size: 10.5px;
+      color: var(--slate);
+      white-space: nowrap;
     }
 
-    .timeline-dot{
-      position: absolute;
-      left: 104px;
-      top: 6px;
-      width: 14px;
-      height: 14px;
-      border-radius: 50%;
-      background: var(--panel);
-      border: 2px solid var(--text);
-      box-shadow: 0 0 0 2px var(--panel);
-      z-index: 1;
+    #project .ts-heat{
+      display: grid;
+      grid-template-columns: 44px repeat(12, 1fr);
+      gap: 2px;
+      margin-top: 2px;
     }
-
-    .timeline-content{
-      flex: 1;
-      padding-left: 40px;
-      margin-left: 114px;
+    #project .ts-cell{
+      font-family: var(--sans);
+      font-size: 10px;
+      text-align: center;
+      padding: 6px 0;
+      border-radius: 1px;
+      color: #333;
     }
-
-    .timeline-content p{
-      margin: 0 0 8px 0;
-      font-size: 14px;
-      line-height: 1.5;
+    #project .ts-colh, #project .ts-yrlab{
+      text-align: center;
+      color: var(--faint);
+      background: transparent;
+      letter-spacing: 0.04em;
     }
+    #project .ts-yrlab{ text-align: left; padding-left: 2px; }
+    #project .ts-empty{ background: transparent; }
 
-    .timeline-content p:last-child{
-      margin-bottom: 0;
+    /* ════════ findings (the argument) ════════ */
+    #project .findings{
+      display: grid;
+      gap: 0;
     }
-
-    /* ── Metric tooltips ── */
-
-    .metric-label-tip{
+    #project .finding{
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 28px;
+      padding: 24px 0;
+      border-top: 1px solid var(--line);
+    }
+    #project .finding:last-child{ border-bottom: 1px solid var(--line); }
+    #project .finding .f-tag{
+      font-family: var(--sans);
+      font-size: 11.5px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ox);
+      padding-top: 3px;
+    }
+    #project .finding .f-tag .f-tag-sub{
       display: block;
+      color: var(--faint);
+      letter-spacing: 0.1em;
       margin-top: 6px;
+    }
+    #project .finding .f-body h3{
+      font-family: var(--serif);
+      font-size: 19px;
+      font-weight: 600;
+      letter-spacing: -0.015em;
+      margin: 0 0 8px;
+    }
+    #project .finding .f-body p{
+      font-size: 14.5px;
+      line-height: 1.62;
+      color: #333;
+      margin: 0;
+    }
+    #project .finding .f-body p .num{
+      font-family: var(--sans);
       font-size: 13px;
-      color: var(--muted);
-      cursor: help;
-      border-bottom: 1px dotted var(--muted);
-      width: fit-content;
-      position: relative;
+      color: var(--ink);
     }
+    #project .finding.is-open .f-tag{ color: var(--slate); }
 
-    .metric-tip{
-      display: none;
-      position: absolute;
-      bottom: calc(100% + 8px);
-      left: 0;
-      width: 260px;
-      padding: 10px 12px;
-      background: var(--panel);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-      font-size: 12px;
-      line-height: 1.5;
-      color: var(--text);
-      z-index: 10;
-      cursor: default;
-    }
-
-    .metric-label-tip:hover .metric-tip,
-    .metric-label-tip:focus-within .metric-tip{
-      display: block;
-    }
-
-    /* ── Collapsible details ── */
-
-    .metric-details{
-      margin-top: 14px;
-    }
-
-    .metric-details summary{
-      padding: 12px 16px;
+    /* ════════ decision ledger ════════ */
+    #project .ledger{
+      width: 100%;
+      border-collapse: collapse;
       font-size: 14px;
-      font-weight: 500;
-      color: var(--muted);
-      cursor: pointer;
+    }
+    #project .ledger tr{ border-top: 1px solid var(--line); }
+    #project .ledger tr:last-child{ border-bottom: 1px solid var(--line); }
+    #project .ledger td{
+      padding: 13px 16px 13px 0;
+      vertical-align: top;
+    }
+    #project .ledger td.l-stage{
+      font-family: var(--sans);
+      font-size: 11.5px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--ox);
+      width: 190px;
+      white-space: nowrap;
+    }
+    #project .ledger td.l-out{ color: #333; line-height: 1.55; }
+    #project .ledger td.l-out .num{ font-family: var(--sans); font-size: 13px; }
+    #project .ledger tr.is-verdict td.l-stage{ color: var(--ink); }
+    #project .ledger tr.is-verdict td.l-out{ font-weight: 600; color: var(--ink); }
+
+    /* ════════ method disclosure ════════ */
+    #project .method{
+      border: 1px solid var(--line);
+      margin-top: 8px;
+    }
+    #project .method summary{
       list-style: none;
+      cursor: pointer;
+      padding: 15px 18px;
+      font-family: var(--sans);
+      font-size: 12px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 9px;
     }
-
-    .metric-details summary::-webkit-details-marker{
-      display: none;
+    #project .method summary::-webkit-details-marker{ display: none; }
+    #project .method summary::before{
+      content: "+";
+      font-size: 15px;
+      color: var(--ox);
     }
-
-    .metric-details summary::before{
-      content: '\25B6';
-      font-size: 10px;
-      transition: transform 0.2s;
+    #project .method[open] summary::before{ content: "\2212"; }
+    #project .method summary:hover{ color: var(--ink); }
+    #project .method-body{
+      padding: 4px 18px 20px;
+      border-top: 1px solid var(--line);
     }
-
-    .metric-details[open] summary::before{
-      transform: rotate(90deg);
+    #project .eqn{
+      margin-top: 16px;
+      padding: 14px 16px;
+      border-left: 2px solid var(--line);
+      background: #fcfbfb;
+      font-size: 13.5px;
+      line-height: 1.55;
     }
+    #project .eqn strong{ font-weight: 650; }
+    #project .eqn.key{ border-left-color: var(--ox); }
+    #project .method-body p{ font-size: 13.5px; color: var(--muted); line-height: 1.6; }
 
-    .metric-details summary:hover{
-      color: var(--text);
-    }
-
-    .metric-details-body{
-      padding: 0 16px 16px;
-    }
-
-    /* ── Bottom two-column grid ── */
-
-    .bottom-grid{
+    /* ════════ colophon ════════ */
+    #project .colophon{
+      margin-top: 64px;
+      padding-top: 26px;
+      border-top: 1px solid var(--ink);
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 40px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+    #project .colo-col h4{
+      font-family: var(--sans);
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ox);
+      margin: 0 0 14px;
+    }
+    #project .colo-col dl{
+      margin: 0;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 7px 12px;
+      font-size: 13px;
+    }
+    #project .colo-col dt{ font-family: var(--sans); font-size: 11px; color: var(--faint); text-transform: uppercase; letter-spacing: 0.06em; padding-top: 2px; }
+    #project .colo-col dd{ margin: 0; color: var(--ink); }
+    #project .colo-col dd a{ color: var(--ink); border-bottom: 1px solid var(--hair); }
+    #project .colo-col dd a:hover{ color: var(--ox); border-bottom-color: var(--ox); }
+    #project .colo-col .caveats{ margin: 0; padding: 0; list-style: none; }
+    #project .colo-col .caveats li{
+      font-size: 12.5px;
+      line-height: 1.5;
+      color: var(--muted);
+      padding-left: 14px;
+      position: relative;
+      margin-bottom: 9px;
+    }
+    #project .colo-col .caveats li::before{
+      content: "\2014";
+      position: absolute;
+      left: 0;
+      color: var(--faint);
     }
 
-    /* ── Responsive ── */
-
-    @media (max-width: 900px){
-      .metric-grid{
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .hero-title{
-        font-size: 30px;
-      }
-
-      .pipeline{
-        flex-direction: column;
-      }
-
-      .pipeline-stage::after{
-        content: '\2193';
-        right: auto;
-        left: 50%;
-        top: auto;
-        bottom: -2px;
-        transform: translateX(-50%);
-      }
-
-      .pipeline-stage:last-child::after{
-        display: none;
-      }
-
-      .bottom-grid{
-        grid-template-columns: 1fr;
-      }
-
-      .findings-grid{
-        grid-template-columns: 1fr;
-      }
-
-      .project-timeline::before{
-        left: 0;
-      }
-
-      .timeline-item{
-        padding-left: 20px;
-      }
-
-      .timeline-date{
-        position: static;
-        margin-bottom: 8px;
-      }
-
-      .timeline-dot{
-        left: -7px;
-      }
+    /* ════════ load motion (one orchestrated moment, opt-in) ════════ */
+    @media (prefers-reduced-motion: no-preference){
+      #project .verdict{ animation: ds-rise 0.6s cubic-bezier(.2,.7,.2,1) both; }
+      #project .regime{ animation: ds-fade 0.5s ease both; }
+      #project .regime:nth-child(1){ animation-delay: 0.16s; }
+      #project .regime:nth-child(2){ animation-delay: 0.30s; }
+      #project .regime:nth-child(3){ animation-delay: 0.24s; }
+      @keyframes ds-rise{ from{ opacity: 0; transform: translateY(14px); } to{ opacity: 1; transform: none; } }
+      @keyframes ds-fade{ from{ opacity: 0; } to{ opacity: 1; } }
     }
 
-    @media (max-width: 640px){
-      .metric-grid{
-        grid-template-columns: 1fr;
-      }
-
-      .status-bar{
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 8px;
-      }
+    /* ════════ responsive ════════ */
+    @media (max-width: 760px){
+      #project .regimes{ grid-template-columns: 1fr; }
+      #project .regime{ border-right: none; border-bottom: 1px solid var(--line); }
+      #project .regime:last-child{ border-bottom: none; }
+      #project .gate{ grid-template-columns: 1fr 1fr; }
+      #project .gate-step:nth-child(2){ border-right: none; }
+      #project .gate-step:nth-child(1), #project .gate-step:nth-child(2){ border-bottom: 1px solid var(--line); }
+      #project .ts-metrics{ grid-template-columns: repeat(3, 1fr); }
+      #project .finding{ grid-template-columns: 1fr; gap: 10px; }
+      #project .colophon{ grid-template-columns: 1fr; gap: 28px; }
+    }
+    @media (max-width: 460px){
+      #project .ts-metrics{ grid-template-columns: repeat(2, 1fr); }
     }
   </style>
 </head>
@@ -624,292 +678,296 @@
       </header>
 
       <section id="project">
-        <a class="return-link" href="../research.html">Return to research</a>
+        <div class="ds">
 
-        <div class="card">
-          <div class="project-shell">
+          <a class="return-link" href="../research.html">Return to research</a>
 
-            <!-- ── HERO ── -->
-            <div class="hero-panel">
-              <h1 class="hero-title">Personal Quant Research & Trading Engine</h1>
-              <p class="hero-summary">
-                A systematic equity research platform built from scratch in Python. Backtested four alpha factors on 47 US large-caps across all 11 GICS sectors (2021&ndash;2026), applying Newey-West corrected IC analysis, block bootstrap confidence intervals, and a full signal validation battery. Best result: <strong>+5% annualized alpha vs SPY</strong> (Momentum 12-1, 15-day rebalance, 10 bps cost).
-              </p>
+          <!-- ════════ MASTHEAD ════════ -->
+          <div class="masthead">
+            <h1 class="ds-title">Statistical Alpha Signal Combination &amp; Robust Backtesting in Long/Short Equity</h1>
 
-              <div class="status-bar">
-                <span class="status-badge">Active Development</span>
-                <span class="last-updated">Last updated: 19 May 2026</span>
-              </div>
+            <p class="lede">
+              Thirteen cross-sectional equity factors, run through a statistical gate on the S&amp;P&nbsp;100 (2020&ndash;2026), then combined into one signal. Every information coefficient is corrected for the autocorrelation that overlapping forward returns inject and carries a bootstrap confidence interval &mdash; a factor is kept only on robust evidence. The frozen result is a <strong>market-neutral, all-weather alpha</strong> that is profitable in <em>both</em> market regimes, presented here with the one structural weakness it cannot solve.
+            </p>
 
-              <p class="project-links" aria-label="Project links">
-                <span class="project-links-label">Repository:</span>
-                <a href="https://github.com/ahmer-cpu/personal-quant-research-and-trading" target="_blank" rel="noopener noreferrer">GitHub</a>
-                <span style="color: var(--border);">|</span>
-                <span class="project-links-label">Notebooks:</span>
-                <a href="../assets/research/01_data_exploration.html">Data Exploration</a>
-                <a href="../assets/research/02_factor_analysis.html">Factor Analysis</a>
-                <a href="../assets/research/03_signal_validation.html">Signal Validation</a>
-              </p>
-            </div>
-
-            <div class="project-layout">
-              <div class="content-stack">
-
-                <!-- ── KEY RESULTS ── -->
-                <div class="section-panel">
-                  <h2 class="section-title">Key Results</h2>
-                  <p style="font-size: 14px; color: var(--muted); margin-top: 0;">
-                    Screened four alpha factors (momentum 12-1, cross-sectional momentum, RSI, Bollinger z-score). Two survived initial screening; both were ultimately discarded after rigorous statistical validation. The framework &mdash; not the signals &mdash; is the deliverable.
-                  </p>
-
-                  <div class="findings-grid">
-                    <div class="finding-card">
-                      <h4>Momentum 12-1</h4>
-                      <p>+5% annualized alpha vs SPY, Sharpe 0.42 at 15-day rebalance. However: Newey-West corrected t-statistic of 1.28 (below 2.0 threshold), regime-dependent (pre-2024 t = 0.17, post-2024 t = 1.83), inconsistent across sectors.</p>
-                      <span class="finding-verdict verdict-discard">Discarded</span>
-                    </div>
-                    <div class="finding-card">
-                      <h4>Bollinger Z-Score</h4>
-                      <p>IC insignificant at all horizons after NW correction (best t = 0.63). Sharpe improved from -1.58 to +0.20 with frequency/smoothing optimization, but entirely through cost reduction &mdash; no detectable alpha.</p>
-                      <span class="finding-verdict verdict-discard">Discarded</span>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- ── TEARSHEET ── -->
-                <div class="section-panel">
-                  <h2 class="section-title">Momentum 12-1 &mdash; In-Sample Backtest Tearsheet</h2>
-                  <p style="font-size: 14px; color: var(--muted); margin-top: 0;">
-                    Best-performing signal at optimal parameters (15-day rebalance, 10 bps transaction cost, dollar-neutral long/short). Benchmarked against SPY. All metrics are in-sample backtest results on 47 US large-caps (2021&ndash;2026).
-                  </p>
-
-                  <div class="metric-grid" aria-label="Performance metrics">
-                    <div class="metric-card">
-                      <span class="metric-value">+5.0%</span>
-                      <span class="metric-label-tip" tabindex="0">Alpha (ann.)
-                        <span class="metric-tip">Jensen's alpha: annualized excess return unexplained by market beta. Computed as $\alpha = (\bar{r}_s - r_f) - \beta(\bar{r}_b - r_f)$, annualized.</span>
-                      </span>
-                    </div>
-                    <div class="metric-card">
-                      <span class="metric-value">0.42</span>
-                      <span class="metric-label-tip" tabindex="0">Sharpe ratio
-                        <span class="metric-tip">Excess return per unit of total volatility, annualized. Strategy has low absolute return but also low volatility (dollar-neutral).</span>
-                      </span>
-                    </div>
-                    <div class="metric-card">
-                      <span class="metric-value">-19.6%</span>
-                      <span class="metric-label-tip" tabindex="0">Max drawdown
-                        <span class="metric-tip">Largest peak-to-trough decline on the equity curve. Measures worst-case loss from a high point.</span>
-                      </span>
-                    </div>
-                    <div class="metric-card">
-                      <span class="metric-value">-0.01</span>
-                      <span class="metric-label-tip" tabindex="0">Beta
-                        <span class="metric-tip">Market exposure. Near-zero beta confirms dollar-neutral construction &mdash; returns are independent of market direction.</span>
-                      </span>
-                    </div>
-                  </div>
-
-                  <div class="metric-grid" aria-label="Secondary metrics">
-                    <div class="metric-card">
-                      <span class="metric-value">+4.3%</span>
-                      <span class="metric-label-tip" tabindex="0">Ann. return
-                        <span class="metric-tip">Compound annual growth rate (CAGR) of the strategy equity curve.</span>
-                      </span>
-                    </div>
-                    <div class="metric-card">
-                      <span class="metric-value">11.3%</span>
-                      <span class="metric-label-tip" tabindex="0">Ann. volatility
-                        <span class="metric-tip">Annualized standard deviation of daily returns. Low vol is expected for a dollar-neutral L/S strategy.</span>
-                      </span>
-                    </div>
-                    <div class="metric-card">
-                      <span class="metric-value">-1.2%</span>
-                      <span class="metric-label-tip" tabindex="0">VaR 95%
-                        <span class="metric-tip">Value at Risk: the 5th percentile of daily returns. On 95% of days, losses are smaller than this.</span>
-                      </span>
-                    </div>
-                    <div class="metric-card">
-                      <span class="metric-value">-1.7%</span>
-                      <span class="metric-label-tip" tabindex="0">CVaR 95%
-                        <span class="metric-tip">Conditional Value at Risk: expected loss on the worst 5% of days. More sensitive to tail risk than VaR.</span>
-                      </span>
-                    </div>
-                  </div>
-
-                  <div class="tearsheet-container">
-                    <img src="../assets/research/momentum_tearsheet.png" alt="Momentum 12-1 in-sample backtest tearsheet: equity curve, drawdown, and monthly returns heatmap vs SPY benchmark">
-                    <div class="tearsheet-caption">Momentum 12-1 in-sample backtest tearsheet (15d rebalance, 10 bps cost, benchmarked vs SPY). 47 US large-caps, Jan 2021 &ndash; May 2026.</div>
-                  </div>
-
-                  <span class="last-updated">Last updated: 19 May 2026</span>
-
-                  <details class="metric-details">
-                    <summary>How these metrics are computed</summary>
-                    <div class="metric-details-body">
-                      <p>
-                        All metrics are computed on simple (not log) returns from a dollar-neutral long/short portfolio, indexed by trading day. Annualization assumes 252 trading days per year. Transaction costs modeled at 10 bps per trade.
-                      </p>
-
-                      <div class="equation-note">
-                        <strong>Jensen's alpha.</strong> Annualized excess return unexplained by market beta:
-                        $$\alpha = \left[(\bar{r}_s - r_f) - \beta \cdot (\bar{r}_b - r_f)\right] \cdot N$$
-                        where $\bar{r}_s$ and $\bar{r}_b$ are mean daily strategy and benchmark returns, $\beta = \text{Cov}(r_s, r_b) / \text{Var}(r_b)$, and $N = 252$.
-                      </div>
-
-                      <div class="equation-note">
-                        <strong>Sharpe ratio.</strong> Excess return per unit of total volatility:
-                        $$\text{SR} = \frac{\bar{r} - r_f}{\sigma} \cdot \sqrt{N}$$
-                      </div>
-
-                      <div class="equation-note">
-                        <strong>Newey-West t-statistic.</strong> Corrects for autocorrelation in overlapping IC series:
-                        $$t_{\text{NW}} = \frac{\bar{\text{IC}}}{\hat{\sigma}_{\text{NW}} / \sqrt{T}}, \qquad \hat{\sigma}^2_{\text{NW}} = \hat{\gamma}_0 + 2\sum_{j=1}^{L}\left(1 - \frac{j}{L+1}\right)\hat{\gamma}_j$$
-                        where $L = h - 1$ (horizon minus one) and $\hat{\gamma}_j$ are autocovariances. Without this correction, overlapping 21-day returns inflate t-statistics by ~3.5&times;.
-                      </div>
-
-                      <div class="equation-note">
-                        <strong>Block bootstrap 95% CI.</strong> Resamples IC series in blocks of length $h$ to preserve serial dependence, computes the mean IC for each of $B = 10{,}000$ resamples, and reports the 2.5th and 97.5th percentiles.
-                      </div>
-
-                      <div class="equation-note">
-                        <strong>Maximum drawdown.</strong> Largest peak-to-trough decline:
-                        $$\text{MDD} = \min_t \left( \frac{V_t - \max_{\tau \leq t} V_\tau}{\max_{\tau \leq t} V_\tau} \right)$$
-                      </div>
-
-                      <div class="equation-note">
-                        <strong>CVaR (Conditional Value at Risk).</strong> Expected loss in the worst $\alpha$% of days:
-                        $$\text{CVaR}_\alpha = \mathbb{E}[r \mid r \leq \text{VaR}_\alpha]$$
-                      </div>
-                    </div>
-                  </details>
-                </div>
-
-                <!-- ── PIPELINE ── -->
-                <div class="section-panel">
-                  <h2 class="section-title">Pipeline</h2>
-
-                  <div class="pipeline">
-                    <div class="pipeline-stage">
-                      <div class="pipeline-label">Data</div>
-                      <div class="pipeline-desc">Alpaca API, Parquet storage, incremental updates</div>
-                    </div>
-                    <div class="pipeline-stage">
-                      <div class="pipeline-label">Alpha</div>
-                      <div class="pipeline-desc">Factor framework, signal generation</div>
-                    </div>
-                    <div class="pipeline-stage">
-                      <div class="pipeline-label">Validation</div>
-                      <div class="pipeline-desc">NW-corrected IC, bootstrap CIs, diagnostics battery</div>
-                    </div>
-                    <div class="pipeline-stage">
-                      <div class="pipeline-label">Backtest</div>
-                      <div class="pipeline-desc">Vectorized L/S, rebalance frequency, smoothing</div>
-                    </div>
-                    <div class="pipeline-stage">
-                      <div class="pipeline-label">Analytics</div>
-                      <div class="pipeline-desc">22 metrics, tearsheet, benchmark comparison</div>
-                    </div>
-                    <div class="pipeline-stage scaffolded">
-                      <div class="pipeline-label">Execution</div>
-                      <div class="pipeline-desc">Order routing, risk management (planned)</div>
-                    </div>
-                  </div>
-
-                  <p style="font-size: 13px; color: var(--muted); margin-top: 8px;">
-                    Solid border = implemented. Dashed = planned.
-                  </p>
-                </div>
-
-                <!-- ── PROGRESS ── -->
-                <div class="section-panel">
-                  <h2 class="section-title">Progress</h2>
-
-                  <div class="project-timeline">
-                    <div class="timeline-item">
-                      <span class="timeline-date">May 2026</span>
-                      <span class="timeline-dot"></span>
-                      <div class="timeline-content">
-                        <p><strong>Signal validation &amp; statistical rigour</strong></p>
-                        <p>Built validation framework: Newey-West HAC t-statistics, non-overlapping IC, block bootstrap 95% CIs, IC decay curves. Signal diagnostics battery (autocorrelation, turnover, dispersion, lead-lag profiles). Sub-period, leave-one-out, sector, and parameter sensitivity robustness tests. Both candidate signals discarded after honest correction. Published <a href="../assets/research/03_signal_validation.html">signal validation notebook</a>. 180 unit tests.</p>
-                      </div>
-                    </div>
-
-                    <div class="timeline-item">
-                      <span class="timeline-date">May 2026</span>
-                      <span class="timeline-dot"></span>
-                      <div class="timeline-content">
-                        <p><strong>Alpha framework &amp; factor screening</strong></p>
-                        <p>Built abstract alpha base class with four factors (momentum, cross-sectional momentum, RSI, Bollinger z-score). Vectorized backtester with dollar-neutral positioning and transaction costs. IC analysis module. Screened factors on 47 US large-caps. Published <a href="../assets/research/02_factor_analysis.html">factor analysis notebook</a>.</p>
-                      </div>
-                    </div>
-
-                    <div class="timeline-item">
-                      <span class="timeline-date">May 2026</span>
-                      <span class="timeline-dot"></span>
-                      <div class="timeline-content">
-                        <p><strong>Performance analytics &amp; tearsheet</strong></p>
-                        <p>22 metrics: Sharpe, Sortino, Calmar, Jensen's alpha, beta, tracking error, information ratio, up/down capture, VaR, CVaR, skewness, kurtosis, tail ratio. Full-page tearsheet with benchmark comparison. Published <a href="../assets/research/01_data_exploration.html">data exploration notebook</a>.</p>
-                      </div>
-                    </div>
-
-                    <div class="timeline-item">
-                      <span class="timeline-date">Apr 2026</span>
-                      <span class="timeline-dot"></span>
-                      <div class="timeline-content">
-                        <p><strong>Data pipeline &amp; core domain model</strong></p>
-                        <p>Alpaca market data client with Parquet storage, incremental fetching, adjustment separation. Type-safe domain types (Bar, Signal, Order, Fill, Position) with frozen dataclasses.</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- ── TOOLING + ATTRIBUTES ── -->
-                <div class="section-panel">
-                  <div class="bottom-grid">
-                    <div>
-                      <h2 class="section-title">Tooling &amp; Quality</h2>
-                      <dl class="detail-grid">
-                        <dt>Language</dt>
-                        <dd>Python 3.13</dd>
-                        <dt>Type checking</dt>
-                        <dd>mypy (strict mode)</dd>
-                        <dt>Linting</dt>
-                        <dd>ruff</dd>
-                        <dt>Testing</dt>
-                        <dd>pytest (180 tests)</dd>
-                        <dt>Packaging</dt>
-                        <dd>pyproject.toml + hatchling</dd>
-                        <dt>Data format</dt>
-                        <dd>Apache Parquet (columnar, compressed)</dd>
-                        <dt>Libraries</dt>
-                        <dd>Pandas, NumPy, Pydantic, Alpaca SDK, PyArrow</dd>
-                      </dl>
-                    </div>
-                    <div>
-                      <h2 class="section-title">Attributes</h2>
-                      <dl class="detail-grid">
-                        <dt>Status</dt>
-                        <dd>Active development</dd>
-                        <dt>Period</dt>
-                        <dd>2026 &ndash; present</dd>
-                        <dt>Affiliation</dt>
-                        <dd>Independent research</dd>
-                        <dt>Market</dt>
-                        <dd>US Equities (47 large-caps, 11 GICS sectors)</dd>
-                        <dt>Broker</dt>
-                        <dd>Alpaca (paper + live)</dd>
-                        <dt>Repository</dt>
-                        <dd><a href="https://github.com/ahmer-cpu/personal-quant-research-and-trading" target="_blank" rel="noopener noreferrer">GitHub</a></dd>
-                      </dl>
-                    </div>
-                  </div>
-                </div>
-
-              </div>
-            </div>
-
+            <p class="project-links" aria-label="Project links">
+              <span class="project-links-label">Available materials:</span>
+              <a href="https://github.com/ahmer-cpu/statistical-alpha-signal-combination-backtesting" target="_blank" rel="noopener noreferrer">GitHub</a>
+            </p>
+            <p class="project-links" aria-label="Research notebooks">
+              <span class="project-links-label">Research Notebooks:</span>
+              <a href="../assets/research/01_data_exploration.html">Data Exploration</a>
+              <a href="../assets/research/02_factor_analysis.html">Factor Analysis</a>
+              <a href="../assets/research/03_signal_validation.html">Signal Validation</a>
+              <a href="../assets/research/04_alpha_research.html">Alpha Research &amp; Combination</a>
+            </p>
           </div>
+
+          <!-- ════════ FROZEN SIGNAL ════════ -->
+          <div class="block">
+            <div class="block-head">
+              <h2 class="block-title">Alpha Signal in-sample tear sheet</h2>
+            </div>
+
+            <figure class="ts" aria-label="Frozen alpha tear sheet">
+              <div class="ts-panel signal-def">
+                <p class="sd-line"><span class="sd-key">Signal</span>Signed IC-weighting (EWM, 126-day half-life) of <b>Sector-Neutral Momentum</b> + <b>Low Volatility</b></p>
+                <p class="sd-line"><span class="sd-key">Execution</span>Rebalanced every 31 days, 10&nbsp;bps cost, dollar-neutral long/short on S&amp;P&nbsp;100 constituents, benchmarked against SPY over Dec&nbsp;2021&ndash;Jun&nbsp;2026</p>
+              </div>
+              <div class="ts-panel ts-panel-metrics">
+                <div class="ts-metrics"><div class="ts-metric"><div class="ts-mname">Sharpe</div><div class="ts-mval">0.99</div></div><div class="ts-metric"><div class="ts-mname">Ann. return</div><div class="ts-mval">+13.2%</div></div><div class="ts-metric"><div class="ts-mname">Max drawdown</div><div class="ts-mval">&minus;16.5%</div></div><div class="ts-metric"><div class="ts-mname">Beta to SPY</div><div class="ts-mval">&minus;0.02</div></div><div class="ts-metric"><div class="ts-mname">Win rate</div><div class="ts-mval">55.9%</div></div><div class="ts-metric"><div class="ts-mname">Profit factor</div><div class="ts-mval">1.18</div></div><div class="ts-metric"><div class="ts-mname">Ann. alpha</div><div class="ts-mval">+13.5%</div></div><div class="ts-metric"><div class="ts-mname">Ann. volatility</div><div class="ts-mval">13.5%</div></div><div class="ts-metric"><div class="ts-mname">Sortino</div><div class="ts-mval">0.94</div></div><div class="ts-metric"><div class="ts-mname">Calmar</div><div class="ts-mval">0.80</div></div><div class="ts-metric"><div class="ts-mname">VaR 95%</div><div class="ts-mval">&minus;1.4%</div></div><div class="ts-metric"><div class="ts-mname">CVaR 95%</div><div class="ts-mval">&minus;1.9%</div></div></div>
+              </div>
+              <div class="ts-panel ts-panel-eq">
+                <div class="ts-title">Cumulative growth of $1</div>
+                <div class="ts-legend">
+                  <span class="ts-regime-key"><i class="ts-hatch-key"></i>transition</span>
+                  <span class="ts-lg ts-lg-strat">Alpha +73%</span>
+                  <span class="ts-lg ts-lg-spy">SPY +69%</span>
+                </div>
+                <svg class="ts-svg" viewBox="0 0 1000 300" role="img">
+                  <defs><pattern id="tsHatchEq" width="7" height="7" patternTransform="rotate(-45)" patternUnits="userSpaceOnUse"><line x1="0" y1="0" x2="0" y2="7" stroke="rgba(74,86,96,0.18)" stroke-width="1.1"/></pattern></defs>
+                  <rect class="ts-trans" fill="url(#tsHatchEq)" x="197.4" y="0" width="119.1" height="300"/>
+                  <text class="ts-ytick" x="961" y="281.8">0.75×</text><text class="ts-ytick" x="961" y="218.8">1.00×</text><text class="ts-ytick" x="961" y="155.7">1.25×</text><text class="ts-ytick" x="961" y="92.7">1.50×</text><text class="ts-ytick" x="961" y="29.6">1.75×</text>
+                  <line class="ts-base" x1="44" y1="222.8" x2="952" y2="222.8"/>
+                  <polyline class="ts-spy" points="44.0,223.4 45.7,222.0 46.2,222.0 46.8,226.9 47.4,227.1 47.9,228.1 49.6,228.4 50.2,226.2 50.7,225.5 51.3,228.9 51.9,228.8 54.1,233.2 54.7,235.7 55.2,238.3 55.8,243.0 57.5,242.0 58.0,244.9 58.6,245.4 59.2,246.6 59.7,240.9 61.4,236.7 62.0,235.1 62.5,232.7 63.1,238.4 63.7,237.3 65.4,238.1 65.9,236.1 66.5,232.6 67.0,237.0 67.6,241.7 69.3,242.4 69.8,238.7 70.4,238.4 71.0,243.5 71.5,245.0 73.8,247.4 74.3,251.4 74.9,248.3 75.5,243.1 77.2,243.7 77.7,247.2 78.3,243.0 78.8,244.2 79.4,246.1 81.1,252.8 81.6,254.5 82.2,248.6 82.8,249.6 83.3,252.5 85.0,254.1 85.6,249.3 86.1,244.2 86.7,241.4 87.3,238.8 89.0,238.9 89.5,236.1 90.1,239.2 90.6,235.6 91.2,234.5 92.9,232.8 93.4,229.8 94.0,231.2 94.6,235.0 95.1,234.3 96.8,232.3 97.4,235.3 97.9,237.7 98.5,236.5 99.1,237.2 100.8,241.2 101.3,242.1 101.9,239.4 102.4,242.4 104.7,242.3 105.2,238.5 105.8,238.7 106.4,242.2 106.9,248.6 108.6,247.3 109.2,253.9 109.7,253.3 110.3,247.7 110.9,256.1 112.5,254.8 113.1,253.7 113.7,247.0 114.2,255.1 114.8,256.4 116.5,263.4 117.0,262.9 117.6,266.3 118.2,266.5 118.7,261.5 120.4,262.4 121.0,258.0 121.5,266.8 122.1,268.1 122.7,268.0 124.3,264.1 124.9,265.7 125.5,263.8 126.0,259.6 126.6,254.3 128.8,255.6 129.4,257.4 130.0,253.2 130.5,256.9 132.2,256.2 132.8,254.1 133.3,256.5 133.9,261.7 134.5,267.9 136.1,275.7 136.7,276.3 137.3,273.5 137.8,280.2 138.4,279.7 140.6,274.8 141.2,275.2 141.8,273.2 142.3,266.8 144.0,267.6 144.6,271.9 145.1,272.0 145.7,273.7 146.3,271.5 148.5,271.2 149.1,270.5 149.6,267.4 150.2,267.6 151.9,269.9 152.4,271.8 153.0,272.8 153.6,273.3 154.1,269.5 155.8,271.2 156.4,265.7 156.9,264.3 157.5,262.2 158.1,264.2 159.7,263.9 160.3,266.4 160.9,261.0 161.4,258.3 162.0,255.1 163.7,255.8 164.2,257.2 164.8,253.8 165.4,254.0 165.9,254.3 167.6,254.6 168.2,255.5 168.7,250.9 169.3,250.9 169.9,247.1 171.5,246.1 172.1,245.7 172.7,247.3 173.2,246.7 173.8,249.7 175.5,254.4 176.0,254.9 176.6,254.2 177.2,251.1 177.7,258.7 179.4,260.1 180.0,262.5 180.5,264.1 181.1,263.4 181.7,265.7 183.9,266.5 184.5,262.7 185.0,261.3 185.6,258.0 187.3,255.7 187.8,265.2 188.4,264.4 189.0,266.8 189.5,268.4 191.2,266.8 191.8,269.2 192.3,272.8 192.9,274.5 193.5,277.8 195.1,279.8 195.7,280.3 196.3,276.4 196.8,280.6 197.4,283.6 199.1,278.5 199.6,272.5 200.2,272.9 200.8,275.0 201.3,280.6 203.0,282.1 203.6,283.3 204.1,283.9 204.7,278.9 205.3,283.4 206.9,278.4 207.5,276.1 208.1,277.5 208.6,279.2 209.2,274.4 210.9,272.0 211.4,268.7 212.0,270.3 212.6,271.4 213.1,266.5 214.8,268.0 215.4,268.9 215.9,274.1 216.5,276.2 217.1,273.3 218.7,271.4 219.3,270.3 219.9,274.5 220.4,263.5 221.0,261.5 222.7,263.3 223.2,261.5 223.8,263.1 224.4,263.7 224.9,262.8 226.6,263.6 227.2,260.7 227.7,259.4 228.9,259.4 230.5,262.9 231.1,263.2 231.7,256.5 232.2,256.7 232.8,257.0 234.5,260.9 235.0,264.0 235.6,264.3 236.2,262.7 236.7,264.3 238.4,261.2 239.0,259.6 239.5,261.0 240.1,266.2 240.7,268.7 242.3,270.4 242.9,270.1 243.5,267.1 244.0,270.0 244.6,268.9 246.8,269.7 247.4,272.2 248.0,268.6 248.5,269.1 250.8,270.0 251.3,268.4 251.9,270.8 252.5,266.1 254.1,266.2 254.7,264.7 255.3,262.1 255.8,261.3 256.4,260.5 258.6,260.9 259.2,264.3 259.8,265.8 260.3,261.9 262.0,259.3 262.6,259.6 263.1,259.5 263.7,257.1 264.3,256.6 265.9,259.4 266.5,256.2 267.1,253.9 267.6,250.6 268.2,253.0 269.9,254.4 270.4,251.5 271.0,253.9 271.6,255.9 272.1,255.3 273.8,252.8 274.4,252.9 274.9,252.1 275.5,255.2 276.1,255.8 278.3,260.2 278.9,260.5 279.4,259.3 280.0,261.6 281.7,260.9 282.2,261.7 282.8,262.5 283.4,260.9 283.9,257.4 285.6,257.3 286.2,260.6 286.7,260.3 287.3,264.2 287.9,267.3 289.5,267.5 290.1,264.1 290.7,265.4 291.2,261.8 291.8,264.3 293.5,262.2 294.0,259.4 294.6,263.1 295.2,262.5 295.7,261.1 297.4,260.7 298.0,261.2 298.5,258.1 299.1,256.9 299.7,253.8 301.3,252.9 301.9,254.2 302.5,254.7 303.0,253.9 305.3,253.7 305.8,253.6 306.4,254.5 307.0,251.6 307.5,252.1 309.2,251.3 309.8,251.2 310.3,251.2 310.9,252.4 311.5,252.3 313.1,252.0 313.7,255.6 314.3,256.5 314.8,252.1 315.4,250.2 317.1,250.5 317.6,253.0 318.2,254.5 318.8,256.1 319.3,252.0 321.0,252.0 321.6,252.9 322.1,251.9 322.7,252.3 323.3,252.6 324.9,251.8 325.5,253.3 326.1,250.6 326.6,248.5 327.2,248.8 328.9,248.7 329.4,251.2 330.0,252.9 330.6,250.9 331.1,248.0 333.4,247.9 333.9,249.2 334.5,247.1 335.1,243.8 336.7,244.2 337.3,243.7 337.9,244.5 338.4,243.1 339.0,242.7 340.7,240.6 341.2,239.0 341.8,238.8 342.4,235.8 342.9,236.6 345.2,237.9 345.7,239.1 346.3,238.2 346.9,240.0 348.5,241.0 349.1,238.4 349.7,238.3 350.2,237.4 350.8,234.6 352.5,234.3 353.6,234.7 354.2,236.5 354.7,237.1 356.4,236.5 357.0,235.0 357.5,233.1 358.1,231.2 358.7,231.3 360.3,230.5 360.9,228.7 361.5,228.1 362.0,229.8 362.6,229.8 364.3,228.7 364.8,228.0 365.4,227.9 366.0,229.6 366.5,227.2 368.2,226.7 368.8,227.4 369.3,230.9 369.9,231.6 370.5,232.7 372.1,230.6 372.7,231.6 373.3,233.2 373.8,233.1 374.4,233.3 376.1,232.0 376.6,234.8 377.2,236.6 377.8,238.4 378.3,238.3 380.0,236.7 380.6,237.4 381.1,234.7 381.7,238.0 382.3,236.4 383.9,234.9 384.5,231.4 385.1,230.4 385.6,230.7 386.2,230.3 388.4,231.3 389.0,233.0 389.6,233.7 390.1,233.4 391.8,231.8 392.4,233.1 392.9,232.8 393.5,230.7 394.1,233.7 395.7,233.5 396.3,234.0 396.9,236.3 397.4,240.2 398.0,240.7 399.7,239.7 400.2,243.2 400.8,243.1 401.4,241.8 401.9,242.3 403.6,242.4 404.2,245.5 404.7,243.9 405.3,244.0 405.9,241.2 407.5,239.7 408.1,238.5 408.7,237.5 409.2,239.0 409.8,240.1 411.5,237.7 412.0,237.7 412.6,240.8 413.2,242.9 413.7,245.7 415.4,246.1 416.0,244.4 416.5,247.7 417.1,250.5 417.7,251.5 419.3,248.8 419.9,247.4 420.5,245.0 421.0,240.5 421.6,238.4 423.3,237.9 423.8,237.2 424.4,237.0 425.0,238.9 425.5,235.2 427.2,235.4 427.8,230.8 428.3,230.2 428.9,229.9 429.5,229.6 431.1,227.8 431.7,228.3 432.3,227.3 433.4,227.2 435.1,227.6 435.6,227.4 436.2,227.6 436.8,226.6 437.3,225.1 439.0,226.4 439.6,226.5 440.1,227.5 440.7,225.6 441.2,224.5 442.9,223.5 443.5,222.4 444.1,218.9 444.6,218.1 445.2,218.5 446.9,217.1 447.4,215.5 448.0,219.1 448.6,216.7 449.1,216.2 451.4,215.1 451.9,214.6 452.5,214.5 453.0,215.3 455.3,216.7 455.9,218.8 456.4,219.6 457.0,219.3 458.7,215.6 459.2,216.0 459.8,214.6 460.4,214.7 460.9,214.5 463.2,215.5 463.7,216.9 464.3,214.6 464.8,211.4 466.5,210.8 467.1,210.0 467.7,209.7 468.2,208.3 468.8,208.6 470.5,206.5 471.0,206.7 471.6,211.1 472.2,207.7 472.7,204.8 474.4,205.8 475.0,205.0 475.5,202.8 476.1,202.7 476.6,201.1 478.3,201.2 478.9,205.0 479.5,202.5 480.0,200.7 480.6,202.0 482.8,203.5 483.4,203.3 484.0,197.7 484.5,197.5 486.2,198.5 486.8,198.0 487.3,198.3 487.9,197.3 488.4,194.7 490.1,195.0 490.7,197.8 491.3,196.4 491.8,193.7 492.4,195.4 494.1,195.6 494.6,192.6 495.2,193.0 495.8,193.6 496.3,195.5 498.0,193.9 498.6,192.3 499.1,189.7 499.7,188.7 500.2,189.3 501.9,190.1 502.5,190.6 503.1,188.2 503.6,188.3 505.9,188.8 506.4,190.6 507.0,190.3 507.6,193.7 508.1,190.8 509.8,190.7 510.4,190.3 510.9,193.2 511.5,191.0 512.0,195.0 513.7,198.5 514.3,199.0 514.9,200.6 515.4,201.2 516.0,203.6 517.7,201.1 518.2,197.8 518.8,197.9 519.4,199.0 519.9,196.4 521.6,195.4 522.2,199.8 522.7,200.7 523.3,198.2 523.8,194.7 525.5,191.8 526.1,191.5 526.7,191.5 527.2,189.9 527.8,189.5 529.5,189.4 530.0,188.1 530.6,184.6 531.2,185.2 531.7,184.8 533.4,184.4 534.0,183.7 534.5,184.6 535.1,186.7 535.6,184.8 537.9,184.6 538.5,186.6 539.0,188.5 539.6,185.9 541.3,185.7 541.8,185.4 542.4,181.9 543.0,181.9 543.5,182.3 545.2,181.4 545.8,180.7 546.3,178.2 546.9,177.6 547.4,177.5 549.1,175.1 549.7,174.3 550.8,175.2 551.4,175.6 553.1,176.5 553.6,175.4 554.2,175.0 554.8,174.5 555.3,175.7 557.0,175.1 557.6,173.1 558.1,171.7 559.2,170.0 560.9,169.6 561.5,169.3 562.1,166.3 562.6,169.0 563.2,167.0 564.9,166.2 565.4,164.4 566.0,168.7 566.5,171.1 567.1,173.1 568.8,170.0 569.4,170.5 569.9,177.4 570.5,178.9 571.0,175.6 572.7,175.4 573.3,176.9 573.9,172.1 574.4,176.4 575.0,181.9 576.7,190.5 577.2,187.8 577.8,189.8 578.3,183.2 578.9,181.9 580.6,181.7 581.2,176.9 581.7,176.0 582.3,170.8 582.8,170.2 584.5,167.2 585.1,167.7 585.7,166.7 586.2,169.1 586.8,165.9 588.5,166.6 589.0,166.2 589.6,168.0 590.1,167.9 590.7,165.0 593.0,171.4 593.5,172.0 594.1,172.7 594.6,177.8 596.3,174.5 596.9,173.2 597.5,170.1 598.0,167.5 598.6,165.9 600.3,165.5 600.8,165.3 601.4,166.3 601.9,161.0 602.5,161.5 604.2,160.8 604.8,159.9 605.3,160.6 605.9,159.3 606.4,159.8 608.1,158.5 608.7,161.3 609.3,161.2 609.8,161.8 610.4,158.9 612.1,161.8 612.6,158.8 613.2,156.6 613.7,157.2 614.3,155.3 616.0,152.7 616.6,155.2 617.1,153.8 617.7,153.8 618.2,152.5 619.9,153.1 620.5,153.2 621.1,156.2 621.6,155.5 622.2,155.6 623.9,154.6 624.4,154.1 625.0,155.1 625.5,161.3 626.1,160.0 627.8,160.7 628.4,156.9 628.9,149.0 629.5,146.4 630.0,145.0 631.7,144.7 632.3,145.7 632.9,145.6 633.4,147.7 634.0,151.9 635.7,150.6 636.2,149.4 636.8,149.3 637.3,147.5 637.9,146.5 639.6,145.4 640.2,143.7 640.7,144.7 641.8,142.6 643.5,142.0 644.1,141.9 644.7,139.8 645.2,140.4 645.8,139.7 647.5,141.4 648.0,142.5 648.6,139.9 649.1,141.6 649.7,141.7 651.4,140.3 652.0,141.7 652.5,151.6 653.1,151.7 653.6,147.8 655.3,145.9 655.9,142.2 657.0,142.2 657.6,145.7 659.3,149.4 659.8,150.6 660.9,151.4 661.5,147.4 663.2,145.5 663.8,149.2 664.3,148.7 665.4,153.7 667.1,153.2 667.7,152.8 668.2,146.9 668.8,147.5 669.4,144.3 671.6,141.2 672.2,139.4 672.7,137.5 673.3,138.5 675.0,143.3 675.6,140.4 676.1,141.9 676.7,140.1 677.2,141.9 678.9,144.2 679.5,141.9 680.0,140.6 680.6,139.4 681.2,142.5 682.9,140.2 683.4,140.0 684.0,141.1 684.5,137.5 685.1,137.5 687.4,136.6 687.9,135.8 688.5,137.2 689.0,143.0 690.7,144.5 691.3,146.1 691.8,145.9 692.4,151.2 693.0,146.1 694.7,151.9 695.2,155.7 695.8,152.3 696.3,158.0 696.9,156.2 698.6,164.7 699.2,167.3 699.7,165.7 700.3,169.8 700.8,163.5 702.5,161.1 703.1,164.5 703.6,161.1 704.2,162.0 704.8,161.9 706.5,156.3 707.0,155.5 707.6,159.4 708.1,160.2 708.7,166.5 710.4,164.5 711.0,163.6 711.5,161.6 712.1,177.1 712.6,194.5 714.3,195.0 714.9,199.4 715.4,170.4 716.0,183.8 716.6,178.6 718.3,175.7 718.8,176.5 719.4,183.2 719.9,182.8 722.2,189.7 722.8,182.3 723.3,177.8 723.9,171.5 724.4,169.3 726.1,169.2 726.7,167.3 727.2,167.1 727.8,165.0 728.4,160.4 730.1,162.2 730.6,164.8 731.2,163.5 731.7,161.3 732.3,161.7 734.0,151.4 734.6,149.2 735.1,148.8 735.7,147.2 736.2,145.1 737.9,144.8 738.5,145.9 739.0,151.4 739.6,151.3 740.2,153.5 742.4,146.8 743.0,148.7 743.5,147.4 744.1,147.8 745.8,146.0 746.4,144.1 746.9,144.2 747.5,145.8 748.0,142.4 749.7,142.1 750.3,140.2 750.8,141.2 751.4,139.8 752.0,143.6 753.7,140.4 754.2,143.3 754.8,143.3 755.9,144.1 757.6,140.9 758.2,137.2 758.7,137.0 759.3,134.3 759.8,132.6 761.5,131.0 762.1,131.1 762.6,129.5 763.2,126.8 765.5,129.4 766.0,129.6 766.6,127.5 767.1,126.6 767.7,127.8 769.4,127.1 770.0,128.6 770.5,127.4 771.1,125.3 771.6,125.6 773.3,124.9 773.9,124.9 774.4,121.9 775.0,121.8 775.6,120.3 777.3,120.4 777.8,121.3 778.4,121.8 778.9,123.1 779.5,128.8 781.2,123.6 781.8,125.4 782.3,122.7 782.9,123.0 783.4,120.2 785.1,120.9 785.7,117.2 786.2,115.9 786.8,115.9 787.4,116.7 789.1,116.8 789.6,118.8 790.2,119.7 790.7,121.1 791.3,115.7 793.0,117.3 793.5,115.8 794.1,115.0 794.7,113.7 795.2,115.9 797.5,118.5 798.0,116.6 798.6,113.6 799.2,114.6 800.9,113.7 801.4,112.9 802.0,111.9 802.5,108.8 803.1,109.0 804.8,107.0 805.3,107.5 805.9,108.0 806.5,106.3 807.0,104.4 808.7,102.7 809.3,104.7 809.8,105.9 810.4,107.6 811.0,105.5 812.7,104.5 813.2,103.1 813.8,101.8 814.3,101.4 814.9,101.4 816.6,100.0 817.1,101.4 817.7,99.2 818.3,100.3 818.8,110.4 820.5,104.8 821.1,105.3 821.6,103.6 822.2,106.2 822.8,104.1 824.5,100.2 825.0,100.2 825.6,102.2 826.1,99.9 826.7,96.9 828.4,92.4 828.9,91.4 829.5,91.2 830.1,95.4 830.6,94.2 832.3,93.5 832.9,98.0 833.4,96.7 834.0,100.8 834.6,100.4 836.3,94.5 836.8,93.7 837.4,93.5 837.9,99.8 838.5,99.9 840.2,103.3 840.7,106.5 841.3,105.0 841.9,110.7 842.4,107.1 844.1,101.6 844.7,98.1 845.2,95.5 846.4,93.5 848.1,95.2 848.6,94.5 849.2,93.2 849.7,92.9 850.3,92.2 852.0,93.3 852.5,93.6 853.1,91.1 853.7,90.2 854.2,94.4 855.9,94.9 856.5,96.0 857.0,100.1 857.6,97.3 858.2,93.9 859.9,91.5 860.4,89.8 861.0,88.4 862.1,88.4 863.8,89.8 864.3,90.3 864.9,93.1 866.0,92.4 867.7,89.9 868.3,87.6 868.8,88.9 869.4,88.9 870.0,86.3 871.7,85.7 872.2,86.5 872.8,88.4 873.3,87.4 873.9,87.7 876.1,95.6 876.7,91.2 877.3,89.2 877.8,89.1 879.5,87.1 880.1,85.6 880.6,85.6 881.2,86.4 881.8,87.5 883.5,85.6 884.0,88.9 884.6,90.8 885.1,95.6 885.7,88.3 887.4,86.4 887.9,87.4 888.5,87.5 889.1,93.5 889.6,93.2 891.9,92.6 892.4,90.7 893.0,91.7 893.6,88.9 895.2,92.9 895.8,90.1 896.4,86.9 896.9,89.0 897.5,90.9 899.2,90.7 899.7,94.0 900.3,91.4 900.9,93.5 901.4,98.5 903.1,95.2 903.7,95.8 904.2,96.3 904.8,102.0 905.4,104.1 907.0,100.4 907.6,99.4 908.2,104.6 908.7,105.5 909.3,110.8 911.0,107.0 911.5,108.2 912.1,106.2 912.7,112.8 913.2,118.9 914.9,120.1 915.5,109.8 916.0,107.1 916.6,106.7 918.8,105.0 919.4,104.8 920.0,95.4 920.5,93.2 921.1,93.5 922.8,89.7 923.3,85.0 923.9,82.0 924.5,81.0 925.0,76.2 926.7,77.0 927.3,79.6 927.8,75.6 928.4,77.2 929.0,74.1 930.6,73.4 931.2,75.4 931.8,75.4 932.3,71.5 932.9,70.3 934.6,71.8 935.1,68.6 935.7,62.9 936.3,64.2 936.8,60.8 938.5,59.9 939.1,60.5 939.6,58.2 940.2,54.9 940.8,59.9 942.4,60.2 943.0,63.0 943.6,58.8 944.1,57.9 944.7,56.3 946.9,53.5 947.5,53.6 948.1,51.3 948.6,50.2 950.3,49.1 950.9,48.5 951.4,51.5 952.0,49.9"/>
+                  <polyline class="ts-strat" points="44.0,225.4 45.7,223.9 46.2,219.8 46.8,220.1 47.4,218.1 47.9,218.8 49.6,220.2 50.2,220.9 50.7,218.0 51.3,219.1 51.9,216.3 54.1,214.1 54.7,212.9 55.2,210.5 55.8,211.2 57.5,208.1 58.0,209.3 58.6,205.9 59.2,207.1 59.7,211.7 61.4,212.4 62.0,212.8 62.5,210.2 63.1,212.0 63.7,211.9 65.4,212.4 65.9,215.8 66.5,214.7 67.0,210.1 67.6,210.7 69.3,215.1 69.8,214.3 70.4,209.9 71.0,208.4 71.5,206.9 73.8,204.3 74.3,212.4 74.9,210.1 75.5,212.0 77.2,209.6 77.7,209.7 78.3,205.3 78.8,202.0 79.4,198.3 81.1,201.4 81.6,205.3 82.2,203.8 82.8,201.3 83.3,196.9 85.0,199.7 85.6,206.1 86.1,207.1 86.7,210.3 87.3,208.7 89.0,210.8 89.5,209.5 90.1,212.3 90.6,210.4 91.2,212.7 92.9,215.4 93.4,212.5 94.0,211.0 94.6,209.7 95.1,212.5 96.8,208.2 97.4,202.8 97.9,201.3 98.5,199.2 99.1,198.5 100.8,198.0 101.3,200.3 101.9,197.7 102.4,198.7 104.7,201.6 105.2,197.7 105.8,194.6 106.4,194.4 106.9,195.4 108.6,191.4 109.2,190.4 109.7,195.3 110.3,193.9 110.9,196.6 112.5,196.4 113.1,197.2 113.7,193.3 114.2,190.9 114.8,182.7 116.5,184.8 117.0,181.0 117.6,181.7 118.2,188.5 118.7,184.7 120.4,188.6 121.0,185.3 121.5,189.1 122.1,188.0 122.7,186.9 124.3,179.7 124.9,184.1 125.5,188.1 126.0,191.3 126.6,191.9 128.8,191.3 129.4,198.0 130.0,194.6 130.5,194.8 132.2,195.1 132.8,196.7 133.3,194.4 133.9,190.3 134.5,184.7 136.1,186.3 136.7,191.0 137.3,185.6 137.8,188.9 138.4,187.9 140.6,188.7 141.2,189.8 141.8,193.8 142.3,191.8 144.0,188.3 144.6,186.9 145.1,184.3 145.7,184.1 146.3,188.7 148.5,186.9 149.1,190.8 149.6,190.5 150.2,186.6 151.9,186.3 152.4,186.6 153.0,185.7 153.6,187.6 154.1,190.0 155.8,193.3 156.4,199.1 156.9,201.3 157.5,198.0 158.1,196.8 159.7,193.5 160.3,197.9 160.9,198.0 161.4,200.1 162.0,201.3 163.7,204.1 164.2,205.4 164.8,207.4 165.4,206.6 165.9,204.9 167.6,201.7 168.2,205.3 168.7,204.8 169.3,206.3 169.9,205.8 171.5,204.4 172.1,202.1 172.7,202.1 173.2,198.6 173.8,196.4 175.5,197.7 176.0,198.7 176.6,200.7 177.2,198.4 177.7,197.7 179.4,197.3 180.0,197.1 180.5,194.7 181.1,194.9 181.7,194.0 183.9,194.6 184.5,195.6 185.0,198.4 185.6,199.0 187.3,195.7 187.8,197.8 188.4,197.9 189.0,196.9 189.5,197.0 191.2,196.5 191.8,196.2 192.3,193.3 192.9,192.4 193.5,192.2 195.1,194.6 195.7,196.1 196.3,195.6 196.8,195.4 197.4,195.9 199.1,198.4 199.6,198.3 200.2,200.2 200.8,197.8 201.3,197.0 203.0,194.5 203.6,196.3 204.1,195.9 204.7,194.5 205.3,196.6 206.9,195.6 207.5,197.6 208.1,197.7 208.6,198.2 209.2,196.8 210.9,199.7 211.4,198.0 212.0,196.1 212.6,195.2 213.1,194.2 214.8,194.8 215.4,192.0 215.9,192.4 216.5,192.2 217.1,191.6 218.7,191.7 219.3,190.2 219.9,197.4 220.4,203.5 221.0,202.1 222.7,204.6 223.2,200.9 223.8,198.0 224.4,196.0 224.9,193.5 226.6,194.5 227.2,196.3 227.7,194.9 228.9,193.4 230.5,192.9 231.1,198.3 231.7,198.8 232.2,197.8 232.8,196.0 234.5,193.4 235.0,192.9 235.6,194.4 236.2,195.4 236.7,195.4 238.4,198.4 239.0,197.1 239.5,194.2 240.1,193.9 240.7,191.2 242.3,190.9 242.9,192.4 243.5,189.0 244.0,188.7 244.6,185.7 246.8,186.0 247.4,190.2 248.0,190.5 248.5,189.6 250.8,192.4 251.3,190.6 251.9,191.7 252.5,195.8 254.1,196.9 254.7,198.8 255.3,200.7 255.8,200.9 256.4,202.8 258.6,203.9 259.2,203.0 259.8,207.4 260.3,212.1 262.0,210.4 262.6,210.5 263.1,213.8 263.7,216.3 264.3,213.1 265.9,215.1 266.5,219.6 267.1,226.3 267.6,224.1 268.2,222.9 269.9,225.0 270.4,224.5 271.0,224.1 271.6,220.0 272.1,220.8 273.8,217.0 274.4,215.6 274.9,217.5 275.5,219.5 276.1,221.3 278.3,220.9 278.9,219.9 279.4,220.8 280.0,220.1 281.7,219.5 282.2,219.9 282.8,219.8 283.4,218.5 283.9,219.9 285.6,219.9 286.2,219.6 286.7,221.3 287.3,222.3 287.9,222.6 289.5,220.0 290.1,219.6 290.7,216.6 291.2,216.8 291.8,218.2 293.5,215.6 294.0,216.2 294.6,215.4 295.2,216.2 295.7,217.2 297.4,218.3 298.0,220.8 298.5,220.2 299.1,220.9 299.7,218.8 301.3,218.7 301.9,216.4 302.5,217.1 303.0,218.2 305.3,218.5 305.8,217.2 306.4,217.7 307.0,217.8 307.5,218.3 309.2,217.7 309.8,218.7 310.3,217.5 310.9,216.5 311.5,215.9 313.1,213.4 313.7,214.3 314.3,215.9 314.8,216.9 315.4,215.8 317.1,214.7 317.6,214.5 318.2,214.3 318.8,215.6 319.3,216.0 321.0,217.6 321.6,217.8 322.1,218.1 322.7,217.7 323.3,218.6 324.9,218.3 325.5,220.0 326.1,220.5 326.6,220.6 327.2,222.8 328.9,224.4 329.4,223.3 330.0,222.5 330.6,223.9 331.1,225.0 333.4,224.7 333.9,224.5 334.5,225.3 335.1,225.3 336.7,227.2 337.3,227.7 337.9,227.1 338.4,227.0 339.0,227.8 340.7,228.3 341.2,227.6 341.8,227.9 342.4,227.8 342.9,227.9 345.2,225.8 345.7,225.6 346.3,225.7 346.9,225.9 348.5,226.6 349.1,226.2 349.7,227.2 350.2,226.0 350.8,226.3 352.5,226.2 353.6,226.7 354.2,226.0 354.7,224.5 356.4,224.8 357.0,223.5 357.5,222.5 358.1,222.3 358.7,219.2 360.3,217.9 360.9,219.9 361.5,224.2 362.0,225.8 362.6,226.4 364.3,224.2 364.8,225.9 365.4,224.6 366.0,222.3 366.5,220.9 368.2,220.2 368.8,223.1 369.3,222.6 369.9,221.7 370.5,221.1 372.1,222.3 372.7,225.4 373.3,225.5 373.8,227.2 374.4,224.9 376.1,224.8 376.6,225.5 377.2,227.7 377.8,227.3 378.3,224.7 380.0,224.8 380.6,223.1 381.1,225.6 381.7,225.6 382.3,225.2 383.9,222.9 384.5,221.7 385.1,222.5 385.6,222.7 386.2,221.5 388.4,221.6 389.0,222.6 389.6,222.6 390.1,221.5 391.8,222.2 392.4,222.5 392.9,222.9 393.5,224.8 394.1,224.8 395.7,225.1 396.3,226.9 396.9,228.1 397.4,227.5 398.0,226.6 399.7,226.9 400.2,225.2 400.8,223.4 401.4,223.5 401.9,221.8 403.6,223.7 404.2,221.5 404.7,220.9 405.3,219.0 405.9,219.5 407.5,219.2 408.1,218.0 408.7,217.4 409.2,220.1 409.8,220.1 411.5,221.2 412.0,222.8 412.6,223.1 413.2,224.7 413.7,222.4 415.4,221.4 416.0,224.6 416.5,227.2 417.1,225.3 417.7,225.8 419.3,227.0 419.9,224.8 420.5,222.3 421.0,221.4 421.6,220.2 423.3,219.0 423.8,218.6 424.4,219.1 425.0,216.4 425.5,215.9 427.2,214.5 427.8,215.3 428.3,214.4 428.9,213.4 429.5,212.0 431.1,213.8 431.7,214.3 432.3,215.3 433.4,215.1 435.1,214.2 435.6,214.1 436.2,215.8 436.8,216.2 437.3,219.1 439.0,218.9 439.6,220.6 440.1,218.5 440.7,217.0 441.2,217.7 442.9,217.1 443.5,216.9 444.1,215.9 444.6,215.2 445.2,214.6 446.9,214.1 447.4,215.4 448.0,214.6 448.6,215.2 449.1,214.4 451.4,214.3 451.9,214.5 452.5,215.6 453.0,218.5 455.3,220.0 455.9,219.8 456.4,219.2 457.0,216.9 458.7,216.8 459.2,216.1 459.8,215.5 460.4,216.5 460.9,215.7 463.2,216.1 463.7,215.9 464.3,213.8 464.8,213.3 466.5,213.7 467.1,212.0 467.7,213.7 468.2,214.4 468.8,213.1 470.5,213.8 471.0,215.0 471.6,214.7 472.2,211.1 472.7,210.6 474.4,207.4 475.0,204.9 475.5,204.6 476.1,204.0 476.6,204.5 478.3,204.3 478.9,200.8 479.5,200.7 480.0,202.0 480.6,204.4 482.8,206.3 483.4,201.2 484.0,202.8 484.5,201.3 486.2,200.9 486.8,201.7 487.3,199.8 487.9,197.5 488.4,198.0 490.1,199.7 490.7,197.7 491.3,195.4 491.8,198.2 492.4,201.8 494.1,200.4 494.6,201.2 495.2,202.3 495.8,203.3 496.3,201.8 498.0,202.4 498.6,201.4 499.1,200.8 499.7,199.8 500.2,199.5 501.9,199.4 502.5,201.8 503.1,203.6 503.6,203.0 505.9,203.2 506.4,201.6 507.0,203.1 507.6,200.7 508.1,201.3 509.8,202.6 510.4,201.3 510.9,198.8 511.5,199.7 512.0,202.1 513.7,200.9 514.3,203.8 514.9,204.9 515.4,210.8 516.0,209.7 517.7,207.3 518.2,208.7 518.8,207.9 519.4,205.4 519.9,206.1 521.6,206.8 522.2,207.6 522.7,206.4 523.3,204.5 523.8,200.7 525.5,203.3 526.1,204.0 526.7,204.9 527.2,205.7 527.8,206.4 529.5,205.3 530.0,203.6 530.6,204.6 531.2,204.9 531.7,203.8 533.4,203.3 534.0,204.0 534.5,201.5 535.1,199.4 535.6,197.4 537.9,196.9 538.5,197.5 539.0,199.5 539.6,198.9 541.3,199.2 541.8,195.7 542.4,195.2 543.0,195.4 543.5,194.3 545.2,194.0 545.8,191.8 546.3,191.0 546.9,190.9 547.4,188.7 549.1,187.3 549.7,189.8 550.8,192.9 551.4,195.8 553.1,193.2 553.6,193.5 554.2,193.4 554.8,192.4 555.3,192.2 557.0,192.0 557.6,190.3 558.1,190.5 559.2,189.8 560.9,189.4 561.5,188.7 562.1,191.9 562.6,192.4 563.2,192.2 564.9,194.2 565.4,202.2 566.0,201.9 566.5,202.3 567.1,199.4 568.8,197.7 569.4,202.8 569.9,204.3 570.5,204.5 571.0,205.6 572.7,209.6 573.3,204.0 573.9,207.5 574.4,210.8 575.0,210.1 576.7,208.1 577.2,210.2 577.8,205.5 578.3,203.9 578.9,202.6 580.6,200.9 581.2,200.0 581.7,198.6 582.3,199.3 582.8,198.0 584.5,198.5 585.1,198.2 585.7,199.7 586.2,198.8 586.8,201.3 588.5,200.9 589.0,201.6 589.6,203.1 590.1,201.7 590.7,206.7 593.0,207.1 593.5,206.8 594.1,210.0 594.6,208.6 596.3,208.3 596.9,204.3 597.5,203.9 598.0,202.1 598.6,203.5 600.3,202.9 600.8,203.2 601.4,200.6 601.9,200.8 602.5,200.4 604.2,199.4 604.8,198.3 605.3,197.8 605.9,200.0 606.4,200.4 608.1,202.3 608.7,201.0 609.3,199.1 609.8,197.1 610.4,196.6 612.1,194.4 612.6,193.9 613.2,193.5 613.7,193.5 614.3,193.0 616.0,197.0 616.6,197.5 617.1,196.8 617.7,196.0 618.2,194.1 619.9,194.5 620.5,195.8 621.1,194.1 621.6,192.4 622.2,192.7 623.9,190.6 624.4,192.6 625.0,196.6 625.5,196.3 626.1,196.4 627.8,191.7 628.4,188.4 628.9,187.5 629.5,185.9 630.0,185.7 631.7,186.4 632.3,187.4 632.9,187.9 633.4,187.3 634.0,188.2 635.7,185.8 636.2,186.4 636.8,187.1 637.3,186.8 637.9,188.6 639.6,188.2 640.2,189.4 640.7,188.1 641.8,186.4 643.5,184.1 644.1,183.0 644.7,183.5 645.2,181.2 645.8,182.9 647.5,184.4 648.0,182.5 648.6,182.9 649.1,180.1 649.7,178.1 651.4,178.7 652.0,180.2 652.5,179.0 653.1,176.0 653.6,174.3 655.3,173.1 655.9,173.0 657.0,175.2 657.6,175.4 659.3,177.7 659.8,176.6 660.9,173.4 661.5,172.3 663.2,177.3 663.8,178.0 664.3,177.8 665.4,179.7 667.1,179.5 667.7,177.2 668.2,177.9 668.8,176.3 669.4,174.6 671.6,170.9 672.2,169.8 672.7,170.3 673.3,181.3 675.0,176.1 675.6,177.1 676.1,175.6 676.7,174.6 677.2,174.7 678.9,166.0 679.5,166.1 680.0,160.1 680.6,160.1 681.2,158.4 682.9,162.7 683.4,161.8 684.0,161.7 684.5,160.0 685.1,160.1 687.4,164.4 687.9,168.0 688.5,171.7 689.0,178.1 690.7,181.0 691.3,178.5 691.8,182.9 692.4,181.8 693.0,184.9 694.7,183.9 695.2,180.5 695.8,188.6 696.3,187.0 696.9,193.4 698.6,189.3 699.2,183.3 699.7,186.1 700.3,181.8 700.8,182.7 702.5,186.4 703.1,183.2 703.6,182.4 704.2,179.2 704.8,174.4 706.5,173.1 707.0,178.0 707.6,180.3 708.1,182.6 708.7,184.4 710.4,182.4 711.0,179.7 711.5,183.0 712.1,188.0 712.6,183.4 714.3,182.6 714.9,171.6 715.4,173.5 716.0,174.3 716.6,173.4 718.3,169.4 718.8,172.0 719.4,172.7 719.9,174.9 722.2,172.5 722.8,167.2 723.3,161.7 723.9,158.0 724.4,157.0 726.1,157.2 726.7,157.2 727.2,156.4 727.8,152.8 728.4,152.9 730.1,157.3 730.6,156.9 731.2,154.8 731.7,154.1 732.3,154.5 734.0,148.9 734.6,147.0 735.1,149.6 735.7,149.2 736.2,149.3 737.9,149.3 738.5,150.1 739.0,149.2 739.6,148.4 740.2,148.3 742.4,146.9 743.0,148.3 743.5,145.7 744.1,144.1 745.8,143.8 746.4,145.1 746.9,149.4 747.5,147.2 748.0,146.6 749.7,148.1 750.3,145.1 750.8,146.0 751.4,144.0 752.0,142.3 753.7,142.2 754.2,140.9 754.8,142.3 755.9,139.9 757.6,138.3 758.2,139.2 758.7,138.8 759.3,143.3 759.8,141.8 761.5,147.7 762.1,145.8 762.6,144.2 763.2,143.5 765.5,142.4 766.0,140.9 766.6,140.2 767.1,139.8 767.7,136.7 769.4,135.4 770.0,133.9 770.5,133.4 771.1,132.8 771.6,134.0 773.3,137.4 773.9,134.3 774.4,136.2 775.0,133.8 775.6,131.9 777.3,132.4 777.8,129.8 778.4,130.2 778.9,132.2 779.5,129.5 781.2,126.9 781.8,125.5 782.3,125.6 782.9,124.1 783.4,123.6 785.1,122.5 785.7,125.6 786.2,126.0 786.8,125.6 787.4,126.1 789.1,131.7 789.6,132.4 790.2,132.5 790.7,132.0 791.3,131.8 793.0,129.7 793.5,131.4 794.1,130.4 794.7,132.9 795.2,133.7 797.5,135.0 798.0,133.9 798.6,133.9 799.2,132.1 800.9,129.8 801.4,124.5 802.0,126.3 802.5,124.2 803.1,123.9 804.8,123.6 805.3,125.5 805.9,123.0 806.5,120.2 807.0,118.3 808.7,119.5 809.3,120.8 809.8,122.9 810.4,124.7 811.0,124.9 812.7,124.5 813.2,122.8 813.8,122.1 814.3,126.4 814.9,122.5 816.6,122.6 817.1,119.5 817.7,117.3 818.3,120.7 818.8,115.2 820.5,118.1 821.1,117.2 821.6,116.2 822.2,119.4 822.8,121.0 824.5,123.1 825.0,125.0 825.6,121.0 826.1,119.5 826.7,118.8 828.4,117.8 828.9,113.3 829.5,118.0 830.1,117.0 830.6,113.9 832.3,121.1 832.9,117.8 833.4,121.5 834.0,122.6 834.6,117.0 836.3,121.7 836.8,121.8 837.4,127.2 837.9,126.4 838.5,127.2 840.2,129.8 840.7,128.0 841.3,134.2 841.9,136.9 842.4,129.0 844.1,130.8 844.7,127.9 845.2,126.4 846.4,126.6 848.1,124.6 848.6,124.7 849.2,123.5 849.7,121.8 850.3,120.2 852.0,118.8 852.5,116.3 853.1,119.3 853.7,124.9 854.2,125.1 855.9,124.5 856.5,132.1 857.0,126.6 857.6,120.8 858.2,119.4 859.9,119.1 860.4,118.5 861.0,118.9 862.1,118.7 863.8,119.0 864.3,119.9 864.9,113.8 866.0,114.6 867.7,112.0 868.3,109.9 868.8,116.2 869.4,111.5 870.0,109.9 871.7,107.0 872.2,110.0 872.8,109.1 873.3,105.3 873.9,105.0 876.1,102.6 876.7,104.1 877.3,106.5 877.8,108.3 879.5,104.3 880.1,100.9 880.6,101.5 881.2,106.9 881.8,104.2 883.5,103.9 884.0,116.0 884.6,115.8 885.1,110.0 885.7,109.7 887.4,114.0 887.9,108.5 888.5,109.4 889.1,109.1 889.6,109.4 891.9,107.9 892.4,108.0 893.0,107.6 893.6,108.2 895.2,107.2 895.8,104.2 896.4,108.6 896.9,110.6 897.5,108.7 899.2,114.7 899.7,109.9 900.3,111.4 900.9,116.5 901.4,110.6 903.1,107.6 903.7,104.5 904.2,107.4 904.8,105.7 905.4,104.0 907.0,102.8 907.6,100.0 908.2,99.2 908.7,101.5 909.3,100.5 911.0,99.9 911.5,100.3 912.1,108.3 912.7,108.4 913.2,115.9 914.9,109.3 915.5,102.2 916.0,102.2 916.6,100.4 918.8,98.8 919.4,91.1 920.0,87.8 920.5,85.1 921.1,83.6 922.8,79.2 923.3,79.7 923.9,79.5 924.5,79.1 925.0,80.4 926.7,79.4 927.3,73.2 927.8,75.7 928.4,69.2 929.0,68.1 930.6,73.0 931.2,72.6 931.8,71.2 932.3,67.6 932.9,65.2 934.6,55.1 935.1,47.8 935.7,51.6 936.3,38.8 936.8,32.9 938.5,39.4 939.1,35.6 939.6,36.8 940.2,44.0 940.8,50.9 942.4,50.5 943.0,42.9 943.6,40.9 944.1,39.9 944.7,26.6 946.9,27.0 947.5,25.8 948.1,25.3 948.6,24.0 950.3,20.1 950.9,16.1 951.4,22.4 952.0,39.6"/>
+                  <text class="ts-xtick" x="44.6" y="294" style="text-anchor:middle">2022</text><text class="ts-xtick" x="249.6" y="294" style="text-anchor:middle">2023</text><text class="ts-xtick" x="454.7" y="294" style="text-anchor:middle">2024</text><text class="ts-xtick" x="660.4" y="294" style="text-anchor:middle">2025</text><text class="ts-xtick" x="865.5" y="294" style="text-anchor:middle">2026</text>
+                </svg>
+                <div class="ts-bandlabels">
+                  <span style="left:4.5%;transform:translateX(-50%)">2022 bear</span>
+                  <span style="left:25.7%;transform:translateX(-50%)">transition</span>
+                  <span style="left:86.5%;transform:translateX(-50%)">2023&ndash;26 bull</span>
+                </div>
+              </div>
+
+              <div class="ts-panel ts-panel-dd">
+                <div class="ts-title">Drawdown</div>
+                <svg class="ts-svg ts-svg-dd" viewBox="0 0 1000 120" role="img">
+                  <defs><pattern id="tsHatchDd" width="7" height="7" patternTransform="rotate(-45)" patternUnits="userSpaceOnUse"><line x1="0" y1="0" x2="0" y2="7" stroke="rgba(74,86,96,0.18)" stroke-width="1.1"/></pattern></defs>
+                  <rect class="ts-trans" fill="url(#tsHatchDd)" x="197.4" y="0" width="119.1" height="120"/>
+                  <polygon class="ts-dd-area" points="44,0 44.0,-0.0 45.7,-0.0 46.2,-0.0 46.8,0.9 47.4,-0.0 47.9,2.2 49.6,6.1 50.2,7.9 50.7,-0.0 51.3,3.0 51.9,-0.0 54.1,-0.0 54.7,-0.0 55.2,-0.0 55.8,2.0 57.5,-0.0 58.0,3.3 58.6,-0.0 59.2,3.2 59.7,15.7 61.4,17.4 62.0,18.6 62.5,11.6 63.1,16.5 63.7,16.1 65.4,17.7 65.9,26.7 66.5,23.8 67.0,11.4 67.6,13.0 69.3,25.0 69.8,22.6 70.4,10.7 71.0,6.7 71.5,2.6 73.8,-0.0 74.3,22.0 74.9,15.7 75.5,20.8 77.2,14.3 77.7,14.7 78.3,2.7 78.8,-0.0 79.4,-0.0 81.1,8.1 81.6,18.4 82.2,14.3 82.8,7.8 83.3,-0.0 85.0,7.3 85.6,24.0 86.1,26.6 86.7,35.0 87.3,30.8 89.0,36.3 89.5,32.9 90.1,40.4 90.6,35.4 91.2,41.4 92.9,48.4 93.4,40.8 94.0,37.0 94.6,33.4 95.1,40.8 96.8,29.6 97.4,15.5 97.9,11.6 98.5,6.0 99.1,4.2 100.8,2.8 101.3,8.9 101.9,2.2 102.4,4.8 104.7,12.4 105.2,2.0 105.8,-0.0 106.4,-0.0 106.9,2.8 108.6,-0.0 109.2,-0.0 109.7,12.7 110.3,9.0 110.9,15.9 112.5,15.3 113.1,17.5 113.7,7.6 114.2,1.4 114.8,-0.0 116.5,5.3 117.0,-0.0 117.6,1.7 118.2,18.6 118.7,9.1 120.4,18.7 121.0,10.6 121.5,20.0 122.1,17.3 122.7,14.6 124.3,-0.0 124.9,10.8 125.5,20.7 126.0,28.7 126.6,30.1 128.8,28.5 129.4,45.1 130.0,36.9 130.5,37.3 132.2,38.0 132.8,42.0 133.3,36.3 133.9,26.3 134.5,12.5 136.1,16.4 136.7,27.9 137.3,14.6 137.8,22.8 138.4,20.1 140.6,22.2 141.2,24.9 141.8,34.7 142.3,29.7 144.0,21.2 144.6,17.9 145.1,11.3 145.7,10.7 146.3,22.1 148.5,17.8 149.1,27.5 149.6,26.7 150.2,16.9 151.9,16.2 152.4,16.9 153.0,14.9 153.6,19.5 154.1,25.5 155.8,33.6 156.4,47.8 156.9,53.3 157.5,45.2 158.1,42.2 159.7,34.0 160.3,44.9 160.9,45.1 161.4,50.3 162.0,53.2 163.7,60.1 164.2,63.5 164.8,68.3 165.4,66.5 165.9,62.3 167.6,54.2 168.2,63.1 168.7,62.0 169.3,65.7 169.9,64.3 171.5,61.0 172.1,55.3 172.7,55.2 173.2,46.6 173.8,41.2 175.5,44.4 176.0,46.8 176.6,51.9 177.2,46.2 177.7,44.5 179.4,43.5 180.0,43.0 180.5,37.0 181.1,37.6 181.7,35.4 183.9,36.8 184.5,39.3 185.0,46.1 185.6,47.7 187.3,39.5 187.8,44.6 188.4,44.9 189.0,42.6 189.5,42.8 191.2,41.3 191.8,40.8 192.3,33.5 192.9,31.2 193.5,30.9 195.1,36.8 195.7,40.4 196.3,39.3 196.8,38.8 197.4,40.0 199.1,46.1 199.6,45.8 200.2,50.5 200.8,44.6 201.3,42.6 203.0,36.6 203.6,41.0 204.1,39.9 204.7,36.6 205.3,41.7 206.9,39.3 207.5,44.1 208.1,44.5 208.6,45.7 209.2,42.2 210.9,49.4 211.4,45.2 212.0,40.5 212.6,38.2 213.1,35.9 214.8,37.2 215.4,30.3 215.9,31.3 216.5,30.7 217.1,29.3 218.7,29.5 219.3,25.8 219.9,43.7 220.4,58.7 221.0,55.3 222.7,61.6 223.2,52.3 223.8,45.1 224.4,40.1 224.9,34.2 226.6,36.6 227.2,41.0 227.7,37.6 228.9,33.9 230.5,32.6 231.1,46.0 231.7,47.1 232.2,44.6 232.8,40.2 234.5,33.7 235.0,32.5 235.6,36.2 236.2,38.8 236.7,38.7 238.4,46.1 239.0,43.0 239.5,35.8 240.1,35.1 240.7,28.3 242.3,27.7 242.9,31.4 243.5,22.9 244.0,22.1 244.6,14.7 246.8,15.5 247.4,25.8 248.0,26.8 248.5,24.4 250.8,31.4 251.3,26.8 251.9,29.6 252.5,39.9 254.1,42.5 254.7,47.1 255.3,51.9 255.8,52.2 256.4,56.9 258.6,59.6 259.2,57.6 259.8,68.3 260.3,79.8 262.0,75.6 262.6,76.1 263.1,84.0 263.7,90.3 264.3,82.5 265.9,87.3 266.5,98.4 267.1,115.0 267.6,109.6 268.2,106.5 269.9,111.8 270.4,110.6 271.0,109.6 271.6,99.4 272.1,101.3 273.8,92.0 274.4,88.6 274.9,93.3 275.5,98.1 276.1,102.6 278.3,101.7 278.9,99.1 279.4,101.3 280.0,99.6 281.7,98.3 282.2,99.2 282.8,98.9 283.4,95.7 283.9,99.1 285.6,99.1 286.2,98.3 286.7,102.6 287.3,105.2 287.9,105.7 289.5,99.5 290.1,98.3 290.7,91.1 291.2,91.5 291.8,95.0 293.5,88.5 294.0,90.2 294.6,88.0 295.2,90.1 295.7,92.4 297.4,95.3 298.0,101.3 298.5,100.0 299.1,101.5 299.7,96.6 301.3,96.2 301.9,90.5 302.5,92.2 303.0,95.0 305.3,95.8 305.8,92.6 306.4,93.8 307.0,94.1 307.5,95.2 309.2,93.8 309.8,96.2 310.3,93.1 310.9,90.8 311.5,89.4 313.1,83.2 313.7,85.3 314.3,89.2 314.8,91.8 315.4,89.1 317.1,86.4 317.6,85.9 318.2,85.4 318.8,88.7 319.3,89.5 321.0,93.5 321.6,94.1 322.1,94.6 322.7,93.7 323.3,96.0 324.9,95.2 325.5,99.4 326.1,100.6 326.6,101.0 327.2,106.4 328.9,110.3 329.4,107.5 330.0,105.6 330.6,109.1 331.1,111.6 333.4,111.0 333.9,110.5 334.5,112.5 335.1,112.4 336.7,117.1 337.3,118.4 337.9,117.0 338.4,116.7 339.0,118.6 340.7,120.0 341.2,118.1 341.8,118.8 342.4,118.7 342.9,118.8 345.2,113.8 345.7,113.3 346.3,113.4 346.9,113.9 348.5,115.6 349.1,114.8 349.7,117.1 350.2,114.2 350.8,114.8 352.5,114.7 353.6,116.0 354.2,114.3 354.7,110.6 356.4,111.2 357.0,108.2 357.5,105.5 358.1,105.0 358.7,97.3 360.3,94.3 360.9,99.1 361.5,109.7 362.0,113.6 362.6,115.1 364.3,109.7 364.8,114.1 365.4,110.7 366.0,105.1 366.5,101.5 368.2,100.0 368.8,107.0 369.3,105.9 369.9,103.7 370.5,102.2 372.1,105.1 372.7,112.8 373.3,113.0 373.8,117.2 374.4,111.5 376.1,111.2 376.6,112.9 377.2,118.5 377.8,117.5 378.3,110.9 380.0,111.3 380.6,107.0 381.1,113.3 381.7,113.3 382.3,112.2 383.9,106.5 384.5,103.6 385.1,105.5 385.6,106.1 386.2,103.1 388.4,103.2 389.0,105.9 389.6,105.8 390.1,103.0 391.8,104.9 392.4,105.6 392.9,106.5 393.5,111.2 394.1,111.2 395.7,111.9 396.3,116.4 396.9,119.4 397.4,117.9 398.0,115.7 399.7,116.5 400.2,112.2 400.8,107.8 401.4,107.9 401.9,103.8 403.6,108.5 404.2,103.2 404.7,101.6 405.3,96.9 405.9,98.1 407.5,97.5 408.1,94.6 408.7,93.0 409.2,99.7 409.8,99.6 411.5,102.4 412.0,106.3 412.6,107.2 413.2,111.1 413.7,105.2 415.4,102.8 416.0,110.8 416.5,117.3 417.1,112.6 417.7,113.7 419.3,116.6 419.9,111.2 420.5,105.0 421.0,102.8 421.6,99.8 423.3,96.9 423.8,96.0 424.4,97.3 425.0,90.5 425.5,89.3 427.2,85.9 427.8,87.9 428.3,85.5 428.9,83.1 429.5,79.8 431.1,84.0 431.7,85.4 432.3,87.8 433.4,87.4 435.1,85.2 435.6,84.8 436.2,89.2 436.8,90.1 437.3,97.2 439.0,96.7 439.6,100.9 440.1,95.8 440.7,92.1 441.2,93.8 442.9,92.2 443.5,91.7 444.1,89.3 444.6,87.5 445.2,86.2 446.9,84.9 447.4,88.1 448.0,86.2 448.6,87.6 449.1,85.6 451.4,85.4 451.9,85.9 452.5,88.5 453.0,95.7 455.3,99.4 455.9,98.9 456.4,97.5 457.0,91.7 458.7,91.5 459.2,89.8 459.8,88.4 460.4,90.8 460.9,88.8 463.2,89.7 463.7,89.2 464.3,84.2 464.8,82.9 466.5,83.8 467.1,79.6 467.7,84.0 468.2,85.6 468.8,82.4 470.5,84.2 471.0,87.0 471.6,86.4 472.2,77.4 472.7,76.3 474.4,68.3 475.0,62.1 475.5,61.4 476.1,59.9 476.6,61.2 478.3,60.7 478.9,52.1 479.5,51.8 480.0,54.9 480.6,61.1 482.8,65.7 483.4,53.0 484.0,57.0 484.5,53.3 486.2,52.2 486.8,54.3 487.3,49.7 487.9,43.9 488.4,45.2 490.1,49.2 490.7,44.3 491.3,38.8 491.8,45.5 492.4,54.5 494.1,51.1 494.6,53.0 495.2,55.7 495.8,58.2 496.3,54.5 498.0,56.0 498.6,53.6 499.1,52.2 499.7,49.5 500.2,48.9 501.9,48.5 502.5,54.5 503.1,59.0 503.6,57.6 505.9,57.9 506.4,54.0 507.0,57.8 507.6,51.9 508.1,53.3 509.8,56.6 510.4,53.3 510.9,47.1 511.5,49.4 512.0,55.2 513.7,52.3 514.3,59.4 514.9,62.1 515.4,76.8 516.0,74.0 517.7,68.0 518.2,71.6 518.8,69.7 519.4,63.4 519.9,65.1 521.6,66.9 522.2,68.8 522.7,65.9 523.3,61.2 523.8,51.7 525.5,58.3 526.1,60.0 526.7,62.3 527.2,64.1 527.8,66.0 529.5,63.2 530.0,58.9 530.6,61.3 531.2,62.1 531.7,59.6 533.4,58.3 534.0,60.0 534.5,53.8 535.1,48.5 535.6,43.7 537.9,42.4 538.5,44.0 539.0,48.8 539.6,47.3 541.3,48.0 541.8,39.6 542.4,38.3 543.0,38.7 543.5,36.0 545.2,35.2 545.8,29.9 546.3,27.9 546.9,27.6 547.4,22.1 549.1,18.8 549.7,24.9 550.8,32.5 551.4,39.7 553.1,33.3 553.6,34.0 554.2,33.9 554.8,31.4 555.3,30.9 557.0,30.5 557.6,26.2 558.1,26.7 559.2,24.9 560.9,24.0 561.5,22.1 562.1,30.2 562.6,31.4 563.2,30.9 564.9,35.7 565.4,55.4 566.0,54.8 566.5,55.8 567.1,48.7 568.8,44.4 569.4,56.9 569.9,60.7 570.5,61.2 571.0,63.8 572.7,73.7 573.3,60.0 573.9,68.7 574.4,76.8 575.0,74.9 576.7,69.9 577.2,75.2 577.8,63.6 578.3,59.6 578.9,56.4 580.6,52.4 581.2,50.1 581.7,46.6 582.3,48.4 582.8,45.2 584.5,46.4 585.1,45.6 585.7,49.3 586.2,47.1 586.8,53.3 588.5,52.2 589.0,54.1 589.6,57.8 590.1,54.2 590.7,66.6 593.0,67.5 593.5,66.8 594.1,74.7 594.6,71.3 596.3,70.6 596.9,60.8 597.5,59.6 598.0,55.3 598.6,58.7 600.3,57.3 600.8,58.0 601.4,51.6 601.9,52.0 602.5,51.1 604.2,48.7 604.8,45.8 605.3,44.6 605.9,50.2 606.4,51.1 608.1,55.7 608.7,52.6 609.3,47.8 609.8,43.0 610.4,41.6 612.1,36.2 612.6,35.0 613.2,34.1 613.7,34.0 614.3,32.9 616.0,42.6 616.6,43.9 617.1,42.1 617.7,40.1 618.2,35.6 619.9,36.5 620.5,39.7 621.1,35.5 621.6,31.4 622.2,32.1 623.9,26.9 624.4,31.8 625.0,41.6 625.5,40.9 626.1,41.2 627.8,29.6 628.4,21.4 628.9,19.2 629.5,15.2 630.0,14.8 631.7,16.6 632.3,18.9 632.9,20.3 633.4,18.7 634.0,20.9 635.7,15.1 636.2,16.4 636.8,18.2 637.3,17.6 637.9,22.1 639.6,21.0 640.2,23.9 640.7,20.6 641.8,16.4 643.5,11.0 644.1,8.0 644.7,9.5 645.2,3.8 645.8,8.0 647.5,11.7 648.0,6.9 648.6,8.0 649.1,0.9 649.7,-0.0 651.4,1.2 652.0,5.1 652.5,2.1 653.1,-0.0 653.6,-0.0 655.3,-0.0 655.9,-0.0 657.0,5.2 657.6,5.8 659.3,11.3 659.8,8.6 660.9,0.8 661.5,-0.0 663.2,12.0 663.8,13.6 664.3,13.1 665.4,17.7 667.1,17.3 667.7,11.9 668.2,13.4 668.8,9.5 669.4,5.4 671.6,-0.0 672.2,-0.0 672.7,1.3 673.3,27.5 675.0,15.0 675.6,17.4 676.1,13.8 676.7,11.5 677.2,11.7 678.9,-0.0 679.5,0.2 680.0,-0.0 680.6,-0.0 681.2,-0.0 682.9,9.9 683.4,7.8 684.0,7.6 684.5,3.7 685.1,4.0 687.4,13.7 687.9,22.2 688.5,30.6 689.0,45.4 690.7,52.0 691.3,46.3 691.8,56.4 692.4,53.9 693.0,60.9 694.7,58.6 695.2,50.9 695.8,69.5 696.3,65.8 696.9,80.5 698.6,71.1 699.2,57.3 699.7,63.7 700.3,53.8 700.8,56.0 702.5,64.5 703.1,57.0 703.6,55.2 704.2,48.0 704.8,36.9 706.5,33.8 707.0,45.2 707.6,50.3 708.1,55.7 708.7,59.8 710.4,55.1 711.0,49.1 711.5,56.5 712.1,68.1 712.6,57.6 714.3,55.6 714.9,30.4 715.4,34.8 716.0,36.5 716.6,34.5 718.3,25.3 718.8,31.4 719.4,32.9 719.9,38.0 722.2,32.5 722.8,20.4 723.3,7.6 723.9,-0.0 724.4,-0.0 726.1,0.3 726.7,0.3 727.2,-0.0 727.8,-0.0 728.4,0.2 730.1,10.2 730.6,9.3 731.2,4.4 731.7,3.0 732.3,3.8 734.0,-0.0 734.6,-0.0 735.1,5.7 735.7,4.9 736.2,5.2 737.9,5.1 738.5,7.0 739.0,4.9 739.6,3.1 740.2,2.8 742.4,-0.0 743.0,3.0 743.5,-0.0 744.1,-0.0 745.8,-0.0 746.4,3.0 746.9,12.5 747.5,7.6 748.0,6.2 749.7,9.5 750.3,3.0 750.8,4.9 751.4,0.5 752.0,-0.0 753.7,-0.0 754.2,-0.0 754.8,3.1 755.9,-0.0 757.6,-0.0 758.2,2.0 758.7,1.0 759.3,10.7 759.8,7.6 761.5,20.3 762.1,16.2 762.6,12.8 763.2,11.3 765.5,8.9 766.0,5.7 766.6,4.0 767.1,3.3 767.7,-0.0 769.4,-0.0 770.0,-0.0 770.5,-0.0 771.1,-0.0 771.6,2.4 773.3,9.7 773.9,3.1 774.4,7.1 775.0,2.0 775.6,-0.0 777.3,1.1 777.8,-0.0 778.4,0.7 778.9,5.0 779.5,-0.0 781.2,-0.0 781.8,-0.0 782.3,0.2 782.9,-0.0 783.4,-0.0 785.1,-0.0 785.7,6.4 786.2,7.2 786.8,6.4 787.4,7.4 789.1,18.9 789.6,20.4 790.2,20.5 790.7,19.5 791.3,19.2 793.0,14.9 793.5,18.3 794.1,16.3 794.7,21.5 795.2,23.1 797.5,25.7 798.0,23.4 798.6,23.5 799.2,19.7 800.9,15.0 801.4,4.1 802.0,7.8 802.5,3.4 803.1,2.8 804.8,2.1 805.3,6.0 805.9,0.9 806.5,-0.0 807.0,-0.0 808.7,2.4 809.3,4.9 809.8,9.2 810.4,13.0 811.0,13.4 812.7,12.5 813.2,9.1 813.8,7.7 814.3,16.5 814.9,8.5 816.6,8.6 817.1,2.3 817.7,-0.0 818.3,6.9 818.8,-0.0 820.5,5.9 821.1,4.0 821.6,2.0 822.2,8.5 822.8,11.6 824.5,15.9 825.0,19.9 825.6,11.7 826.1,8.6 826.7,7.2 828.4,5.2 828.9,-0.0 829.5,9.5 830.1,7.3 830.6,1.2 832.3,15.8 832.9,9.1 833.4,16.5 834.0,18.7 834.6,7.4 836.3,16.9 836.8,17.1 837.4,28.0 837.9,26.4 838.5,28.0 840.2,33.3 840.7,29.5 841.3,42.1 841.9,47.4 842.4,31.6 844.1,35.2 844.7,29.4 845.2,26.4 846.4,26.9 848.1,22.6 848.6,22.9 849.2,20.6 849.7,17.0 850.3,13.9 852.0,11.1 852.5,6.0 853.1,12.2 853.7,23.2 854.2,23.7 855.9,22.4 856.5,37.8 857.0,26.7 857.6,15.1 858.2,12.3 859.9,11.7 860.4,10.5 861.0,11.3 862.1,10.9 863.8,11.4 864.3,13.3 864.9,1.0 866.0,2.6 867.7,-0.0 868.3,-0.0 868.8,12.4 869.4,3.1 870.0,-0.0 871.7,-0.0 872.2,6.1 872.8,4.2 873.3,-0.0 873.9,-0.0 876.1,-0.0 876.7,2.9 877.3,7.6 877.8,11.2 879.5,3.4 880.1,-0.0 880.6,1.3 881.2,11.8 881.8,6.4 883.5,5.9 884.0,29.4 884.6,29.1 885.1,17.8 885.7,17.2 887.4,25.5 887.9,14.8 888.5,16.5 889.1,16.0 889.6,16.6 891.9,13.6 892.4,13.9 893.0,13.0 893.6,14.3 895.2,12.4 895.8,6.5 896.4,15.1 896.9,19.0 897.5,15.2 899.2,27.0 899.7,17.6 900.3,20.5 900.9,30.4 901.4,19.0 903.1,13.2 903.7,7.1 904.2,12.6 904.8,9.4 905.4,6.1 907.0,3.8 907.6,-0.0 908.2,-0.0 908.7,4.6 909.3,2.6 911.0,1.4 911.5,2.2 912.1,17.8 912.7,18.0 913.2,32.4 914.9,19.7 915.5,5.8 916.0,5.9 916.6,2.4 918.8,-0.0 919.4,-0.0 920.0,-0.0 920.5,-0.0 921.1,-0.0 922.8,-0.0 923.3,0.9 923.9,0.6 924.5,-0.0 925.0,2.5 926.7,0.7 927.3,-0.0 927.8,4.5 928.4,-0.0 929.0,-0.0 930.6,8.7 931.2,8.0 931.8,5.5 932.3,-0.0 932.9,-0.0 934.6,-0.0 935.1,-0.0 935.7,6.6 936.3,-0.0 936.8,-0.0 938.5,10.6 939.1,4.3 939.6,6.4 940.2,18.3 940.8,29.7 942.4,28.9 943.0,16.4 943.6,13.2 944.1,11.5 944.7,-0.0 946.9,0.8 947.5,-0.0 948.1,-0.0 948.6,-0.0 950.3,-0.0 950.9,-0.0 951.4,10.1 952.0,37.4 952,0"/>
+                  <polyline class="ts-dd-line" points="44.0,-0.0 45.7,-0.0 46.2,-0.0 46.8,0.9 47.4,-0.0 47.9,2.2 49.6,6.1 50.2,7.9 50.7,-0.0 51.3,3.0 51.9,-0.0 54.1,-0.0 54.7,-0.0 55.2,-0.0 55.8,2.0 57.5,-0.0 58.0,3.3 58.6,-0.0 59.2,3.2 59.7,15.7 61.4,17.4 62.0,18.6 62.5,11.6 63.1,16.5 63.7,16.1 65.4,17.7 65.9,26.7 66.5,23.8 67.0,11.4 67.6,13.0 69.3,25.0 69.8,22.6 70.4,10.7 71.0,6.7 71.5,2.6 73.8,-0.0 74.3,22.0 74.9,15.7 75.5,20.8 77.2,14.3 77.7,14.7 78.3,2.7 78.8,-0.0 79.4,-0.0 81.1,8.1 81.6,18.4 82.2,14.3 82.8,7.8 83.3,-0.0 85.0,7.3 85.6,24.0 86.1,26.6 86.7,35.0 87.3,30.8 89.0,36.3 89.5,32.9 90.1,40.4 90.6,35.4 91.2,41.4 92.9,48.4 93.4,40.8 94.0,37.0 94.6,33.4 95.1,40.8 96.8,29.6 97.4,15.5 97.9,11.6 98.5,6.0 99.1,4.2 100.8,2.8 101.3,8.9 101.9,2.2 102.4,4.8 104.7,12.4 105.2,2.0 105.8,-0.0 106.4,-0.0 106.9,2.8 108.6,-0.0 109.2,-0.0 109.7,12.7 110.3,9.0 110.9,15.9 112.5,15.3 113.1,17.5 113.7,7.6 114.2,1.4 114.8,-0.0 116.5,5.3 117.0,-0.0 117.6,1.7 118.2,18.6 118.7,9.1 120.4,18.7 121.0,10.6 121.5,20.0 122.1,17.3 122.7,14.6 124.3,-0.0 124.9,10.8 125.5,20.7 126.0,28.7 126.6,30.1 128.8,28.5 129.4,45.1 130.0,36.9 130.5,37.3 132.2,38.0 132.8,42.0 133.3,36.3 133.9,26.3 134.5,12.5 136.1,16.4 136.7,27.9 137.3,14.6 137.8,22.8 138.4,20.1 140.6,22.2 141.2,24.9 141.8,34.7 142.3,29.7 144.0,21.2 144.6,17.9 145.1,11.3 145.7,10.7 146.3,22.1 148.5,17.8 149.1,27.5 149.6,26.7 150.2,16.9 151.9,16.2 152.4,16.9 153.0,14.9 153.6,19.5 154.1,25.5 155.8,33.6 156.4,47.8 156.9,53.3 157.5,45.2 158.1,42.2 159.7,34.0 160.3,44.9 160.9,45.1 161.4,50.3 162.0,53.2 163.7,60.1 164.2,63.5 164.8,68.3 165.4,66.5 165.9,62.3 167.6,54.2 168.2,63.1 168.7,62.0 169.3,65.7 169.9,64.3 171.5,61.0 172.1,55.3 172.7,55.2 173.2,46.6 173.8,41.2 175.5,44.4 176.0,46.8 176.6,51.9 177.2,46.2 177.7,44.5 179.4,43.5 180.0,43.0 180.5,37.0 181.1,37.6 181.7,35.4 183.9,36.8 184.5,39.3 185.0,46.1 185.6,47.7 187.3,39.5 187.8,44.6 188.4,44.9 189.0,42.6 189.5,42.8 191.2,41.3 191.8,40.8 192.3,33.5 192.9,31.2 193.5,30.9 195.1,36.8 195.7,40.4 196.3,39.3 196.8,38.8 197.4,40.0 199.1,46.1 199.6,45.8 200.2,50.5 200.8,44.6 201.3,42.6 203.0,36.6 203.6,41.0 204.1,39.9 204.7,36.6 205.3,41.7 206.9,39.3 207.5,44.1 208.1,44.5 208.6,45.7 209.2,42.2 210.9,49.4 211.4,45.2 212.0,40.5 212.6,38.2 213.1,35.9 214.8,37.2 215.4,30.3 215.9,31.3 216.5,30.7 217.1,29.3 218.7,29.5 219.3,25.8 219.9,43.7 220.4,58.7 221.0,55.3 222.7,61.6 223.2,52.3 223.8,45.1 224.4,40.1 224.9,34.2 226.6,36.6 227.2,41.0 227.7,37.6 228.9,33.9 230.5,32.6 231.1,46.0 231.7,47.1 232.2,44.6 232.8,40.2 234.5,33.7 235.0,32.5 235.6,36.2 236.2,38.8 236.7,38.7 238.4,46.1 239.0,43.0 239.5,35.8 240.1,35.1 240.7,28.3 242.3,27.7 242.9,31.4 243.5,22.9 244.0,22.1 244.6,14.7 246.8,15.5 247.4,25.8 248.0,26.8 248.5,24.4 250.8,31.4 251.3,26.8 251.9,29.6 252.5,39.9 254.1,42.5 254.7,47.1 255.3,51.9 255.8,52.2 256.4,56.9 258.6,59.6 259.2,57.6 259.8,68.3 260.3,79.8 262.0,75.6 262.6,76.1 263.1,84.0 263.7,90.3 264.3,82.5 265.9,87.3 266.5,98.4 267.1,115.0 267.6,109.6 268.2,106.5 269.9,111.8 270.4,110.6 271.0,109.6 271.6,99.4 272.1,101.3 273.8,92.0 274.4,88.6 274.9,93.3 275.5,98.1 276.1,102.6 278.3,101.7 278.9,99.1 279.4,101.3 280.0,99.6 281.7,98.3 282.2,99.2 282.8,98.9 283.4,95.7 283.9,99.1 285.6,99.1 286.2,98.3 286.7,102.6 287.3,105.2 287.9,105.7 289.5,99.5 290.1,98.3 290.7,91.1 291.2,91.5 291.8,95.0 293.5,88.5 294.0,90.2 294.6,88.0 295.2,90.1 295.7,92.4 297.4,95.3 298.0,101.3 298.5,100.0 299.1,101.5 299.7,96.6 301.3,96.2 301.9,90.5 302.5,92.2 303.0,95.0 305.3,95.8 305.8,92.6 306.4,93.8 307.0,94.1 307.5,95.2 309.2,93.8 309.8,96.2 310.3,93.1 310.9,90.8 311.5,89.4 313.1,83.2 313.7,85.3 314.3,89.2 314.8,91.8 315.4,89.1 317.1,86.4 317.6,85.9 318.2,85.4 318.8,88.7 319.3,89.5 321.0,93.5 321.6,94.1 322.1,94.6 322.7,93.7 323.3,96.0 324.9,95.2 325.5,99.4 326.1,100.6 326.6,101.0 327.2,106.4 328.9,110.3 329.4,107.5 330.0,105.6 330.6,109.1 331.1,111.6 333.4,111.0 333.9,110.5 334.5,112.5 335.1,112.4 336.7,117.1 337.3,118.4 337.9,117.0 338.4,116.7 339.0,118.6 340.7,120.0 341.2,118.1 341.8,118.8 342.4,118.7 342.9,118.8 345.2,113.8 345.7,113.3 346.3,113.4 346.9,113.9 348.5,115.6 349.1,114.8 349.7,117.1 350.2,114.2 350.8,114.8 352.5,114.7 353.6,116.0 354.2,114.3 354.7,110.6 356.4,111.2 357.0,108.2 357.5,105.5 358.1,105.0 358.7,97.3 360.3,94.3 360.9,99.1 361.5,109.7 362.0,113.6 362.6,115.1 364.3,109.7 364.8,114.1 365.4,110.7 366.0,105.1 366.5,101.5 368.2,100.0 368.8,107.0 369.3,105.9 369.9,103.7 370.5,102.2 372.1,105.1 372.7,112.8 373.3,113.0 373.8,117.2 374.4,111.5 376.1,111.2 376.6,112.9 377.2,118.5 377.8,117.5 378.3,110.9 380.0,111.3 380.6,107.0 381.1,113.3 381.7,113.3 382.3,112.2 383.9,106.5 384.5,103.6 385.1,105.5 385.6,106.1 386.2,103.1 388.4,103.2 389.0,105.9 389.6,105.8 390.1,103.0 391.8,104.9 392.4,105.6 392.9,106.5 393.5,111.2 394.1,111.2 395.7,111.9 396.3,116.4 396.9,119.4 397.4,117.9 398.0,115.7 399.7,116.5 400.2,112.2 400.8,107.8 401.4,107.9 401.9,103.8 403.6,108.5 404.2,103.2 404.7,101.6 405.3,96.9 405.9,98.1 407.5,97.5 408.1,94.6 408.7,93.0 409.2,99.7 409.8,99.6 411.5,102.4 412.0,106.3 412.6,107.2 413.2,111.1 413.7,105.2 415.4,102.8 416.0,110.8 416.5,117.3 417.1,112.6 417.7,113.7 419.3,116.6 419.9,111.2 420.5,105.0 421.0,102.8 421.6,99.8 423.3,96.9 423.8,96.0 424.4,97.3 425.0,90.5 425.5,89.3 427.2,85.9 427.8,87.9 428.3,85.5 428.9,83.1 429.5,79.8 431.1,84.0 431.7,85.4 432.3,87.8 433.4,87.4 435.1,85.2 435.6,84.8 436.2,89.2 436.8,90.1 437.3,97.2 439.0,96.7 439.6,100.9 440.1,95.8 440.7,92.1 441.2,93.8 442.9,92.2 443.5,91.7 444.1,89.3 444.6,87.5 445.2,86.2 446.9,84.9 447.4,88.1 448.0,86.2 448.6,87.6 449.1,85.6 451.4,85.4 451.9,85.9 452.5,88.5 453.0,95.7 455.3,99.4 455.9,98.9 456.4,97.5 457.0,91.7 458.7,91.5 459.2,89.8 459.8,88.4 460.4,90.8 460.9,88.8 463.2,89.7 463.7,89.2 464.3,84.2 464.8,82.9 466.5,83.8 467.1,79.6 467.7,84.0 468.2,85.6 468.8,82.4 470.5,84.2 471.0,87.0 471.6,86.4 472.2,77.4 472.7,76.3 474.4,68.3 475.0,62.1 475.5,61.4 476.1,59.9 476.6,61.2 478.3,60.7 478.9,52.1 479.5,51.8 480.0,54.9 480.6,61.1 482.8,65.7 483.4,53.0 484.0,57.0 484.5,53.3 486.2,52.2 486.8,54.3 487.3,49.7 487.9,43.9 488.4,45.2 490.1,49.2 490.7,44.3 491.3,38.8 491.8,45.5 492.4,54.5 494.1,51.1 494.6,53.0 495.2,55.7 495.8,58.2 496.3,54.5 498.0,56.0 498.6,53.6 499.1,52.2 499.7,49.5 500.2,48.9 501.9,48.5 502.5,54.5 503.1,59.0 503.6,57.6 505.9,57.9 506.4,54.0 507.0,57.8 507.6,51.9 508.1,53.3 509.8,56.6 510.4,53.3 510.9,47.1 511.5,49.4 512.0,55.2 513.7,52.3 514.3,59.4 514.9,62.1 515.4,76.8 516.0,74.0 517.7,68.0 518.2,71.6 518.8,69.7 519.4,63.4 519.9,65.1 521.6,66.9 522.2,68.8 522.7,65.9 523.3,61.2 523.8,51.7 525.5,58.3 526.1,60.0 526.7,62.3 527.2,64.1 527.8,66.0 529.5,63.2 530.0,58.9 530.6,61.3 531.2,62.1 531.7,59.6 533.4,58.3 534.0,60.0 534.5,53.8 535.1,48.5 535.6,43.7 537.9,42.4 538.5,44.0 539.0,48.8 539.6,47.3 541.3,48.0 541.8,39.6 542.4,38.3 543.0,38.7 543.5,36.0 545.2,35.2 545.8,29.9 546.3,27.9 546.9,27.6 547.4,22.1 549.1,18.8 549.7,24.9 550.8,32.5 551.4,39.7 553.1,33.3 553.6,34.0 554.2,33.9 554.8,31.4 555.3,30.9 557.0,30.5 557.6,26.2 558.1,26.7 559.2,24.9 560.9,24.0 561.5,22.1 562.1,30.2 562.6,31.4 563.2,30.9 564.9,35.7 565.4,55.4 566.0,54.8 566.5,55.8 567.1,48.7 568.8,44.4 569.4,56.9 569.9,60.7 570.5,61.2 571.0,63.8 572.7,73.7 573.3,60.0 573.9,68.7 574.4,76.8 575.0,74.9 576.7,69.9 577.2,75.2 577.8,63.6 578.3,59.6 578.9,56.4 580.6,52.4 581.2,50.1 581.7,46.6 582.3,48.4 582.8,45.2 584.5,46.4 585.1,45.6 585.7,49.3 586.2,47.1 586.8,53.3 588.5,52.2 589.0,54.1 589.6,57.8 590.1,54.2 590.7,66.6 593.0,67.5 593.5,66.8 594.1,74.7 594.6,71.3 596.3,70.6 596.9,60.8 597.5,59.6 598.0,55.3 598.6,58.7 600.3,57.3 600.8,58.0 601.4,51.6 601.9,52.0 602.5,51.1 604.2,48.7 604.8,45.8 605.3,44.6 605.9,50.2 606.4,51.1 608.1,55.7 608.7,52.6 609.3,47.8 609.8,43.0 610.4,41.6 612.1,36.2 612.6,35.0 613.2,34.1 613.7,34.0 614.3,32.9 616.0,42.6 616.6,43.9 617.1,42.1 617.7,40.1 618.2,35.6 619.9,36.5 620.5,39.7 621.1,35.5 621.6,31.4 622.2,32.1 623.9,26.9 624.4,31.8 625.0,41.6 625.5,40.9 626.1,41.2 627.8,29.6 628.4,21.4 628.9,19.2 629.5,15.2 630.0,14.8 631.7,16.6 632.3,18.9 632.9,20.3 633.4,18.7 634.0,20.9 635.7,15.1 636.2,16.4 636.8,18.2 637.3,17.6 637.9,22.1 639.6,21.0 640.2,23.9 640.7,20.6 641.8,16.4 643.5,11.0 644.1,8.0 644.7,9.5 645.2,3.8 645.8,8.0 647.5,11.7 648.0,6.9 648.6,8.0 649.1,0.9 649.7,-0.0 651.4,1.2 652.0,5.1 652.5,2.1 653.1,-0.0 653.6,-0.0 655.3,-0.0 655.9,-0.0 657.0,5.2 657.6,5.8 659.3,11.3 659.8,8.6 660.9,0.8 661.5,-0.0 663.2,12.0 663.8,13.6 664.3,13.1 665.4,17.7 667.1,17.3 667.7,11.9 668.2,13.4 668.8,9.5 669.4,5.4 671.6,-0.0 672.2,-0.0 672.7,1.3 673.3,27.5 675.0,15.0 675.6,17.4 676.1,13.8 676.7,11.5 677.2,11.7 678.9,-0.0 679.5,0.2 680.0,-0.0 680.6,-0.0 681.2,-0.0 682.9,9.9 683.4,7.8 684.0,7.6 684.5,3.7 685.1,4.0 687.4,13.7 687.9,22.2 688.5,30.6 689.0,45.4 690.7,52.0 691.3,46.3 691.8,56.4 692.4,53.9 693.0,60.9 694.7,58.6 695.2,50.9 695.8,69.5 696.3,65.8 696.9,80.5 698.6,71.1 699.2,57.3 699.7,63.7 700.3,53.8 700.8,56.0 702.5,64.5 703.1,57.0 703.6,55.2 704.2,48.0 704.8,36.9 706.5,33.8 707.0,45.2 707.6,50.3 708.1,55.7 708.7,59.8 710.4,55.1 711.0,49.1 711.5,56.5 712.1,68.1 712.6,57.6 714.3,55.6 714.9,30.4 715.4,34.8 716.0,36.5 716.6,34.5 718.3,25.3 718.8,31.4 719.4,32.9 719.9,38.0 722.2,32.5 722.8,20.4 723.3,7.6 723.9,-0.0 724.4,-0.0 726.1,0.3 726.7,0.3 727.2,-0.0 727.8,-0.0 728.4,0.2 730.1,10.2 730.6,9.3 731.2,4.4 731.7,3.0 732.3,3.8 734.0,-0.0 734.6,-0.0 735.1,5.7 735.7,4.9 736.2,5.2 737.9,5.1 738.5,7.0 739.0,4.9 739.6,3.1 740.2,2.8 742.4,-0.0 743.0,3.0 743.5,-0.0 744.1,-0.0 745.8,-0.0 746.4,3.0 746.9,12.5 747.5,7.6 748.0,6.2 749.7,9.5 750.3,3.0 750.8,4.9 751.4,0.5 752.0,-0.0 753.7,-0.0 754.2,-0.0 754.8,3.1 755.9,-0.0 757.6,-0.0 758.2,2.0 758.7,1.0 759.3,10.7 759.8,7.6 761.5,20.3 762.1,16.2 762.6,12.8 763.2,11.3 765.5,8.9 766.0,5.7 766.6,4.0 767.1,3.3 767.7,-0.0 769.4,-0.0 770.0,-0.0 770.5,-0.0 771.1,-0.0 771.6,2.4 773.3,9.7 773.9,3.1 774.4,7.1 775.0,2.0 775.6,-0.0 777.3,1.1 777.8,-0.0 778.4,0.7 778.9,5.0 779.5,-0.0 781.2,-0.0 781.8,-0.0 782.3,0.2 782.9,-0.0 783.4,-0.0 785.1,-0.0 785.7,6.4 786.2,7.2 786.8,6.4 787.4,7.4 789.1,18.9 789.6,20.4 790.2,20.5 790.7,19.5 791.3,19.2 793.0,14.9 793.5,18.3 794.1,16.3 794.7,21.5 795.2,23.1 797.5,25.7 798.0,23.4 798.6,23.5 799.2,19.7 800.9,15.0 801.4,4.1 802.0,7.8 802.5,3.4 803.1,2.8 804.8,2.1 805.3,6.0 805.9,0.9 806.5,-0.0 807.0,-0.0 808.7,2.4 809.3,4.9 809.8,9.2 810.4,13.0 811.0,13.4 812.7,12.5 813.2,9.1 813.8,7.7 814.3,16.5 814.9,8.5 816.6,8.6 817.1,2.3 817.7,-0.0 818.3,6.9 818.8,-0.0 820.5,5.9 821.1,4.0 821.6,2.0 822.2,8.5 822.8,11.6 824.5,15.9 825.0,19.9 825.6,11.7 826.1,8.6 826.7,7.2 828.4,5.2 828.9,-0.0 829.5,9.5 830.1,7.3 830.6,1.2 832.3,15.8 832.9,9.1 833.4,16.5 834.0,18.7 834.6,7.4 836.3,16.9 836.8,17.1 837.4,28.0 837.9,26.4 838.5,28.0 840.2,33.3 840.7,29.5 841.3,42.1 841.9,47.4 842.4,31.6 844.1,35.2 844.7,29.4 845.2,26.4 846.4,26.9 848.1,22.6 848.6,22.9 849.2,20.6 849.7,17.0 850.3,13.9 852.0,11.1 852.5,6.0 853.1,12.2 853.7,23.2 854.2,23.7 855.9,22.4 856.5,37.8 857.0,26.7 857.6,15.1 858.2,12.3 859.9,11.7 860.4,10.5 861.0,11.3 862.1,10.9 863.8,11.4 864.3,13.3 864.9,1.0 866.0,2.6 867.7,-0.0 868.3,-0.0 868.8,12.4 869.4,3.1 870.0,-0.0 871.7,-0.0 872.2,6.1 872.8,4.2 873.3,-0.0 873.9,-0.0 876.1,-0.0 876.7,2.9 877.3,7.6 877.8,11.2 879.5,3.4 880.1,-0.0 880.6,1.3 881.2,11.8 881.8,6.4 883.5,5.9 884.0,29.4 884.6,29.1 885.1,17.8 885.7,17.2 887.4,25.5 887.9,14.8 888.5,16.5 889.1,16.0 889.6,16.6 891.9,13.6 892.4,13.9 893.0,13.0 893.6,14.3 895.2,12.4 895.8,6.5 896.4,15.1 896.9,19.0 897.5,15.2 899.2,27.0 899.7,17.6 900.3,20.5 900.9,30.4 901.4,19.0 903.1,13.2 903.7,7.1 904.2,12.6 904.8,9.4 905.4,6.1 907.0,3.8 907.6,-0.0 908.2,-0.0 908.7,4.6 909.3,2.6 911.0,1.4 911.5,2.2 912.1,17.8 912.7,18.0 913.2,32.4 914.9,19.7 915.5,5.8 916.0,5.9 916.6,2.4 918.8,-0.0 919.4,-0.0 920.0,-0.0 920.5,-0.0 921.1,-0.0 922.8,-0.0 923.3,0.9 923.9,0.6 924.5,-0.0 925.0,2.5 926.7,0.7 927.3,-0.0 927.8,4.5 928.4,-0.0 929.0,-0.0 930.6,8.7 931.2,8.0 931.8,5.5 932.3,-0.0 932.9,-0.0 934.6,-0.0 935.1,-0.0 935.7,6.6 936.3,-0.0 936.8,-0.0 938.5,10.6 939.1,4.3 939.6,6.4 940.2,18.3 940.8,29.7 942.4,28.9 943.0,16.4 943.6,13.2 944.1,11.5 944.7,-0.0 946.9,0.8 947.5,-0.0 948.1,-0.0 948.6,-0.0 950.3,-0.0 950.9,-0.0 951.4,10.1 952.0,37.4"/>
+                </svg>
+                <div class="ts-dd-note" style="left:34.1%">-16.5% &mdash; at the transition</div>
+              </div>
+
+              <div class="ts-panel ts-panel-mo">
+                <div class="ts-title">Monthly returns (%)</div>
+                <div class="ts-heat"><div class="ts-cell ts-yrlab"></div><div class="ts-colh">Jan</div><div class="ts-colh">Feb</div><div class="ts-colh">Mar</div><div class="ts-colh">Apr</div><div class="ts-colh">May</div><div class="ts-colh">Jun</div><div class="ts-colh">Jul</div><div class="ts-colh">Aug</div><div class="ts-colh">Sep</div><div class="ts-colh">Oct</div><div class="ts-colh">Nov</div><div class="ts-colh">Dec</div><div class="ts-cell ts-yrlab">2021</div><div class="ts-cell ts-empty"></div><div class="ts-cell ts-empty"></div><div class="ts-cell ts-empty"></div><div class="ts-cell ts-empty"></div><div class="ts-cell ts-empty"></div><div class="ts-cell ts-empty"></div><div class="ts-cell ts-empty"></div><div class="ts-cell ts-empty"></div><div class="ts-cell ts-empty"></div><div class="ts-cell ts-empty"></div><div class="ts-cell ts-empty"></div><div class="ts-cell" style="background:rgba(168,50,45,0.21);color:#333">-1.1</div><div class="ts-cell ts-yrlab">2022</div><div class="ts-cell" style="background:rgba(38,122,89,0.50);color:#fff">+5.2</div><div class="ts-cell" style="background:rgba(38,122,89,0.21);color:#333">+1.1</div><div class="ts-cell" style="background:rgba(168,50,45,0.14);color:#333">-0.0</div><div class="ts-cell" style="background:rgba(38,122,89,0.48);color:#333">+4.9</div><div class="ts-cell" style="background:rgba(38,122,89,0.27);color:#333">+1.9</div><div class="ts-cell" style="background:rgba(38,122,89,0.32);color:#333">+2.5</div><div class="ts-cell" style="background:rgba(168,50,45,0.55);color:#fff">-5.9</div><div class="ts-cell" style="background:rgba(38,122,89,0.31);color:#333">+2.4</div><div class="ts-cell" style="background:rgba(168,50,45,0.17);color:#333">-0.4</div><div class="ts-cell" style="background:rgba(38,122,89,0.17);color:#333">+0.4</div><div class="ts-cell" style="background:rgba(168,50,45,0.24);color:#333">-1.4</div><div class="ts-cell" style="background:rgba(38,122,89,0.37);color:#333">+3.3</div><div class="ts-cell ts-yrlab">2023</div><div class="ts-cell" style="background:rgba(168,50,45,0.87);color:#fff">-10.5</div><div class="ts-cell" style="background:rgba(168,50,45,0.15);color:#333">-0.1</div><div class="ts-cell" style="background:rgba(38,122,89,0.17);color:#333">+0.4</div><div class="ts-cell" style="background:rgba(38,122,89,0.22);color:#333">+1.2</div><div class="ts-cell" style="background:rgba(168,50,45,0.37);color:#333">-3.4</div><div class="ts-cell" style="background:rgba(168,50,45,0.19);color:#333">-0.7</div><div class="ts-cell" style="background:rgba(38,122,89,0.31);color:#333">+2.4</div><div class="ts-cell" style="background:rgba(168,50,45,0.21);color:#333">-1.0</div><div class="ts-cell" style="background:rgba(38,122,89,0.17);color:#333">+0.4</div><div class="ts-cell" style="background:rgba(168,50,45,0.22);color:#333">-1.2</div><div class="ts-cell" style="background:rgba(38,122,89,0.38);color:#333">+3.4</div><div class="ts-cell" style="background:rgba(168,50,45,0.20);color:#333">-0.9</div><div class="ts-cell ts-yrlab">2024</div><div class="ts-cell" style="background:rgba(38,122,89,0.24);color:#333">+1.5</div><div class="ts-cell" style="background:rgba(38,122,89,0.60);color:#fff">+6.6</div><div class="ts-cell" style="background:rgba(168,50,45,0.28);color:#333">-2.0</div><div class="ts-cell" style="background:rgba(168,50,45,0.26);color:#333">-1.7</div><div class="ts-cell" style="background:rgba(38,122,89,0.37);color:#333">+3.3</div><div class="ts-cell" style="background:rgba(38,122,89,0.31);color:#333">+2.4</div><div class="ts-cell" style="background:rgba(168,50,45,0.51);color:#fff">-5.4</div><div class="ts-cell" style="background:rgba(38,122,89,0.16);color:#333">+0.3</div><div class="ts-cell" style="background:rgba(38,122,89,0.25);color:#333">+1.7</div><div class="ts-cell" style="background:rgba(38,122,89,0.29);color:#333">+2.2</div><div class="ts-cell" style="background:rgba(38,122,89,0.39);color:#333">+3.6</div><div class="ts-cell" style="background:rgba(38,122,89,0.37);color:#333">+3.4</div><div class="ts-cell ts-yrlab">2025</div><div class="ts-cell" style="background:rgba(38,122,89,0.18);color:#333">+0.6</div><div class="ts-cell" style="background:rgba(168,50,45,0.37);color:#333">-3.4</div><div class="ts-cell" style="background:rgba(38,122,89,0.20);color:#333">+0.9</div><div class="ts-cell" style="background:rgba(38,122,89,0.75);color:#fff">+8.9</div><div class="ts-cell" style="background:rgba(38,122,89,0.41);color:#333">+3.8</div><div class="ts-cell" style="background:rgba(168,50,45,0.21);color:#333">-1.1</div><div class="ts-cell" style="background:rgba(38,122,89,0.47);color:#333">+4.7</div><div class="ts-cell" style="background:rgba(168,50,45,0.17);color:#333">-0.4</div><div class="ts-cell" style="background:rgba(38,122,89,0.36);color:#333">+3.2</div><div class="ts-cell" style="background:rgba(38,122,89,0.31);color:#333">+2.5</div><div class="ts-cell" style="background:rgba(168,50,45,0.38);color:#333">-3.5</div><div class="ts-cell" style="background:rgba(38,122,89,0.40);color:#333">+3.7</div><div class="ts-cell ts-yrlab">2026</div><div class="ts-cell" style="background:rgba(38,122,89,0.32);color:#333">+2.7</div><div class="ts-cell" style="background:rgba(168,50,45,0.22);color:#333">-1.2</div><div class="ts-cell" style="background:rgba(38,122,89,0.26);color:#333">+1.8</div><div class="ts-cell" style="background:rgba(38,122,89,0.78);color:#fff">+9.3</div><div class="ts-cell" style="background:rgba(38,122,89,0.88);color:#fff">+10.7</div><div class="ts-cell" style="background:rgba(168,50,45,0.38);color:#333">-3.5</div><div class="ts-cell ts-empty"></div><div class="ts-cell ts-empty"></div><div class="ts-cell ts-empty"></div><div class="ts-cell ts-empty"></div><div class="ts-cell ts-empty"></div><div class="ts-cell ts-empty"></div></div>
+              </div>
+            </figure>
+          </div>
+
+          <!-- ════════ SIGNATURE: REGIME VERDICT ════════ -->
+          <div class="verdict" aria-label="Frozen alpha performance by market regime">
+            <div class="verdict-head">
+              <span class="vh-title">Sharpe by regime</span>
+            </div>
+
+            <div class="regimes">
+              <div class="regime">
+                <p class="r-phase">2022 Bear</p>
+                <div class="r-sharpe">+0.89</div>
+                <p class="r-metric">Strategy Sharpe</p>
+                <p class="r-desc">The defensive low-volatility leg carries the decline &mdash; a positive return while the market fell hard.</p>
+                <p class="r-spy">book <b>+6%</b> &nbsp;/&nbsp; SPY &minus;18%</p>
+              </div>
+
+              <div class="regime gap">
+                <p class="r-phase">Bear &rarr; Bull turn</p>
+                <div class="r-sharpe">&minus;1.01</div>
+                <p class="r-metric">Strategy Sharpe</p>
+                <p class="r-desc">Both legs reverse together as the market violently recovers &mdash; the momentum crash. This is where the book takes its full-sample drawdown.</p>
+                <span class="r-flag">the known gap</span>
+              </div>
+
+              <div class="regime">
+                <p class="r-phase">2023&ndash;26 Bull</p>
+                <div class="r-sharpe">+1.03</div>
+                <p class="r-metric">Strategy Sharpe</p>
+                <p class="r-desc">Cross-sectional momentum drives the book; this is where the selection alpha concentrates.</p>
+                <p class="r-spy">SPY <b>+23%</b> &nbsp;/&nbsp; ann.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- ════════ THE GATE ════════ -->
+          <div class="block">
+            <div class="block-head">
+              <h2 class="block-title">The gate: thirteen candidates, one survivor</h2>
+              <p class="block-intro">
+                Each factor must clear a Newey&ndash;West-corrected IC screen before it earns the full validation battery; survivors are curated for independence, fed to three combiners, and only the strongest variant is frozen. Bar height shows how many factors remain at each stage.
+              </p>
+            </div>
+
+            <div class="gate">
+              <div class="gate-step">
+                <span class="gate-count">13</span>
+                <span class="gate-bar"><i style="height:100%"></i></span>
+                <span class="gate-label">Candidates</span>
+                <span class="gate-sub">Momentum, mean-reversion, risk &amp; tail factors</span>
+              </div>
+              <div class="gate-step">
+                <span class="gate-count">7</span>
+                <span class="gate-bar"><i style="height:54%"></i></span>
+                <span class="gate-label">Survive triage</span>
+                <span class="gate-sub">Clear |t&#8345;&#8355;|&nbsp;&ge;&nbsp;2 at some horizon</span>
+              </div>
+              <div class="gate-step">
+                <span class="gate-count">2</span>
+                <span class="gate-bar"><i style="height:18%"></i></span>
+                <span class="gate-label">Curated</span>
+                <span class="gate-sub">Near-independent pair (IC corr &asymp; 0)</span>
+              </div>
+              <div class="gate-step">
+                <span class="gate-count">1</span>
+                <span class="gate-bar"><i style="height:9%"></i></span>
+                <span class="gate-label">Frozen</span>
+                <span class="gate-sub">Signed IC-weighted combination</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- ════════ FINDINGS ════════ -->
+          <div class="block">
+            <div class="block-head">
+              <h2 class="block-title">Four findings, in sequence</h2>
+              <p class="block-intro">
+                Each follows from the last: why the blend works, where it breaks, what would fix it, and the one adjustment that already helps.
+              </p>
+            </div>
+
+            <div class="findings">
+              <div class="finding">
+                <div class="f-tag">Barbell<span class="f-tag-sub">why it works</span></div>
+                <div class="f-body">
+                  <h3>Momentum and low-vol are regime mirror images</h3>
+                  <p>Sector-neutral momentum is the bull engine (<span class="num">+1.18</span> bull / <span class="num">&minus;0.73</span> bear); the as-built defensive leg is the bear engine (<span class="num">+1.00</span> bear / <span class="num">&minus;1.71</span> bull). Their near-zero IC correlation means they win on different days &mdash; the anticorrelation is exactly what makes the blend positive across both stable regimes.</p>
+                </div>
+              </div>
+
+              <div class="finding is-open">
+                <div class="f-tag">The gap<span class="f-tag-sub">where it breaks</span></div>
+                <div class="f-body">
+                  <h3>The transition defeats both legs at once</h3>
+                  <p>At the bear&rarr;bull turn both legs lose together (Sharpe <span class="num">&asymp; &minus;1.0</span>). The combiner orients each factor by a slow trailing IC that still reflects the regime that just ended, so the book carries the wrong sign into the recovery &mdash; the classic momentum crash, and the source of the <span class="num">&minus;16%</span> drawdown. Daily IC has no short-term persistence, so the orientation can only move slowly.</p>
+                </div>
+              </div>
+
+              <div class="finding is-open">
+                <div class="f-tag">Missing engine<span class="f-tag-sub">what would fix it</span></div>
+                <div class="f-body">
+                  <h3>Reversal is the transition engine &mdash; but not statically</h3>
+                  <p>The short-term-reversal family alone earns Sharpe <span class="num">+2.23</span> through the turn. Yet it is full-sample dead, so a static combiner sizes it toward zero and the slow legs dominate the book; the edge survives in the <em>ranking</em> (transition IC <span class="num">&minus;0.10 &rarr; &minus;0.01</span>) but dies in the sizing. Capturing it needs regime-conditional orientation, not one static weight vector.</p>
+                </div>
+              </div>
+
+              <div class="finding">
+                <div class="f-tag">The fix<span class="f-tag-sub">what already helps</span></div>
+                <div class="f-body">
+                  <h3>A faster IC window shortens the orientation lag</h3>
+                  <p>Decaying the trailing-IC window (EWM, 126-day halflife) lets the sign re-orient sooner: the bear Sharpe lifts from <span class="num">0.53</span> to <span class="num">0.89</span> and the transition softens. It does not solve the turn &mdash; there is no fast IC signal to lock onto &mdash; but it is the strongest variant found, and the reason it is the frozen choice.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ════════ DECISION LEDGER ════════ -->
+          <div class="block">
+            <div class="block-head">
+              <h2 class="block-title">Every decision, and why</h2>
+            </div>
+
+            <table class="ledger">
+              <tbody>
+                <tr>
+                  <td class="l-stage">Triage 13 &rarr; 7</td>
+                  <td class="l-out">A positive-IC momentum cluster and a negative-IC risk cluster survive; six factors fail at every horizon tested.</td>
+                </tr>
+                <tr>
+                  <td class="l-stage">Curate inputs</td>
+                  <td class="l-out">SectorNeutralMomentum + LowVol &mdash; both studied factors, near-independent in daily IC (<span class="num">corr &asymp; 0</span>), so the pair diversifies rather than double-counts.</td>
+                </tr>
+                <tr>
+                  <td class="l-stage">Choose combiner</td>
+                  <td class="l-out">Signed IC-weighting and Lasso each flip the negative-IC low-vol leg to its profitable orientation; equal-weight cannot, and fails. ICWeighted with an EWM window is strongest.</td>
+                </tr>
+                <tr>
+                  <td class="l-stage">Freeze horizon</td>
+                  <td class="l-out">31-day rebalance &mdash; the slow cadence where the defensive bear protection concentrates.</td>
+                </tr>
+                <tr class="is-verdict">
+                  <td class="l-stage">Verdict</td>
+                  <td class="l-out">A frozen, in-sample all-weather alpha &mdash; with one open gap at the regime transition.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- ════════ METHOD ════════ -->
+          <div class="block">
+            <div class="block-head">
+              <h2 class="block-title">The statistics under the gate</h2>
+              <p class="block-intro">
+                The central correction is the one that makes overlapping-return significance honest; the rest are the metrics behind the tear sheet.
+              </p>
+            </div>
+
+            <details class="method">
+              <summary>Show the estimators</summary>
+              <div class="method-body">
+                <div class="eqn key">
+                  <strong>Newey&ndash;West (HAC) t-statistic.</strong> Overlapping multi-day forward returns make adjacent IC observations serially correlated, which deflates the naive standard error and inflates the t-stat. The HAC correction widens the error to absorb that autocorrelation:
+                  $$t_{\text{NW}} = \frac{\bar{\text{IC}}}{\hat{\sigma}_{\text{NW}} / \sqrt{T}}, \qquad \hat{\sigma}^2_{\text{NW}} = \hat{\gamma}_0 + 2\sum_{j=1}^{L}\left(1 - \frac{j}{L+1}\right)\hat{\gamma}_j$$
+                  with $L = h-1$ (horizon minus one) and $\hat{\gamma}_j$ the autocovariances. Without it, overlapping 21-day returns inflate t-statistics several-fold.
+                </div>
+                <div class="eqn">
+                  <strong>Block bootstrap 95% CI.</strong> Resamples the IC series in blocks of length $h$ to preserve serial dependence, takes the mean IC of each of $B = 10{,}000$ resamples, and reports the 2.5th and 97.5th percentiles. A factor is retained only when this interval excludes zero.
+                </div>
+                <div class="eqn">
+                  <strong>Jensen's alpha &amp; Sharpe.</strong> Annualized return unexplained by market beta, and excess return per unit of total volatility:
+                  $$\alpha = \big[(\bar{r}_s - r_f) - \beta(\bar{r}_b - r_f)\big]\,N, \qquad \text{SR} = \frac{\bar{r}-r_f}{\sigma}\sqrt{N}, \quad N=252.$$
+                </div>
+                <div class="eqn">
+                  <strong>Tail risk.</strong> Maximum drawdown is the largest peak-to-trough decline of the equity curve; CVaR is the expected loss in the worst $\alpha\%$ of days, $\text{CVaR}_\alpha = \mathbb{E}[\,r \mid r \le \text{VaR}_\alpha\,]$.
+                </div>
+                <p>All metrics use simple returns on a dollar-neutral long/short book, annualized at 252 trading days, with 10&nbsp;bps modeled per rebalance.</p>
+              </div>
+            </details>
+          </div>
+
+          <!-- ════════ COLOPHON ════════ -->
+          <div class="colophon">
+            <div class="colo-col">
+              <h4>Build</h4>
+              <dl>
+                <dt>Lang</dt><dd>Python 3.13</dd>
+                <dt>Types</dt><dd>mypy (strict)</dd>
+                <dt>Lint</dt><dd>ruff</dd>
+                <dt>Tests</dt><dd>pytest &middot; 242</dd>
+                <dt>Stack</dt><dd>pandas, NumPy, scikit-learn, PyArrow</dd>
+              </dl>
+            </div>
+            <div class="colo-col">
+              <h4>Scope</h4>
+              <dl>
+                <dt>Status</dt><dd>Complete</dd>
+                <dt>Period</dt><dd>2026</dd>
+                <dt>Universe</dt><dd>S&amp;P 100 &middot; 11 GICS sectors</dd>
+                <dt>Data</dt><dd>Alpaca (adjusted daily)</dd>
+                <dt>Repo</dt><dd><a href="https://github.com/ahmer-cpu/statistical-alpha-signal-combination-backtesting" target="_blank" rel="noopener noreferrer">GitHub &#8599;</a></dd>
+              </dl>
+            </div>
+            <div class="colo-col">
+              <h4>Read with</h4>
+              <ul class="caveats">
+                <li>One bear regime (~8 independent windows) &mdash; the bear Sharpe is encouraging, not significant.</li>
+                <li>Current-membership universe carries survivorship bias that inflates absolute figures.</li>
+                <li>In-sample factor selection; a refined study would split signal generation over train/test.</li>
+              </ul>
+            </div>
+          </div>
+
         </div>
       </section>
     </div>
